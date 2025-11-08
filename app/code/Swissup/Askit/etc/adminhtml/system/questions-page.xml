@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="questions_page" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Questions page</label>
+        <field id="entity_questions" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Entity questions page</label>
+            <comment>Possible entities are catalog products, catalog categories and CMS pages.</comment>
+            <source_model>Swissup\Askit\Model\Config\Source\QuestionsPageStatus</source_model>
+        </field>
+    </group>
+</include>

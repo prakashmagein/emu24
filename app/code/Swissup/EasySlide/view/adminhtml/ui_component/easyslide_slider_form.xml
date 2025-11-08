@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">easyslide_slider_form.easyslide_slider_form_data_source</item>
+            <item name="deps" xsi:type="string">easyslide_slider_form.easyslide_slider_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Configuration</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">easyslide_slider_form</item>
+        </item>
+        <item name="layout" xsi:type="array">
+            <item name="navContainerName" xsi:type="string">left</item>
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">save</item>
+                <item name="label" xsi:type="string" translate="true">Save</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="data_attribute" xsi:type="array">
+                    <item name="mage-init" xsi:type="array">
+                        <item name="buttonAdapter" xsi:type="array">
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">easyslide_slider_form.areas</item>
+                                    <item name="actionName" xsi:type="string">save</item>
+                                    <item name="params" xsi:type="array">
+                                        <item name="0" xsi:type="boolean">false</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="class_name" xsi:type="string">Magento\Ui\Component\Control\SplitButton</item>
+                <item name="options" xsi:type="array">
+                    <item name="0" xsi:type="array">
+                        <item name="id_hard" xsi:type="string">save_and_close</item>
+                        <item name="label" xsi:type="string" translate="true"><![CDATA[Save & Close]]></item>
+                        <item name="data_attribute" xsi:type="array">
+                            <item name="mage-init" xsi:type="array">
+                                <item name="buttonAdapter" xsi:type="array">
+                                    <item name="actions" xsi:type="array">
+                                        <item name="0" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">easyslide_slider_form.areas</item>
+                                            <item name="actionName" xsi:type="string">save</item>
+                                            <item name="params" xsi:type="array">
+                                                <item name="0" xsi:type="boolean">true</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="easyslide_slider_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\EasySlide\Ui\DataProvider\Form\SliderDataProvider</argument>
+            <argument name="name" xsi:type="string">easyslide_slider_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">slider_id</argument>
+            <argument name="requestFieldName" xsi:type="string">slider_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">General</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <field name="slider_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+        <field name="title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Identifier</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enabled</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="parameters">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Parameters</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <fieldset name="design">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Design</item>
+                    <item name="dataScope" xsi:type="string">slider_config</item>
+                </item>
+            </argument>
+            <field name="theme">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\EasySlide\Model\Slider\Source\Theme</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string">Theme</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="slidesPerView">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                        <item name="label" xsi:type="string" translate="true">Number of Slides Per View</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="spaceBetween">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                        <item name="addafter" xsi:type="string">px</item>
+                        <item name="label" xsi:type="string" translate="true">Space Between Slides</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="maxWidth">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                        <item name="addafter" xsi:type="string">px</item>
+                        <item name="label" xsi:type="string" translate="true">Slide Maximum Width</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="notice" xsi:type="string">Limit width of slides. Works best when centered option enabled.</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="scrollbar">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Scrollbar</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="notice" xsi:type="string">Works best when infinite slider option is disabled</item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+        <fieldset name="behavior">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Behavior</item>
+                    <item name="dataScope" xsi:type="string">slider_config</item>
+                </item>
+            </argument>
+            <field name="effect">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\EasySlide\Model\Slider\Source\Effect</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string">Effect</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="speed">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                        <item name="addafter" xsi:type="string">ms</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Effect transition speed</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="autoplay">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                        <item name="addafter" xsi:type="string">ms</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Autoplay</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="notice" xsi:type="string">Delay between transitions. If empty then autoplay is disabled.</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="loop">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Infinite slider</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="startRandomSlide">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Start with random slide</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="link" xsi:type="string">#</item>
+                            <item name="description" xsi:type="string"><![CDATA[When option enabled slider tries to start from random position. Otherwise it starts with first slide.<br /><b>Warning:</b> this can cause cumulative layout shift (CLS) on page. CLS decreases score of Google PageSpeed.]]></item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="freeMode">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Free Mode</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="link" xsi:type="string">#</item>
+                            <item name="description" xsi:type="string">No fixed position for slides.</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="centeredSlides">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Center slide</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="link" xsi:type="string">#</item>
+                            <item name="description" xsi:type="string"><![CDATA[Active slide will be centered, not always on the left side.<br /><b>Warning:</b> this can cause cumulative layout shift (CLS) on page. CLS decreases score of Google PageSpeed.]]></item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+        <fieldset name="navigation">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Navigation</item>
+                    <item name="dataScope" xsi:type="string">slider_config</item>
+                </item>
+            </argument>
+            <field name="pagination">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Pagination</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="navigation">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Navigation Buttons</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="thumbs">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Thumbnails</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="thumbs_position">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\EasySlide\Model\Slider\Source\ThumbsPosition</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string">Thumbnails position</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="service" xsi:type="array">
+                            <item name="template" xsi:type="string">Swissup_EasySlide/form/element/thumbs-position.html</item>
+                        </item>
+                        <item name="default" xsi:type="string">under</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/select</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.thumbs:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <container name="dimensions">
+                <argument name="data" xsi:type="array">
+                    <item name="type" xsi:type="string">group</item>
+                    <item name="config" xsi:type="array">
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="component" xsi:type="string">Swissup_EasySlide/js/components/visible-on-option/group</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.thumbs:value</item>
+                        </item>
+                        <item name="dataScope" xsi:type="boolean">false</item>
+                    </item>
+                </argument>
+                <field name="thumb_width">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="label" xsi:type="string" translate="true">Thumbnail width</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="addafter" xsi:type="string">px</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="thumb_height">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalClasses" xsi:type="string">admin__field-group-show-label admin__field-small admin__field-metric</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="label" xsi:type="string" translate="true">Height</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="addafter" xsi:type="string">px</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                            </item>
+                            <item name="default" xsi:type="number">60</item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+        </fieldset>
+        <fieldset name="breakpoints">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Responsive Breakpoints</item>
+                    <item name="dataScope" xsi:type="string">slider_config</item>
+                </item>
+            </argument>
+            <container name="breakpoints">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">ui/dynamic-rows/templates/default</item>
+                        <item name="label" xsi:type="string" />
+                        <item name="componentType" xsi:type="string">dynamicRows</item>
+                        <item name="recordTemplate" xsi:type="string">record</item>
+                        <item name="addButtonLabel" xsi:type="string">New Breakpoint</item>
+                        <item name="deleteProperty" xsi:type="boolean">false</item>
+                        <item name="component" xsi:type="string">Magento_Ui/js/dynamic-rows/dynamic-rows</item>
+                    </item>
+                </argument>
+                <container name="record">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Dynamic Rows</item>
+                            <item name="component" xsi:type="string" translate="true">Magento_Ui/js/dynamic-rows/record</item>
+                            <item name="isTemplate" xsi:type="boolean">true</item>
+                            <item name="is_collection" xsi:type="boolean">true</item>
+                            <item name="showFallbackReset" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                    <field name="row_id">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">ID</item>
+                                <item name="visible" xsi:type="boolean">false</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">row_id</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <field name="screen_width">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                                <item name="addafter" xsi:type="string">px</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="label" xsi:type="string" translate="true">Screen Width</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">screen_width</item>
+                                <item name="showFallbackReset" xsi:type="boolean">false</item>
+                                <item name="sortOrder" xsi:type="string">10</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <field name="slidesPerView">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="label" xsi:type="string" translate="true">Slides Per View</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">slidesPerView</item>
+                                <item name="showFallbackReset" xsi:type="boolean">false</item>
+                                <item name="sortOrder" xsi:type="string">20</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <field name="spaceBetween">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                                <item name="addafter" xsi:type="string">px</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="label" xsi:type="string" translate="true">Space Between</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">spaceBetween</item>
+                                <item name="showFallbackReset" xsi:type="boolean">false</item>
+                                <item name="sortOrder" xsi:type="string">30</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <actionDelete>
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="componentType" xsi:type="string">actionDelete</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="fit" xsi:type="boolean">false</item>
+                                <item name="label" xsi:type="string">Actions</item>
+                                <item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
+                                <item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete</item>
+                            </item>
+                        </argument>
+                    </actionDelete>
+                    <field name="position">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="dataType" xsi:type="string">number</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="componentType" xsi:type="string">field</item>
+                                <item name="label" xsi:type="string" translate="true">Position</item>
+                                <item name="dataScope" xsi:type="string">position</item>
+                                <item name="visible" xsi:type="boolean">false</item>
+                            </item>
+                        </argument>
+                    </field>
+                </container>
+            </container>
+        </fieldset>
+    </fieldset>
+    <fieldset name="slides">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Slides</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <container name="slides">
+            <htmlContent name="block_slides">
+                <argument name="block" xsi:type="object">Swissup\EasySlide\Block\Adminhtml\Slider\Helper\Form\SlideGallery</argument>
+            </htmlContent>
+        </container>
+        <fieldset name="optimizaton">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="null" />
+                    <item name="dataScope" xsi:type="string">slider_config</item>
+                </item>
+            </argument>
+            <field name="lazy">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Lazy loading of images</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="loadPrevNext">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Load images in closest slides also</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.lazy:value</item>
+                        </item>
+                        <item name="notice" xsi:type="string">Enabling it may help when other slides also visible. For example, it should be enabled for main slider at Argento Force.</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="is_responsive">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Use responsive images</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="notice" xsi:type="string">Force image to use `srcset` attribute. This option can increase PageSpeed score when properly configured.</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="responsive_sizes">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Image sizes</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.is_responsive:value</item>
+                        </item>
+                        <item name="notice" xsi:type="string">Specify the layout width of the image for each of a list of media conditions.</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="link" xsi:type="string">https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes</item>
+                            <item name="description" xsi:type="string">Click to get details HTMLImageElement: sizes property.</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="responsive_widths">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Image candidate widths</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.is_responsive:value</item>
+                        </item>
+                        <item name="notice" xsi:type="string">Separated using commas (,) width or pixel density descriptors.</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="link" xsi:type="string">https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset</item>
+                            <item name="description" xsi:type="string">Click to get details HTMLImageElement: srcset property.</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </fieldset>
+</form>

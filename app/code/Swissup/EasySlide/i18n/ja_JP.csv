@@ -1,0 +1,43 @@
+"Save Slider",スライダーを保存
+"Delete Slider",スライダーを削除
+"Edit Slider - '%1'",スライダーを編集-'％1'
+"New Slider",新しいスライダー
+Parameters,パラメーター
+Direction,方向
+Horizontal,横型
+Vertical,垂直
+Effect,効果
+Slide,滑り台
+Fade,フェード
+Cube,キューブ
+Coverflow,カバーフロー
+Flip,フリップ
+Speed,速度
+Autoplay,自動再生
+Pagination,ページネーション
+"Navigation Buttons",ナビゲーションボタン
+Scrollbar,スクロール・バー
+"Scrollbar Hide",スクロールバー非表示
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,スライド
+"Add New Slide",新しいスライドを追加
+"Slider was deleted.",スライダーを削除しました。
+"Can't find a slider to delete.",削除するスライダーが見つかりません。
+EasySlide,EasySlide
+"Manage Sliders",スライダーを管理する
+"This slider no longer exists.",このスライダーは存在しません。
+"Edit Slider",スライダーを編集
+Sliders,スライダー
+"Slider has been saved.",スライダーが保存されました。
+"Something went wrong while saving the slider.",スライダーの保存中に問題が発生しました。
+Link,リンク
+"Open link in",リンクを開く
+Description,説明文
+"Description Position",説明位置
+"Description Background",説明背景
+"Slide Detail",スライドの詳細
+"Select Slider",スライダーを選択
+"Add New Slider",新しいスライダーを追加
+Black,ブラック
+White,白い

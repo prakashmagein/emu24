@@ -1,0 +1,156 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    body:not(:has(footer, .footer, .page-footer)) .message.global.cookie, // fixed blink in chrome - the page is partially rendered
+    body:has(.cookie-bar) .message.global.cookie { // fixed blink of default cookie bar
+        display: none !important;
+    }
+    .cookie-bar {
+        z-index: @swissup-gdpr-cookie-bar__z-index;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 30px;
+        box-sizing: border-box;
+        color: @swissup-gdpr-cookie-bar__color;
+        background: @swissup-gdpr-cookie-bar__background;
+        box-shadow: @swissup-gdpr-cookie-bar__box-shadow;
+        visibility: hidden;
+        transform: translateY(100%);
+
+        &.shown {
+            visibility: visible;
+        }
+
+        p:last-child {
+            margin: 0;
+        }
+
+        .cookie-bar-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            column-gap: 30px;
+            row-gap: 15px;
+            .lib-css(max-width, @swissup-gdpr-cookie-bar__max-width);
+            margin: 0 auto;
+        }
+
+        .cookie-bar-text {
+            max-width: 800px;
+            > h3 {
+                margin-top: 0;
+            }
+        }
+
+        .cookie-bar-buttons {
+            display: flex;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            column-gap: 15px;
+            row-gap: 12px;
+
+            a {
+                color: ~"rgba(var(--link-color, 136, 136, 136), var(--link-alpha, 1))";
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &-mode-full {
+            top: 0;
+            bottom: 0;
+            .left(0);
+            width: 420px;
+            max-width: 92%;
+            .padding(15px 10px 15px 20px);
+
+            .cookie-bar-text {
+                .padding-right(10px);
+                max-height: ~"calc(100vh - 35px)";
+                overflow: auto;
+                overscroll-behavior: contain;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .cookie-bar-buttons {
+                justify-content: flex-end;
+                > * {
+                    .margin-left(12px);
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    @keyframes gdpr-slide-up {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes gdpr-slide-start {
+        0% {
+            .modrtl(transform, ~"translateX(-100%)", ~"translateX(100%)");
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .cookie-bar {
+        &.shown {
+            animation: gdpr-slide-up 400ms forwards;
+        }
+
+        &-mode-full {
+            .modrtl(transform, ~"translateX(-100%)", ~"translateX(100%)");
+            .cookie-bar-text {
+                &::-webkit-scrollbar {
+                    width: 6px;
+                    height: 6px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                    border-radius: 6px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: @swissup-gdpr-cookie-bar__scrollbar-background;
+                    border-radius: 6px;
+                }
+            }
+            &.shown {
+                animation: gdpr-slide-start 400ms forwards;
+            }
+        }
+    }
+}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    & when (@critical = unsure), (@critical) {
+        .cookie-bar {
+            &-mode {
+                &-minimalistic {
+                    .cookie-bar-container {
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                    .cookie-bar-buttons {
+                        justify-content: flex-end;
+                        max-width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<div class="block block-delete-data">
+    <div class="block-title">
+        <strong><?= /* @escapeNotVerified */ __('Delete Account') ?></strong>
+    </div>
+    <div class="block-content">
+        <p><?= /* @escapeNotVerified */ __('Once you delete your data, there is no going back. Please be certain.') ?></p>
+        <button class="delete-data"
+            type="button"
+            data-mage-init='{"Swissup_Gdpr/js/view/privacy/delete-data":{"popup": ".delete-data-confirmation"}}'>
+            <span><?= /* @escapeNotVerified */ __('Delete My Data') ?></span>
+        </button>
+
+        <div class="delete-data-confirmation" style="display: none">
+            <h2><?= /* @escapeNotVerified */ __('Are you absolutely sure?') ?></h2>
+
+            <p><?= /* @escapeNotVerified */ __('Unexpected bad things will happen if you don’t read this!') ?></p>
+            <p>
+                <strong><?= /* @escapeNotVerified */ __('This action cannot be undone.') ?></strong>
+                <?= /* @escapeNotVerified */ __('This will permanently delete your orders, comments, questions, reviews, and other associations with your account.') ?>
+            </p>
+            <p>
+                <?= /* @escapeNotVerified */ __('Once you press "Delete My Data" button, <strong>you will be logged out, and will never be able to login into this account.</strong>') ?>
+            </p>
+
+            <form class="form delete-data"
+                action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+                id="swissup-gdpr-delete-data-form"
+                method="post"
+                data-mage-init='{"validation":{}}'
+            >
+                <?= $block->getBlockHtml('formkey') ?>
+                <fieldset class="fieldset">
+                    <div class="field required choice">
+                        <input name="confirm"
+                            value=1
+                            id="delete-data-confirmation"
+                            type="checkbox"
+                            class="checkbox"
+                            data-validate="{required:true}"
+                        >
+                        <label for="delete-data-confirmation" class="label">
+                            <span><?= /* @escapeNotVerified */ __('I have read the text above and want to erase all of my data') ?></span>
+                        </label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

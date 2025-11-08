@@ -1,0 +1,13 @@
+<?php
+    $input = $block->getInputElementName();
+    $form = $block->getRequest()->getParam('form_name');
+?>
+<?php $scriptString = <<<script
+    require([
+        'jquery'
+    ], function ($) {
+        $('[name="{$input}"]').attr('data-form-part', '{$form}');
+    });
+script;
+?>
+<?= /* @noEscape */ isset($secureRenderer) ? $secureRenderer->renderTag('script', [], $scriptString, false) : "<script>{$scriptString}</script>" ?>

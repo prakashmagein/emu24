@@ -1,0 +1,43 @@
+"Save Slider","Zapisz suwak"
+"Delete Slider","Usuń suwak"
+"Edit Slider - '%1'","Suwak edycji - „%1”"
+"New Slider","Nowy suwak"
+Parameters,Parametry
+Direction,Kierunek
+Horizontal,Poziomy
+Vertical,Pionowy
+Effect,Efekt
+Slide,"Ślizgać się"
+Fade,Zgasnąć
+Cube,Sześcian
+Coverflow,Coverflow
+Flip,Trzepnięcie
+Speed,Prędkość
+Autoplay,"Automatyczne odtwarzanie"
+Pagination,Paginacja
+"Navigation Buttons","Przyciski nawigacyjne"
+Scrollbar,"Pasek przewijania"
+"Scrollbar Hide","Pasek przewijania Ukryj"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Slajdy
+"Add New Slide","Dodaj nowy slajd"
+"Slider was deleted.","Suwak został usunięty."
+"Can't find a slider to delete.","Nie można znaleźć suwaka do usunięcia."
+EasySlide,EasySlide
+"Manage Sliders","Zarządzaj suwakami"
+"This slider no longer exists.","Ten suwak już nie istnieje."
+"Edit Slider","Edytuj suwak"
+Sliders,Suwaki
+"Slider has been saved.","Suwak został zapisany."
+"Something went wrong while saving the slider.","Coś poszło nie tak podczas zapisywania suwaka."
+Link,Połączyć
+"Open link in","Otwórz link w"
+Description,Opis
+"Description Position","Opis Pozycja"
+"Description Background","Opis Tło"
+"Slide Detail","Szczegóły slajdu"
+"Select Slider","Wybierz suwak"
+"Add New Slider","Dodaj nowy suwak"
+Black,czarny
+White,Biały

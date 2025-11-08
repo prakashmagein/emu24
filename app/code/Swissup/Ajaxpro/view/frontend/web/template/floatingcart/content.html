@@ -1,0 +1,44 @@
+<div class="cd-cart-container empty">
+    <a href="#" class="cd-cart-trigger">
+      Cart
+        <ul class="count">
+            <li data-bind="text: getCartParam('summary_count')">1</li>
+            <li>0</li>
+        </ul>
+    </a>
+
+    <div class="cd-cart">
+        <div class="wrapper">
+            <header>
+                <strong class="subtitle" data-bind="i18n: 'Shopping Cart'"></strong>
+            </header>
+
+            <div class="body">
+                <!-- ko if: getCartParam('summary_count') -->
+                    <div data-action="scroll" class="minicart-items-wrapper">
+                        <ul class="minicart-items" data-bind="foreach: { data: getCartItems(), as: 'item' }">
+                            <each args="$parent.getRegion($parent.getItemRenderer(item.product_type))"
+                                  render="{name: getTemplate(), data: item, afterRender: function() {$parents[1].initFloatingCart()}}"
+                            ></each>
+                        </ul>
+                    </div>
+                <!-- /ko -->
+
+                <!-- ko ifnot: getCartParam('summary_count') -->
+                    <strong class="subtitle empty" data-bind="i18n: 'You have no items in your shopping cart.'"></strong>
+                <!-- /ko -->
+            </div>
+
+            <footer>
+                <a class="checkout btn" data-bind="
+                    if: getCartParam('summary_count') && getCartParam('possible_onepage_checkout'),
+                    attr: {
+                        href: checkoutUrl
+                    }
+                ">
+                    <em><!-- ko text: $t('Checkout') --><!-- /ko --> - <span data-bind="html: getCartParam('subtotal')"></span></em>
+                </a>
+            </footer>
+        </div>
+    </div>
+</div>

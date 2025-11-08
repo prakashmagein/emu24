@@ -1,0 +1,8 @@
+<div class="block attributepages-block<?php echo $block->getIsSlider() ? ' attributepages-slider' : '' ?>">
+    <div class="block-title">
+        <span><?php echo $block->escapeHtml($block->getTitle()) ?></span>
+    </div>
+    <div class="block-content">
+        <?php echo $block->getChildHtml() ?>
+    </div>
+</div>

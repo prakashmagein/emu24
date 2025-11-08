@@ -1,0 +1,63 @@
+<?php
+$testimonials = $block->getTestimonials();
+if (!count($testimonials)) {
+    return;
+}
+?>
+
+<div class="widget block block-testimonials <?php if ($block->getHideBlockDesign()): ?>empty-design<?php endif ?>" id="testimonialsList"
+    data-mage-init='{"Swissup_Testimonials/js/side-list-widget": {
+        "viewTime": <?= (int) $block->getViewTime() ?>,
+        "animDuration": <?= (int) $block->getAnimDuration() ?>
+    }}'>
+    <div class="block-title">
+        <strong><?= __('Testimonials') ?></strong>
+    </div>
+    <div class="block-content">
+        <div class="testimonial-container">
+            <?php $itemId = 0; ?>
+            <?php foreach ($testimonials as $testimonial): ?>
+                <div id="testimonial_<?= $itemId ?>" class="content" <?php if ($itemId > 0): ?> style="display: none;"<?php endif ?>>
+                    <div class="content-wrapper">
+                        <?php if ($testimonial->getRating()): ?>
+                            <?php $helper = $this->helper(\Swissup\Testimonials\Helper\ListHelper::class); ?>
+                            <?php $ratingPercent = $helper->getRatingPercent($testimonial); ?>
+                            <div class="review-ratings">
+                                <div class="rating-summary item">
+                                    <span class="label rating-label">
+                                        <span><?= __('Rating') ?></span>
+                                    </span>
+                                    <div class="rating-result" title="<?= $ratingPercent ?>%">
+                                        <span style="width:<?= $ratingPercent ?>%">
+                                            <span><?= $ratingPercent ?>%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif ?>
+                        <div class="testimonial-message">
+                            <?= $block->escapeHtml($testimonial->getMessage()); ?>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <?= $block->escapeHtml($testimonial->getName()); ?>
+                    </div>
+                    <a class="read-more" href="#">
+                        <?= __('Read more') ?>
+                    </a>
+                    <a class="read-less" href="#" style="display: none;">
+                        <?= __('Read less') ?>
+                    </a>
+                </div>
+                <?php ++$itemId; ?>
+            <?php endforeach; ?>
+        </div>
+        <div class="actions-toolbar">
+            <div class="secondary">
+                <a class="action" href="<?= $block->getListUrl() ?>">
+                    <span><?= __('View all testimonials') ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<?php
+    $_categories = $block->getCategories();
+    if (!count($_categories)) {
+        return;
+    }
+    /* @var $block \Swissup\Easycatalogimg\Block\SubcategoriesList */
+    $columnsCount = $block->getColumnCount();
+    $height = $block->getImageHeight();
+    $width = $block->getImageWidth();
+    $maxCategoryCount = $block->getCategoryCount();
+    $maxSubcategoryCount = $block->getSubcategoryCount();
+    $i = 0;
+    $mode = $block->getMode();
+    $isParentNameVisible = in_array($block->getParentCategoryPosition(), ['over', 'top', 'bottom']);
+?>
+<div class="easycatalogimg <?= $this->getHideWhenFilterIsUsed() ? 'hide-when-filter' : '' ?>" data-content-type="easycatalogimg">
+<ul class="unstyled <?= $block->getCssClassName() ?>" data-mode="<?= $mode ?>" data-cols="<?= $columnsCount ?>">
+<?php foreach ($_categories as $_category) : ?>
+    <?php if ($i++ >= $maxCategoryCount): break; endif; ?>
+    <li class="item">
+        <div class="parent-category-wrapper">
+            <?php if ($block->getParentCategoryPosition() === 'over') : ?>
+                <div class="category-name parent-category parent-category-over">
+                    <h2 class="name"><?= $block->escapeHtml($_category->getName()) ?></h2>
+                    <div class="category-link">
+                        <a class="action primary" href="<?= $block->getCategoryUrl($_category) ?>" title="<?= $block->escapeHtml($_category->getName()) ?>">
+                            <span><?= __('Shop Now') ?></span>
+                        </a>
+                    </div>
+                </div>
+            <?php elseif ($block->getParentCategoryPosition() === 'top'): ?>
+                <div class="category-name parent-category parent-category-top">
+                    <a href="<?= $block->getCategoryUrl($_category) ?>" title="<?= $block->escapeHtml($_category->getName()) ?>">
+                        <?= $block->escapeHtml($_category->getName()) ?>
+                    </a>
+                </div>
+            <?php endif ?>
+
+            <?php if ($block->getShowImage()) : ?>
+                <?php
+                    $style = '';
+                    if (!empty($width)) {
+                        $style = 'width: ' . (is_numeric($width) ? $width . 'px' : $width);
+                    } else if (!empty($height)) {
+                        $style = 'height: ' . (is_numeric($height) ? $height . 'px' : $height);
+                    }
+                    list($srcset, $sizes) = $block->getResponsiveAttributes($_category, $width, $height);
+                ?>
+                <a href="<?= $block->getCategoryUrl($_category) ?>"
+                    <?= $isParentNameVisible ? 'tabindex="-1"' : '' ?>
+                    title="<?= $block->escapeHtml($_category->getName()) ?>"
+                    class="image"
+                ><img alt="<?= $block->escapeHtml($_category->getName()) ?>"
+                    src="<?= $block->getImageSrc($_category, $width, $height) ?>"
+                    <?= $srcset ? 'srcset="' . $srcset . '"' : '' ?>
+                    <?= $sizes  ? 'sizes="' . $sizes . '"' : '' ?>
+                    <?= $width  ? 'width="' . $width . '"' : '' ?>
+                    <?= $height ? 'height="' . $height . '"' : '' ?>
+                    <?= $style  ? 'style="' . $style . '"' : '' ?>
+                    <?= $i > $block->getImageLazyloadOffset() ? 'loading="lazy"' : '' ?>
+                /></a>
+            <?php endif; ?>
+
+            <?php if ($block->getParentCategoryPosition() === 'bottom') : ?>
+                <div class="category-name parent-category parent-category-bottom">
+                    <a href="<?= $block->getCategoryUrl($_category) ?>" title="<?= $block->escapeHtml($_category->getName()) ?>">
+                        <?= $block->escapeHtml($_category->getName()) ?>
+                    </a>
+                </div>
+            <?php endif ?>
+        </div>
+
+        <?php
+        $_subcategories = $_category->getSubcategories();
+        if ($maxSubcategoryCount && $_subcategories) :
+            $j = 0;
+            $_count = count($_subcategories);
+            // display More link, if more than one subcategory is not shown, otherwise - display last category
+            $_displayMoreLink = $_count > $maxSubcategoryCount + 1;
+            if ($_count) : ?>
+                <ul class="unstyled list-subcategories">
+                <?php foreach ($_subcategories as $_subcategory) :
+                    if ($_displayMoreLink && ($j > $maxSubcategoryCount - 1)): ?>
+                        <li>
+                            <a href="<?= $block->getCategoryUrl($_category) ?>" title="<?= $block->escapeHtml($_category->getName()) ?>" class="link-more">
+                                <?= __('More in %1...', $block->escapeHtml($_category->getName())); ?>
+                            </a>
+                        </li>
+                        <?php break;
+                    endif; ?>
+                    <li>
+                        <a href="<?= $block->getCategoryUrl($_subcategory) ?>"
+                            title="<?= $block->escapeHtml($_subcategory->getName())?>"
+                            class="category-name child-category">
+                            <?= $block->escapeHtml($_subcategory->getName());?>
+                        </a>
+                    </li>
+                    <?php $j++; ?>
+                <?php endforeach;?>
+                </ul>
+            <?php
+            endif;
+        endif; ?>
+    </li>
+
+<?php endforeach; ?>
+</ul>
+</div>

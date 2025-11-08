@@ -1,0 +1,10 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="swissup.askit.category.product.list.additional">
+                <block class="Swissup\Askit\Block\Question\Listing" name="askit_listing" template="Swissup_Askit::question/listing.phtml" ifconfig="askit/general/category" />
+                <block class="Swissup\Askit\Block\Question\Form" name="askit_form" template="Swissup_Askit::question/form.phtml" ifconfig="askit/general/category" />
+            </container>
+        </referenceContainer>
+    </body>
+</page>

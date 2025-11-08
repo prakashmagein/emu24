@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+            <item name="deps" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">navigationpro_menu_item</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Menu\Edit\Button\Back</item>
+            <item name="delete" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Item\Edit\Button\Delete</item>
+            <item name="duplicate" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Menu\Edit\Button\Duplicate</item>
+            <item name="settings" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Menu\Edit\Button\Settings</item>
+            <item name="save" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Item\Edit\Button\Save</item>
+        </item>
+    </argument>
+    <dataSource name="navigationpro_menu_item_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\Navigationpro\Ui\DataProvider\Form\ItemDataProvider</argument>
+            <argument name="name" xsi:type="string">navigationpro_menu_item_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">item_id</argument>
+            <argument name="requestFieldName" xsi:type="string">item_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="navigationpro/item/save"/>
+                    <item name="validate_url" xsi:type="url" path="navigationpro/item/validate"/>
+                    <item name="menu_settings_url" xsi:type="url" path="navigationpro/menu/settings"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="aside">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+                <item name="additionalClasses" xsi:type="string">navpro__aside</item>
+            </item>
+        </argument>
+        <container name="create_item_group">
+            <argument name="data" xsi:type="array">
+                <item name="type" xsi:type="string">group</item>
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="label" xsi:type="string" translate="true"/>
+                    <item name="showLabel" xsi:type="boolean">false</item>
+                    <item name="additionalClasses" xsi:type="string">navpro-group-inline</item>
+                </item>
+            </argument>
+            <field name="create_item_button">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="title" xsi:type="string">New Item</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-auto</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                        <item name="template" xsi:type="string">ui/form/components/button/container</item>
+                        <item name="additionalForGroup" xsi:type="boolean">true</item>
+                        <item name="provider" xsi:type="boolean">true</item>
+                        <item name="displayArea" xsi:type="string">insideGroup</item>
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.new_item_modal</item>
+                                <item name="actionName" xsi:type="string">toggleModal</item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.new_item_modal.new_item_form</item>
+                                <item name="actionName" xsi:type="string">render</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="import_item_button">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="title" xsi:type="string">Import Item</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-auto</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                        <item name="template" xsi:type="string">ui/form/components/button/container</item>
+                        <item name="additionalForGroup" xsi:type="boolean">true</item>
+                        <item name="provider" xsi:type="boolean">true</item>
+                        <item name="displayArea" xsi:type="string">insideGroup</item>
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.import_item_modal</item>
+                                <item name="actionName" xsi:type="string">toggleModal</item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.import_item_modal.import_item_form</item>
+                                <item name="actionName" xsi:type="string">render</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="mass_edit_button">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="title" xsi:type="string">Mass Edit</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="additionalClasses" xsi:type="string">admin__field-auto</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                        <item name="template" xsi:type="string">ui/form/components/button/container</item>
+                        <item name="additionalForGroup" xsi:type="boolean">true</item>
+                        <item name="provider" xsi:type="boolean">true</item>
+                        <item name="displayArea" xsi:type="string">insideGroup</item>
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.mass_edit_modal</item>
+                                <item name="actionName" xsi:type="string">toggleModal</item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="targetName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.mass_edit_modal.mass_edit_form</item>
+                                <item name="actionName" xsi:type="string">render</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+        <field name="tree">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Navigationpro\Ui\Component\Form\Menu\Tree</item>
+                <item name="config" xsi:type="array">
+                    <item name="labelVisible" xsi:type="boolean">false</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/ui-select-tree</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="additionalClasses" xsi:type="string">navpro__field-tree admin__field-wide</item>
+                    <item name="move_url" xsi:type="url" path="navigationpro/item/move"/>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <field name="exists">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="visible" xsi:type="boolean">false</item>
+                <item name="dataType" xsi:type="string">number</item>
+                <item name="formElement" xsi:type="string">input</item>
+            </item>
+        </argument>
+    </field>
+    <fieldset name="no_item">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+                <item name="additionalClasses" xsi:type="string">navpro__main</item>
+                <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/fieldset</item>
+                <item name="inverseVisibility" xsi:type="boolean">true</item>
+                <item name="valuesForOptions" xsi:type="array">
+                    <item name="1" xsi:type="number">1</item>
+                </item>
+                <item name="imports" xsi:type="array">
+                    <item name="toggleVisibility" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.exists:value</item>
+                </item>
+            </item>
+        </argument>
+        <container name="message">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string"/>
+                    <item name="template" xsi:type="string">Swissup_Navigationpro/form/complex/message</item>
+                    <item name="message" xsi:type="string" translate="true">Select item in the tree on the left sidebar, or create a new one</item>
+                </item>
+            </argument>
+        </container>
+    </fieldset>
+    <fieldset name="main">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+                <item name="additionalClasses" xsi:type="string">navpro__main</item>
+                <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/fieldset</item>
+                <item name="valuesForOptions" xsi:type="array">
+                    <item name="1" xsi:type="number">1</item>
+                </item>
+                <item name="imports" xsi:type="array">
+                    <item name="toggleVisibility" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.exists:value</item>
+                </item>
+            </item>
+        </argument>
+        <fieldset name="general">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string"/>
+                </item>
+            </argument>
+            <field name="item_id">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="visible" xsi:type="boolean">false</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="menu_id">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="visible" xsi:type="boolean">false</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="store_id">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="visible" xsi:type="boolean">false</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="level">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="visible" xsi:type="boolean">false</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="is_active">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enabled</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="use_remote_data">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Sync Name and URL with Category Data</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="name">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Name</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.use_remote_data</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="url_path">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Url</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">false</item>
+                        </item>
+
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.use_remote_data</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+        <fieldset name="advanced">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Advanced settings</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <container name="apply_item_settings">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="showLabel" xsi:type="boolean">true</item>
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/visible-on-option/group</item>
+                    </item>
+                </argument>
+                <field name="apply_item_settings_button">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Load and Apply Menu Settings</item>
+                            <item name="formElement" xsi:type="string">container</item>
+                            <item name="componentType" xsi:type="string">container</item>
+                            <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/reset-settings-button</item>
+                            <item name="template" xsi:type="string">ui/form/components/button/container</item>
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="displayArea" xsi:type="string">insideGroup</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-auto</item>
+                            <item name="options" xsi:type="array">
+                                <item name="target" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.main.advanced.html_wrapper</item>
+                                <item name="scope" xsi:type="string">item_settings</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+            <!-- Container is used to render html editor with label -->
+            <container name="html_wrapper">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="showLabel" xsi:type="boolean">true</item>
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="sortOrder" xsi:type="string">15</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/visible-on-option/group</item>
+                    </item>
+                </argument>
+                <field name="html">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string">Name as Html</item>
+                            <item name="formElement" xsi:type="string">wysiwyg</item>
+                            <item name="wysiwyg" xsi:type="boolean">true</item>
+                            <item name="dataScope" xsi:type="string">html</item>
+                            <item name="rows" xsi:type="number">5</item>
+                            <item name="wysiwygConfigData" xsi:type="array">
+                                <item name="hidden" xsi:type="boolean">true</item>
+                                <item name="is_pagebuilder_enabled" xsi:type="boolean">false</item>
+                            </item>
+                            <item name="notice" xsi:type="string"><![CDATA[If set, html content will be rendered instead of link and name. View ready to use examples at https://docs.swissuplabs.com/m2/extensions/navigationpro/use-cases/category-name-templates/]]></item>
+
+                            <item name="additionalInfo" xsi:type="string"><![CDATA[<script>
+                                // fix until Magento/Ui/Component/Form/Element/Wysiwyg will support `rows` config
+                                require(["jquery", "Magento_Ui/js/lib/view/utils/async"], function($) {
+                                    $.async('#navigationpro_menu_item_html', function(el) {
+                                        el.rows=5;
+                                    });
+                                });
+                            </script>]]></item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+            <field name="css_class">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">CSS Class</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="sortOrder" xsi:type="string">20</item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+        <fieldset name="dropdown_settings">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Dropdown settings</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">dropdown_settings</item>
+                </item>
+            </argument>
+            <field name="use_menu_settings">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Use Menu Settings</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                    </item>
+                </argument>
+            </field>
+            <container name="apply_menu_settings">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="showLabel" xsi:type="boolean">true</item>
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/visible-on-option/group</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.use_menu_settings:value</item>
+                        </item>
+                    </item>
+                </argument>
+                <field name="apply_menu_settings_button">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Load and Apply Menu Settings</item>
+                            <item name="formElement" xsi:type="string">container</item>
+                            <item name="componentType" xsi:type="string">container</item>
+                            <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/reset-settings-button</item>
+                            <item name="template" xsi:type="string">ui/form/components/button/container</item>
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="displayArea" xsi:type="string">insideGroup</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-auto</item>
+                            <item name="options" xsi:type="array">
+                                <item name="target" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.main.dropdown_settings</item>
+                                <item name="scope" xsi:type="string">dropdown_settings</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+            <field name="width">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\DropdownWidth</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Width</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/dropdown-width</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="default" xsi:type="string">small</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.use_menu_settings:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="layout">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Layout</item>
+                        <item name="additionalClasses" xsi:type="string">navpro__field-dropdown-layout</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/dropdown-layout</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="width" xsi:type="string">${ $.parentName }.width:value</item>
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.use_menu_settings:value</item>
+                        </item>
+                        <item name="addContentModalName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.content_item_modal</item>
+                        <item name="addContentFieldName" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item.content_item_modal.content_item</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="dropdown_css_class">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">CSS Class</item>
+                        <item name="formElement" xsi:type="string">input</item>
+
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="0" xsi:type="number">0</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.parentName }.use_menu_settings:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </fieldset>
+
+    <modal name="new_item_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="isTemplate" xsi:type="boolean">false</item>
+                <item name="componentType" xsi:type="string">modal</item>
+                <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">New Item</item>
+                </item>
+            </item>
+        </argument>
+        <container name="new_item_form">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/menu-insert-form</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render_handle/handle/navigationpro_item_new/buttons/1"/>
+                    <item name="autoRender" xsi:type="boolean">false</item>
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="ns" xsi:type="string">navigationpro_item_new</item>
+                    <item name="toolbarContainer" xsi:type="string">${ $.parentName }</item>
+                    <!-- <item name="formSubmitType" xsi:type="string">ajax</item> -->
+                </item>
+            </argument>
+        </container>
+    </modal>
+
+    <modal name="import_item_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="isTemplate" xsi:type="boolean">false</item>
+                <item name="componentType" xsi:type="string">modal</item>
+                <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Import Item</item>
+                </item>
+            </item>
+        </argument>
+        <container name="import_item_form">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/menu-insert-form</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render_handle/handle/navigationpro_item_import/buttons/1"/>
+                    <item name="autoRender" xsi:type="boolean">false</item>
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="ns" xsi:type="string">navigationpro_item_import</item>
+                    <item name="toolbarContainer" xsi:type="string">${ $.parentName }</item>
+                </item>
+            </argument>
+        </container>
+    </modal>
+
+    <modal name="content_item_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="isTemplate" xsi:type="boolean">false</item>
+                <item name="componentType" xsi:type="string">modal</item>
+                <item name="dataScope" xsi:type="string">currentContent</item>
+                <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+                <item name="onCancel" xsi:type="string">actionCancel</item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Content</item>
+                    <item name="buttons" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="text" xsi:type="string" translate="true">Done</item>
+                            <item name="class" xsi:type="string">action-primary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">${ $.name }</item>
+                                    <item name="actionName" xsi:type="string">actionDone</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <fieldset name="content_item">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string"></item>
+                </item>
+            </argument>
+            <field name="id">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Identifier</item>
+                        <item name="formElement" xsi:type="string">hidden</item>
+                        <item name="dataScope" xsi:type="string">id</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="is_active">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enabled</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">is_active</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="size">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Size</item>
+                        <item name="formElement" xsi:type="string">hidden</item>
+                        <item name="default" xsi:type="string">12</item>
+                        <item name="dataScope" xsi:type="string">size</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-digits" xsi:type="boolean">true</item>
+                            <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                            <item name="less-than-equals-to" xsi:type="number">12</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="type">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\ContentType</item>
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Content type</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="default" xsi:type="string">html</item>
+                        <item name="dataScope" xsi:type="string">type</item>
+                    </item>
+                </argument>
+            </field>
+
+            <!-- Container is used to render html editor with label -->
+            <container name="content_item_options_html">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="showLabel" xsi:type="boolean">true</item>
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="formElement" xsi:type="string">container</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                        <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/visible-on-option/group</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="html" xsi:type="string">html</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+                <field name="content">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string">Content</item>
+                            <item name="formElement" xsi:type="string">wysiwyg</item>
+                            <item name="wysiwyg" xsi:type="boolean">true</item>
+                            <item name="dataScope" xsi:type="string">content</item>
+                            <item name="wysiwygConfigData" xsi:type="array">
+                                <item name="hidden" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+
+            <field name="columns_count">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\ColumnsCount</item>
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Columns Count</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="default" xsi:type="string">1</item>
+
+                        <item name="dataScope" xsi:type="string">columns_count</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/select</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="children" xsi:type="string">children</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="direction">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\Direction</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Columns Direction</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="default" xsi:type="string">horizontal</item>
+
+                        <item name="dataScope" xsi:type="string">direction</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/select</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="children" xsi:type="string">children</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="children_sort_order">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\ChildrenSortOrder</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Children Sort Order</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="default" xsi:type="string">default</item>
+
+                        <item name="dataScope" xsi:type="string">children_sort_order</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/select</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="children" xsi:type="string">children</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="max_children_count">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Maximum Number of Children to Display</item>
+                        <item name="notice" xsi:type="string" translate="true">Useful when you have huge count of categories but don't want to show them all in one dropdown.</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="default" xsi:type="string"></item>
+
+                        <item name="dataScope" xsi:type="string">max_children_count</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="children" xsi:type="string">children</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="levels_per_dropdown">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Nested Levels per Dropdown</item>
+                        <item name="notice" xsi:type="string" translate="true">Set value to '1' (default) to show child items in separate dropdown menu. Set value to '2' to show child items in the same dropdown menu with its parent.</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="default" xsi:type="string">1</item>
+
+                        <item name="dataScope" xsi:type="string">levels_per_dropdown</item>
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="children" xsi:type="string">children</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </modal>
+
+    <modal name="menu_settings_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="isTemplate" xsi:type="boolean">false</item>
+                <item name="componentType" xsi:type="string">modal</item>
+                <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+                <item name="imports" xsi:type="array">
+                    <item name="state" xsi:type="string">!index=menu_settings_form:responseStatus</item>
+                </item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Menu Settings</item>
+                </item>
+            </item>
+        </argument>
+        <container name="menu_settings_form">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/menu-insert-form</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render_handle/handle/navigationpro_menu_settings/buttons/1"/>
+                    <item name="autoRender" xsi:type="boolean">false</item>
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="ns" xsi:type="string">navigationpro_menu_settings</item>
+                    <item name="toolbarContainer" xsi:type="string">${ $.parentName }</item>
+                    <item name="formSubmitType" xsi:type="string">ajax</item>
+
+                    <!--
+                    <item name="params" xsi:type="array">
+                        <item name="menu_id" xsi:type="string">${ $.provider }:data.menu_id</item>
+                    </item>
+                    -->
+                </item>
+            </argument>
+        </container>
+    </modal>
+
+    <modal name="mass_edit_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="isTemplate" xsi:type="boolean">false</item>
+                <item name="componentType" xsi:type="string">modal</item>
+                <item name="provider" xsi:type="string">navigationpro_menu_item.navigationpro_menu_item_data_source</item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Mass Edit</item>
+                </item>
+            </item>
+        </argument>
+        <container name="mass_edit_form">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/menu-insert-form</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render_handle/handle/navigationpro_item_massedit/buttons/1"/>
+                    <item name="autoRender" xsi:type="boolean">false</item>
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="ns" xsi:type="string">navigationpro_item_massedit</item>
+                    <item name="toolbarContainer" xsi:type="string">${ $.parentName }</item>
+                    <item name="ajaxSave" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+        </container>
+    </modal>
+</form>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Swissup_Attributepages::css/attributepages.css"/>
+    </head>
+    <body>
+        <!-- Change nested fieldsets styles -->
+        <referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old"/>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/disable-category-multiselect.phtml" name="disable_category_multiselect"/>
+            <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/one-filter-per-attribute.phtml" name="one_filter_per_attribute"/>
+            <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/add-files.phtml"/>
+            <uiComponent name="attributepages_page_form"/>
+        </referenceContainer>
+        <referenceBlock name="attributepages_page_form">
+            <block class="Magento\Ui\Component\Layout\Tabs\TabWrapper" name="options_tab">
+                <arguments>
+                    <argument name="is_ajax_loaded" xsi:type="boolean">true</argument>
+                    <argument name="tab_label" xsi:type="string" translate="true">Options</argument>
+                    <argument name="tab_url" xsi:type="url" path="*/*/options">
+                        <param name="_current">1</param>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

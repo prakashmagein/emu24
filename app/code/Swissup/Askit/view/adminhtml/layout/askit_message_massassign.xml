@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        layout="admin-2columns-left"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old" />
+        <referenceContainer name="content">
+            <uiComponent name="askit_message_assign_form"/>
+            <referenceBlock name="askit_message_assign_form">
+                <block class="Magento\Ui\Component\Layout\Tabs\TabWrapper" name="products_tab">
+                    <arguments>
+                        <argument name="is_ajax_loaded" xsi:type="boolean">true</argument>
+                        <argument name="tab_label" xsi:type="string" translate="true">Products</argument>
+                        <argument name="tab_url" xsi:type="url" path="*/assign/products/form_name/askit_message_assign_form">
+                            <param name="_current">1</param>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Ui\Component\Layout\Tabs\TabWrapper" name="pages_tab">
+                    <arguments>
+                        <argument name="is_ajax_loaded" xsi:type="boolean">true</argument>
+                        <argument name="tab_label" xsi:type="string" translate="true">Pages</argument>
+                        <argument name="tab_url" xsi:type="url" path="*/assign/pages/form_name/askit_message_assign_form">
+                            <param name="_current">1</param>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Ui\Component\Layout\Tabs\TabWrapper" name="categories_tab">
+                    <arguments>
+                        <argument name="is_ajax_loaded" xsi:type="boolean">true</argument>
+                        <argument name="tab_label" xsi:type="string" translate="true">Categories</argument>
+                        <argument name="tab_url" xsi:type="url" path="*/assign/categories/form_name/askit_message_assign_form">
+                            <param name="_current">1</param>
+                        </argument>
+                    </arguments>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

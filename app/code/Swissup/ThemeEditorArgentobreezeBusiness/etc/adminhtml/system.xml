@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_argentobreeze_business" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Argento Breeze Business</label>
+            <tab>theme_editor</tab>
+            <resource>Swissup_ThemeEditorArgentobreezeBusiness::config</resource>
+
+            <include path="Swissup_ThemeEditor::system/frontend_mode.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/layout.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/colors.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/header.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/footer.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/buttons.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/category.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeBusiness::system/product.xml"/>
+            <include path="Swissup_ThemeEditor::system/head.xml"/>
+            <include path="Swissup_ThemeEditor::system/themes.xml"/>
+        </section>
+    </system>
+</config>

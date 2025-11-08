@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="footer" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+        <label>Footer</label>
+
+        <comment>To edit Footer contents, please navigate to Content > Blocks and modify footer_content CMS block.</comment>
+
+        <field id="footerBottomToolbarLayout_heading" translate="label" type="text" sortOrder="4300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Bottom Panel</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\CssSelectorHeading</frontend_model>
+        </field>
+        <field id="footerBottomToolbar_copyright" translate="label" type="select" sortOrder="4400" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Remove Copyright</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <backend_model>Swissup\ThemeEditorArgentobreezeBusiness\Model\Config\Backend\Footer\Copyright</backend_model>
+        </field>
+        <field id="footerBottomToolbar_links" translate="label" type="select" sortOrder="4500" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Remove Footer Links</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <backend_model>Swissup\ThemeEditorArgentobreezeBusiness\Model\Config\Backend\Footer\Links</backend_model>
+        </field>
+    </group>
+</include>

@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php
+    $product = $block->getProduct();
+    $helper = $this->helper('Magento\Catalog\Helper\Image');
+    $images = $product->getMediaGalleryImages();
+
+    $ampHelper = $this->helper('Swissup\Amp\Helper\Data');
+    $width = $block->getImageAttribute('swissupamp_product_page_image_medium', 'width');
+    $height = $block->getImageAttribute('swissupamp_product_page_image_medium', 'height');
+?>
+<amp-carousel width="<?= $width ?>" height="<?= $height ?>" controls layout="responsive" type="slides" loop>
+<?php foreach ($images as $image): ?>
+    <?php
+        $src = $helper->init($product, 'swissupamp_product_page_image_medium')
+            ->setImageFile($image->getFile())
+            ->getUrl();
+
+        $imageAlt = $image->getLabel() ?: $product->getName();
+        if (method_exists($block, 'escapeHtmlAttr')) {
+            $imageAlt = $block->escapeHtmlAttr($imageAlt);
+        } else {
+            $imageAlt = $block->escapeQuote($imageAlt);
+        }
+     ?>
+    <amp-img src="<?= $src ?>"
+        width="<?= $width ?>"
+        height="<?= $height ?>"
+        layout="responsive"
+        alt="<?= $imageAlt ?>"
+    ></amp-img>
+<?php endforeach; ?>
+</amp-carousel>

@@ -1,0 +1,17 @@
+<?php
+    $options = (is_array($block->getOptions()) ? $block->getOptions() : []) +
+        $block->getVar('photo_in_description', 'Argento_Theme');
+    if (empty($options['target'])) {
+        return;
+    }
+?>
+<script type="text/x-magento-init">
+{
+    "<?= $options["target"] ?>" : {
+        "js/components/photo-in-description": {
+            "imageClass": "<?= isset($options["image_class"]) ? $options["image_class"] : "" ?>",
+            "addClasses": "<?= isset($options["add_classes"]) ? $options["add_classes"] : "" ?>"
+        }
+    }
+}
+</script>

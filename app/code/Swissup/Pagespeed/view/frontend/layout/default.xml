@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Swissup\Pagespeed\Block\Html\Head\Scripts" name="pagespeed.scripts" />
+        </referenceBlock>
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" template="Swissup_Pagespeed::init.phtml" name="before_body_end_pagespeed_init">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Swissup\Pagespeed\ViewModel\Config</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

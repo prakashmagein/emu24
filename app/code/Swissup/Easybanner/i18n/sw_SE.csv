@@ -1,0 +1,79 @@
+Handles,handtag
+"Save Banner","Spara Banner"
+"Delete Banner","Ta bort Banner"
+"Edit Banner - '%1'","Redigera Banner - '%1'"
+"New Banner","Ny Banner"
+"Css Class","Css klass"
+"Image Options",Bildalternativ
+"Use image resizer","Använd bildresizer"
+"Retina support","Retina stöd"
+"Actual image size should be twice larger then entered width and height","Den faktiska bildstorleken ska vara två gånger större och ange bredd och höjd"
+"Background Color",Bakgrundsfärg
+"Html Content",Html-innehåll
+Banner,Baner
+Lightbox,Ljuslåda
+Awesomebar,Awesomebar
+"Hide Url","Dölj URL"
+Target,Mål
+Popup,"Dyka upp"
+Blank,Tom
+Self,Själv
+"Sort Order",Sorteringsordning
+"Store View",Butiksvy
+Placeholder,Platshållare
+Statistics,Statistik
+"New Placeholder","Ny platshållare"
+"Banners Display Count","Banners Display Count"
+"Sort mode",Sorteringsläge
+"By Banners Sort Order","Efter bannersorteringsordning"
+Random,Slumpmässig
+"Banner was deleted.","Bannern raderades."
+"Banner was disabled.","Bannern var inaktiverad."
+EasyBanner,Easybanner
+Banners,banners
+"This banner no longer exists.","Denna banderoll finns inte längre."
+"Edit Banner","Redigera Banner"
+"Banner was enabled.","Banner var aktiverat."
+"Manage Banners","Hantera banners"
+"Banner has been saved.","Bannern har sparats."
+"Something went wrong while saving the banner.","Något gick fel när jag sparat banners."
+"Placeholder was deleted.","Platshållare raderades."
+"Placeholder was disabled.","Platshållaren inaktiverades."
+Placeholders,Platshållare
+"This placeholder no longer exists.","Denna platshållare finns inte längre."
+"Placeholder was enabled.","Platshållare var aktiverad."
+"Manage Placeholders","Hantera platshållare"
+"Placeholder has been saved.","Platshållaren har sparats."
+"Something went wrong while saving the placeholder.","Något gick fel när man räddade platshållaren."
+"Subtotal (Excl.Tax)","Subtotal (Excl.Tax)"
+"Subtotal (Incl.Tax)","Subtotal (inkl. Taxa)"
+"Clicks Count","Antal klick"
+"Display Count","Visa antal"
+"Display Count per Customer","Visa antal per kund"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: Kundens webbläsningstid (sekunder)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: Kundens inaktivitetstid (sekunder)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Lightbox / Awesomebar: Kundaktivitetstid (sekunder)"
+"Lightbox/Awesomebar: Scroll offset","Lightbox / Awesomebar: Rulleförskjutning"
+"Open Chooser","Öppen väljare"
+%1%1"Last 7 days","De sista 7 dagarna"
+"Last 30 days","Senast 30 dagar"
+"Last 6 Month","Sista 6 månaden"
+"Last 12 Month","Sista 12 månaden"
+"All Time","Hela tiden"
+"Banner Statistics",Bannerstatistik
+"EasyBanner Banner","EasyBanner Banner"
+"Select Banner...","Välj Banner ..."
+"EasyBanner Placeholder","EasyBanner platshållare"
+"Select Placeholder...","Välj platshållare ..."
+"Add Banner","Lägg till Banner"
+"Image Title",Bildtitel
+"Is Active","Är aktiv"
+"Add Placeholder","Lägg till platshållare"
+"Additional CSS Class","Ytterligare CSS-klass"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Om du ska visa denna platshållare i en sidofält rekommenderas att du ställer in följande värde: block block-easybanner-placeholder"
+"Parent Container",Föräldrabehållare
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Vet du inte containernamn? Lämna den tom och tilldela platshållaren till den behållare som krävs via gränssnittet ""Innehåll> Widgets"". Du kan också se listan över vanliga platshållarpositioner på http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Placera
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","XML attributsyntax krävs. Exempel: före = ""-"", efter = ""-"", före = ""block.namn"""
+"Don't show anymore","Visa inte längre"
+"Exit intent time (seconds)","Avsluta avsiktstid (sekunder)"

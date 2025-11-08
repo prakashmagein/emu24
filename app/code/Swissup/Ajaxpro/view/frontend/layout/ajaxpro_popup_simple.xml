@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default"/>
+    <update handle="checkout_cart_index"/>
+    <body>
+        <move element="page.messages" destination="checkout.cart.container" before="-"/>
+        <referenceBlock name="messages" template="Swissup_Ajaxpro::messages.phtml"/>
+        <referenceContainer name="checkout.cart.form.before" remove="true"/>
+        <referenceContainer name="cart.summary" remove="true"/>
+        <referenceBlock name="checkout.cart.form" remove="true"/>
+        <referenceContainer name="checkout.cart.widget" remove="true"/>
+        <referenceContainer name="cart.discount" remove="true"/>
+        <referenceBlock name="checkout.cart.crosssell" remove="true"/>
+    </body>
+</page>

@@ -1,0 +1,16 @@
+{
+    "name": "swissup/module-sold-together-email",
+    "description": "Email layouts with Sold Together blocks for Magento 2",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": ["OSL-3.0"],
+    "require": {
+        "swissup/module-sold-together": "^1.9.0"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\SoldTogetherEmail\\": ""
+        }
+    }
+}

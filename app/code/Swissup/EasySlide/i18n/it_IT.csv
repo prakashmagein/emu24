@@ -1,0 +1,43 @@
+"Save Slider","Salva cursore"
+"Delete Slider","Elimina cursore"
+"Edit Slider - '%1'","Modifica dispositivo di scorrimento - '%1'"
+"New Slider","Nuovo cursore"
+Parameters,parametri
+Direction,Direzione
+Horizontal,Orizzontale
+Vertical,Verticale
+Effect,Effetto
+Slide,Diapositiva
+Fade,dissolvenza
+Cube,Cubo
+Coverflow,"Cover Flow"
+Flip,Flip
+Speed,Velocità
+Autoplay,"Riproduzione automatica"
+Pagination,paginatura
+"Navigation Buttons","Pulsanti di navigazione"
+Scrollbar,"Barra di scorrimento"
+"Scrollbar Hide","Nascondi barra di scorrimento"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Slides
+"Add New Slide","Aggiungi nuova diapositiva"
+"Slider was deleted.","Il dispositivo di scorrimento è stato eliminato."
+"Can't find a slider to delete.","Impossibile trovare un dispositivo di scorrimento da eliminare."
+EasySlide,EasySlide
+"Manage Sliders","Gestisci cursori"
+"This slider no longer exists.","Questo cursore non esiste più."
+"Edit Slider","Modifica cursore"
+Sliders,Sliders
+"Slider has been saved.","Il dispositivo di scorrimento è stato salvato."
+"Something went wrong while saving the slider.","Qualcosa è andato storto durante il salvataggio del dispositivo di scorrimento."
+Link,collegamento
+"Open link in","Apri il link in"
+Description,Descrizione
+"Description Position","Descrizione Posizione"
+"Description Background","Descrizione Sfondo"
+"Slide Detail","Dettaglio diapositiva"
+"Select Slider","Seleziona il cursore"
+"Add New Slider","Aggiungi nuovo cursore"
+Black,Nero
+White,bianca

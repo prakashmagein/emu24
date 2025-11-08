@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch">
+        <observer name="swissup_gdpr_validate_form" instance="Swissup\Gdpr\Observer\ValidateForm" />
+    </event>
+    <event name="swissup_gdpr_form_validate_fail">
+        <observer name="swissup_gdpr_persist_form_data" instance="Swissup\Gdpr\Observer\PersistFormData" />
+    </event>
+    <event name="controller_action_postdispatch">
+        <!--
+        Use postdipatch event to make sure that all other validations where successfull too.
+        Including third-party module validations.
+         -->
+        <observer name="swissup_gdpr_save_client_consents" instance="Swissup\Gdpr\Observer\SaveClientConsents" />
+    </event>
+    <event name="customer_login">
+        <observer name="swissup_gdpr_save_cookie_consent" instance="Swissup\Gdpr\Observer\SaveCookieConsentOnLogin" />
+    </event>
+</config>

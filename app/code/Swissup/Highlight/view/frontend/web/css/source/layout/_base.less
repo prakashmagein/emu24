@@ -1,0 +1,56 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    //
+    // Resets
+    // ______________________________________________
+    .block-highlight {
+        .block-title {
+            p {
+                margin: 0;
+            }
+        }
+        .products {
+            margin: 0;
+        }
+        .toolbar-products {
+            display: none;
+        }
+        .toolbar-amount {
+            display: none;
+        }
+    }
+
+    //
+    // General styles
+    // ______________________________________________
+    div.block-highlight {
+        .block-title {
+            strong {
+                font-weight: 600;
+                span {
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .block-highlight {
+            [data-role^="swatch-opt"] {
+                display: none;
+            }
+        }
+    }
+
+    //
+    // Sidebar templates
+    // ______________________________________________
+    .block-highlight {
+        .product-items-images {
+            .product-item {
+                border: 0 !important;
+                font-size: 0 !important;
+            }
+        }
+    }
+}
+}

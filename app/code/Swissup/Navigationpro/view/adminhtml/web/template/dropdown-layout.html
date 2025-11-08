@@ -1,0 +1,63 @@
+<div class="navpro-wrapper" data-bind="
+    css: isFirstLevel() ? 'with-navbar' : 'no-navbar'
+">
+<div class="navpro" data-bind="css: 'mode-' + width() + ' position-' + position(), attr: { id: uid }">
+    <div class="level0">
+        <div class="navpro-container" data-bind="foreach: getNavbarItems()">
+            <span data-bind="text: $data"></span>
+        </div>
+    </div>
+    <div class="dropdown">
+        <div class="dropdown-inner" data-bind="css: getRegions().length > 1 ? 'multiple-regions' : ''">
+            <div class="navpro-row">
+                <!-- ko foreach: { data: getRegions(), as: 'region' } -->
+                <div data-bind="attr: {
+                    'data-region': region.code,
+                    class: 'resizable region-' + region.code + ' navpro-col navpro-col-' + region.size()
+                }">
+                    <div data-bind="attr: { class: 'region region-' + region.code }">
+                        <!-- ko foreach: { data: region.rows(), as: 'row' } -->
+                        <!-- <div class="navpro-row empty-placeholder"></div> -->
+                        <div class="navpro-row">
+                            <!-- ko foreach: { data: row, as: 'item' } -->
+                            <div data-bind="attr: {
+                                class: 'navpro-entity resizable navpro-col navpro-col-' + item.size,
+                                id: item.id
+                            }">
+                                <div class="item" data-bind="attr: { title: item.type === 'html' ? item.content : '' }">
+                                    <!-- ko if: item.is_active == 0 -->
+                                        <span class="item-meta">
+                                            disabled
+                                        </span>
+                                    <!-- /ko -->
+                                    <div class="item-contents" html="$parents[2].renderItemContents(item)"></div>
+                                    <div class="actions">
+                                        <a href="#" class="delete" title="Delete" data-bind="click: $parents[2].deleteItem.bind($parents[2])"></a>
+                                        <a href="#" class="settings" title="Edit" data-bind="click: $parents[2].editItem.bind($parents[2])"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                        <!-- /ko -->
+                        <!-- <div class="navpro-row empty-placeholder"></div> -->
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+            <div class="navpro-row row-actions">
+                <div class="navpro-col">
+                    <button title="Add Content" class="button" data-bind="click: newItem">Add Content</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<input type="hidden" data-bind="
+    value: value,
+    attr: {
+        name: inputName
+    }"
+>

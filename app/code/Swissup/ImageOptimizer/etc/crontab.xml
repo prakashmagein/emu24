@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <!-- <group id="default">
+        <job name="swissup_pagespeed_image_resize" instance="Swissup\ImageOptimizer\Cron\ImageResize" method="execute">
+            <schedule>*/2 * * * *</schedule>
+            <! <schedule>* * * * *</schedule> >
+        </job>
+    </group> -->
+
+    <group id="swissup_pagespeed_group">
+        <job name="swissup_pagespeed_image_resize" instance="Swissup\ImageOptimizer\Cron\ImageResize" method="execute">
+            <schedule>0 4 * * *</schedule>
+        </job>
+    </group>
+</config>

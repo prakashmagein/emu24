@@ -1,0 +1,78 @@
+<?php
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+
+/* @see vendor/magento/module-checkout/view/frontend/templates/cart/item/default.phtml */
+$_item = $block->getItem();
+$product = $_item->getProduct();
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+/** @var \Magento\Msrp\Helper\Data $helper */
+$helper = $this->helper('Magento\Msrp\Helper\Data');
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+?>
+<?php if ($messages = $block->getMessages()) :?>
+    <li>
+        <?php foreach ($messages as $message) :?>
+            <div class= "cart item message <?= $block->escapeHtmlAttr($message['type']) ?>">
+                <div><?= $block->escapeHtml($message['text']) ?></div>
+            </div>
+        <?php endforeach; ?>
+    </li>
+<?php endif; ?>
+<li class="item">
+    <?php if ($block->hasProductUrl()):?>
+        <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl() ?>"
+           title="<?php echo $block->escapeHtml($block->getProductName()) ?>"
+           tabindex="-1"
+           class="product-item-photo">
+    <?php else:?>
+        <span class="product-item-photo">
+    <?php endif;?>
+    <?php echo $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml(); ?>
+    <?php if ($block->hasProductUrl()):?>
+        </a>
+    <?php else: ?>
+        </span>
+    <?php endif; ?>
+    <div class="product-item-details">
+        <strong class="product-item-name">
+            <?php if ($block->hasProductUrl()):?>
+                <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl() ?>"><?php echo $block->escapeHtml($block->getProductName()) ?></a>
+            <?php else: ?>
+                <?php echo $block->escapeHtml($block->getProductName()) ?>
+            <?php endif; ?>
+        </strong>
+        <div>
+            <div class="qty-price">
+                <strong class="suggestpage-qty" ><?php echo $block->getQty() ?>x</strong>
+                <?php
+                    if ($canApplyMsrp): ?>
+                    <span class="pricing msrp">
+                        <span class="msrp notice"><?php /* @escapeNotVerified */ echo __('See price before order confirmation.'); ?></span>
+                        <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
+                        <a href="#" class="action help map" id="<?php /* @escapeNotVerified */ echo($helpLinkId); ?>" data-mage-init='{"addToCart":{"helpLinkId": "#<?php /* @escapeNotVerified */ echo $helpLinkId;?>","productName": "<?php /* @escapeNotVerified */ echo $product->getName(); ?>","showAddToCart": false}}'>
+                            <span><?php /* @escapeNotVerified */ echo __("What's this?"); ?></span>
+                        </a>
+                    </span>
+                <?php else: ?>
+                    <?php echo $block->getUnitPriceHtml($_item); ?>
+                <?php endif; ?>
+            </div>
+
+            <?php if ($_options = $block->getOptionList()):?>
+                <dl class="item-options">
+                    <?php foreach ($_options as $_option) : ?>
+                        <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                        <dt><?php echo $block->escapeHtml($_option['label']) ?></dt>
+                        <dd>
+                            <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                                <?php /* @escapeNotVerified */ echo $_formatedOptionValue['full_view'] ?>
+                            <?php else: ?>
+                                <?php /* @escapeNotVerified */ echo $_formatedOptionValue['value'] ?>
+                            <?php endif; ?>
+                        </dd>
+                    <?php endforeach; ?>
+                </dl>
+            <?php endif;?>
+        </div>
+    </div>
+</li>

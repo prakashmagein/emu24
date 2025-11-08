@@ -1,0 +1,16 @@
+<?php
+    $helper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+    $compareUrl = $block->getUrl('swissupamp/catalog/compare', ['_forced_secure' => true]);
+?>
+
+<amp-list id="minicompare" class="minicompare" credentials="include" layout="fixed"
+    height="40px" width="40px"
+    src="<?= $compareUrl ?>" binding="no" items=".">
+    <template type="amp-mustache" id="cart-items">
+        {{^isEmpty}}
+        <div class="badge" data-badge="{{qty}}">
+            <a class="compare-icon" href="<?= $helper->getListUrl() ?>" title="<?= __('Compare'); ?>"></a>
+        </div>
+        {{/isEmpty}}
+    </template>
+</amp-list>

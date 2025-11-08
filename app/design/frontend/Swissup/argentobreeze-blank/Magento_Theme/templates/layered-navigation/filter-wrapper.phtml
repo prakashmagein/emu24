@@ -1,0 +1,11 @@
+<?php
+    $navigation = $block->getLayout()->getBlock($block->getNavBlockName() ?: 'catalog.leftnav');
+    if (!$navigation) {
+        return;
+    }
+
+    $filtered = $navigation->getLayer() ? count($navigation->getLayer()->getState()->getFilters()) : 0;
+?>
+<div class="filter-wrapper <?= $filtered ? 'filter-applied' : ''?>" data-count="<?= /* @noEscape */ $filtered ?>">
+    <?= $block->getChildHtml() ?>
+</div>

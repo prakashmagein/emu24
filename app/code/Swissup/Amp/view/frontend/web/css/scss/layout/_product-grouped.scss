@@ -1,0 +1,35 @@
+.table.data.grouped {
+    width: 100%;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 10px;
+
+    .table-caption {
+        @extend .visually-hidden;
+    }
+
+    strong {
+        font-weight: normal;
+    }
+
+    td,
+    thead {
+        border-bottom: 1px solid #e1e1e1;
+        padding: 7px 10px;
+    }
+
+    .col.qty {
+        width: 20%;
+    }
+
+    .price-box {
+        font-size: 1em;
+    }
+
+    .stock {
+        &::before,
+        span::before {
+            content: '';
+            margin: 0;
+        }
+    }
+}

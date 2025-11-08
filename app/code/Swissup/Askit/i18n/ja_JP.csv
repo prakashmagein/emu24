@@ -1,0 +1,100 @@
+"Edit '%1'","'%1' を編集"
+"Answer Information",回答情報
+Hint,ヒント
+Questions,ご質問
+"Edit Question '%1'","質問 '%1' を編集"
+"No Found",見つかりません
+"Created date",作成日
+"Update date",更新日
+"Are you sure?",本気ですか？
+Unknown,わからない
+Private,民間
+"Add New Answer",新しい回答を追加
+"Questions %1",質問％1
+"Please select item(s).",アイテムを選択してください。
+"The answer has been deleted.",回答を削除しました。
+"We can't find a answer to delete.",削除する答えが見つかりません。
+Askit,アスキット
+Answers,答え
+"This item no longer exists.",このアイテムは存在しません。
+"Askit Items",Askitアイテム
+"Askit Recent Answers",Askit最近の回答
+"Manage Recent Askit Answers","最近のAskit Answersの管理"
+"You saved.",あなたは保存した。
+"Something went wrong while saving the question.",質問を保存中に問題が発生しました。
+"A total of %1 record(s) have been deleted.",合計％1件のレコードが削除されました。
+"A total of %1 record(s) have been changed.",合計％1レコードが変更されました。
+"The question has been deleted.",質問が削除されました。
+"We can't find a question to delete.",削除する質問が見つかりません。
+"New Askit Question",新しいAskitの質問
+"Askit Questions",Askitの質問
+"Manage Askit Questions",Askitの質問を管理する
+"You question saved.",質問を保存しました。
+"You answer was added.",回答が追加されました。
+"We can't process your request right now. Sorry, that's all we know.",現在、リクエストを処理できません。すみません、それだけです。
+"My Questions",私の質問
+"Your must login",ログインする必要があります
+"Sorry, only logged in customer can hint.",ログインした顧客のみがヒントを提供できます。
+"Sorry, already voted",すみません、すでに投票しました
+Pending,保留中
+Approved,承認済み
+Disapproved,不承認
+"Askit Question",Askitの質問
+"Askit Answer","Askit Answer"
+"Edit Question",質問を編集
+"New Answer",新しい答え
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","登録ユーザーだけがコメントを書くことができます。 <a href=""%1"">ログイン</a>するか、<a href=""%2"">アカウントを作成</a>してください"
+"Your Answer",あなたの答え
+"Leave a Reply",返信を残します
+"%1 people found this answer helpful.",％1人がこの回答が役に立ったと評価しています。
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","質問を書くことができるのは登録ユーザーだけです。 <a href=""%1"">ログイン</a>するか、<a href=""%2"">アカウントを作成</a>してください"
+"Ask Your Question",質問する
+"Jot us a note and we’ll get back to you as quickly as possible.",メモをご記入ください。できるだけ早くご連絡いたします。
+Question,質問
+"Post a private question",個人的な質問を投稿する
+Submit,参加する
+"You have submitted no questions.",質問はありません。
+"answer' 'answers",答え」「答え
+"%1 people already voted for this question.",％1人が既にこの質問に投票しています。
+"Vote for It",投票する
+"New products question was just posted or updated. Please see details below",新製品の質問が投稿または更新されました。以下の詳細をご覧ください
+E-mail,Eメール
+"You can follow the question at Swissup -> Askit Questions","質問は、Swissup-> Askit Questionsでフォローできます。"
+Dear,親愛な
+"New answer was just posted to your question regarding",に関する質問に新しい回答が投稿されました
+"Your question:",あなたの質問：
+Answer:,回答：
+"Thank you again",ありがとうございました
+"Default question status",デフォルトの質問ステータス
+"Default answer status",デフォルトの回答ステータス
+"Allow guest to ask questions",ゲストが質問できるようにする
+"Allow customers comment",顧客にコメントを許可する
+"Allow guest comment",ゲストのコメントを許可
+"Allow customer vote",顧客の投票を許可する
+"Show customer name on frontend",フロントエンドに顧客名を表示
+"Show link to related item (Product, Category or Page)",関連アイテムへのリンクを表示（製品、カテゴリ、またはページ）
+"Enable Gravatar integration",Gravatar統合を有効にする
+"Add questions block to all category pages",すべてのカテゴリページに質問ブロックを追加する
+"Add questions block to all CMS pages",すべてのCMSページに質問ブロックを追加する
+"Enable 'no questions' message",「質問なし」メッセージを有効にする
+Sender,送信者
+"Customer Notification Template",顧客通知テンプレート
+"Email template chosen based on theme fallback when ""Default"" option is selected.",「デフォルト」オプションが選択されている場合、テーマのフォールバックに基づいて選択されたメールテンプレート。
+"Send admin notification to",に管理者通知を送信
+"Admin Notification Template",管理通知テンプレート
+"Askit: Questions + New Question Form",Askit：質問+新しい質問フォーム
+"Hide listing block",リストブロックを非表示
+"Hide form block",フォームブロックを非表示にする
+"Assigned Products",割り当てられた製品
+"Assigned Pages",割り当てられたページ
+"Assigned Categories",割り当てられたカテゴリ
+"Delete items",アイテムを削除する
+"Answer,回答
+"Entity Type",エンティティタイプ
+Entity,エンティティ
+Votes,投票
+"Your question was answered on",あなたの質問は
+"It is helpful",参考になりました
+"Not much help",あまり役に立たない
+asks,尋ねる
+about,約

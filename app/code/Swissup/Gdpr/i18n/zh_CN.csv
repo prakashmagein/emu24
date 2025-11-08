@@ -1,0 +1,75 @@
+"Accepted Consents",接受的同意
+"Client's Requests",客户要求
+"A total of %1 record(s) have been canceled.",总共％1个记录已被取消。
+"A total of %1 record(s) have been skipped",共跳过了％1条记录
+"A total of %1 record(s) have been processed.",总共％1个记录已被处理。
+"This item no longer exists.",此项目不再存在。
+"Requested item was skipped.",所请求的项目被跳过。
+"Request was successfully processed.",请求已成功处理。
+"Request processing was failed.",请求处理失败。
+"Privacy Tools",隐私权工具
+"Please accept all required checkboxes",请接受所有必填的复选框
+Goodbye!,再见！
+"Export Data",汇出资料
+"Delete Data",删除资料
+"View Privacy Tools",查看隐私工具
+Running,跑步
+Failed,失败的
+"Unsupported request type: '%1'",不支持的请求类型：'％1'
+"Can't remove data. Incompleted orders found: %1",无法删除数据。找到未完成的订单：％1
+"Please accept all consents.",请接受所有同意。
+"Open Customer Page",打开客户页面
+"Here you can view the consents you have given.",在这里，您可以查看您的同意书。
+"To use this website, you accepted our Privacy Policy.",要使用该网站，您已接受我们的隐私政策。
+"If you wish to withdraw your acceptance, please use the ""Delete My Data"" button below.",如果您想撤回接受，请使用下面的“删除我的数据”按钮。
+"Delete Account",删除帐户
+"Once you delete your data, there is no going back. Please be certain.",删除数据后，将无法返回。请确定。
+"Delete My Data",删除我的数据
+"Are you absolutely sure?",你确定吗
+"Unexpected bad things will happen if you don’t read this!",如果您不阅读本文，将会发生意想不到的坏事！
+"This will permanently delete your orders, comments, questions, reviews, and other associations with your account.",这将永久删除您的订单，评论，问题，评论以及与您帐户的其他关联。
+"Once you press ""Delete My Data"" button, <strong>you will be logged out, and will never be able to login into this account.</strong>","按下“删除我的数据”按钮后，<strong>您将注销，并且永远无法登录该帐户。</ strong>"
+"I have read the text above and want to erase all of my data",我已阅读以上文字，并希望删除我的所有数据
+"Your data is queued for automatic deletion and nobody can stop this.",您的数据已排队等待自动删除，没有人可以阻止它。
+"It was a great time, though.",不过那是一段美好的时光。
+"Yes, Delete My Data",是的，删除我的数据
+"Personal Data Consents",个人数据同意书
+"Deletion Requests",删除要求
+"Anonymized data placeholder",匿名数据占位符
+"Automate request processing",自动处理请求
+"Days to wait",等待的天数
+"Show in Forms",以表格显示
+"Custom Consent 1",自订同意书1
+"Custom Consent 2",自定义同意书2
+"Custom Consent 3",自定义同意书3
+"Personal Data",个人资料
+"Privacy Policy",隐私政策
+"Client's Identity",客户身份
+"Form ID",表格编号
+Consent,同意
+"Process requests",处理要求
+"Cancel requests",取消请求
+"Cancel requests?",取消请求？
+"Are you sure you want to cancel selected requests?",您确定要取消选定的请求吗？
+"Delete requests",删除要求
+"Delete requests?",删除请求？
+"Are you sure you want to delete selected requests?",您确定要删除选定的请求吗？
+"Request Type",请求类型
+"Executed At",执行于
+"Cookie Consents",Cookie同意
+"Cookie Bar",饼干吧
+"Cookie Settings Page",Cookie设置页面
+"To override built-in page, use an URL of existing CMS page",要覆盖内置页面，请使用现有CMS页面的URL
+"Cookie Settings",Cookie设置
+"This group is required.",该组是必需的。
+Saved,已保存
+Saving..,保存..
+"Show Cookies",显示饼干
+"Hide Cookies",隐藏饼干
+"View Built-In Cookies",查看内置Cookie
+"View Cookie Groups",查看Cookie组
+"Register New Cookie",注册新的Cookie
+"Cookie Groups",Cookie组
+"Built-in Cookies",内置饼干
+"Allow All & Save",允许全部
+"Accept & Save",接受并救

@@ -1,0 +1,49 @@
+$badge-width: 15px !default;
+$badge-height: 15px !default;
+$badge-font-size: 11px !default;
+$badge-color: null !default;
+$badge-background-color: $light-grey !default;
+$badge-border-radius: 50% !default;
+
+$badge-inversed-background-color: $dark-grey !default;
+$badge-inversed-color: $light-grey !default;
+
+.badge {
+    position: relative;
+
+    &::after {
+        width: $badge-width;
+        height: $badge-height;
+        border-radius: $badge-border-radius;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
+        position: absolute;
+        @include right(5px);
+        top: 5px;
+
+        content: attr(data-badge);
+        font-size: $badge-font-size;
+        background-color: $badge-background-color;
+    }
+
+    &.badge-inversed {
+        &::after {
+            background-color: $badge-inversed-background-color;
+            color: $badge-inversed-color;
+        }
+    }
+    &.badge-inline {
+        @include margin-right(18px); // make sure, that item will be properly aligned, if text-align: center
+        &::after {
+            @include right(-18px);
+            top: 50%;
+            margin-top: -($badge-height / 2);
+        }
+    }
+}

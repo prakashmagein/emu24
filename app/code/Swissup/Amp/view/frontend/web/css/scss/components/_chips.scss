@@ -1,0 +1,28 @@
+$chips-item-margin: 0 5px - 4px 5px 0 !default; // (-4 fixes gap between inline-block elements)
+$chips-item-border-radius: 2px !default;
+$chips-item-padding: 5px 10px !default;
+
+$chips-item-background-color: tint(saturate($brand-color, 35%), 20%) !default;
+$chips-item-hover-background-color: shade($chips-item-background-color, 5%) !default;
+
+$chips-item-color: #fff !default;
+$chips-item-text-shadow: 1px 1px 0 rgba(0,0,0,0.1) !default;
+
+%chips {
+    display: inline-block;
+    margin: $chips-item-margin;
+
+    border-radius: $chips-item-border-radius;
+    padding: $chips-item-padding;
+    background-color: $chips-item-background-color;
+    color: $chips-item-color;
+    text-shadow: $chips-item-text-shadow;
+}
+
+%chips-remove {
+    color: #000;
+    @include icon-mask(
+        $icon: $icon-close,
+        $color: currentColor
+    );
+}

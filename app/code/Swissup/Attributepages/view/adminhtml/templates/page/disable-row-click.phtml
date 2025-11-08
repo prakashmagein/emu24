@@ -1,0 +1,17 @@
+<script>
+require([
+    'jquery',
+    'mage/utils/wrapper',
+    'mage/adminhtml/grid'
+], function (jq, wrapper) {
+    serializerController.prototype.rowClick = wrapper.wrap(
+        serializerController.prototype.rowClick,
+        function (o, grid, event) {
+            // prevent checkbox activation when click on another td
+            if (jq(event.target).not('label').closest('td').find('input[type="checkbox"]').length) {
+                o(grid, event);
+            }
+        }
+    );
+});
+</script>

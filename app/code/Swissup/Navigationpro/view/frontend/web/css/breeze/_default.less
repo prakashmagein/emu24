@@ -1,0 +1,78 @@
+@import '../source/_module.less';
+
+@navigation-dropdown__border-radius: @dropdown__border-radius; // @todo: remove after breeze-blank release;
+
+@navpro__xs__max-width: @xs-max;
+@navpro__sm__max-width: @navpro__xs__max-width;
+@navpro__sm__min-width: (@navpro__xs__max-width + .02);
+@navpro__md__min-width: (@navpro__sm__max-width + .02);
+
+@navpro-container__max-width: @container__media-xxl__max-width;
+@navpro-link__color: false;
+@navpro-link__hover__text-decoration: false;
+@navpro-link__padding: @dropdown-item__padding;
+@navpro-link-level0__padding: @navigation-item-level0__padding;
+@navpro-link-level0-caret__padding: @navigation-caret-level0__padding;
+@navpro-dropdown__border-radius: @navigation-dropdown__border-radius;
+@navpro-theme__dark-bar__background: @theme__dark-color;
+@navpro-slideout-logo__margin-left: 10px;
+@navpro-slideout-toggle__margin: false;
+
+& when (@critical) {
+    .navpro.navpro {
+        .li-item {
+            position: static;
+            > a {
+                position: relative;
+            }
+        }
+        > ul.navpro-stacked {
+            margin: 0;
+        }
+        .parent {
+            > a {
+                &::after {
+                    display: none;
+                }
+                .ui-icon {
+                    display: block;
+                    background: transparent;
+                    -webkit-mask: none;
+                    margin: 0;
+                    width: auto;
+                    height: auto;
+                    transform: none !important;
+                }
+            }
+        }
+        .level0 {
+            > .level-top {
+                .padding(@navpro-link-level0__padding);
+            }
+            &.parent {
+                > .level-top {
+                    .padding-right(@navpro-link-level0-caret__padding);
+                }
+            }
+        }
+    }
+    .navpro-icon-caret::before,
+    .navpro .parent > a::before {
+        right: 4px;
+        top: calc(~"50% - 9px");
+    }
+}
+
+& when not (@critical) {
+    .navpro-compare {
+        .block-compare .block-title {
+            display: none;
+        }
+    }
+    .navpro-dropdown-inner {
+        max-width: 100%;
+    }
+    .navpro-dropdown {
+        &:extend(.breeze-invert-colors-reset);
+    }
+}

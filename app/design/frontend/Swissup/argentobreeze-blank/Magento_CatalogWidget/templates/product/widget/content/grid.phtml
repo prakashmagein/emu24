@@ -1,0 +1,84 @@
+<?php
+use Magento\Catalog\Block\Product\ReviewRendererInterface;
+use Magento\CatalogWidget\Block\Product\ProductsList;
+use Magento\Framework\Escaper;
+
+/** @var Escaper $escaper */
+/** @var ProductsList $block */
+
+// phpcs:disable Generic.Files.LineLength.TooLong
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundHelper
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->count())): ?>
+    <?php
+    $type = 'widget-product-grid';
+    $mode = 'grid';
+    $image = 'category_page_grid';
+    $items = $block->getProductCollection()->getItems();
+    $templateType = ReviewRendererInterface::SHORT_VIEW;
+
+    /** @var \Magento\Catalog\Helper\Output $_helper */
+    $_helper = $this->helper(\Magento\Catalog\Helper\Output::class);
+    $actionsBlockPosition = $block->getVar("listing/{$mode}/actions/position", 'Argento_Theme');
+    $actionsBlock = $block->getLayout()
+        ->createBlock('Magento\Framework\View\Element\Template')
+        ->setTemplate('Magento_Catalog::product/list/actions.phtml');
+    $block->setChild('actions', $actionsBlock);
+    ?>
+    <div class="block widget block-products-list <?= /* @noEscape */ $mode ?>">
+        <?php if ($block->getTitle()): ?>
+            <div class="block-title">
+                <strong><?= $escaper->escapeHtml(__($block->getTitle())) ?></strong>
+            </div>
+        <?php endif ?>
+        <div class="block-content">
+            <div class="products-<?= /* @noEscape */ $mode ?> <?= /* @noEscape */ $mode ?>">
+                <ol class="product-items <?= /* @noEscape */ $type ?>">
+                    <?php foreach ($items as $_item): ?>
+                    <li class="product-item">
+                        <div class="product-item-info">
+                            <a href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+                                <?= $block->getImage($_item, $image)->toHtml() ?>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="<?= $escaper->escapeHtml($_item->getName()) ?>"
+                                       href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>"
+                                       class="product-item-link">
+                                        <?= $escaper->escapeHtml($_item->getName()) ?>
+                                    </a>
+                                </strong>
+                                <?php if ($templateType): ?>
+                                    <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                                <?php endif; ?>
+
+                                <?= $block->getProductPriceHtml($_item, $type) ?>
+
+                                <?= $block->getProductDetailsHtml($_item) ?>
+
+                                <div class="product-item-inner">
+                                    <?php if ($actionsBlockPosition === 'default') {
+                                        echo $actionsBlock->setPosition($position ?? '')->setProduct($_item)->toHtml();
+                                    } ?>
+                                </div>
+
+                                <?php if ($_helper->isModuleOutputEnabled('Swissup_FeaturedAttributes')) {
+                                    echo $block->getLayout()
+                                        ->createBlock('Swissup\FeaturedAttributes\Block\Attributes')
+                                        ->setProduct($_item)
+                                        ->toHtml();
+                                }?>
+                            </div>
+                            <?php if ($actionsBlockPosition === 'bottom') {
+                                echo $actionsBlock->setPosition($position ?? '')->setProduct($_item)->toHtml();
+                            } ?>
+                        </div>
+                    </li>
+                    <?php endforeach ?>
+                </ol>
+            </div>
+            <?= $block->getPagerHtml() ?>
+        </div>
+    </div>
+<?php endif;?>

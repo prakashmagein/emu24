@@ -1,0 +1,14 @@
+<div id="wallets-component" data-bind="scope:'wallet-js-field'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <?php
+    $jsLayout = $block->getJsLayout();
+    $scriptString = <<<script
+    {
+        "#wallets-component": {
+            "Magento_Ui/js/core/app": $jsLayout
+        }
+    }
+    script;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/x-magento-init'], $scriptString, false) ?>
+</div>

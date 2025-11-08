@@ -1,0 +1,177 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+@include rtl {
+  body {
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+/**
+ * Basic styles for links
+ */
+$link-color: $brand-color !default;
+$link-hover-color: $mango-tango !default;
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  .cms-page-view .column.main &,
+  .cms-noroute-index .column.main & {
+    text-decoration: underline;
+  }
+
+  @include on-event {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Basic styles for lists
+ */
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .cms-page-view .column.main &,
+    .cms-noroute-index .column.main &,
+    .product.info.detailed &,
+    &.list-styled {
+      @include padding-left(20px);
+      @include margin-left(10px);
+      ul, ol {
+        @include margin(1rem, 0, 1rem, 1rem);
+        font-size: 90%;
+      }
+      li {
+        margin-bottom: .7rem;
+      }
+    }
+}
+.cms-page-view .column.main ul,
+.cms-noroute-index .column.main ul,
+.product.info.detailed ul,
+ul.list-styled {
+  list-style: circle;
+}
+.cms-page-view .column.main ol,
+.cms-noroute-index .column.main ol,
+.product.info.detailed ol,
+ol.list-styled {
+  list-style: decimal;
+}
+
+%list-unstyled {
+  .cms-page-view .column.main &,
+  .cms-noroute-index .column.main & {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    ul, ol {
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+    }
+    li {
+      margin-bottom: 0;
+    }
+  }
+}
+ol, ul {
+  &.list-unstyled {
+    @extend %list-unstyled;
+  }
+}
+
+/**
+ * Basic styles for definition
+ */
+dl {
+  margin: 0;
+}
+dt, dd {
+    margin: 0;
+    padding: 0;
+}
+
+.cms-page-view .column.main {
+  small {
+    font-size: 0.8em;
+  }
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1;
+}
+
+/**
+ * Code
+ */
+.cms-page-view .column.main {
+  code {
+    padding: .2rem .5rem;
+    margin: 0 .2rem;
+    font-size: 90%;
+    white-space: nowrap;
+    background: #F1F1F1;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+  }
+  pre {
+    white-space: normal;
+    > code {
+      display: block;
+      padding: 1rem 1.5rem;
+      white-space: pre;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/**
+ * Tables
+ */
+.data.table {
+  border-collapse: collapse;
+  th,
+  td {
+    @include text-align(left);
+    vertical-align: top;
+    padding: 7px 5px;
+  }
+  tr {
+    background-color: #fff;
+    &:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.cms-page-view .column.main {
+  table {
+    @extend .data.table;
+    border: 1px solid #e1e1e1;
+  }
+  th,
+  td {
+    @include border-right(1px solid #e1e1e1);
+    border-bottom: 1px solid #e1e1e1;
+  }
+}
+
+amp-carousel {
+  direction: ltr;
+}
+
+[layout="nodisplay"]:not([class]) {
+  display: none; // fixes page jumping while amp is initializing
+}

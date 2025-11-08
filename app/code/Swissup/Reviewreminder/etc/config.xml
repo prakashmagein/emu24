@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <reviewreminder>
+            <general>
+                <enabled>0</enabled>
+                <enabled_for_guests>1</enabled_for_guests>
+                <emails_per_cron>10</emails_per_cron>
+                <default_status>5</default_status>
+            </general>
+            <email>
+                <send_from>general</send_from>
+                <email_subject>Please rate product you bought</email_subject>
+                <email_template>reviewreminder_email_email_template</email_template>
+                <send_after>7</send_after>
+                <allow_specific_order>1</allow_specific_order>
+                <specific_order>complete</specific_order>
+            </email>
+            <initial_indexing>
+                <from_date_type>1</from_date_type>
+                <from_date>2015-01-01</from_date>
+                <store_view>0</store_view>
+            </initial_indexing>
+            <trustedshops>
+                <url>https://www.trustedshops.com/buyerrating/rate</url>
+                <customer_number></customer_number>
+            </trustedshops>
+        </reviewreminder>
+    </default>
+</config>

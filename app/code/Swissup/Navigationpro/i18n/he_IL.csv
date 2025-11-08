@@ -1,0 +1,70 @@
+"Delete Item","מחק פריט"
+"Are you sure you want to do this?","אתה בטוח שאתה רוצה? לעשות את זה"
+"Menu Settings","הגדרות תפריט"
+"You deleted the item.",". מחקת את הפריט"
+"We can't find a item to delete.",". אנחנו לא מוצאים פריט למחיקה"
+"Import completed.","הייבוא הושלם."
+"Something went wrong while importing item.","משהו השתבש בעת ייבוא פריט."
+"This item no longer exists.","פריט זה אינו קיים עוד."
+"Something went wrong while saving item.","משהו השתבש בעת שמירת פריט."
+"You saved item.",". הצלת את הפריט"
+"Something went wrong while saving menu.","משהו השתבש בזמן שמירת התפריט."
+"You deleted the menu.",". מחקת את התפריט"
+"We can't find a menu to delete.",". אנחנו לא מוצאים תפריט למחיקה"
+"A total of %1 record(s) have been deleted.","סך של %1 רשומה (ות) נמחקו."
+"A total of %1 record(s) have been updated.","הסכום הכולל של %1 רשומות עודכנו."
+"New Menu","תפריט חדש"
+"This menu no longer exists.",". התפריט הזה כבר לא קיים"
+"You saved menu.",". שמרת את התפריט"
+"Stick to Left","לדבוק שמאלה"
+"Stick to Right","להיצמד ימינה"
+Standard,רגיל
+Left,שמאל
+Top,עליון
+Fullscreen,"מסך מלא"
+Full-Width,"רוחב מלא"
+Boxed,קופסה
+Small,קטן
+Medium,בינוני
+Large,גדול
+"Extra Large","גדול במיוחד"
+"Item was not registered","הפריט לא נרשם"
+Horizontal,אופקי
+Vertical,אנכי
+Blank,ריק
+Dark,כהה
+"Dark Bar","בר כהה"
+"Dark Dropdown","רשימה נפתחת כהה"
+Flat,שטוח
+Compact,קומפקטי
+"Menu was not registered","התפריט לא נרשם"
+"An item cannot be parent for itself","פריט אינו יכול להיות אב לעצמו"
+"This name is already in use.","שם זה כבר נמצא בשימוש."
+"Top Menu","התפריט העליון"
+Menu,תפריט
+Navigationpro,"ניווט מקצועי"
+"Show Active Branch Only","הצג ענף פעיל בלבד"
+"Show Parent Category","הצג קטגוריית אב"
+"Initially Shown Levels Count","ספירת רמות מוצגות בתחילה"
+Orientation,כיוון
+"Dropdown Positioning","מיקום נפתח"
+"Additional CSS Class","מחלקת CSS נוספת"
+"Wrap into Block Template","גלישה בתבנית בלוק"
+"Block CSS Class","חסום מחלקת CSS"
+"Select item in the tree on the left sidebar, or create a new one","בחר פריט בעץ בסרגל הצידי השמאלי, או צור אחד חדש"
+"Sync Name and URL with Category Data","שם וכתובת URL של סינכרון עם נתוני קטגוריה"
+"CSS Class","מחלקת CSS"
+"Use Menu Settings","השתמש בהגדרות תפריט"
+"New Item","פריט חדש"
+"Import Item","יבא פריט"
+"Columns Direction","עמודות כיוון"
+"Nested Levels per Dropdown","רמות מקוננות לכל רשימה נפתחת"
+"Add New Menu","הוסף תפריט חדש"
+"Are you sure you want to delete selected menu's?","האם אתה בטוח שברצונך למחוק את התפריט שנבחר?"
+"Replace Top Menu at","החלף את התפריט העליון ב"
+"Leave empty if you don't want to replace Top Menu","השאר ריק אם אין ברצונך להחליף את התפריט העליון"
+Direction,כיוון
+"Maximal Depth","עומק מקסימאלי"
+"Dropdown Position","מיקום נפתח"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","אנא שימו לב כי המיקום הנפתח יהיה מותאם בנוסף בתוך אילוץ מסוג ניווט כדי כאשר הפריט הנפתח יעובד ב-הפרונוטים"
+"Dropdown Settings","הגדרות נפתחות"

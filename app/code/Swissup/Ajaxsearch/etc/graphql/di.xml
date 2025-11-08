@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="ajaxsearch_main_enable" xsi:type="string">ajaxsearch/main/enable</item>
+                <item name="ajaxsearch_main_limit" xsi:type="string">ajaxsearch/main/limit</item>
+                <item name="ajaxsearch_product_enable" xsi:type="string">ajaxsearch/product/enable</item>
+                <item name="ajaxsearch_product_limit" xsi:type="string">ajaxsearch/product/limit</item>
+                <item name="ajaxsearch_category_enable" xsi:type="string">ajaxsearch/category/enable</item>
+                <item name="ajaxsearch_category_limit" xsi:type="string">ajaxsearch/category/limit</item>
+                <item name="ajaxsearch_page_enable" xsi:type="string">ajaxsearch/page/enable</item>
+                <item name="ajaxsearch_page_limit" xsi:type="string">ajaxsearch/page/limit</item>
+                <item name="ajaxsearch_autocomplete_enable" xsi:type="string">ajaxsearch/autocomplete/enable</item>
+                <item name="ajaxsearch_autocomplete_limit" xsi:type="string">ajaxsearch/autocomplete/limit</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

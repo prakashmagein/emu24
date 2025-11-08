@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="fblike" translate="label" type="text" sortOrder="604" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Facebook Like Button</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Fblike::config_fblike</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="app" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App ID</label>
+                    <comment><![CDATA[Get <a href="http://www.facebook.com/developers/createapp.php">Facebook API</a> access info.]]></comment>
+                </field>
+            </group>
+            <group id="product" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Page</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="share" translate="label" type="select" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Share button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Specifies whether to include a share button beside the Like button.</comment>
+                </field>
+                <field id="layout" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Layout style</label>
+                    <comment><![CDATA[See the <a href="https://developers.facebook.com/docs/plugins/like-button/#faqlayout">Facebook Dev FAQ</a> for more details.]]></comment>
+                    <source_model>Swissup\Fblike\Model\Config\Source\Layout</source_model>
+                </field>
+                <field id="action" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Action</label>
+                    <source_model>Swissup\Fblike\Model\Config\Source\Action</source_model>
+                    <depends>
+                        <field id="layout" separator=",">standard,button,button_count,box_count</field>
+                    </depends>
+                </field>
+                <field id="colorscheme" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color Scheme</label>
+                    <source_model>Swissup\Fblike\Model\Config\Source\ColorScheme</source_model>
+                    <depends>
+                        <field id="layout" separator=",">standard,button,button_count,box_count</field>
+                    </depends>
+                </field>
+                <field id="show_faces" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Faces</label>
+                    <comment>Specifies whether to display profile photos below the button (standard layout only).</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="layout">standard</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="category" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Page</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="share" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Share button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Specifies whether to include a share button beside the Like button.</comment>
+                </field>
+                <field id="layout" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Layout style</label>
+                    <comment><![CDATA[See the <a href="https://developers.facebook.com/docs/plugins/like-button/#faqlayout">Facebook Dev FAQ</a> for more details.]]></comment>
+                    <source_model>Swissup\Fblike\Model\Config\Source\Layout</source_model>
+                </field>
+                <field id="action" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Action</label>
+                    <source_model>Swissup\Fblike\Model\Config\Source\Action</source_model>
+                    <depends>
+                        <field id="layout" separator=",">standard,button,button_count,box_count</field>
+                    </depends>
+                </field>
+                <field id="colorscheme" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color Scheme</label>
+                    <source_model>Swissup\Fblike\Model\Config\Source\ColorScheme</source_model>
+                    <depends>
+                        <field id="layout" separator=",">standard,button,button_count,box_count</field>
+                    </depends>
+                </field>
+                <field id="show_faces" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Faces</label>
+                    <comment>Specifies whether to display profile photos below the button (standard layout only).</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="layout">standard</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

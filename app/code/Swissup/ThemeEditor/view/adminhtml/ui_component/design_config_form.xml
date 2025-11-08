@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="other_settings">
+        <fieldset name="header">
+            <field name="header_logo_alt_src">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="sortOrder" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">Alternative Logo Image</item>
+                        <item name="formElement" xsi:type="string">fileUploader</item>
+                        <item name="componentType" xsi:type="string">fileUploader</item>
+                        <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                        <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+                        <item name="notice" xsi:type="string" translate="true">This logo is used in some Argento themes</item>
+                        <item name="maxFileSize" xsi:type="number">2097152</item>
+                        <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
+                        <item name="uploaderConfig" xsi:type="array">
+                            <item name="url" xsi:type="string">theme/design_config_fileUploader/save</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </fieldset>
+    <fieldset name="theme">
+        <field name="swissup_theme_editor_code" sortOrder="20" formElement="select">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Applied Theme Editor</label>
+                <notice translate="true"><![CDATA[DEPRECATED: Use view.xml instead. If you want to apply theme editor customizations for a custom theme, you must set correct editor code in view.xml file. See https://docs.swissuplabs.com/m2/argento/customization/custom-theme/#enable-theme-editor-for-custom-theme]]></notice>
+                <dataScope>swissup_theme_editor_code</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Swissup\ThemeEditor\Model\Config\Source\ThemeEditor"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

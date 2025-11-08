@@ -1,0 +1,54 @@
+<style>
+@media (prefers-reduced-motion: no-preference) {
+    <?= $block->getCssSelector() ?> {
+        opacity: .01;
+        visibility: hidden;
+    }
+    <?= $block->getCssSelectorForActiveKeyboard() ?> {
+        visibility: visible;
+    }
+
+    /* Fixed unclickable elements in Safari 18 */
+    @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+        <?= $block->getCssSelector() ?> {
+            visibility: visible;
+        }
+    }
+}
+</style>
+<script>
+require(['jquery', 'underscore'], ($, _) => {
+    var selector = <?= $block->getJsSelector() ?>,
+        containers = [
+            '.scroll-reveal-cascade',
+            '.scroll-reveal-container',
+            '[data-content-type="html"], [data-content-type="row"], .columns, body',
+        ];
+
+    $.async(selector, _.debounce(() => {
+        $(selector).filter(':not(.reveal-ready)').onReveal(items => {
+            var counter = 0, prevContainer;
+
+            items.each((i, el) => {
+                    containers.some(selector => {
+                        var parent = $(el).closest(selector).get(0);
+
+                        if (parent) {
+                            if (parent !== prevContainer) {
+                                prevContainer = parent;
+                                counter = 0;
+                            }
+                            return true;
+                        }
+                    });
+
+                    $(el).var('--animation-order', counter++);
+                })
+                .addClass('scroll-reveal reveal-slide-in reveal-ready')
+                .one('animationend', function () {
+                    $(this).addClass('scroll-reveal-finished');
+                });
+        });
+    }, 40));
+});
+</script>

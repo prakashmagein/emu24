@@ -1,0 +1,32 @@
+<script>
+require([
+    'Magento_Checkout/js/model/quote',
+    'Magento_Checkout/js/model/cart/totals-processor/default',
+    'Magento_Customer/js/customer-data'
+], function (quote, totalsDefaultProvider, customerData) {
+    'use strict';
+
+    if (!quote || !totalsDefaultProvider || !customerData) {
+        return;
+    }
+    var cartData = customerData.get('cart'),
+        quoteSubtotal = parseFloat(quote.totals().subtotal),
+        subtotalAmount = parseFloat(cartData().subtotalAmount),
+
+    /**
+     * Estimate totals for shipping address.
+     */
+    estimateTotalsShipping = function () {
+        totalsDefaultProvider.estimateTotals(quote.shippingAddress());
+    };
+
+    if (quoteSubtotal !== subtotalAmount) {
+        // customerData.reload(['ajaxpro-cart'], false);
+        estimateTotalsShipping()
+    }
+
+    // customerData.get('ajaxpro-cart').subscribe(estimateTotalsShipping);
+    // return estimateTotalsShipping();
+    // return totalsDefaultProvider.estimateTotals(quote.shippingAddress());
+});
+</script>

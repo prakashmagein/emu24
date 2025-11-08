@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\Gdpr\Pagebuilder\SourceModel\CookieBar"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Config">
+        <arguments>
+            <argument name="fields" xsi:type="array">
+                <item name="cookie_bar_display_mode" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Display Mode</item>
+                    <item name="path" xsi:type="string">swissup_gdpr/cookie_consents/cookie_bar_display_mode</item>
+                    <item name="source_model" xsi:type="string">Swissup\Gdpr\Model\Config\Source\CookieBarDisplayMode</item>
+                </item>
+                <item name="cookie_bar_text_full" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="type" xsi:type="string">textarea</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="fileUploaderConfig" xsi:type="array">
+                        <item name="useMediaDirective" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="editorConfig" xsi:type="array">
+                        <item name="widget" xsi:type="array">
+                            <item name="enabled" xsi:type="boolean">false</item>
+                        </item>
+                    </item>
+                    <item name="path" xsi:type="string">swissup_gdpr/cookie_consents/cookie_bar_text_full</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="cookie_bar_display_mode" xsi:type="string">full</item>
+                    </item>
+                </item>
+                <item name="cookie_bar_text_minimalistic" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="type" xsi:type="string">textarea</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="fileUploaderConfig" xsi:type="array">
+                        <item name="useMediaDirective" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="editorConfig" xsi:type="array">
+                        <item name="buttons" xsi:type="array">
+                            <item name="widget" xsi:type="array">
+                                <item name="enabled" xsi:type="boolean">false</item>
+                            </item>
+                        </item>
+                    </item>
+                    <item name="path" xsi:type="string">swissup_gdpr/cookie_consents/cookie_bar_text_minimalistic</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="cookie_bar_display_mode" xsi:type="string">minimalistic</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Swissup\Gdpr\Pagebuilder\SourceModel\CookieSettings"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Config">
+        <arguments>
+            <argument name="fields" xsi:type="array">
+                <item name="cookie_page_text" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="path" xsi:type="string">swissup_gdpr/cookie_consents/cookie_page_text</item>
+                    <item name="type" xsi:type="string">textarea</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="fileUploaderConfig" xsi:type="array">
+                        <item name="useMediaDirective" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="editorConfig" xsi:type="array">
+                        <item name="buttons" xsi:type="array">
+                            <item name="widget" xsi:type="array">
+                                <item name="enabled" xsi:type="boolean">false</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\Pagebuilder\Model\Section\SourceModelProvider\Configurable">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="Swissup\Gdpr\Block\CookieBar" xsi:type="array">
+                    <item name="config" xsi:type="string">Swissup\Gdpr\Pagebuilder\SourceModel\CookieBar</item>
+                </item>
+                <item name="Swissup\Gdpr\Block\CookieSettings" xsi:type="array">
+                    <item name="config" xsi:type="string">Swissup\Gdpr\Pagebuilder\SourceModel\CookieSettings</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

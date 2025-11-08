@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/lof-customerattribute/customerattribute" method="POST">
+        <service class="Ecomteck\CustomerCustomAttributes\Api\CustomerAttributeRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Ecomteck_CustomerCustomAttributes::customer_attributes"/>
+        </resources>
+    </route>
+    <route url="/V1/lof-customerattribute/customerattribute/:attributeId" method="PUT">
+        <service class="Ecomteck\CustomerCustomAttributes\Api\CustomerAttributeRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Ecomteck_CustomerCustomAttributes::customer_attributes"/>
+        </resources>
+    </route>
+    <route url="/V1/lof-customerattribute/customerattribute/:attributeId" method="DELETE">
+        <service class="Ecomteck\CustomerCustomAttributes\Api\CustomerAttributeRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Ecomteck_CustomerCustomAttributes::customer_attributes"/>
+        </resources>
+    </route>
+</routes>

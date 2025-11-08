@@ -1,0 +1,45 @@
+<?php
+    $slider = $block->getSlider();
+    $theme = $slider->getData('theme');
+    $helper = $this->helper(\Swissup\EasySlide\Helper\Image::class);
+    $imageRenderer = $block->getImageRenderer();
+?>
+<div class="swiper-container easyslide-thumbs<?= $block->escapeHtmlAttr($theme ? ' easyslide-thumbs-' . $theme : '') ?>">
+    <div class="swiper-wrapper">
+        <?php $i = 0; foreach ($slider->getSlides() as $slide) :
+            $i++;
+            $isLazy = $i === 1 ? false: $slider->getData('lazy');
+            $isRawHtml = !$slide['image'];
+            if ($isRawHtml) {
+                $imageHtml = '';
+            } else {
+                // resize slider thumbnail
+                $thumbnailUrl = $helper->resize(
+                    $slide['image'],
+                    (int)$slider->getThumbWidth() ?: null,
+                    (int)$slider->getThumbHeight() ?: null
+                );
+                if ($thumbnailUrl) {
+                    $slide['image'] = str_replace($helper->getBaseUrl(), '', $thumbnailUrl);
+                    // render thumbnail image
+                    $imageHtml = $imageRenderer->render($slide, $isLazy);
+                } else {
+                    // resize failed
+                    $isLazy = false;
+                    $imageHtml = '<div>&nbsp;</div>';
+                }
+            }
+        ?>
+        <div class="swiper-slide"
+            <?php if ($slide['active_from_timestamp']): ?>data-active-from="<?= $slide['active_from_timestamp'] ?>"<?php endif ?>
+            <?php if ($slide['active_to_timestamp']): ?>data-active-to="<?= $slide['active_to_timestamp'] ?>"<?php endif ?>
+            title="<?= $block->escapeHtml($slide['title']) ?>"
+        >
+            <?php if ($isLazy && !$isRawHtml): ?>
+            <div class="swiper-lazy-preloader"></div>
+            <?php endif; ?>
+            <?= /* @noEscape */ $imageHtml ?>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>

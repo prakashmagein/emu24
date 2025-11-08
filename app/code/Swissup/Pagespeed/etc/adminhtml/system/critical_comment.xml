@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <comment><![CDATA[
+<strong style="color:red">Warning!</strong>If the option causes some problems on your site, just turn it off
+<script>
+require([
+    'ko',
+    'jquery'
+], function (ko, $) {
+    $('#pagespeed_css_critical_enable').change(function () {
+        var editor = ko.dataFor($('#pagespeed_css_critical_default').get(0)).editor;
+
+        setTimeout(editor.refresh.bind(editor), 100);
+    });
+});
+</script>
+        ]]></comment>
+</include>

@@ -1,0 +1,43 @@
+<?php
+    $_banners = $block->getBanners();
+    $_conditions = [];
+    if (!count($_banners)) {
+        return;
+    }
+?>
+
+<div class="easybanner-popup-banner" style="display:none;">
+    <?php foreach ($_banners as $_banner): ?>
+        <?php
+            $bannerBlock = $this->getLayout()->createBlock('Swissup\Easybanner\Block\Banner');
+            $bannerBlock->setBannerObject($_banner);
+
+            $html = $bannerBlock->toHtml();
+            if (empty($html)) {
+                continue;
+            }
+
+            $jsConditions = $_banner->getJsConditions();
+            if (!is_array($jsConditions)) {
+                continue;
+            }
+        ?>
+
+        <?php echo $html ?>
+
+        <?php $_conditions[$_banner->getHtmlId()] = $jsConditions; ?>
+    <?php endforeach ?>
+</div>
+
+<?php if ($_conditions) : ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "easybanner": {
+                "cookieName": "<?php echo $this->getCookieName() ?>",
+                "conditions": <?php echo $this->getJsonConditions($_conditions) ?>
+            }
+        }
+    }
+</script>
+<?php endif ?>

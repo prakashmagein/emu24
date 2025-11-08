@@ -1,0 +1,100 @@
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @ajaxsearch__breakpoint-desktop) {
+    & when (@critical = unsure), (@critical) {
+        .swissup-ajaxsearch-folded-loading .header .block.block-search,
+        .block-search.block-swissup-ajaxsearch.folded {
+            width: @ajaxsearch-icon__width;
+            height: @ajaxsearch-icon__height;
+            opacity: 0;
+            padding: 0;
+           .field.search {
+                position: absolute;
+                width: 0;
+                height: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            .action.search {
+                width: @ajaxsearch-icon__width;
+                height: @ajaxsearch-icon__height;
+                .right(0);
+                .lib-css(color, @ajaxsearch-folded-icon-search__color);
+                .lib-css(margin, @ajaxsearch-folded-icon-search__margin);
+                &:before {
+                    font-size: 19px; // fix for Luma (too small search icon)
+                    .lib-css(color, @ajaxsearch-folded-icon-search__color);
+                }
+            }
+        }
+
+        .block-search.block-swissup-ajaxsearch.folded {
+            opacity: 1;
+            .field.search {
+                z-index: @ajaxsearch-mask__z-index + 1;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    & when (@critical = unsure), (@critical = false) {
+        .block-search.block-swissup-ajaxsearch.folded {
+            .input-inner-wrapper .close {
+                display: none; /* used for fullscreen mode only */
+                width: @ajaxsearch-folded-icon-close__width;
+                height: @ajaxsearch-folded-icon-close__height;
+            }
+            .actions {
+                z-index: @ajaxsearch-mask__z-index + 2;
+            }
+            .actions .action.close {
+                position: absolute;
+                z-index: @ajaxsearch-mask__z-index + 2;
+                .lib-css(top, @ajaxsearch-folded-icon-close__top);
+                .right(@ajaxsearch-folded-icon-close__right);
+            }
+            .action.search {
+                .loading-mask {
+                    display: none;
+                }
+            }
+            &.shown {
+                .field.search {
+                    opacity: 1;
+                    width: auto;
+                    height: auto;
+                    visibility: visible;
+                    overflow: visible;
+                    min-width: @ajaxsearch-folded__min-width;
+                    padding: @ajaxsearch-folded__padding-y @ajaxsearch-folded__padding-x;
+                    top: @ajaxsearch-folded__offset-y + -@ajaxsearch-folded__padding-y;
+                    transition: @ajaxsearch-folded__transition;
+                }
+                .action.search {
+                    .lib-visually-hidden();
+                    .right(2px);
+                }
+                .actions .action.close {
+                    width: @ajaxsearch-folded-icon-close__width;
+                    height: @ajaxsearch-folded-icon-close__height;
+                    transition: @ajaxsearch-folded__transition;
+                    opacity: 1;
+                    overflow: visible;
+                }
+            }
+        }
+        .ajaxsearch-mask {
+            opacity: 0;
+            position: fixed;
+            background: @ajaxsearch-mask__background;
+            z-index: @ajaxsearch-mask__z-index;
+            &.shown {
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                opacity: 1;
+                transition: @ajaxsearch-folded__transition;
+            }
+        }
+    }
+}

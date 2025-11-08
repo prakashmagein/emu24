@@ -1,0 +1,15 @@
+<div class="easybanner__control-content-wrapper">
+    <!-- ko if: ($row().mode === 'html' && $row().banner_content_src) -->
+        <span title="HTML Content">&lt;html&gt;</span>
+    <!-- /ko -->
+
+    <div class="easybanner__control-content">
+        <!-- ko if: ($row().mode === 'html' && !$row().banner_content_src) -->
+            <span title="HTML Content">&lt;html&gt;</span>
+        <!-- /ko -->
+
+        <!-- ko if: ($row().banner_content_src) -->
+            <img class="admin__control-thumbnail" attr="src: $col.getSrc($row()), alt: $col.getAlt($row()), title: $col.getSrc($row())"/>
+        <!-- /ko -->
+    </div>
+</div>

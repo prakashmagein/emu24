@@ -1,0 +1,17 @@
+.pages {
+    text-align: center;
+    .item .label,
+    .pages-label {
+        display: none;
+    }
+    li {
+        display: inline-block;
+        margin: 0 .2em;
+    }
+    a,
+    .current {
+        display: inline-block;
+        user-select: none;
+        padding: .4em .7em;
+    }
+}

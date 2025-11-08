@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Swissup_Core::swissup">
+                    <resource id="Swissup_Askit::master" title="Askit" sortOrder="171">
+                        <resource id="Swissup_Askit::question" title="Askit Questions/Answers" sortOrder="40">
+                            <resource id="Swissup_Askit::message_save" title="Save Message" sortOrder="10" />
+                            <resource id="Swissup_Askit::message_delete" title="Delete Message" sortOrder="20" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Swissup_Core::swissup_config">
+                                <resource id="Swissup_Askit::config_askit" title="Askit" sortOrder="171"/>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,170 @@
+@listing-reveal-on-hover-selector: ~":where(.products-grid:not(.recent), .widget-product-carousel) .product-item";
+
+& when not (@listing-grid-item__reveal-on-hover = false) {
+    & when (@critical) {
+        @media @media-hover {
+            .widget-product-carousel,
+            .products-grid .product-items {
+                align-items: flex-start; // fix for jumping content in safari
+            }
+        }
+    }
+    @{listing-reveal-on-hover-selector} {
+        .listing-reveal-on-hover();
+    }
+}
+
+:where(.products-grid, .widget-product-carousel) .product-item {
+    // absolutely positioned primary and secondary actions
+    & when (@listing-grid-item-actions__position = absolute) {
+        .listing-grid-item-actions-absolute();
+
+        & when (@critical) {
+            @media @media-hover-none {
+                .product-item-details {
+                    .product-item-actions {
+                        opacity: 1;
+                        pointer-events: all;
+                        .lib-css(transform, @listing-grid-item-actions__absolute__visible__transform);
+                    }
+                }
+            }
+        }
+
+        & when not (@critical) {
+            @media @media-hover {
+                &:hover,
+                &:has(:focus-visible) {
+                    .product-item-details {
+                        .product-item-actions {
+                            opacity: 1;
+                            pointer-events: all;
+                            .lib-css(transform, @listing-grid-item-actions__absolute__visible__transform);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // absolutely positioned primary button
+    & when (@listing-grid-item-actions-primary__position = absolute) {
+    & when not (@listing-grid-item-actions__position = absolute) {
+        & when (@listing-grid-item-actions-primary__hover-none__position = false) {
+            .listing-grid-item-actions-primary-absolute();
+        }
+
+        & when (@listing-grid-item-actions-primary__hover-none__position = static) {
+            @media @media-hover {
+                .listing-grid-item-actions-primary-absolute();
+            }
+        }
+    }
+    }
+}
+
+& when (@critical) {
+    :where(.products-grid, .widget-product-carousel) .product-item {
+        // absolutely positioned primary button
+        & when (@listing-grid-item-actions-primary__position = absolute) {
+        & when not (@listing-grid-item-actions__position = absolute) {
+            @media @media-hover {
+                &:hover,
+                &:has(:focus-visible) {
+                    .product-item-details {
+                        .actions-primary {
+                            opacity: 1;
+                            pointer-events: all;
+                            .lib-css(transform, @listing-grid-item-actions-primary__absolute__visible__transform);
+                        }
+                    }
+                }
+            }
+        }
+        }
+
+        // absolutely positioned secondary buttons
+        & when (@listing-grid-item-actions-secondary__position = absolute) {
+        & when not (@listing-grid-item-actions__position = absolute) {
+            .actions-secondary {
+                @media @media-hover {
+                    .lib-css(opacity, @listing-grid-item-actions-secondary__absolute__opacity);
+                    .lib-css(transform, @listing-grid-item-actions-secondary__absolute__transform);
+                }
+                @media @media-hover-none {
+                    .lib-css(transform, @listing-grid-item-actions-secondary__absolute__visible__transform);
+                }
+
+                position: absolute;
+                .lib-css(z-index, @listing-grid-item-actions-secondary__absolute__z-index);
+                .lib-css(flex-direction, @listing-grid-item-actions-secondary__absolute__flex-direction);
+                & when not (@listing-grid-item-actions-secondary__absolute__top = false) {
+                    .lib-css(top, ~"calc(@{listing-grid-item-actions-secondary__absolute__top} + var(--listing-grid-item-padding, 0px))");
+                }
+                & when not (@listing-grid-item-actions-secondary__absolute__bottom = false) {
+                    .lib-css(bottom, ~"calc(@{listing-grid-item-actions-secondary__absolute__bottom} + var(--listing-grid-item-padding, 0px))");
+                }
+                & when not (@listing-grid-item-actions-secondary__absolute__right = false) {
+                    .right(~"calc(@{listing-grid-item-actions-secondary__absolute__right} + var(--listing-grid-item-padding, 0px))");
+                }
+                & when not (@listing-grid-item-actions-secondary__absolute__left = false) {
+                    .left(~"calc(@{listing-grid-item-actions-secondary__absolute__left} + var(--listing-grid-item-padding, 0px))");
+                }
+                &:extend(.transition all);
+            }
+            &:hover,
+            &:has(:focus-visible) {
+                .actions-secondary {
+                    opacity: 1;
+                    .lib-css(transform, @listing-grid-item-actions-secondary__absolute__visible__transform);
+                }
+            }
+        }
+        }
+
+        & when (@listing-grid-item-swatches__position = absolute) {
+            .product-item-photo {
+                overflow: hidden;
+            }
+            [class^="swatch-opt-"] {
+                position: absolute;
+                pointer-events: none;
+                .lib-css(z-index, @listing-grid-item-swatches__absolute__z-index);
+                .lib-css(top, @listing-grid-item-swatches__absolute__top);
+                .lib-css(bottom, @listing-grid-item-swatches__absolute__bottom);
+                .lib-css(left, @listing-grid-item-swatches__absolute__left);
+                .lib-css(right, @listing-grid-item-swatches__absolute__right);
+                .lib-css(padding, @listing-grid-item-swatches__absolute__padding);
+                .lib-css(border, @listing-grid-item-swatches__absolute__border);
+                .lib-css(border-radius, @listing-grid-item-swatches__absolute__border-radius);
+                .lib-css(background, @listing-grid-item-swatches__absolute__background);
+                .lib-css(--z-layer-bg-alpha, @listing-grid-item-swatches__absolute__background-opacity);
+                .lib-css(box-shadow, @listing-grid-item-swatches__absolute__box-shadow);
+                margin: 0 !important;
+                transform: translateY(50%);
+                opacity: 0;
+                &:extend(.transition all);
+            }
+            @media @media-hover {
+                &:hover,
+                &:has(:focus-visible) {
+                    [class^="swatch-opt-"] {
+                        pointer-events: all;
+                        opacity: 1;
+                        transform: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when not (@critical) {
+    & when (@listing-grid-item-actions-secondary__position = absolute) {
+        :where(.products-grid, .widget-product-carousel) .product-item {
+            .actions-secondary a::before {
+                .lib-css(-webkit-mask-size, @listing-grid-item-actions-secondary__absolute__mask-size);
+            }
+        }
+    }
+}

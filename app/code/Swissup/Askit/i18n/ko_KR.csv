@@ -1,0 +1,100 @@
+"Edit '%1'",'%1'편집
+"Answer Information","답변 정보"
+Hint,힌트
+Questions,질문
+"Edit Question '%1'","질문 '%1'편집"
+"No Found","찾을 수 없음"
+"Created date",작성일
+"Update date","업데이트 날짜"
+"Are you sure?",확실해?
+Unknown,"알 수 없는"
+Private,은밀한
+"Add New Answer","새로운 답변 추가"
+"Questions %1","질문 %1"
+"Please select item(s).","항목을 선택하십시오."
+"The answer has been deleted.","답변이 삭제되었습니다."
+"We can't find a answer to delete.","삭제할 답변을 찾을 수 없습니다."
+Askit,Askit
+Answers,답변
+"This item no longer exists.","이 항목은 더 이상 존재하지 않습니다."
+"Askit Items","Askit 아이템"
+"Askit Recent Answers","Askit 최근 답변"
+"Manage Recent Askit Answers","최근 Askit 답변 관리"
+"You saved.","당신은 저장했습니다."
+"Something went wrong while saving the question.","질문을 저장하는 중에 문제가 발생했습니다."
+"A total of %1 record(s) have been deleted.","총 %1 개의 레코드가 삭제되었습니다."
+"A total of %1 record(s) have been changed.","총 %1 개의 레코드가 변경되었습니다."
+"The question has been deleted.","질문이 삭제되었습니다."
+"We can't find a question to delete.","삭제할 질문을 찾을 수 없습니다."
+"New Askit Question","새로운 Askit Question"
+"Askit Questions","Askit 질문"
+"Manage Askit Questions","Askit Questions 관리"
+"You question saved.","질문이 저장되었습니다."
+"You answer was added.","답변이 추가되었습니다."
+"We can't process your request right now. Sorry, that's all we know.","현재 귀하의 요청을 처리 할 수 없습니다. 죄송합니다, 우리가 아는 전부입니다."
+"My Questions","내 질문"
+"Your must login",로그인해야합니다
+"Sorry, only logged in customer can hint.","로그인 한 고객 만 힌트를 줄 수 있습니다."
+"Sorry, already voted","죄송합니다, 이미 투표"
+Pending,"대기 중"
+Approved,승인
+Disapproved,"비 승인"
+"Askit Question","Askit Question"
+"Askit Answer","Askit Answer"
+"Edit Question","질문 편집"
+"New Answer","새로운 답변"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","등록 된 사용자 만 의견을 작성할 수 있습니다. <a href=""%1""> 로그인 </a> 또는 <a href=""%2""> 계정 만들기 </a>"
+"Your Answer","너의 답"
+"Leave a Reply","답장을 남겨주세요"
+"%1 people found this answer helpful.","%1 명이이 답변이 도움이되었다고 생각했습니다."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","등록 된 사용자 만 질문을 작성할 수 있습니다. <a href=""%1""> 로그인 </a> 또는 <a href=""%2""> 계정 만들기 </a>"
+"Ask Your Question",질문하세요
+"Jot us a note and we’ll get back to you as quickly as possible.","메모를 작성해 주시면 최대한 빨리 연락 드리겠습니다."
+Question,질문
+"Post a private question","비공개 질문 게시"
+Submit,제출
+"You have submitted no questions.","질문이 없습니다."
+"answer' 'answers","답변 ''답변"
+"%1 people already voted for this question.","%1 명이이 질문에 이미 투표했습니다."
+"Vote for It","그것에 투표"
+"New products question was just posted or updated. Please see details below","신제품 질문이 방금 게시 또는 업데이트되었습니다. 자세한 내용은 아래를 참조하십시오"
+E-mail,이메일
+"You can follow the question at Swissup -> Askit Questions","당신은 Swissup-> Askit Questions에서 질문을 따를 수 있습니다"
+Dear,소중한
+"New answer was just posted to your question regarding","새로운 답변이 귀하의 질문에 게시되었습니다"
+"Your question:","당신의 질문 :"
+Answer:,대답:
+"Thank you again","다시 감사합니다"
+"Default question status","기본 질문 상태"
+"Default answer status","기본 답변 상태"
+"Allow guest to ask questions","손님이 질문하도록 허용"
+"Allow customers comment","고객 의견 허용"
+"Allow guest comment","손님 의견 허용"
+"Allow customer vote","고객 투표 허용"
+"Show customer name on frontend","프론트 엔드에 고객 이름 표시"
+"Show link to related item (Product, Category or Page)","관련 항목에 대한 링크 표시 (제품, 카테고리 또는 페이지)"
+"Enable Gravatar integration","Gravatar 통합 활성화"
+"Add questions block to all category pages","모든 카테고리 페이지에 질문 차단 추가"
+"Add questions block to all CMS pages","모든 CMS 페이지에 질문 차단 추가"
+"Enable 'no questions' message","'질문 없음'메시지 사용"
+Sender,송신기
+"Customer Notification Template","고객 알림 템플릿"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","""기본""옵션을 선택한 경우 테마 대체를 기반으로 선택한 이메일 템플릿."
+"Send admin notification to","관리자에게 알림 보내기"
+"Admin Notification Template","관리자 알림 템플릿"
+"Askit: Questions + New Question Form","Askit : 질문 + 새로운 질문 양식"
+"Hide listing block","리스팅 블록 숨기기"
+"Hide form block","폼 블록 숨기기"
+"Assigned Products","할당 된 제품"
+"Assigned Pages","할당 된 페이지"
+"Assigned Categories","할당 된 카테고리"
+"Delete items","항목 삭제"
+"Answer,대답
+"Entity Type","엔터티 유형"
+Entity,실재
+Votes,투표
+"Your question was answered on","귀하의 질문에 대한 답변"
+"It is helpful",도움이됩니다
+"Not much help","별로 도움이되지 않습니다"
+asks,묻습니다
+about,약

@@ -1,0 +1,97 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    :root {
+        --ajaxpro-quick-view-position: @ajaxpro-quick-view__position;
+    }
+
+    .quick-view {
+        display: flex;
+        align-items: center;
+
+        /* Hidden until theme requires Quick View text*/
+        span {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        &::before {
+            content: '';
+            aspect-ratio: 1;
+            display: inline-block;
+        }
+    }
+
+    .product-item-info > .quick-view {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    .quick-view::before {
+        background-color: currentColor;
+        -webkit-mask: url('data:image/svg+xml,@{ajaxpro-quick-view__mask}') no-repeat 50% 50%;
+        -webkit-mask-size: @ajaxpro-quick-view__mask-size !important;
+    }
+
+    .products.list .product-item {
+        position: relative;
+    }
+
+    .product-item-info {
+        > .quick-view {
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            padding: 8px 9px;
+            gap: 7px;
+            background-color: hsla(0, 0%, 95%, .7);
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: #000;
+            transition: background-color .2s ease-in-out;
+
+            .products.products-list & {
+                display: none;
+            }
+
+            &._block-content-loading {
+                &,
+                &:hover {
+                    &::before {
+                        background-image: none;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: hsla(0, 0%, 10%, .9);
+                color: #fff;
+            }
+
+            &::before {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (min-width: 640px) and (hover: hover) {
+            &:has(:focus-visible),
+            &:hover {
+                > .quick-view {
+                    opacity: 1;
+                    pointer-events: all;
+                    transition: opacity .15s ease-in-out;
+                }
+            }
+        }
+    }
+}
+}

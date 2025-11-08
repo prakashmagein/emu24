@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Marketplace\Installer\Command\Config">
+        <data>
+            <item name="swissup_amp/general/enabled">1</item>
+        </data>
+    </command>
+</config>

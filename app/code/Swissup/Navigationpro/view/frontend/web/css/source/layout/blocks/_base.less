@@ -1,0 +1,24 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    .navpro {
+        .block {
+            &:first-child {
+                margin-top: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .subtitle {
+                display: none;
+            }
+
+            .product-items {
+                .product-item {
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+}

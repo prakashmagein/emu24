@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="swissup_easytabs" class="Swissup\Easytabs\Block\WidgetTabs" is_email_compatible="false"
+        placeholder_image="Swissup_Easytabs::images/widget.gif" ttl="86400">
+        <label translate="true">Easytabs</label>
+        <description><![CDATA[List of tabs from "Swissup" &rarr; "Easytabs" with option 'Hidden on Product'.]]></description>
+        <parameters>
+            <parameter name="filter_tabs" xsi:type="block" visible="true">
+                <label translate="true">Tabs to show</label>
+                <block class="Swissup\Easytabs\Block\Form\Element\Renderer\UiSelect">
+                    <data>
+                        <item name="component_config" xsi:type="array">
+                            <item name="component" xsi:type="string">Swissup_Easytabs/js/form/element/ui-select</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="formElement" xsi:type="string">select</item>
+                            <item name="template" xsi:type="string">Swissup_Easytabs/form/element/ui-select</item>
+                        </item>
+                        <item name="scope_name" xsi:type="string">swissup_easytabs_uiselect</item>
+                        <item name="source_model" xsi:type="object">Swissup\Easytabs\Model\Config\Source\WidgetTabs</item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="tabs_layout" xsi:type="select" source_model="Swissup\Easytabs\Model\Config\Source\Layout" visible="true">
+                <label translate="true">Layout</label>
+                <description></description>
+            </parameter>
+            <parameter name="active_tabs" xsi:type="text" visible="true">
+                <label translate="true">Open initially</label>
+                <description>For accordion layout only! Tab's index opened by default. Index starts with "0". All closed when value is "-1". </description>
+            </parameter>
+            <parameter name="template" xsi:type="text" visible="false">
+                <label translate="true">Template</label>
+                <value>Swissup_Easytabs::tabs.phtml</value>
+            </parameter>
+            <parameter name="scripts" xsi:type="block" visible="false">
+                <label translate="true">Scripts</label>
+                <block class="Swissup\Easytabs\Block\Adminhtml\Widget\Template">
+                    <data>
+                        <item name="template" xsi:type="string">widget/toogle-accordion-options.phtml</item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

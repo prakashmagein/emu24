@@ -1,0 +1,48 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        &-theme {
+            &-flat {
+                border: 1px solid #e0e0e0;
+                border-radius: 2px;
+                background: #fafafa;
+
+                &.navpro {
+                    .children > li > a,
+                    .level0 > .level-top {
+                        color: #666;
+                    }
+                    .level0 {
+                        &,
+                        &.active,
+                        &.has-active {
+                            > .level-top {
+                                border-top: 1px solid #e0e0e0;
+                            }
+                        }
+                        &:first-child {
+                            > .level-top {
+                                border: none;
+                            }
+                        }
+                    }
+
+                    &.orientation-horizontal {
+                        .level0 {
+                            border: 1px solid #e0e0e0;
+                            border-width: 0 0 0 1px;
+                            margin: 0 0 0 -1px;
+                            &:first-child {
+                                border-width: 0;
+                            }
+                            > .level-top {
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

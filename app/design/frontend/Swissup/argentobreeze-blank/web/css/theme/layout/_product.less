@@ -1,0 +1,37 @@
+& when (@critical) {
+    @media @media-md {
+        .argento-float-photo {
+            .float(right);
+            .margin-left(@4);
+            max-width: 45%;
+            filter: contrast(90%);
+            &:has(.product-video) {
+                width: 45%;
+            }
+        }
+    }
+
+    .no-reviews {
+        margin-bottom: @6;
+    }
+
+    // Attribute help popup. (Sizing chart in ArgentoForce, Chic)
+    .swatch-attribute-label {
+        display: inline-flex;
+        gap: @2;
+        .option-help {
+            width: @6;
+            height: @6;
+            border-radius: 9999px;
+            text-align: center;
+            color: @muted__color;
+            background: @muted__background;
+        }
+        .option-help-text {
+            color: @muted__color;
+            font-size: @font-size__sm;
+            font-weight: normal;
+            text-transform: none;
+        }
+    }
+}

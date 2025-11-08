@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="attributepages_attribute_list" class="Swissup\Attributepages\Block\Widget\Attribute\PagesList" is_email_compatible="false"
+        placeholder_image="Magento_Widget::placeholder.gif" ttl="86400">
+        <label translate="true">Attributepages: List of attribute based pages</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Columns Count</label>
+                <description>1 — 8 columns are supported</description>
+                <value>1</value>
+            </parameter>
+            <parameter name="excluded_pages" xsi:type="text" required="false" visible="true">
+                <label translate="true">Pages to exclude</label>
+                <description>Comma separated page identifiers. Leave empty to disable filter</description>
+            </parameter>
+            <parameter name="included_pages" xsi:type="text" required="false" visible="true">
+                <label translate="true">Pages to include</label>
+                <description>Comma separated page identifiers. Leave empty to disable filter</description>
+            </parameter>
+            <parameter name="remove_block_wrapper" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Remove Block Wrapper and Title</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="attributepages_option_list" class="Swissup\Attributepages\Block\Widget\Option\OptionList" is_email_compatible="false"
+        placeholder_image="Magento_Widget::placeholder.gif" ttl="86400">
+        <label translate="true">Attributepages: Option List</label>
+        <description></description>
+        <parameters>
+            <parameter name="identifier" xsi:type="select" required="true" visible="true" source_model="Swissup\Attributepages\Model\Config\Source\UrlKeys">
+                <label translate="true">Attribute Page</label>
+            </parameter>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="listing_mode" xsi:type="select" required="false" visible="true">
+                <label translate="true">Mode</label>
+                <options>
+                    <option name="image" value="image" selected="true">
+                        <label translate="true">Image</label>
+                    </option>
+                    <option name="link" value="link">
+                        <label translate="true">Link</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="image_width" xsi:type="text" required="false" visible="true">
+                <label translate="true">Image Width</label>
+                <depends>
+                    <parameter name="listing_mode" value="image" />
+                </depends>
+                <value>200</value>
+            </parameter>
+            <parameter name="image_height" xsi:type="text" required="false" visible="true">
+                <label translate="true">Image Height</label>
+                <depends>
+                    <parameter name="listing_mode" value="image" />
+                </depends>
+                <value>150</value>
+            </parameter>
+            <parameter name="is_slider" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show as Slider</label>
+            </parameter>
+            <parameter name="slider_id" xsi:type="text" required="false" visible="true">
+                <label translate="true">Unique Slider Id</label>
+                <depends>
+                    <parameter name="is_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="slides_to_show" xsi:type="text" required="false" visible="true">
+                <label translate="true">Number of visible slides</label>
+                <depends>
+                    <parameter name="is_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="slides_to_scroll" xsi:type="text" required="false" visible="true">
+                <label translate="true">Number of slides to scroll</label>
+                <depends>
+                    <parameter name="is_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="autoplay" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Automatically play slider</label>
+                <depends>
+                    <parameter name="is_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="false" visible="true">
+                <label translate="true">Columns Count</label>
+                <description>1 — 8 columns are supported</description>
+                <depends>
+                    <parameter name="is_slider" value="0" />
+                </depends>
+                <value>4</value>
+            </parameter>
+            <parameter name="limit" xsi:type="text" required="false" visible="true">
+                <label translate="true">Items limit</label>
+                <description>Number of items to show</description>
+                <value>10</value>
+            </parameter>
+            <parameter name="options_to_show" xsi:type="text" required="false" visible="true">
+                <label translate="true">Options to show</label>
+                <description>Comma separated URL keys. Example: yellow,apple</description>
+            </parameter>
+            <parameter name="options_to_hide" xsi:type="text" required="false" visible="true">
+                <label translate="true">Options to hide</label>
+                <description>Comma separated URL keys. Example: yellow,apple</description>
+            </parameter>
+            <parameter name="group_by_first_letter" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Group Options by First Letter</label>
+                <depends>
+                    <parameter name="is_slider" value="0" />
+                </depends>
+            </parameter>
+            <parameter name="remove_block_wrapper" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Remove Block Wrapper and Title</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="attributepages_product_option" class="Swissup\Attributepages\Block\Product\Option" is_email_compatible="false"
+        placeholder_image="Magento_Widget::placeholder.gif" ttl="86400">
+        <label translate="true">Attributepages: Product Option</label>
+        <description></description>
+        <parameters>
+            <parameter name="attribute_code" xsi:type="text" required="true" visible="true">
+                <label translate="true">Attribute Code</label>
+                <description>Multiple comma-separated codes are supported</description>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" required="false" visible="true">
+                <label translate="true">Additional css classes</label>
+                <description>Built-in helper classes: hidden-label, a-center, list-block, clear</description>
+                <value>hidden-label</value>
+            </parameter>
+            <parameter name="use_link" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Render as link</label>
+            </parameter>
+            <parameter name="use_short_description" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Short Description</label>
+            </parameter>
+            <parameter name="use_image" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Image</label>
+            </parameter>
+            <parameter name="image_type" xsi:type="select" visible="true">
+                <label translate="true">Image type</label>
+                <depends>
+                    <parameter name="use_image" value="1" />
+                </depends>
+                <options>
+                    <option name="image" value="image">
+                        <label translate="true">Image</label>
+                    </option>
+                    <option name="thumbnail" value="thumbnail" selected="true">
+                        <label translate="true">Thumbnail</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="width" xsi:type="text" required="false" visible="true">
+                <label translate="true">Image Width</label>
+                <depends>
+                    <parameter name="use_image" value="1" />
+                </depends>
+                <value>30</value>
+            </parameter>
+            <parameter name="height" xsi:type="text" required="false" visible="true">
+                <label translate="true">Image Height</label>
+                <depends>
+                    <parameter name="use_image" value="1" />
+                </depends>
+                <value>15</value>
+            </parameter>
+            <parameter name="parent_page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Label for 'View All' link</label>
+            </parameter>
+            <parameter name="block_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Template</label>
+                <value>Swissup_Attributepages::product/options.phtml</value>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

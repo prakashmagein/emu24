@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_Navigationpro::menu_index"
+            title="NavigationPro"
+            module="Swissup_Navigationpro"
+            sortOrder="1410"
+            parent="Swissup_Core::general"
+            action="navigationpro/menu/index"
+            resource="Swissup_Navigationpro::menu_index"/>
+    </menu>
+</config>

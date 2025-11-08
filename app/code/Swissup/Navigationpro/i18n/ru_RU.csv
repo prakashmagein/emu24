@@ -1,0 +1,70 @@
+"Delete Item","Удалить элемент"
+"Are you sure you want to do this?","Ты уверен, что хочешь это сделать?"
+"Menu Settings","Настройки меню"
+"You deleted the item.","Вы удалили элемент."
+"We can't find a item to delete.","Мы не можем найти элемент для удаления."
+"Import completed.","Импорт завершен."
+"Something went wrong while importing item.","Что-то пошло не так при импорте товара."
+"This item no longer exists.","Этот элемент больше не существует."
+"Something went wrong while saving item.","Что-то пошло не так при сохранении элемента."
+"You saved item.","Вы сохранили элемент."
+"Something went wrong while saving menu.","Что-то пошло не так при сохранении меню."
+"You deleted the menu.","Вы удалили меню."
+"We can't find a menu to delete.","Мы не можем найти меню для удаления."
+"A total of %1 record(s) have been deleted.","В общей сложности %1 запись (ы) были удалены."
+"A total of %1 record(s) have been updated.","В общей сложности %1 запись (ы) были обновлены."
+"New Menu","Новое меню"
+"This menu no longer exists.","Это меню больше не существует."
+"You saved menu.","Вы сохранили меню."
+"Stick to Left","Придерживаться левого края"
+"Stick to Right","Придерживаться правого края"
+Standard,Стандартный
+Left,Лево
+Top,Верх
+Fullscreen,Полноэкранный
+Full-Width,"Полная ширина"
+Boxed,"По ширине контейнера"
+Small,Маленькая
+Medium,Средняя
+Large,Большая
+"Extra Large","Очень большая"
+"Item was not registered","Пункт не был зарегистрирован"
+Horizontal,Горизонтальный
+Vertical,Вертикальный
+Blank,Пустая
+Dark,Темная
+"Dark Bar","Темная панель"
+"Dark Dropdown","Темное выпадающее меню"
+Flat,Плоская
+Compact,Компактная
+"Menu was not registered","Меню не было зарегистрировано"
+"An item cannot be parent for itself","Элемент не может быть родительским для себя"
+"This name is already in use.","Это имя уже используется."
+"Top Menu","Верхнее меню"
+Menu,Меню
+Navigationpro,Навигация
+"Show Active Branch Only","Показать только активную ветвь"
+"Show Parent Category","Показать родительскую категорию"
+"Initially Shown Levels Count","Первоначально показанные уровни"
+Orientation,Ориентация
+"Dropdown Positioning","Позиционирование выпадающего меню"
+"Additional CSS Class","Дополнительный класс CSS"
+"Wrap into Block Template","Обернуть в шаблон блока"
+"Block CSS Class","CSS класс блока"
+"Select item in the tree on the left sidebar, or create a new one","Выберите элемент в дереве на левой боковой панели или создайте новый"
+"Sync Name and URL with Category Data","Синхронизировать Имя и URL с данными категории"
+"CSS Class","Класс CSS"
+"Use Menu Settings","Использовать настройки меню"
+"New Item","Новый пункт"
+"Import Item","Импорт"
+"Columns Direction","Направление колонок"
+"Nested Levels per Dropdown","Количество вложенные уровней в выпадающем меню"
+"Add New Menu","Добавить новое меню"
+"Are you sure you want to delete selected menu's?","Вы уверены, что хотите удалить выбранное меню?"
+"Replace Top Menu at","Заменить верхнее меню на"
+"Leave empty if you don't want to replace Top Menu","Оставьте пустым, если вы не хотите заменить верхнее меню"
+Direction,Направление
+"Maximal Depth","Максимальная глубина"
+"Dropdown Position","Позиция выпадающего меню"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Пожалуйста, обратите внимание, что позиция будет дополнительно скорректирована внутри контейнера"
+"Dropdown Settings","Настройки выпадающего меню"

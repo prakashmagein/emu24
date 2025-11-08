@@ -1,0 +1,79 @@
+Handles,Обработчики
+"Save Banner","Сохранить баннер"
+"Delete Banner","Удалить баннер"
+"Edit Banner - '%1'","Изменить баннер - ""%1"""
+"New Banner","Новый Баннер"
+"Css Class","Класс Css"
+"Image Options","Параметры изображения"
+"Use image resizer","Использовать изменение размера изображения"
+"Retina support","Поддержка Ретина"
+"Actual image size should be twice larger then entered width and height","Фактический размер изображения должен быть в два раза больше, чем введенные ширина и высота"
+"Background Color","Фоновый цвет"
+"Html Content","Содержание HTML"
+Banner,Баннер
+Lightbox,Lightbox
+Awesomebar,Awesomebar
+"Hide Url","Скрыть URL"
+Target,Цель
+Popup,"Неожиданно возникнуть"
+Blank,Пустой
+Self,Само
+"Sort Order","Порядок сортировки"
+"Store View","Просмотр магазина"
+Placeholder,Заполнитель
+Statistics,Статистика
+"New Placeholder","Новый заполнитель"
+"Banners Display Count","Количество баннеров"
+"Sort mode","Режим сортировки"
+"By Banners Sort Order","По порядку сортировки по баннерам"
+Random,Случайный
+"Banner was deleted.","Баннер был удален."
+"Banner was disabled.","Баннер был отключен."
+EasyBanner,EasyBanner
+Banners,Баннеры
+"This banner no longer exists.","Этот баннер больше не существует."
+"Edit Banner","Редактировать баннер"
+"Banner was enabled.","Баннер был включен."
+"Manage Banners","Управление баннерами"
+"Banner has been saved.","Баннер был сохранен."
+"Something went wrong while saving the banner.","Что-то пошло не так при сохранении баннера."
+"Placeholder was deleted.","Заполнитель был удален."
+"Placeholder was disabled.","Заполнитель был отключен."
+Placeholders,Заполнители
+"This placeholder no longer exists.","Этот заполнитель больше не существует."
+"Placeholder was enabled.","Заполнитель был включен."
+"Manage Placeholders","Управление заполнителями"
+"Placeholder has been saved.","Заполнитель был сохранен."
+"Something went wrong while saving the placeholder.","Что-то пошло не так при сохранении заполнителя."
+"Subtotal (Excl.Tax)","Итого (без учета налога)"
+"Subtotal (Incl.Tax)","Итого (вкл. Налог)"
+"Clicks Count","Количество кликов"
+"Display Count","Количество просмотров"
+"Display Count per Customer","Количество просмотров на одного клиента"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: время просмотра клиента (в секундах)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: время неактивности клиента (секунды)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Лайтбокс / Awesomebar: время активности клиента (в секундах)"
+"Lightbox/Awesomebar: Scroll offset","Лайтбокс / Awesomebar: смещение прокрутки"
+"Open Chooser","Открыть селектор"
+%1%1"Last 7 days","Последние 7 дней"
+"Last 30 days","Последние 30 дней"
+"Last 6 Month","Последние 6 месяцев"
+"Last 12 Month","Последние 12 месяцев"
+"All Time","Все время"
+"Banner Statistics","Статистика баннера"
+"EasyBanner Banner","EasyBanner Banner"
+"Select Banner...","Выберите баннер ..."
+"EasyBanner Placeholder","EasyBanner Заполнитель"
+"Select Placeholder...","Выберите заполнитель ..."
+"Add Banner","Добавить баннер"
+"Image Title","Название изображения"
+"Is Active",Активен
+"Add Placeholder","Добавить заполнитель"
+"Additional CSS Class","Дополнительный класс CSS"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Если вы собираетесь показывать этот заполнитель на боковой панели, рекомендуется установить следующее значение: block block-easybanner-placeholder"
+"Parent Container","Родительский контейнер"
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Не знаете название контейнера? Оставьте его пустым и назначьте заполнитель для требуемого контейнера через интерфейс «Содержимое> Виджеты». Вы также можете просмотреть список общих мест заполнителей на http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Должность
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","Синтаксис атрибута XML обязателен. Примеры: before = ""-"", after = ""-"", before = ""block.name"""
+"Don't show anymore","Не показывать больше"
+"Exit intent time (seconds)","Время намеренного выхода (секунды)"

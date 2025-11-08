@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference type="Swissup\Navigationpro\Data\Tree\Node\HtmlRenderer" for="Swissup\Navigationpro\Data\Tree\Node\RendererInterface"/>
+
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="navigationpro_top_identifier" xsi:type="string">navigationpro/top/identifier</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

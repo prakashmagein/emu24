@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Marketplace\Installer\Command\CmsBlock">
+        <data>
+            <item>
+                <item name="title">swissupamp_footer</item>
+                <item name="identifier">swissupamp_footer</item>
+                <item name="content" helper="Swissup\Marketplace\Installer\Helper\Renderer::render">
+                    <param name="path" type="path">content/cms_block/swissupamp_footer.html</param>
+                </item>
+            </item>
+        </data>
+    </command>
+</config>

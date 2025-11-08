@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.cart.shipping" template="Swissup_Breeze::checkout/cart/shipping.phtml">
+            <container name="checkout.cart.shipping.fields">
+                <block class="Magento\Framework\View\Element\Template" name="checkout.cart.shipping.fields.country" template="Swissup_Breeze::checkout/cart/shipping/country.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="checkout.cart.shipping.fields.region" template="Swissup_Breeze::checkout/cart/shipping/region.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="checkout.cart.shipping.fields.postcode" template="Swissup_Breeze::checkout/cart/shipping/postcode.phtml"/>
+            </container>
+        </referenceBlock>
+
+        <referenceContainer name="breeze.container">
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Checkout::cart/totals.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Tax::checkout/summary/subtotal.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Tax::checkout/cart/totals/shipping.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Tax::checkout/cart/totals/tax.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Tax::checkout/summary/grand-total.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Tax::checkout/cart/totals/grand-total.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_Weee::checkout/summary/weee.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_SalesRule::summary/discount.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_SalesRule::cart/totals/discount.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_GiftMessage::gift-message.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_GiftMessage::gift-message-form.html">
+                <arguments>
+                    <argument name="id" xsi:type="string">Magento_GiftMessage/gift-message-form</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Magento_GiftMessage::gift-message-item-level.html"/>
+        </referenceContainer>
+    </body>
+</page>

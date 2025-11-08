@@ -1,0 +1,120 @@
+& when (@critical) {
+    :root {
+        .lib-rgb(--brand-color, @theme__brand-color);
+        .lib-rgb(--brand-text-color, @theme__brand-text-color);
+        .lib-rgb(--base-color, @base__text-color);
+    }
+
+    .action.primary,
+    .action-primary,
+    button.action.primary,
+    .primary .action,
+    .actions-toolbar > .primary .action,
+    .breeze-button-primary {
+        background-color: @theme__brand-color;
+        border-color: @theme__brand-color;
+        color: @button__text-color;
+        --button-bg-alpha: 1;
+        --button-hover-bg-alpha: 1;
+        &:hover,
+        &:focus {
+            background-color: darken(@theme__brand-color, 10%);
+            border-color: darken(@theme__brand-color, 10%);
+            color: @button__text-color;
+        }
+    }
+
+    .action.secondary,
+    .actions-toolbar > .secondary .action,
+    .breeze-button-secondary {
+        border-color: fade(@theme__brand-color, 60%);
+        color: @theme__brand-color;
+        &:hover,
+        &:focus {
+            border-color: @theme__brand-color;
+            color: darken(@theme__brand-color, 10%);
+        }
+    }
+
+    .page-header,
+    .page-header .panel.wrapper,
+    .page-header .panel.wrapper .header.panel,
+    .page-header .header.content,
+    .page-header .header.content .header.links,
+    .page-header .header.content .nav-sections {
+        background-color: @header__background;
+        color: #fff;
+    }
+
+    .page-header,
+    .page-header a,
+    .page-header .action,
+    .page-header .switcher .dropdown.options > .action,
+    .page-header .switcher strong,
+    .page-header svg {
+        color: #fff;
+    }
+
+    .page-header .navigation,
+    .page-header .navigation .level0 > .level-top,
+    .page-header .nav-sections {
+        background-color: transparent;
+    }
+
+    .page-header .switcher .dropdown.options > .action {
+        border-color: fade(#fff, 25%);
+        &:hover,
+        &:focus {
+            border-color: fade(#fff, 45%);
+        }
+    }
+
+    .minicart-wrapper .action.showcart .counter.qty {
+        background-color: #fff;
+        color: @header__background;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    .input-text:focus {
+        border-color: fade(@theme__brand-color, 70%);
+        box-shadow: 0 0 0 2px fade(@theme__brand-color, 20%);
+    }
+
+    .page-footer .action.primary,
+    .page-footer .action-primary {
+        color: @button__text-color;
+    }
+}
+
+& when not (@critical) {
+    .page-header .switcher .dropdown.options .dropdown,
+    .page-header .navigation .submenu,
+    .page-header .nav-sections .submenu {
+        border-top-color: @theme__brand-color;
+    }
+
+    .block .title strong,
+    .pagebuilder-button,
+    .pagebuilder-banner-wrapper .pagebuilder-overlay > * {
+        color: @button__text-color;
+    }
+
+    .pagebuilder-button,
+    .pagebuilder-banner-wrapper .pagebuilder-overlay .pagebuilder-button-primary,
+    .pagebuilder-button-primary {
+        background-color: @theme__brand-color;
+        border-color: @theme__brand-color;
+        color: @button__text-color;
+    }
+
+    .pagebuilder-button-primary:hover,
+    .pagebuilder-button-primary:focus,
+    .pagebuilder-button:hover,
+    .pagebuilder-button:focus {
+        background-color: darken(@theme__brand-color, 10%);
+        border-color: darken(@theme__brand-color, 10%);
+        color: @button__text-color;
+    }
+}

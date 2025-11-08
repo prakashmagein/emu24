@@ -1,0 +1,69 @@
+@critical: unsure;
+@hovergallery_hover-image__display: block; // deprecated
+@hovergallery_hover-image__backgound-color: #fff; // fix for png images with transparency
+@hovergallery_hover-image__left: 0;
+@hovergallery_hover-image__right: 0;
+@hovergallery_hover-image__top: 0;
+@hovergallery_hover-image__transition: opacity 0.2s ease-in-out, display 0.2s ease-in-out;
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    :where(.products-grid, .products-list) {
+        .hover-image-container {
+            .lib-css(background-color, @hovergallery_hover-image__backgound-color);
+            opacity: 0;
+            position: absolute;
+            .lib-css(top, @hovergallery_hover-image__top);
+            .lib-css(left, @hovergallery_hover-image__left);
+            .lib-css(right, @hovergallery_hover-image__right);
+            .lib-css(transition, @hovergallery_hover-image__transition);
+            transition-behavior: allow-discrete;
+            text-align: center;
+        }
+        .product-item-photo:not(:hover) {
+            .hover-image-container {
+                display: none;
+            }
+        }
+    }
+}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+& when (@critical = unsure), (@critical) {
+    :where(.products-grid, .products-list) {
+        .product-item-photo {
+            position: relative;
+        }
+    }
+
+    .products-grid .product-item-photo {
+        display: block;
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    :where(.products-grid, .products-list) {
+        .product-item-photo {
+            &:hover {
+                .product-image-container {
+                    z-index: 0;
+                }
+
+                .hover-image-container {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    @starting-style {
+        :where(.products-grid, .products-list) {
+            .product-item-photo:hover .hover-image-container {
+                opacity: 0;
+            }
+        }
+    }
+}
+}

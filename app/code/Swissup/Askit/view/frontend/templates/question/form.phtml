@@ -1,0 +1,38 @@
+<?php
+    /** @var \Swissup\Askit\Block\Question\Form $block */
+
+if (!$block->isSuitablePageType()) {
+    return;
+}
+    $isLoggedIn = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+    $isAllowedCustomerQuestion = $configHelper->isAllowedCustomerQuestion();
+    $isAllowedGuestQuestion = $configHelper->isAllowedGuestQuestion();
+
+    $showNewQuestionForm = ($isAllowedCustomerQuestion && $isLoggedIn) || $isAllowedGuestQuestion;
+if (!$showNewQuestionForm):
+    if ($isAllowedCustomerQuestion && !$isLoggedIn): ?>
+            <div class="message info notlogged">
+                <div>
+                 <?= /* @noEscape */ __('Only registered users can write questions. Please <a href="%1">Sign in</a> or <a href="%2">Create an account</a>',
+                     $block->escapeUrl($block->getLoginLink()),
+                     $block->escapeUrl($block->getRegisterUrl())
+                 ) ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php
+    return;
+    endif;
+?>
+
+<div class="block askit-question-form" id="askit-question-form" data-bind="scope:'askitQuestionForm'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#askit-question-form": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>

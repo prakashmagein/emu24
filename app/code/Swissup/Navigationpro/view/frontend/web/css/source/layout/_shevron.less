@@ -1,0 +1,54 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro-shevron {
+        display: none;
+    }
+}
+}
+
+& when (@navpro-dropdown__use-shevron = true) {
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .shevron-hidden .navpro-shevron {
+            display: none !important;
+        }
+        .navpro.orientation-horizontal {
+            .navpro-dropdown-level1 {
+                > .navpro-shevron {
+                    display: block;
+                    pointer-events: none;
+                    content: '';
+                    height: 12px;
+                    width: 12px;
+                    box-sizing: border-box;
+                    background: @navpro-dropdown__background;
+                    border: 1px solid @navpro-dropdown-shevron__border-color;
+                    border-color: @navpro-dropdown-shevron__border-color transparent transparent @navpro-dropdown-shevron__border-color;
+                    position: absolute;
+                    top: -6px !important;
+                    transform: rotate(45deg);
+                }
+                &.size-boxed {
+                    > .navpro-shevron {
+                        top: -5px !important;
+                    }
+                }
+                .dropdown-top& {
+                    > .navpro-shevron {
+                        top: auto !important;
+                        bottom: -6px !important;
+                        transform: rotate(-135deg);
+                    }
+                    &.size-boxed {
+                        > .navpro-shevron {
+                            bottom: -5px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+}

@@ -1,0 +1,27 @@
+$compare-icon-width: 40px !default;
+$compare-icon-height: 40px !default;
+$compare-icon-mask-image: $icon-arrow-swap !default;
+$compare-icon-mask-size: null !default;
+$compare-icon-background-color: null !default;
+
+.compare-icon {
+    @include icon-mask(
+        $icon: $compare-icon-mask-image,
+        $size: $compare-icon-mask-size,
+        $color: $compare-icon-background-color,
+        $width: $compare-icon-width,
+        $height: $compare-icon-height
+    );
+
+    display: inline-block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.minicompare {
+    align-self: center;
+    .compare-icon {
+        display: block;
+    }
+}

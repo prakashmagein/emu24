@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <update handle="styles"/>
+    <update handle="formkey"/>
+    <container name="root" label="Root">
+        <block class="Swissup\Askit\Block\Adminhtml\Question\Assign\Pages\Grid" name="askit_question_assign_pages_listing"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="askit_question_assign_pages_listing_serializer">
+            <arguments>
+                <argument name="grid_block" xsi:type="string">askit_question_assign_pages_listing</argument>
+                <argument name="callback" xsi:type="string">getAssignPages</argument>
+                <argument name="input_element_name" xsi:type="string">assign[pages]</argument>
+                <argument name="reload_param_name" xsi:type="string">assign_pages</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Framework\View\Element\Template" name="add.dataFormPart" template="Swissup_Askit::add-form-part.phtml">
+            <arguments>
+                <argument name="input_element_name" xsi:type="string">assign[pages]</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

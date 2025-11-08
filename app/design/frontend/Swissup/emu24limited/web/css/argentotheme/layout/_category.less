@@ -1,0 +1,93 @@
+div.category-view:has(.category-image) h1 span {
+    &:extend(.business-heading-with-border all);
+}
+
+& when (@critical) {
+    div.category-view {
+        margin: 0 auto @8;
+        padding: @10;
+        position: relative;
+        overflow: hidden;
+        min-height: ~"clamp(20vh, 350px, 40vh)";
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:not(:has(.category-image)) {
+            min-height: 0;
+            padding: 0;
+        }
+
+        &:has(+.category-description) {
+            margin-bottom: 0;
+        }
+
+        h1 {
+            margin-bottom: @6;
+        }
+    }
+
+    .category-view {
+        .category-image {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            padding: 0;
+            max-width: none;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: @4;
+            }
+
+            ~ * {
+                z-index: 2;
+            }
+
+            ~ .category-content-wrapper {
+                &:extend(.color-invert all);
+                --headings-alpha: 1;
+                .lib-rgb(--z-layer-bg, @theme__dark-color);
+                background: @z-layer__background;
+                border-radius: @2;
+                padding: @8 @10;
+                margin: 0 0 0 auto;
+                max-width: 650px;
+                min-width: 40%;
+                p:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .category-description {
+        &:extend(.line-clamp-6);
+    }
+
+    .category-cms,
+    .category-view ~ .category-description,
+    .main .category-description {
+        margin: 0 auto @8;
+    }
+}
+
+& when not (@critical) {
+    :where(.toolbar, .columns) ~ .category-description {
+        &:extend(.business-stripe-top-right-2 all);
+        -webkit-line-clamp: unset;
+        max-height: none;
+        margin-top: @8;
+        padding: @8 @8 @6;
+        background: @pastel__color;
+        border-radius: @1-5;
+        hr {
+            border-width: 2px;
+            border-color: @brand__color;
+            margin: @4 0;
+        }
+    }
+}

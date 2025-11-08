@@ -1,0 +1,9 @@
+<script>
+require([
+    'Magento_Ui/js/lib/view/utils/async'
+], function ($) {
+    $.async('<?= $block->getSelector() ?>', (el) => {
+        $(el).attr('data-form-part', '<?= $block->getFormPart() ?>');
+    });
+});
+</script>

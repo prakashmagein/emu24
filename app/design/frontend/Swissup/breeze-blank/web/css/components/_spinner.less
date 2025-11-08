@@ -1,0 +1,56 @@
+& when (@critical) {
+    .loading-mask,
+    .load.indicator {
+        inset: 0;
+        margin: auto;
+        position: fixed;
+        z-index: 800;
+        --base-bg-alpha: .6;
+        background: @base__background;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        body > & {
+            z-index: 990;
+        }
+    }
+    .loading-mask {
+        body > & {
+            position: fixed !important;
+        }
+        .loader {
+            &:extend(.spinner);
+            flex-shrink: 0;
+            flex-grow: 0;
+            p,
+            img {
+                display: none;
+            }
+        }
+    }
+    ._block-content-loading {
+        position: relative;
+    }
+}
+
+& when not (@critical) {
+    .loading-mask {
+        + .loading-mask {
+            opacity: 0;
+        }
+    }
+
+    .load.indicator {
+        &[style*="display: inline"] {
+            display: flex !important;
+        }
+        &::before {
+            content: '';
+            display: block;
+            &:extend(.spinner);
+        }
+        span {
+            display: none;
+        }
+    }
+}

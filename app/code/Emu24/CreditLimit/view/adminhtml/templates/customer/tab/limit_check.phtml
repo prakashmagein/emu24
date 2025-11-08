@@ -1,0 +1,70 @@
+<?php /** @var \Emu24\CreditLimit\Block\Adminhtml\Customer\Edit\Tab\LimitCheck $block */ ?>
+<div id="limit-check" class="admin-limit-check-tab">
+    <div class="limit-check-header">
+        <img src="https://www.creditsafe.com/etc.clientlibs/creditsafe/clientlibs/clientlib-base/resources/images/cslogo.svg" alt="Creditsafe" class="limit-check-logo" />
+    </div>
+    <div class="admin__field">
+        <label class="admin__field-label" for="regno"><span><?= $block->escapeHtml(__('Registration Number')) ?></span></label>
+        <div class="admin__field-control">
+            <input type="text" id="regno" name="regno" value="<?= $block->escapeHtml($block->getRegNo()) ?>" class="admin__control-text" />
+        </div>
+    </div>
+    <div class="admin__field">
+        <label class="admin__field-label" for="credit_limit"><span><?= $block->escapeHtml(__('Credit Limit')) ?></span></label>
+        <div class="admin__field-control">
+            <input type="text" id="credit_limit" name="credit_limit" value="<?= $block->escapeHtml($block->getCreditLimit()) ?>" class="admin__control-text" disabled="disabled" />
+        </div>
+    </div>
+    <div class="admin-limit-check-actions">
+        <button type="button" id="check-credit-limit" class="action-default primary">
+            <span><?= $block->escapeHtml(__('Check Credit Limit')) ?></span>
+        </button>
+    </div>
+    <div class="messages" id="limit-check-messages"></div>
+</div>
+<style>
+    #limit-check { max-width: 400px; }
+    #limit-check .limit-check-header { text-align: center; margin-bottom: 20px; }
+    #limit-check .limit-check-logo { max-height: 40px; }
+    #limit-check .admin__field { margin-bottom: 15px; }
+    #limit-check-messages { margin-top: 20px; }
+</style>
+<script>
+require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBuilder, alert) {
+    urlBuilder.setBaseUrl(BASE_URL);
+    $('#check-credit-limit').on('click', function () {
+        var customerId = $('input[name="entity_id"]').val();
+        $.ajax({
+            url: urlBuilder.build('creditlimit/credit/check'),
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: customerId,
+                regno: $('#regno').val(),
+                form_key: window.FORM_KEY
+            },
+            showLoader: true,
+            success: function (resp) {
+                var container = $('#limit-check-messages');
+                container.empty();
+                if (resp.success) {
+                    $('#credit_limit').val(resp.credit_limit);
+                    $('<div/>', {
+                        'class': 'message message-success success',
+                        text: resp.message
+                    }).appendTo(container);
+                } else {
+                    $('<div/>', {
+                        'class': 'message message-error error',
+                        text: resp.message
+                    }).appendTo(container);
+                }
+            },
+            error: function () {
+                alert({content: 'Request failed'});
+            }
+        });
+    });
+});
+</script>
+

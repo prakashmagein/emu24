@@ -1,0 +1,37 @@
+<?php
+    use Swissup\Easybanner\Model\ResourceModel\BannerStatistic;
+
+    $bannerId = $this->getRequest()->getParam('banner_id');
+    if (!$bannerId) {
+        return;
+    }
+
+    $url = $this->getUrl('*/*/statistic', ['banner_id' => $bannerId]);
+?>
+
+<?php if (!$this->canShowTab()) : ?>
+    <div id="messages">
+        <div class="messages">
+            <div class="message message-notice notice">
+                <div><?= __('Banner statistics is disabled.') ?></div>
+            </div>
+        </div>
+    </div>
+    <?php return; ?>
+<?php endif ?>
+
+<select id="statistics" name="statistics" title="Statistics" class="select admin__control-select">
+    <option value="<?php echo BannerStatistic::PERIOD_7_DAYS ?>"><?php echo __('Last 7 days') ?></option>
+    <option value="<?php echo BannerStatistic::PERIOD_30_DAYS ?>"><?php echo __('Last 30 days') ?></option>
+    <option value="<?php echo BannerStatistic::PERIOD_6_MONTHS ?>"><?php echo __('Last 6 Month') ?></option>
+</select>
+
+<div id="banner-statistics" style="max-width: 100%; height: 600px;"/>
+<script type="text/javascript">
+    require([
+        'Swissup_Easybanner/js/banner-statistics',
+        'domReady!'
+    ], function (bannerStatistics) {
+        bannerStatistics.init('<?php echo $url ?>', '#statistics');
+    });
+</script>

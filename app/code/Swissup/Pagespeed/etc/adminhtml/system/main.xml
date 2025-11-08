@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Main Section</label>
+        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/enable</config_path>
+        </field>
+        <field id="devmode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable in developer mode</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/devmode</config_path>
+            <comment><![CDATA[When enabled, allows to Pagespeed Module work properly in magento developer mode.]]></comment>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+        <field id="debug_mode" translate="label" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable debug mode</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/debug_mode</config_path>
+            <comment><![CDATA[When enabled, allows to force Pagespeed Module status via query parameter: ?pagespeed=1 or ?pagespeed=0.]]></comment>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+        <field id="after_render" translate="label" type="select" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable dynamics page html processing</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/after_render</config_path>
+            <comment><![CDATA[Affected on CriticalCss, Preconnect, Dnsprefetch, Image\Responsive, Image\WebP, Image\SpecifyDimension, Image\LazyLoad, DeferCss, CustomPreload, DeferJs, Minify Html, Expire etc.]]></comment>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+        <field id="enable_for_all_pages" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Use Pagespeed for all pages</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/enable_for_all_pages</config_path>
+        </field>
+        <field id="enable_for_pages" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Use Pagespeed at</label>
+            <source_model>Swissup\Pagespeed\Model\Config\Frontend\Pages</source_model>
+            <frontend_class>required-entry</frontend_class>
+            <config_path>pagespeed/main/enable_for_pages</config_path>
+            <depends>
+                <field id="enable_for_all_pages">0</field>
+            </depends>
+        </field>
+    </group>
+</include>

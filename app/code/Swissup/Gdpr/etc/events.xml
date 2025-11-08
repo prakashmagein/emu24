@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="swissup_gdpr_personal_data_forms_load_before">
+        <observer name="swissup_gdpr_register_forms" instance="Swissup\Gdpr\Observer\RegisterPersonalDataForms" />
+    </event>
+    <event name="swissup_gdpr_personal_data_handlers_load_before">
+        <observer name="swissup_gdpr_register_handlers" instance="Swissup\Gdpr\Observer\RegisterPersonalDataHandlers" />
+    </event>
+    <event name="swissup_gdpr_cookies_load_before">
+        <observer name="swissup_gdpr_register_cookies" instance="Swissup\Gdpr\Observer\RegisterCookies" />
+    </event>
+    <event name="swissup_gdpr_cookie_groups_load_before">
+        <observer name="swissup_gdpr_register_cookie_groups" instance="Swissup\Gdpr\Observer\RegisterCookieGroups" />
+    </event>
+    <event name="swissup_gdpr_consent_save_before">
+        <observer name="swissup_gdpr_consent_set_confirmation_status" instance="Swissup\Gdpr\Observer\SetConsentConfirmationStatus" />
+    </event>
+</config>

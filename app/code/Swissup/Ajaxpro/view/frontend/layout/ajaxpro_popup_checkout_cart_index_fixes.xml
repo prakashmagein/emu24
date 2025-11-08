@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default"/>
+    <update handle="checkout_cart_index"/>
+    <body>
+        <move element="page.messages" destination="checkout.cart.form.before" before="-"/>
+        <referenceBlock name="messages" template="Swissup_Ajaxpro::messages.phtml"/>
+        <referenceContainer name="before.body.end">
+            <container name="ajaxpro.checkout.cart.fixes">
+                <block class="Magento\Checkout\Block\Cart\Shipping" name="ajaxpro.checkout.cart.index.config" as="ajaxpro.checkout.cart.index.config" template="Swissup_Ajaxpro::checkout.cart.index/config.phtml" after="-"/>
+                <block class="Magento\Framework\View\Element\Template" name="ajaxpro.checkout.cart.index.totals.refresh" as="ajaxpro.checkout.cart.index.totals.refresh" template="Swissup_Ajaxpro::checkout.cart.index/totals.refresh.phtml" after="-"/>
+<!--                 <block class="Magento\Framework\View\Element\Template" name="ajaxpro.checkout.cart.index.methods.refresh" as="ajaxpro.checkout.cart.index.methods.refresh" template="Swissup_Ajaxpro::checkout.cart.index/methods.refresh.phtml" after="-"/>-->
+                <block class="Magento\Framework\View\Element\Template" name="ajaxpro.checkout.cart.index.guest.fix" as="ajaxpro.checkout.cart.index.guest.fix" template="Swissup_Ajaxpro::checkout.cart.index/guest.fix.phtml" after="-"/>
+            </container>
+        </referenceContainer>
+        <move element="checkout.cart.order.actions.gift_options" destination="ajaxpro.checkout.cart.fixes" after="-"/>
+    </body>
+</page>

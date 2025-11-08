@@ -1,0 +1,120 @@
+.easybanner {
+    //
+    // Close icon
+    // __________________________________________
+    &-close-icon {
+        position: absolute;
+        cursor: pointer;
+        right: 2px;
+        top: 2px;
+        width: @easybanner-popup-close-icon__size;
+        height: @easybanner-popup-close-icon__size;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            height: @easybanner-popup-close-icon__thickness;
+            width: round((@easybanner-popup-close-icon__size / 2));
+            top: round((@easybanner-popup-close-icon__size / 2) - @easybanner-popup-close-icon__thickness);
+            left: round((@easybanner-popup-close-icon__size / 2) - ((@easybanner-popup-close-icon__size / 2) / 2));
+            background-color: @easybanner-popup-close-icon__color;
+        }
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            &::before,
+            &::after {
+                background-color: @easybanner-popup-close-icon__hover__color;
+            }
+        }
+    }
+    &-banner {
+        &.close-icon-light {
+            .easybanner-close-icon {
+                &::before,
+                &::after {
+                    background-color: @easybanner-popup-close-icon__light__color;
+                }
+            }
+        }
+    }
+
+    //
+    // Permanent close
+    // __________________________________________
+    &-close-permanent-core {
+        z-index: 100;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+
+        padding: 2px 5px;
+        font-size: @easybanner-popup-close-permament__font-size;
+        color: @easybanner-popup-close-permament__color;
+
+        &:visited {
+            color: @easybanner-popup-close-permament__color;
+        }
+
+        transition: opacity 0.2s ease-in;
+    }
+    &-banner {
+        &.permanent-close-dark {
+            .easybanner-close-permanent-core {
+                color: @easybanner-popup-close-permament__dark__color;
+                &:visited {
+                    color: @easybanner-popup-close-permament__dark__color;
+                }
+            }
+        }
+        &.permanent-close-light {
+            .easybanner-close-permanent-core {
+                color: @easybanner-popup-close-permament__light__color;
+                &:visited {
+                    color: @easybanner-popup-close-permament__light__color;
+                }
+            }
+        }
+        &.permanent-close-hide {
+            .easybanner-close-permanent-core {
+                display: none;
+            }
+        }
+    }
+
+    //
+    // Helpers
+    // __________________________________________
+    &-banner {
+        // No spacing around the banner popup
+        &.no-border,
+        &.no-borders {
+            padding: 0;
+        }
+
+        // Dark background for popup banners
+        &.banner-dark {
+            background-color: @easybanner-popup__dark__background;
+            color: #ddd;
+            a {
+                color: #888;
+                &:visited {
+                    color: #888;
+                }
+            }
+
+            .easybanner-close-icon {
+                &::before,
+                &::after {
+                    background-color: @easybanner-popup-close-icon__light__color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Swissup\Ajaxpro\Model\View;
+
+/**
+ * Factory class for Layout
+ *
+ * @api
+ */
+class LayoutFactory
+{
+    /**
+     * Object Manager instance
+     *
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
+    private $objectManager;
+
+    /**
+     * Instance name to create
+     *
+     * @var string
+     */
+    private $instanceName;
+
+    /**
+     * Constructor
+     *
+     * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param string $instanceName
+     */
+    public function __construct(
+        \Magento\Framework\ObjectManagerInterface $objectManager,
+        $instanceName = \Magento\Framework\View\LayoutInterface::class
+    ) {
+        $this->objectManager = $objectManager;
+        $this->instanceName = $instanceName;
+    }
+
+    /**
+     * Create class instance with specified parameters
+     *
+     * @param array $data
+     * @return LayoutInterface
+     * @throws \InvalidArgumentException
+     */
+    public function create(array $data = [])
+    {
+        $layout = $this->objectManager->create($this->instanceName, $data);
+        if (!$layout instanceof \Magento\Framework\View\LayoutInterface) {
+            throw new \InvalidArgumentException(get_class($layout) . ' must be an instance of LayoutInterface.');
+        }
+        return $layout;
+    }
+}

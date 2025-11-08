@@ -1,0 +1,103 @@
+<?php
+    /* @var Swissup\EasySlide\Block\Slider $block */
+    $slider = $block->getSlider();
+    if (!$slider || !$slider->getSlides()) {
+        return;
+    }
+
+    $startRandom = $slider->getData('startRandomSlide');
+    $maxWidth = $slider->getData('maxWidth');
+    $thumbsClass = $slider->getData('thumbs') ? " easyslide-wrapper-thumbs-{$slider->getData('thumbs_position')}" : '';
+    $identifier = $block->escapeHtmlAttr($slider->getIdentifier());
+?>
+
+<?php if ($startRandom || $maxWidth): ?>
+<style>
+<?php if ($startRandom): ?>
+    .easyslide-swiper-<?= $identifier ?> {
+        opacity: 0;
+        transition: opacity .1s ease-in-out;
+    }
+<?php endif ?>
+<?php if ($maxWidth): ?>
+    .easyslide-swiper-<?= $identifier ?> .swiper-slide {
+        max-width: <?= /* @noEscape */ $maxWidth ?>px;
+    }
+<?php endif ?>
+</style>
+<?php endif ?>
+
+<div class="easyslide-wrapper<?= $block->escapeHtmlAttr($thumbsClass) ?>">
+    <div class="swiper-container easyslide-swiper-<?= $identifier ?>"
+         data-mage-init='{"Swissup_EasySlide/js/easyslide":<?= /* @noEscape */ $block->getSliderConfig() ?>}'
+         data-content-type="easyslider"
+    >
+        <div class="swiper-wrapper">
+            <?php $i = 0;
+            foreach ($slider->getSlides() as $slide) :
+                $i++;
+                $isLazy = $i === 1 ? false: $slider->getData('lazy');
+                $isRawHtml = !$slide['image'];
+                $description = $block->getSlideDescription((string)$slide['description']);
+            ?>
+            <div class="swiper-slide"
+                <?php if ($slide['active_from_timestamp']): ?>data-active-from="<?= $slide['active_from_timestamp'] ?>"<?php endif ?>
+                <?php if ($slide['active_to_timestamp']): ?>data-active-to="<?= $slide['active_to_timestamp'] ?>"<?php endif ?>
+            >
+                <?php if ($isRawHtml): ?>
+                    <?= /* @noEscape */ $description ?>
+                <?php else: ?>
+                    <?php
+                        $slide += [
+                            'sizes' => $slider->getResponsiveSizes(),
+                            'widths' => $slider->getResponsiveWidths()
+                        ];
+                        $imageHtml = $block->getImageRenderer()->render($slide, $isLazy);
+                        $url = $block->escapeUrl((string)$slide['url']);
+                    ?>
+                    <?php if ($isLazy): ?>
+                    <div class="swiper-lazy-preloader"></div>
+                    <?php endif; ?>
+                    <?php if ($url): ?>
+                    <a href="<?= $url ?>"
+                        class="easyslide-link easyslide-link-<?= $block->escapeHtmlAttr($i) ?>"
+                        target="<?= $block->escapeHtmlAttr($slide['target']) ?>">
+                        <?= /* @noEscape */ $imageHtml ?>
+                    </a>
+                    <?php else: ?>
+                        <?= /* @noEscape */ $imageHtml ?>
+                    <?php endif; ?>
+                    <?php if ($description) : ?>
+                        <?php $className = implode(' ', [
+                            'easyslide-description',
+                            "easyslide-description-{$slide['desc_position']}",
+                            "easyslide-background-{$slide['desc_background']}"
+                        ]) ?>
+                        <div class="<?= $block->escapeHtmlAttr($className) ?>">
+                            <?= /* @noEscape */ $description ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endif ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php $theme = $slider->getData('theme') ?>
+        <?php if ($slider->getData('pagination')) :
+            $paginationClass = $theme ? ' swiper-pagination-' . $theme : '';
+        ?>
+            <div class="swiper-pagination<?= $block->escapeHtmlAttr($paginationClass) ?>"></div>
+        <?php endif ?>
+        <?php if ($slider->getData('navigation')) :
+            $buttonClass = $block->escapeHtmlAttr($theme ? ' swiper-button-' . $theme : '');
+        ?>
+            <div class="swiper-button-prev<?= $buttonClass ?>"></div>
+            <div class="swiper-button-next<?= $buttonClass ?>"></div>
+        <?php endif ?>
+        <?php if ($slider->getData('scrollbar')) : ?>
+            <div class="swiper-scrollbar"></div>
+        <?php endif ?>
+    </div>
+    <?php if ($slider->getData('thumbs')): ?>
+    <?= /* @noEscape */ $block->fetchView($block->getTemplateFile('thumbs.phtml')) ?>
+    <?php endif ?>
+</div>

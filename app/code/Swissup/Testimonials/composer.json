@@ -1,0 +1,32 @@
+{
+    "name": "swissup/module-testimonials",
+    "description": "Testimonials extension from Swissup",
+    "keywords": [
+        "testimonials",
+        "reviews"
+    ],
+    "type": "magento2-module",
+    "version": "1.3.16",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/module-core": "^1.12.22",
+        "swissup/module-swiper": "^1.0.1"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\Testimonials\\": ""
+        }
+    },
+    "extra": {
+        "marketplace": {
+            "gallery": [
+                "https://docs.swissuplabs.com/images/marketplace/module-testimonials.png"
+            ],
+            "links": {
+                "docs": "https://docs.swissuplabs.com/m2/extensions/testimonials/",
+                "changelog": "https://docs.swissuplabs.com/m2/extensions/testimonials/changelog/"
+            }
+        }
+    }
+}

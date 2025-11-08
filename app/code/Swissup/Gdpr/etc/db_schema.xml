@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_gdpr_client_consent" resource="default" engine="innodb" comment="List of approved consents">
+    <column xsi:type="bigint" name="entity_id" padding="20" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+    <column xsi:type="varchar" name="client_identity_field" nullable="false" length="32" comment="Client's Identity Field"/>
+    <column xsi:type="varchar" name="client_identity" nullable="false" length="255" comment="Client's Identity Value"/>
+    <column xsi:type="int" name="visitor_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Visitor ID"/>
+    <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Customer ID"/>
+    <column xsi:type="varchar" name="form_id" nullable="false" length="64" comment="Form ID"/>
+    <column xsi:type="varchar" name="consent_id" nullable="false" length="64" comment="Consent ID"/>
+    <column xsi:type="text" name="consent_title" nullable="false" comment="Consent title"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"/>
+    <column xsi:type="smallint" name="website_id" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Website ID"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="entity_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_GDPR_CLIENT_CONSENT_CSTR_ID_CSTR_ENTT_ENTT_ID" table="swissup_gdpr_client_consent" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_GDPR_CLIENT_CONSENT_WEBSITE_ID" indexType="btree">
+      <column name="website_id"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_CONSENT_CLIENT_IDENTITY_FIELD" indexType="btree">
+      <column name="client_identity_field"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_CONSENT_CLIENT_IDENTITY" indexType="btree">
+      <column name="client_identity"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_CONSENT_VISITOR_ID" indexType="btree">
+      <column name="visitor_id"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_CONSENT_UPDATED_AT" indexType="btree">
+      <column name="updated_at"/>
+    </index>
+  </table>
+  <table name="swissup_gdpr_client_request" resource="default" engine="innodb" comment="List of client requests">
+    <column xsi:type="bigint" name="entity_id" padding="20" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+    <column xsi:type="varchar" name="client_identity_field" nullable="false" length="32" comment="Client's Identity Field"/>
+    <column xsi:type="varchar" name="client_identity" nullable="false" length="255" comment="Client's Identity Value"/>
+    <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Customer ID"/>
+    <column xsi:type="smallint" name="type" padding="6" unsigned="false" nullable="false" identity="false" comment="Request Type"/>
+    <column xsi:type="varchar" name="confirmation_token" nullable="false" length="64" comment="Confirmation Token"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+    <column xsi:type="timestamp" name="confirmed_at" on_update="false" nullable="true" comment="Confirmed At"/>
+    <column xsi:type="timestamp" name="executed_at" on_update="false" nullable="true" comment="Executed At"/>
+    <column xsi:type="smallint" name="status" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Status"/>
+    <column xsi:type="text" name="report" nullable="true" comment="Report Messages"/>
+    <column xsi:type="smallint" name="website_id" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Website ID"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="entity_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_GDPR_CLIENT_REQUEST_CSTR_ID_CSTR_ENTT_ENTT_ID" table="swissup_gdpr_client_request" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="SET NULL"/>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_WEBSITE_ID" indexType="btree">
+      <column name="website_id"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_CLIENT_IDENTITY_FIELD" indexType="btree">
+      <column name="client_identity_field"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_CLIENT_IDENTITY" indexType="btree">
+      <column name="client_identity"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_TYPE" indexType="btree">
+      <column name="type"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_CONFIRMATION_TOKEN" indexType="btree">
+      <column name="confirmation_token"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_CREATED_AT" indexType="btree">
+      <column name="created_at"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_EXECUTED_AT" indexType="btree">
+      <column name="executed_at"/>
+    </index>
+    <index referenceId="SWISSUP_GDPR_CLIENT_REQUEST_STATUS" indexType="btree">
+      <column name="status"/>
+    </index>
+  </table>
+  <table name="swissup_gdpr_cookie" resource="default" engine="innodb" comment="Custom Cookies">
+    <column xsi:type="int" name="cookie_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+    <column xsi:type="varchar" name="group" nullable="false" length="64" comment="Group Code"/>
+    <column xsi:type="smallint" name="status" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Status"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="cookie_id"/>
+    </constraint>
+  </table>
+  <table name="swissup_gdpr_cookie_content" resource="default" engine="innodb" comment="Custom Cookies Content">
+    <column xsi:type="int" name="cookie_id" padding="10" unsigned="true" nullable="false" identity="false" comment="ID"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+    <constraint xsi:type="foreign" referenceId="FK_E511A11F6D580B01CAEE597428BFF974" table="swissup_gdpr_cookie_content" column="cookie_id" referenceTable="swissup_gdpr_cookie" referenceColumn="cookie_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_GDPR_COOKIE_CONTENT_STORE_ID_STORE_STORE_ID" table="swissup_gdpr_cookie_content" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <constraint xsi:type="primary" referenceId="SWISSUP_GDPR_COOKIE_CONTENT_COOKIE_ID_STORE_ID">
+      <column name="cookie_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <index referenceId="SWISSUP_GDPR_COOKIE_CONTENT_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+  <table name="swissup_gdpr_cookie_group" resource="default" engine="innodb" comment="Custom Cookie Groups">
+    <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+    <column xsi:type="varchar" name="code" nullable="false" length="64" comment="Code"/>
+    <column xsi:type="int" name="sort_order" padding="10" unsigned="true" nullable="false" identity="false" default="100" comment="Sort Order"/>
+    <column xsi:type="smallint" name="required" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Is Required"/>
+    <column xsi:type="smallint" name="prechecked" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Is Pre-Checked"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="group_id"/>
+    </constraint>
+  </table>
+  <table name="swissup_gdpr_cookie_group_content" resource="default" engine="innodb" comment="Custom Cookie Groups Content">
+    <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" identity="false" comment="ID"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+    <column xsi:type="text" name="title" nullable="true" comment="Title"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+    <constraint xsi:type="foreign" referenceId="FK_558C5BCF0FD672B218185C5AB4EEEF43" table="swissup_gdpr_cookie_group_content" column="group_id" referenceTable="swissup_gdpr_cookie_group" referenceColumn="group_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_GDPR_COOKIE_GROUP_CONTENT_STORE_ID_STORE_STORE_ID" table="swissup_gdpr_cookie_group_content" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <constraint xsi:type="primary" referenceId="SWISSUP_GDPR_COOKIE_GROUP_CONTENT_GROUP_ID_STORE_ID">
+      <column name="group_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <index referenceId="SWISSUP_GDPR_COOKIE_GROUP_CONTENT_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+  <table name="swissup_gdpr_blocked_cookie" resource="default" engine="innodb" comment="Blocked Cookies">
+    <column xsi:type="int" name="cookie_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+    <column xsi:type="text" name="description" nullable="false" comment="Description"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="cookie_id"/>
+    </constraint>
+  </table>
+</schema>

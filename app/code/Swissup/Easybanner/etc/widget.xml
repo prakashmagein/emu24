@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="swissup_easybanner_banner" class="Swissup\Easybanner\Block\Banner" is_email_compatible="false"
+            placeholder_image="Swissup_Easybanner::images/banner.png" ttl="86400">
+        <label translate="true">EasyBanner: Banner</label>
+        <description>Render single banner</description>
+        <parameters>
+            <parameter name="banner" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Banner</label>
+                <block class="Swissup\Easybanner\Block\Adminhtml\Banner\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Banner...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Swissup_Easybanner::banner.phtml" selected="true">
+                        <label translate="true">Banner Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="swissup_easybanner_placeholder" class="Swissup\Easybanner\Block\Placeholder" is_email_compatible="false"
+            placeholder_image="Swissup_Easybanner::images/placeholder.png" ttl="86400">
+        <label translate="true">EasyBanner: Placeholder</label>
+        <description>Render placeholder with its banners</description>
+        <parameters>
+            <parameter name="placeholder" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Placeholder</label>
+                <block class="Swissup\Easybanner\Block\Adminhtml\Placeholder\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Placeholder...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Swissup_Easybanner::placeholder.phtml" selected="true">
+                        <label translate="true">Placeholder Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

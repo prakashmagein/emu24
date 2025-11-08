@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Csp/etc/csp_whitelist.xsd">
+    <policies>
+
+        <policy id="script-src">
+            <value type="host">https://assets.adobedtm.com</value>
+            <value type="host">https://www.googletagmanager.com</value>
+            <value type="host">https://www.google.com</value>
+            <value type="host">https://www.gstatic.com</value>
+            <value type="host">https://apis.google.com</value>
+            <value type="host">https://cdn.jsdelivr.net</value>
+            <value type="host">https://cdnjs.cloudflare.com</value>
+            <value type="host">https://connect.facebook.net</value>
+            <value type="host">https://emu24d.pracoda.com</value>
+            <value type="host">https://d123abc.cloudfront.net</value>
+        </policy>
+
+        <policy id="style-src">
+            <value type="host">https://fonts.googleapis.com</value>
+            <value type="host">https://cdn.jsdelivr.net</value>
+            <value type="host">https://cdnjs.cloudflare.com</value>
+            <value type="host">https://emu24d.pracoda.com</value>
+        </policy>
+
+        <policy id="font-src">
+            <value type="host">https://fonts.gstatic.com</value>
+            <value type="host">https://emu24d.pracoda.com</value>
+            <value type="host">https://d123abc.cloudfront.net</value>
+        </policy>
+
+        <policy id="img-src">
+            <value type="host">https://www.google.com</value>
+            <value type="host">https://www.gstatic.com</value>
+            <value type="host">https://emu24d.pracoda.com</value>
+            <value type="host">https://d123abc.cloudfront.net</value>
+            <value type="inline">data:</value>
+        </policy>
+
+        <policy id="frame-src">
+            <value type="host">https://www.google.com</value>
+            <value type="host">https://www.youtube.com</value>
+        </policy>
+
+        <policy id="connect-src">
+            <value type="host">https://www.google-analytics.com</value>
+            <value type="host">https://www.googletagmanager.com</value>
+            <value type="host">https://assets.adobedtm.com</value>
+            <value type="host">https://emu24d.pracoda.com</value>
+            <value type="host">https://d123abc.cloudfront.net</value>
+        </policy>
+
+    </policies>
+</csp_whitelist>

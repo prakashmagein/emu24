@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="swissup_gdpr" class="Swissup\Gdpr\Block\CookieSettings"
+            is_email_compatible="false"
+            placeholder_image="Magento_Widget::placeholder.gif"
+            ttl="86400">
+        <label translate="true">GDPR: Cookie Settings</label>
+        <description></description>
+        <parameters>
+            <parameter name="hide_description" xsi:type="select" required="false" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hide Description</label>
+            </parameter>
+            <parameter name="columns_count" xsi:type="select" required="false" visible="true"
+                       source_model="Swissup\Gdpr\Model\Config\Source\CookieSettingsColumnsCount">
+                <label translate="true">Columns Count</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

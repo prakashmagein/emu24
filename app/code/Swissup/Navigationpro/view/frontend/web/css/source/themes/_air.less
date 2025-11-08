@@ -1,0 +1,27 @@
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical) {
+    .navpro.navpro-theme-air {
+        .navpro-dropdown {
+            border-radius: 4px;
+            box-shadow: 0 0 28px rgba(0,0,0,.2);
+            border: 0;
+            > .navpro-shevron {
+                border: 0 !important;
+            }
+        }
+
+        &.orientation-vertical,
+        &.navpro-slideout {
+            box-shadow: 0 0 28px rgba(0,0,0,.2);
+        }
+
+        &.orientation-vertical:not(.navpro-slideout) {
+            padding: 10px;
+            border-radius: 4px;
+            .level-top {
+                .lib-css(color, @navpro-link__color);
+            }
+        }
+    }
+}
+}

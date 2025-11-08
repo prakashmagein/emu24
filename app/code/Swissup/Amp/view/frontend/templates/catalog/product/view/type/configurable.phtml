@@ -1,0 +1,72 @@
+<?php
+/** @var $block \Magento\ConfigurableProduct\Block\Product\View\Type\Configurable*/
+$_product    = $block->getProduct();
+$_attributes = $block->decorateArray($block->getAllowAttributes());
+$ampHelper = $this->helper('Swissup\Amp\Helper\Data');
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+<?php
+    // generate AMP state array
+    $ampStateArr = [];
+    $selectedAttributes = [];
+    foreach ($block->getAllowProducts() as $product) {
+        $lastItem = &$ampStateArr;
+        $price = $ampHelper->getFormattedPrice($product);
+        foreach ($block->getAllowAttributes() as $attribute) {
+            $productAttribute = $attribute->getProductAttribute();
+            $attributeValue = $product->getData($productAttribute->getAttributeCode());
+
+            $attributeName = 'selected' . $productAttribute->getId();
+            if (!array_key_exists($attributeName, $ampStateArr)) {
+                $ampStateArr[$attributeName] = '';
+                $selectedAttributes[] = $attributeName;
+            }
+
+            $lastItem = &$lastItem[$attributeValue];
+        }
+        $lastItem = $price;
+    }?>
+    <?php foreach ($_attributes as $_attribute): ?>
+        <?php
+            $currentAttribute = 'selected' . $_attribute->getAttributeId();
+
+            // disable out of stock configuration
+            $disableCondition = '';
+            $existCondition = 'product';
+            foreach ($selectedAttributes as $attrName) {
+                if ($attrName == $currentAttribute) {
+                    $existCondition .= '[%s]';
+                } else {
+                    $disableCondition .= 'product.' . $attrName . " != '' && ";
+                    $existCondition .= '[product.' . $attrName . ']';
+                }
+            }
+
+            $disableCondition .= $existCondition . ' == null';
+        ?>
+        <div class="field configurable required">
+            <label class="label" for="attribute<?= /* @escapeNotVerified */ $_attribute->getAttributeId() ?>">
+                <span><?= $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+            </label>
+            <div class="control">
+                <select name="super_attribute[<?= /* @escapeNotVerified */ $_attribute->getAttributeId() ?>]"
+                        id="attribute<?= /* @escapeNotVerified */ $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select"
+                        on="change:AMP.setState({ product: { <?= $currentAttribute ?>: event.value } })"
+                        required>
+                    <option value=""><?= /* @escapeNotVerified */ __('Choose an Option...') ?></option>
+                    <?php foreach ($_attribute->getOptions() as $option): ?>
+                    <option value="<?= $option['value_index'] ?>"
+                        data-amp-bind-disabled="<?php printf($disableCondition, $option['value_index']) ?>"
+                        ><?= /* @escapeNotVerified */ __($option['store_label']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif;?>
+<?php if (count($ampStateArr)): ?>
+<amp-state id="product">
+    <script type="application/json"><?= json_encode($ampStateArr) ?></script>
+</amp-state>
+<?php endif; ?>

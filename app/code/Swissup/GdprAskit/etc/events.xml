@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="swissup_gdpr_personal_data_forms_load_before">
+        <observer name="swissup_askit_register_form" instance="Swissup\GdprAskit\Observer\RegisterPersonalDataForm" />
+    </event>
+    <event name="swissup_gdpr_personal_data_handlers_load_before">
+        <observer name="swissup_askit_register_handlers" instance="Swissup\GdprAskit\Observer\RegisterPersonalDataHandler" />
+    </event>
+</config>

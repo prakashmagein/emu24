@@ -1,0 +1,29 @@
+.form.contact {
+    .fieldset {
+        padding: 0;
+        border: none;
+
+        > .field {
+            margin-bottom: 20px;
+        }
+    }
+
+    .legend {
+        width: 100%;
+        max-width: 400px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #c5c5c5;
+    }
+
+    .field.note {
+        font-size: 0.9em;
+    }
+
+    .action.primary {
+        @extend .button;
+    }
+
+    input, textarea {
+        border: 1px solid #cccccc;
+    }
+}

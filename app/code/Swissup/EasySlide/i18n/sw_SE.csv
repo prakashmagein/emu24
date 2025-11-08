@@ -1,0 +1,43 @@
+"Save Slider","Spara skjutreglaget"
+"Delete Slider","Radera skjutreglaget"
+"Edit Slider - '%1'","Redigera reglaget - '%1'"
+"New Slider","Ny reglage"
+Parameters,parametrar
+Direction,Riktning
+Horizontal,Horisontell
+Vertical,Vertikal
+Effect,Effekt
+Slide,Glida
+Fade,Blekna
+Cube,Kub
+Coverflow,Coverflow
+Flip,Flip
+Speed,Fart
+Autoplay,Autospela
+Pagination,Paginering
+"Navigation Buttons",Navigeringsknappar
+Scrollbar,Rullningslist
+"Scrollbar Hide","Scrollbar Dölj"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,slides
+"Add New Slide","Lägg till ny bild"
+"Slider was deleted.","Skjutreglaget raderades."
+"Can't find a slider to delete.","Kan inte hitta ett skjutreglage för att ta bort."
+EasySlide,Easyslide
+"Manage Sliders","Hantera reglage"
+"This slider no longer exists.","Denna reglage finns inte längre."
+"Edit Slider","Redigera reglaget"
+Sliders,sliders
+"Slider has been saved.","Skjutreglaget har sparats."
+"Something went wrong while saving the slider.","Något gick fel när du sparat skjutreglaget."
+Link,Länk
+"Open link in","Öppna länken i"
+Description,Beskrivning
+"Description Position","Beskrivning Position"
+"Description Background","Beskrivning Bakgrund"
+"Slide Detail",Bilddetalj
+"Select Slider","Välj reglage"
+"Add New Slider","Lägg till ny reglage"
+Black,Svart
+White,Vit

@@ -1,0 +1,106 @@
+type Query {
+    ajaxsearch (
+        search: String @doc(description: "Performs a full-text search using the specified key words."),
+        category: Int = 0 @doc(description: "Category filter param."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies.")
+    ): AjaxsearchSuggestions
+    @resolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\Items") @doc(description: ".")
+    @cache(cacheIdentity: "Swissup\\Ajaxsearch\\Model\\Resolver\\Item\\Identity")
+
+    ajaxsearchCategoryOptions (
+        search: String = "" @doc(description: "Performs a full-text search using the specified key words."),
+        category: Int = 0 @doc(description: "Category filter param.")
+    ): AjaxsearchCategoryOptions
+    @resolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\CategoryOptions") @doc(description: ".")
+    @cache(cacheIdentity: "Swissup\\Ajaxsearch\\Model\\Resolver\\CategoryOptions\\Identity")
+}
+
+type AjaxsearchCategoryOptions @doc(description: "The Products object is the top-level object returned in a product search.") {
+    items: [AjaxsearchCategoryOption] @doc(description: "An array of category options.")
+    total_count: Int @doc(description: "total count")
+}
+
+type AjaxsearchCategoryOption {
+    id: Int @doc(description: "Id")
+    text: String @doc(description: "Text")
+}
+
+type AjaxsearchSuggestion @doc(description: "The Products object is the top-level object returned in a product search.") {
+    products: [AjaxsearchItemProduct] @doc(description: "An array of products (each with ajaxsearch_result part).")
+    categories: [AjaxsearchItemCategory] @doc(description: "An array of category suggestions.")
+    pages: [AjaxsearchItemPage] @doc(description: "An array of pages suggestions.")
+    autocompletes: [AjaxsearchItemInterface] @doc(description: "An array of autocomplete suggestions.")
+}
+
+type AjaxsearchSuggestions @doc(description: "The Products object is the top-level object returned in a product search.") {
+    suggestions: AjaxsearchSuggestion
+    page_info: SearchResultPageInfo @doc(description: "An obje query.")
+    total_count: Int @doc(description: "The number of products")
+}
+
+type AjaxsearchItems @doc(description: "The Products object is the top-level object returned in a product search.") {
+    items: [AjaxsearchItemInterface] @doc(description: "An array of  search criteria.")
+    page_info: SearchResultPageInfo @doc(description: "An obje query.")
+    total_count: Int @doc(description: "The number of products")
+}
+
+interface AjaxsearchItemInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "desc .") {
+    title: String @doc(description: "Title.")
+    num_results: String @doc(description: "Number of results.")
+}
+
+interface AjaxsearchUrlInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "Just add url attribute(s).") {
+    url: String @doc(description: "URL")
+}
+
+interface AjaxsearchUrlKeyInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "Just add url attribute(s).") {
+    url_key: String @doc(description: "URL key")
+}
+
+interface AjaxsearchCatalogUrlSuffixInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "Just add url attribute(s).") {
+    url_suffix: String @doc(description: "The part of the category URL that is appended after the url key") @resolver(class: "Magento\\CatalogUrlRewriteGraphQl\\Model\\Resolver\\CategoryUrlSuffix")
+}
+
+interface AjaxsearchProductInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "Just add url attribute(s).") {
+    id: Int @doc(description: "The ID number assigned to the product.") @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\EntityIdToId")
+    name: String @doc(description: "The product name. Customers use this name to identify the product.")
+    sku: String @doc(description: "A number or code assigned to a product to identify the product, options, price, and manufacturer.")
+    small_image: ProductImage @doc(description: "The relative path to the small image, which is used on catalog pages.") @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductImage")
+    price: ProductPrices @doc(description: "A ProductPrices object, indicating the price of an item.") @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\Price")
+
+    image_html: String @doc(description: "Image html block.")
+    final_price: Float @doc(description: "Final price.")
+}
+
+interface AjaxsearchProductUrlSuffixInterface @typeResolver(class: "Swissup\\Ajaxsearch\\Model\\Resolver\\ItemTypeResolver") @doc(description: "Just add url attribute(s).") {
+    url_suffix: String @doc(description: "The part of the product URL that is appended after the url key") @resolver(class: "Magento\\CatalogUrlRewriteGraphQl\\Model\\Resolver\\ProductUrlSuffix")
+}
+
+type AjaxsearchItemAutocomplete implements AjaxsearchItemInterface @doc(description: "desc.") {
+}
+
+type AjaxsearchItemProduct implements AjaxsearchItemInterface, AjaxsearchProductInterface, AjaxsearchUrlInterface, AjaxsearchUrlKeyInterface, AjaxsearchProductUrlSuffixInterface  @doc(description: "desc.") {
+}
+
+type AjaxsearchItemCategory implements AjaxsearchItemInterface, AjaxsearchUrlInterface, AjaxsearchUrlKeyInterface, AjaxsearchCatalogUrlSuffixInterface @doc(description: "desc.") {
+}
+
+type AjaxsearchItemPage implements AjaxsearchItemInterface, AjaxsearchUrlInterface, AjaxsearchUrlKeyInterface @doc(description: "desc.") {
+}
+
+type AjaxsearchItemDebug implements AjaxsearchItemInterface @doc(description: "desc.") {
+}
+
+type StoreConfig {
+    ajaxsearch_main_enable : Int  @doc(description: "Extended Config Data - ajaxsearch/main/enable")
+    ajaxsearch_main_limit : Int  @doc(description: "Extended Config Data - ajaxsearch/main/limit")
+    ajaxsearch_product_enable : Int  @doc(description: "Extended Config Data - ajaxsearch_product_enable")
+    ajaxsearch_product_limit : Int  @doc(description: "Extended Config Data - ajaxsearch_product_limit")
+    ajaxsearch_category_enable : Int  @doc(description: "Extended Config Data - ajaxsearch_category_enable")
+    ajaxsearch_category_limit : Int  @doc(description: "Extended Config Data - ajaxsearch_category_limit")
+    ajaxsearch_page_enable : Int  @doc(description: "Extended Config Data - ajaxsearch_page_enable")
+    ajaxsearch_page_limit : Int  @doc(description: "Extended Config Data - ajaxsearch_page_limit")
+    ajaxsearch_autocomplete_enable : Int  @doc(description: "Extended Config Data - ajaxsearch_autocomplete_enable")
+    ajaxsearch_autocomplete_limit : Int  @doc(description: "Extended Config Data - ajaxsearch_autocomplete_limit")
+}

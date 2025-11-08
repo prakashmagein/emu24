@@ -1,0 +1,35 @@
+<?php
+    $isLoggedIn   = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+
+    $isAllowedCustomerAnswer = $configHelper->isAllowedCustomerQuestion();
+    $isAllowedGuestAnswer    = $configHelper->isAllowedGuestAnswer();
+
+    $question = $block->getQuestion();
+
+    $showNewAnswerForm = ($isAllowedCustomerAnswer && $isLoggedIn) || $isAllowedGuestAnswer;
+if (!$showNewAnswerForm): ?>
+    <?php if ($isAllowedCustomerAnswer && !$isLoggedIn):?>
+    <div class="message info notlogged">
+        <div>
+         <?= /* @noEscape */ __(
+             'Only registered users can write comments. Please <a href="%1">Sign in</a> or <a href="%2">Create an account</a>',
+             $block->escapeUrl($block->getLoginLink()),
+             $block->escapeUrl($block->getRegisterUrl())
+         ); ?>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php
+    return;
+endif;?>
+<div class="askit-answer-form" id="askit-answer-form-<?= $block->escapeHtmlAttr($question->getId()) ?>" data-bind="scope:'<?= /* @noEscape */ $block->getJsScope() ?>'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#askit-answer-form-<?= $block->escapeHtmlAttr($question->getId()) ?>": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>

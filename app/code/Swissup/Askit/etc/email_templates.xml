@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="askit_email_customer_notification" label="Askit Question Answer" file="customer.html" type="html" module="Swissup_Askit" area="frontend"/>
+    <template id="askit_email_admin_notification" label="Askit admin new question notification" file="admin.html" type="html" module="Swissup_Askit" area="adminhtml"/>
+</config>

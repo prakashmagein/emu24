@@ -1,0 +1,72 @@
+type Query {
+    getEasyslider (
+        identifier: String @doc(description: "Slider identifier.")
+    ): EasySlider
+    @resolver(class: "Swissup\\EasySlide\\Model\\Resolver\\EasySlider") @doc(description: ".")
+    @cache(cacheIdentity: "Swissup\\EasySlide\\Model\\Resolver\\EasySlider\\Identity")
+}
+
+type EasySlider implements EasySliderInterface @doc(description: "") {
+}
+
+interface EasySliderInterface @typeResolver(class: "Swissup\\EasySlide\\Model\\Resolver\\EasySliderTypeResolver") @doc(description: "") {
+    slider_id: ID @doc(description: "Id")
+    identifier: String @doc(description: "Identifier")
+    title: String @doc(description: "Title.")
+    is_active: Boolean @doc(description: "Is Active")
+    slider_config: EasySliderConfigInterface @doc(description: "Slider 'js' config")
+    slides: [EasySlideInterface] @doc(description: "Slides")
+}
+
+type EasySliderConfig implements EasySliderConfigInterface @doc(description: "") {
+}
+
+interface EasySliderConfigInterface @typeResolver(class: "Swissup\\EasySlide\\Model\\Resolver\\EasySliderConfigTypeResolver") @doc(description: "") {
+    speed: Int @doc(description: "")
+    autoplay: Int @doc(description: "")
+    spaceBetween: Int @doc(description: "")
+    sizes: [EasySliderConfigSize] @doc(description: "sizes array.")
+    slidesPerView: Int @doc(description: "")
+    startRandomSlide: Int @doc(description: "Start random slide")
+    freeMode: Boolean @doc(description: "Free mode")
+    thumbs: String @doc(description: "Thumbs.")
+    thumb_width: String @doc(description: "Thumb width.")
+    thumb_height: String @doc(description: "Thumb width.")
+    scrollbar: Boolean @doc(description: "Scrollbar.")
+    loop: Boolean @doc(description: "Is Loop")
+    thumbs_position: String @doc(description: "Title")
+    lazy: Boolean @doc(description: "is lazy.")
+    theme: String @doc(description: "Theme.")
+    effect: String @doc(description: "Effect")
+    pagination: Boolean @doc(description: "Pagination.")
+    navigation: Boolean @doc(description: "Nagination.")
+    loadPrevNext: Int @doc(description: "")
+}
+
+type EasySlide implements EasySlideInterface @doc(description: "") {
+}
+
+interface EasySlideInterface @typeResolver(class: "Swissup\\EasySlide\\Model\\Resolver\\EasySlideTypeResolver") @doc(description: "") {
+    slide_id: ID @doc(description: "")
+    slider_id: ID @doc(description: "")
+    title: String @doc(description: "Title")
+    image: String @doc(description: "Image")
+    description: String @doc(description: "Description")
+    desc_position: String @doc(description: "Description position")
+    desc_background: String @doc(description: "Description background")
+    url: String @doc(description: "Url")
+    target: String @doc(description: "Target")
+    sort_order: Int @doc(description: "Sort Order")
+    is_active: Boolean @doc(description: "IS Active")
+    width: Int @doc(description: "Width")
+    height: Int @doc(description: "Height")
+}
+
+type EasySliderConfigSize @doc(description: "") {
+    media_query: String @doc(description: "Media query")
+    image_width: Int @doc(description: "Image width")
+}
+
+type EasySliderConfigSizes @doc(description: "") {
+    sizes: [EasySliderConfigSize] @doc(description: "Size object")
+}

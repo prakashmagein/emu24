@@ -1,0 +1,62 @@
+$rating-star-size: 25px 25px;
+$rating-star-color: lighten($mango-tango, 10%);
+$rating-star-width: 25px;
+$rating-star-height: 25px;
+
+$rating-star-mask-image         : $icon-star;
+$rating-star-half-mask-image    : $icon-star-half;
+$rating-star-outline-mask-image : $icon-star-outline;
+
+.icon-star {
+    @include icon-mask(
+        $icon: $rating-star-mask-image,
+        $size: $rating-star-size,
+        $color: $rating-star-color,
+        $width: $rating-star-width,
+        $height: $rating-star-height
+    );
+}
+.icon-star-half {
+    @include icon-mask(
+        $icon: $rating-star-half-mask-image,
+        $size: $rating-star-size,
+        $color: $rating-star-color,
+        $width: $rating-star-width,
+        $height: $rating-star-height
+    );
+}
+.icon-star-outline {
+    @include icon-mask(
+        $icon: $rating-star-outline-mask-image,
+        $size: $rating-star-size,
+        $color: $mid-grey,
+        $width: $rating-star-width,
+        $height: $rating-star-height
+    );
+}
+
+.rating-summary {
+    display: inline-block;
+    vertical-align: middle;
+
+    .label,
+    .rating-result span {
+        display: none;
+    }
+    a {
+        text-decoration: none;
+        @include on-event {
+            text-decoration: none;
+        }
+        i {
+            cursor: pointer;
+        }
+    }
+    i {
+        cursor: default;
+        @include margin-left(-6px);
+        &:first-child {
+            margin: 0;
+        }
+    }
+}

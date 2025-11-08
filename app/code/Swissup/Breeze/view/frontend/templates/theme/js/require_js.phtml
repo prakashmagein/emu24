@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ * @var \Magento\Framework\Locale\LocaleFormatter $localeFormatter
+ */
+
+$localeString = '';
+if (isset($localeFormatter)) {
+    $localeString = "var LOCALE = '{$block->escapeJs($localeFormatter->getLocaleJs())}';";
+}
+
+$scriptString = <<<script
+
+    {$localeString}
+    var BASE_URL = '{$block->escapeJs($block->getBaseUrl())}';
+    var VIEW_URL = '{$block->escapeJs($block->getViewFileUrl("/"))}';
+    window.required = window.required || [];
+    window.define = window.require = window.requirejs = window.require || ((...args) => required.push(args));
+    window.require.config = () => {};
+
+script;
+
+if (isset($secureRenderer)) {
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else {
+    echo "<script>{$scriptString}</script>";
+}

@@ -1,0 +1,26 @@
+<?php
+
+/** @var \Swissup\Navigationpro\Block\Widget\Menu $block */
+$_html = $block->getChildHtml();
+if (empty($_html)) {
+    return;
+}
+
+?>
+
+<?php if ($block->canUseWrapper()) : ?>
+    <div class="block widget block-navpro <?php echo /* @escapeNotVerified */ $block->getBlockCss() ?>">
+        <?php if ($block->getBlockTitle()) : ?>
+            <div class="block-title block-navpro-title">
+                <strong><?php echo /* @escapeNotVerified */ $block->getBlockTitle() ?></strong>
+            </div>
+        <?php endif; ?>
+        <div class="block-content block-navpro-content">
+<?php endif; ?>
+
+        <?php echo $_html ?>
+
+<?php if ($block->canUseWrapper()) : ?>
+        </div>
+    </div>
+<?php endif; ?>

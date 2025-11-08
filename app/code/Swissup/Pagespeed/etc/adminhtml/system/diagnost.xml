@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+<!--    <group id="diagnost" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">-->
+<!--        &lt;!&ndash; <field id="button" translate="label" type="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1"> &ndash;&gt;-->
+<!--            <label>ANALYZE</label>-->
+<!--            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\Analyze</frontend_model>-->
+<!--        &lt;!&ndash; </field> &ndash;&gt;-->
+<!--    </group>-->
+    <group id="diagnosts" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Diagnostics</label>
+        <field id="Version" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Version</label>
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\Version</frontend_model>
+        </field>
+        <field id="gzip" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Test GZIP compression</label>
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\Gzip</frontend_model>
+            <comment><![CDATA[<a href="https://www.giftofspeed.com/gzip-test/" target="_blank">Check GZIP compression manually</a>.]]></comment>
+            <config_path>pagespeed/main/gzip</config_path>
+        </field>
+
+        <field id="http2_test" translate="label" type="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Verify HTTP/2.0 Support</label>
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\HTTP2</frontend_model>
+            <comment><![CDATA[<a href="https://tools.keycdn.com/http2-test" target="_blank">Verify HTTP/2 support manually</a>.]]></comment>
+            <config_path>pagespeed/main/http2_test</config_path>
+        </field>
+
+         <field id="button" translate="label" type="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\Analyze</frontend_model>
+         </field>
+    </group>
+</include>

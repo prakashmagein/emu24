@@ -1,0 +1,20 @@
+<?php
+/** @var Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist $block */
+?>
+<?php
+$wishListAllowed = method_exists($block, 'isWishListAllowed') ? $block->isWishListAllowed() :
+    $block->getWishlistHelper()->isAllow();
+
+if ($wishListAllowed):
+    $wishlistParams = $block->getWishlistParams() ?:
+        $block->getAddToWishlistParams($block->getProduct());
+    $ampHelper = $this->helper('Swissup\Amp\Helper\Catalog');
+    $url = $ampHelper->getUrlFromJson('wishlist/index/add', $wishlistParams);
+?>
+    <form method="post" action="<?= $url ?>">
+        <button type="submit" title="<?= $block->escapeHtml(__('Add to Wish List')) ?>" class="action towishlist">
+            <span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+        </button>
+    </form>
+    <span class="separator">|</span>
+<?php endif; ?>

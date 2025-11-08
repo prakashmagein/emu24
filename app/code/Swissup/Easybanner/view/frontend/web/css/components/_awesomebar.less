@@ -1,0 +1,29 @@
+.easybanner {
+    &-awesomebar {
+        &-el {
+            box-sizing: border-box;
+            padding: @easybanner-popup__padding;
+            left: 0;
+            top: -400px;
+            position: fixed;
+            background: @easybanner-awesomebar__background;
+            box-shadow: @easybanner-awesomebar__shadow;
+            text-align: left;
+            z-index: 9998;
+            width: 100%;
+            transition: top 300ms ease;
+
+            .easybanner-close-icon {
+                right: 10px;
+                top: 8px;
+            }
+        }
+        &-content {
+            max-width: 960px;
+            margin: 0 auto;
+
+            max-height: 400px;
+            .easybanner-tiny-scrollbar();
+        }
+    }
+}

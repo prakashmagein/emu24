@@ -1,0 +1,18 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Swissup\Ajaxpro\Block\Template $block */
+/** @var \Swissup\Ajaxpro\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+<?php if (!$viewModel->isRedirectToCartEnabled()) : ?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form], .form.map.checkout": {
+            "catalogAddToCart": {
+                "submitForcePreventValidation": <?= $viewModel->isForceValidation() ? 'true' : 'false' ?>
+            }
+        }
+    }
+</script>
+<?php endif; ?>

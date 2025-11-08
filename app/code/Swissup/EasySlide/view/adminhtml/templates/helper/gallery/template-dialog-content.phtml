@@ -1,0 +1,207 @@
+<?php
+    $elementName = $block->getElement()->getName() . '[images]';
+    $galleryHelper = $this->helper(\Swissup\EasySlide\Helper\Gallery::class);
+    $togglerConfig = [
+        'uid' => 'slide-enabled',
+        'inputName' => "{$elementName}[<%- data.file_id %>][is_active]",
+        'value' => '<%- data.is_active %>'
+    ];
+    $datepickerConfig = $galleryHelper->getDatepickerConfig();
+?>
+<% if (data.media_type && data.media_type === 'html') { %>
+    <fieldset class="admin__fieldset fieldset-html-panel">
+
+        <div
+            class="visibility-toggler--wrapper"
+            data-mage-init='{"Swissup_EasySlide/js/slide-gallery/toggler": <?= json_encode($togglerConfig) ?>}'
+        ></div>
+
+        <div class="admin__field field-image-title">
+            <label class="admin__field-label" for="slide-title">
+                <span><?= __('Title')?></span>
+            </label>
+            <div class="admin__field-control">
+            <input type="text"
+                   id="slide-title"
+                   class="edited-data input-text admin__control-text"
+                   data-role="slide-title"
+                   value="<%- data.title %>"
+                   name="<?= $elementName ?>[<%- data.file_id %>][title]"/>
+           </div>
+        </div>
+
+        <div class="admin__field field-image-description">
+            <label class="admin__field-label" for="slide-description">
+                <span><?= __('HTML')?></span>
+            </label>
+            <div class="admin__field-control cm-break-word">
+                <textarea id="slide-description" class="edited-data textarea admin__control-textarea" rows="20" name="<?= $elementName ?>[<%- data.file_id %>][description]" data-mage-init='{"Swissup_EasySlide/js/slide-gallery/codemirror": {}}'><%- data.description %></textarea>
+            </div>
+        </div>
+
+        <div class="admin__field field-image-date">
+            <div class="admin__field-control">
+                <div class="admin__field">
+                    <label for="slide-active_from" class="admin__field-label">
+                        <span><?= __('Active from') ?></span>
+                    </label>
+                    <div data-mage-init='{"Swissup_EasySlide/js/slide-gallery/datepicker": <?= json_encode($datepickerConfig + ['sourceSelector' => '#slide-active_from']) ?>}'></div>
+                    <input type="hidden" name="<?= $elementName ?>[<%- data.file_id %>][active_from]" id="slide-active_from" value="<%- data.active_from %>"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin__field field-image-date">
+            <div class="admin__field-control">
+                <div class="admin__field">
+                    <label for="slide-active_to" class="admin__field-label">
+                        <span><?= __('Active to') ?></span>
+                    </label>
+                    <div data-mage-init='{"Swissup_EasySlide/js/slide-gallery/datepicker": <?= json_encode($datepickerConfig + ['sourceSelector' => '#slide-active_to']) ?>}'></div>
+                    <input type="hidden" name="<?= $elementName ?>[<%- data.file_id %>][active_to]" id="slide-active_to" value="<%- data.active_to %>"/>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+<% } else { %>
+    <div class="image-panel-preview">
+        <div
+            class="visibility-toggler--wrapper"
+            data-mage-init='{"Swissup_EasySlide/js/slide-gallery/toggler": <?= json_encode($togglerConfig) ?>}'
+        ></div>
+
+        <p class="image-wrapper">
+            <img src="<%- data.url %>" alt="<%- data.label %>" />
+        </p>
+
+        <p data-role="size">
+            <span><?= __('Image Size') ?></span>
+            <em data-message="<?= __('{size}') ?>"></em>
+        </p>
+
+        <p data-role="resolution">
+            <span><?= __('Image Resolution') ?></span>
+            <em data-message="<?= __('{width}^{height} px') ?>"></em>
+        </p>
+
+        <p class="actions">
+            <button data-action="change-image"><?= __('Change image') ?></button>
+        </p>
+    </div>
+    <div class="image-panel-controls">
+
+        <fieldset class="admin__fieldset fieldset-image-panel">
+
+            <div class="admin__field field-image-title">
+                <label class="admin__field-label" for="slide-title">
+                    <span><?= __('Title')?></span>
+                </label>
+                <div class="admin__field-control">
+                <input type="text"
+                       id="slide-title"
+                       class="edited-data input-text admin__control-text"
+                       data-role="slide-title"
+                       value="<%- data.title %>"
+                       name="<?= $elementName ?>[<%- data.file_id %>][title]"/>
+               </div>
+            </div>
+
+            <div class="admin__field field-image-title">
+                <label class="admin__field-label" for="slide-link">
+                    <span><?= __('Link')?></span>
+                </label>
+                <div class="admin__field-control">
+                <input type="text"
+                       id="slide-link"
+                       class="edited-data input-text admin__control-text"
+                       data-role="slide-link"
+                       value="<%- data.link %>"
+                       name="<?= $elementName ?>[<%- data.file_id %>][link]"/>
+               </div>
+            </div>
+
+            <div class="admin__field field-image-url-target">
+                <label class="admin__field-label" for="slide-link-target">
+                    <span><?= __('Open link in')?></span>
+                </label>
+                <div class="admin__field-control">
+                <select id="slide-link-target" class="select admin__control-select"
+                        name="<?= $elementName ?>[<%- data.file_id %>][target]">
+                    <?php foreach ($block->getTargetValues() as $value): ?>
+                        <option <% if (data.target == '<?= $value["value"] ?>') { %>selected="selected"<% } %> value="<?= $value['value'] ?>">
+                            <?= $value["label"] ?>
+                        </option>
+                    <?php endforeach; ?> ?>
+                </select>
+                </div>
+            </div>
+
+            <div class="admin__field field-image-description">
+                <label class="admin__field-label" for="slide-description">
+                    <span><?= __('Description')?></span>
+                </label>
+                <div class="admin__field-control cm-break-word">
+                    <textarea id="slide-description" class="edited-data textarea admin__control-textarea" rows="8" name="<?= $elementName ?>[<%- data.file_id %>][description]" data-mage-init='{"Swissup_EasySlide/js/slide-gallery/codemirror": {}}'><%- data.description %></textarea>
+                </div>
+            </div>
+
+            <div class="admin__field field-image-desc-position">
+                <label class="admin__field-label" for="slide-desc-position">
+                    <span><?= __('Description Position')?></span>
+                </label>
+                <div class="admin__field-control">
+                <select id="slide-desc-position" class="select admin__control-select"
+                        name="<?= $elementName ?>[<%- data.file_id %>][desc_position]">
+                    <?php foreach ($block->getDescPosValues() as $value): ?>
+                        <option <% if (data.desc_position == '<?= $value["value"] ?>') { %>selected="selected"<% } %> value="<?= $value['value'] ?>">
+                            <?= $value["label"] ?>
+                        </option>
+                    <?php endforeach; ?> ?>
+                </select>
+                </div>
+            </div>
+
+            <div class="admin__field field-image-desc-background">
+                <label class="admin__field-label" for="slide-desc-background">
+                    <span><?= __('Description Background')?></span>
+                </label>
+                <div class="admin__field-control">
+                <select id="slide-desc-background" class="select admin__control-select"
+                        name="<?= $elementName ?>[<%- data.file_id %>][desc_background]">
+                    <?php foreach ($block->getDescBackValues() as $value): ?>
+                        <option <% if (data.desc_background == '<?= $value["value"] ?>') { %>selected="selected"<% } %> value="<?= $value['value'] ?>">
+                            <?= $value["label"] ?>
+                        </option>
+                    <?php endforeach; ?> ?>
+                </select>
+                </div>
+            </div>
+
+            <div class="admin__field field-image-date">
+                <div class="admin__field-control">
+                    <div class="admin__field">
+                        <label for="slide-active_from" class="admin__field-label">
+                            <span><?= __('Active from') ?></span>
+                        </label>
+                        <div data-mage-init='{"Swissup_EasySlide/js/slide-gallery/datepicker": <?= json_encode($datepickerConfig + ['sourceSelector' => '#slide-active_from']) ?>}'></div>
+                        <input type="hidden" name="<?= $elementName ?>[<%- data.file_id %>][active_from]" id="slide-active_from" value="<%- data.active_from %>"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin__field field-image-date">
+                <div class="admin__field-control">
+                    <div class="admin__field">
+                        <label for="slide-active_to" class="admin__field-label">
+                            <span><?= __('Active to') ?></span>
+                        </label>
+                        <div data-mage-init='{"Swissup_EasySlide/js/slide-gallery/datepicker": <?= json_encode($datepickerConfig + ['sourceSelector' => '#slide-active_to']) ?>}'></div>
+                        <input type="hidden" name="<?= $elementName ?>[<%- data.file_id %>][active_to]" id="slide-active_to" value="<%- data.active_to %>"/>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+<% } %>

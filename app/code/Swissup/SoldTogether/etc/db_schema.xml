@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_soldtogether_order" resource="default" engine="innodb" comment="Swissup SoldTogether Order Table">
+    <column xsi:type="bigint" name="relation_id" padding="20" unsigned="false" nullable="false" identity="true" comment="Relation ID"/>
+    <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product ID"/>
+    <column xsi:type="int" name="related_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Related Product ID"/>
+    <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Order Store ID"/>
+    <column xsi:type="int" name="weight" padding="10" unsigned="true" nullable="false" identity="false" comment="Weight"/>
+    <column xsi:type="smallint" name="is_admin" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Is Admin"/>
+    <column xsi:type="text" name="data_serialized" nullable="true" comment="Serialized Data"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="relation_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_SWISSUP_SOLDTOGETHER_ORDER_PRD_PRD_ID_CAT_PRD_ENTT_ENTT_ID" table="swissup_soldtogether_order" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_ACC048E1D44F274C1C37533949607139" table="swissup_soldtogether_order" column="related_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_SOLDTOGETHER_ORDER_PRODUCT_ID" indexType="btree">
+      <column name="product_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_ORDER_RELATED_ID" indexType="btree">
+      <column name="related_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_ORDER_PRODUCT_RELATED_STORE" indexType="btree">
+      <column name="product_id"/>
+      <column name="related_id"/>
+      <column name="store_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_ORDER_WEIGHT" indexType="btree">
+      <column name="weight"/>
+    </index>
+  </table>
+  <table name="swissup_soldtogether_customer" resource="default" engine="innodb" comment="Swissup SoldTogether Customer Table">
+    <column xsi:type="bigint" name="relation_id" padding="20" unsigned="false" nullable="false" identity="true" comment="Relation ID"/>
+    <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product ID"/>
+    <column xsi:type="int" name="related_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Related Product ID"/>
+    <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Order Store ID"/>
+    <column xsi:type="int" name="weight" padding="10" unsigned="true" nullable="false" identity="false" comment="Weight"/>
+    <column xsi:type="smallint" name="is_admin" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Is Admin"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="relation_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_SWISSUP_SOLDTOGETHER_CSTR_PRD_PRD_ID_CAT_PRD_ENTT_ENTT_ID" table="swissup_soldtogether_customer" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_70F76B3EAF2B55C7005AEBCC111A5C47" table="swissup_soldtogether_customer" column="related_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_SOLDTOGETHER_CUSTOMER_PRODUCT_ID" indexType="btree">
+      <column name="product_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_CUSTOMER_RELATED_ID" indexType="btree">
+      <column name="related_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_CUSTOMER_PRODUCT_RELATED_STORE" indexType="btree">
+      <column name="product_id"/>
+      <column name="related_id"/>
+      <column name="store_id"/>
+    </index>
+    <index referenceId="SWISSUP_SOLDTOGETHER_CUSTOMER_WEIGHT" indexType="btree">
+      <column name="weight"/>
+    </index>
+  </table>
+  <table name="swissup_soldtogether_cron_job" resource="default" engine="innodb" comment="Swissup SoldTogether - cron jobs">
+    <column xsi:type="bigint" name="id" padding="20" unsigned="false" nullable="false" identity="true" comment="ID"/>
+    <column xsi:type="text" name="data" nullable="true" comment="Serialized Job Data"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>
+</schema>

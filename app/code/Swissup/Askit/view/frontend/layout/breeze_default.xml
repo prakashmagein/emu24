@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="breeze.js">
+            <arguments>
+                <argument name="bundles" xsi:type="array">
+                    <item name="product" xsi:type="array">
+                        <item name="items" xsi:type="array">
+                            <item name="Swissup_Askit/js/process-questions" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Askit/js/breeze/questions</item>
+                                <item name="load" xsi:type="array">
+                                    <item name="onReveal" xsi:type="array">
+                                        <item name="0" xsi:type="string">[data-mage-init*="Swissup_Askit/js/process-questions"]</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="Swissup_Askit/js/view/form" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Askit/js/breeze/form</item>
+                            </item>
+                            <item name="Swissup_Askit/js/view/captcha" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Askit/js/view/captcha</item>
+                                <item name="import" xsi:type="array">
+                                    <item name="defaultCaptcha" xsi:type="string">Magento_Captcha/js/view/checkout/defaultCaptcha</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="breeze.container">
+            <block class="Swissup\Breeze\Block\HtmlTemplate" name="askit.Swissup_Askit_answer_form" template="Swissup_Askit::answer/form.html"/>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" name="askit.Swissup_Askit_question_form" template="Swissup_Askit::question/form.html"/>
+        </referenceContainer>
+    </body>
+</page>

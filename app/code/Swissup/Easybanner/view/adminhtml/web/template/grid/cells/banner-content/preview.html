@@ -1,0 +1,12 @@
+<div class="easybanner thumbnail-preview" data-role="thumbnail-preview">
+    <% if (mode === 'html') { %>
+        <%= html %>
+    <% } else { %>
+        <div class="thumbnail-preview-image-block">
+            <img class="thumbnail-preview-image" src="<%- src %>" alt="<%- alt %>" />
+        </div>
+    <% } %>
+    <div class="thumbnail-preview-content">
+        <a class="thumbnail-preview-link" href="<%- link %>"><%- linkText %></a>
+    </div>
+</div>

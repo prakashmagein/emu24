@@ -1,0 +1,113 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro.navpro {
+        &-theme-compact {
+            font-size: .9em;
+            &.navpro {
+                .caret-hidden > a.level-top {
+                    padding: @navpro-theme__compact__link-padding !important;
+                }
+                .level0 {
+                    > .level-top {
+                        padding: @navpro-theme__compact__link-padding;
+                        color: @navpro-theme__compact__color;
+                    }
+                    &.parent > .level-top {
+                        padding-right: @navpro-link-caret__padding;
+                        .rtl & {
+                            padding: @navpro-theme__compact__link-padding;
+                            padding-left: @navpro-link-caret__padding;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    .navpro.navpro {
+        &-theme-compact {
+            .navpro-dropdown {
+                .children > li > a,
+                .children .parent > a {
+                    padding: @navpro-theme__compact__link-padding;
+                }
+            }
+            .navpro-dropdown-inner {
+                padding: @navpro-theme__compact__dropdown__padding;
+            }
+
+            .navpro-item-more {
+                > .nav-a-icon-more {
+                    svg {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop') and (@navpro-dropdown__use-shevron = true), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .navpro.navpro-theme-compact.orientation-horizontal {
+            li.level-top {
+                > .navpro-dropdown-level1 {
+                    > .navpro-shevron {
+                        height: 8px;
+                        width: 8px;
+                        top: -4px !important;
+                    }
+                    &.size-boxed {
+                        > .navpro-shevron {
+                            top: -3px !important;
+                        }
+                    }
+                    .dropdown-top& {
+                        > .navpro-shevron {
+                            bottom: -4px !important;
+                        }
+                        &.size-boxed {
+                            > .navpro-shevron {
+                                bottom: -3px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .navpro.navpro {
+            &-theme-compact {
+                .navpro-dropdown {
+                    &.size {
+                        &-small {
+                            min-width: 180px;
+                            width: 180px;
+                        }
+                        &-medium {
+                            width: 260px;
+                        }
+                        &-large {
+                            width: 450px;
+                        }
+                        &-xlarge {
+                            width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

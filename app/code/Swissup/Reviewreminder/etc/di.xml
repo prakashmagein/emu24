@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\Reviewreminder\Api\Data\EntityInterface" type="Swissup\Reviewreminder\Model\Entity" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="reviewreminder_index_listing_data_source" xsi:type="string">Swissup\Reviewreminder\Model\ResourceModel\Entity\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Reviewreminder\Model\ResourceModel\Entity\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_reviewreminder_entity</argument>
+            <argument name="eventPrefix" xsi:type="string">reviewreminder_index_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">reviewreminder_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\Reviewreminder\Model\ResourceModel\Entity</argument>
+        </arguments>
+    </type>
+    <virtualType name="ReviewreminderGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ReviewreminderGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Swissup\Reviewreminder\Model\ResourceModel\Entity\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ReviewreminderGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>

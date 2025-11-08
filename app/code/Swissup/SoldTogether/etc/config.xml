@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <soldtogether>
+            <order>
+                <enabled>0</enabled>
+                <layout>amazon-default</layout>
+                <count>5</count>
+                <random>0</random>
+                <out>0</out>
+                <allowed_product_types>simple,virtual,configurable</allowed_product_types>
+            </order>
+            <customer>
+                <enabled>0</enabled>
+                <count>10</count>
+                <random>0</random>
+                <out>0</out>
+                <options>1</options>
+                <allowed_product_types>simple,virtual,configurable,bundle,downloadable,grouped</allowed_product_types>
+            </customer>
+            <relations>
+                <order_on_order_create>0</order_on_order_create>
+                <customer_on_order_create>0</customer_on_order_create>
+                <cron_frequency>*/15 * * * *</cron_frequency>
+                <order_not_older_than_x_days>365</order_not_older_than_x_days>
+            </relations>
+        </soldtogether>
+        <crontab>
+            <default>
+                <jobs>
+                    <soldtogether_new_orders_process>
+                        <schedule>
+                            <cron_expr>*/15 * * * *</cron_expr>
+                        </schedule>
+                    </soldtogether_new_orders_process>
+                </jobs>
+            </default>
+        </crontab>
+    </default>
+</config>

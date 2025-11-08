@@ -1,0 +1,43 @@
+"Save Slider",保存滑块
+"Delete Slider",删除滑块
+"Edit Slider - '%1'",编辑滑块-'％1'
+"New Slider",新滑块
+Parameters,参量
+Direction,方向
+Horizontal,卧式
+Vertical,垂直
+Effect,影响
+Slide,滑动
+Fade,褪色
+Cube,立方体
+Coverflow,"Cover Flow功能"
+Flip,翻转
+Speed,速度
+Autoplay,自动播放
+Pagination,分页
+"Navigation Buttons",导航按钮
+Scrollbar,滚动条
+"Scrollbar Hide",滚动条隐藏
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,滑梯
+"Add New Slide",添加新幻灯片
+"Slider was deleted.",滑块已删除。
+"Can't find a slider to delete.",找不到要删除的滑块。
+EasySlide,EasySlide
+"Manage Sliders",管理滑杆
+"This slider no longer exists.",该滑块不再存在。
+"Edit Slider",编辑滑块
+Sliders,滑杆
+"Slider has been saved.",滑块已保存。
+"Something went wrong while saving the slider.",保存滑块时出了点问题。
+Link,链接
+"Open link in",在打开链接
+Description,描述
+"Description Position",说明位置
+"Description Background",说明背景
+"Slide Detail",幻灯片细节
+"Select Slider",选择滑块
+"Add New Slider",添加新的滑块
+Black,黑色
+White,白色

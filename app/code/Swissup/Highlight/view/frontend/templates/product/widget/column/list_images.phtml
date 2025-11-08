@@ -1,0 +1,33 @@
+<?php
+
+$block->setMode('grid');
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * @var $block \Swissup\Highlight\Block\Product\Abstract
+ */
+if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())) {
+    $title = $block->getTitle();
+    $items = $block->getProductCollection()->getItems();
+    $helper = $this->helper('Magento\Catalog\Helper\Output');
+}
+?>
+
+<?php if ($exist):?>
+    <ol class="product-items product-items-images">
+        <?php $iterator = 1; ?>
+        <?php foreach ($items as $_item): ?>
+            <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
+
+            <a class="product-item-photo" href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>"
+               title="<?php /* @escapeNotVerified */ echo $block->stripTags($_item->getName(), null, true) ?>">
+                <?php /* new_products_images_only_widget */ ?>
+                <?php echo $block->getImage($_item, 'new_products_images_only_widget')->toHtml(); ?>
+            </a>
+
+            <?php echo($iterator == count($items)+1) ? '</li>' : '' ?>
+        <?php endforeach ?>
+    </ol>
+<?php endif;?>

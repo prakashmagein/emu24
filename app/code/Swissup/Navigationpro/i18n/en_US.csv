@@ -1,0 +1,71 @@
+"Delete Item","Delete Item"
+"Are you sure you want to do this?","Are you sure you want to do this?"
+"Menu Settings","Menu Settings"
+"You deleted the item.","You deleted the item."
+"We can't find a item to delete.","We can't find a item to delete."
+"Import completed.","Import completed."
+"Something went wrong while importing item.","Something went wrong while importing item."
+"This item no longer exists.","This item no longer exists."
+"Something went wrong while saving item.","Something went wrong while saving item."
+"You saved item.","You saved item."
+"Something went wrong while saving menu.","Something went wrong while saving menu."
+"You deleted the menu.","You deleted the menu."
+"We can't find a menu to delete.","We can't find a menu to delete."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"New Menu","New Menu"
+"This menu no longer exists.","This menu no longer exists."
+"You saved menu.","You saved menu."
+"Stick to Left","Stick to Left"
+"Stick to Right","Stick to Right"
+Standard,Standard
+Left,Left
+Top,Top
+Fullscreen,Fullscreen
+Full-Width,Full-Width
+Boxed,Boxed
+Small,Small
+Medium,Medium
+Large,Large
+"Extra Large","Extra Large"
+"Item was not registered","Item was not registered"
+Horizontal,Horizontal
+Vertical,Vertical
+Blank,Blank
+Dark,Dark
+"Dark Bar","Dark Bar"
+"Dark Dropdown","Dark Dropdown"
+Flat,Flat
+Compact,Compact
+"Menu was not registered","Menu was not registered"
+"An item cannot be parent for itself","An item cannot be parent for itself"
+"This name is already in use.","This name is already in use."
+"Top Menu","Top Menu"
+Menu,Menu
+Navigationpro,Navigationpro
+"Show Active Branch Only","Show Active Branch Only"
+"Show Parent Category","Show Parent Category"
+"Initially Shown Levels Count","Initially Shown Levels Count"
+Orientation,Orientation
+"Dropdown Positioning","Dropdown Positioning"
+"Additional CSS Class","Additional CSS Class"
+"Wrap into Block Template","Wrap into Block Template"
+"Block CSS Class","Block CSS Class"
+"Select item in the tree on the left sidebar, or create a new one","Select item in the tree on the left sidebar, or create a new one"
+"Sync Name and URL with Category Data","Sync Name and URL with Category Data"
+"CSS Class","CSS Class"
+"Use Menu Settings","Use Menu Settings"
+"New Item","New Item"
+"Import Item","Import Item"
+"Columns Direction","Columns Direction"
+"Nested Levels per Dropdown","Nested Levels per Dropdown"
+"Add New Menu","Add New Menu"
+"Are you sure you want to delete selected menu's?","Are you sure you want to delete selected menu's?"
+"Replace Top Menu at","Replace Top Menu at"
+"Leave empty if you don't want to replace Top Menu","Leave empty if you don't want to replace Top Menu"
+Direction,Direction
+"Maximal Depth","Maximal Depth"
+"Dropdown Position","Dropdown Position"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend"
+"Dropdown Settings","Dropdown Settings"
+"Shop All","Shop All"

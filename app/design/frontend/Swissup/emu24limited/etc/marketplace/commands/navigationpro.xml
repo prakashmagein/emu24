@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Navigationpro\Installer\Command\Menu" module="Swissup_Navigationpro">
+        <data>
+            <item>
+                <item name="activate">1</item>
+                <item name="type" type="const">Swissup\Navigationpro\Model\Config\Source\BuilderType::TYPE_EMPTY</item>
+                <item name="theme_id" helper="Swissup\Marketplace\Installer\Helper\Theme::getId">
+                    <param name="theme">frontend/Swissup/argentobreeze-business</param>
+                </item>
+                <item name="settings">
+                    <item name="identifier">argentobreeze_business_topmenu</item>
+                    <item name="css_class">navpro-business navpro-mobile-slideout navpro-nowrap navpro-effect-none</item>
+                    <item name="dropdown_settings">
+                        <item name="level1">
+                            <item name="width">fullwidth</item>
+                            <item name="position">center</item>
+                            <item name="layout">
+                                <item>
+                                    <item name="type">children</item>
+                                    <item name="size">3</item>
+                                    <item name="columns_count">1</item>
+                                    <item name="levels_per_dropdown">1</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="level2">
+                            <item name="width">extra-large</item>
+                            <item name="position">center</item>
+                            <item name="layout">
+                                <item>
+                                    <item name="type">children</item>
+                                    <item name="size">8</item>
+                                    <item name="columns_count">3</item>
+                                    <item name="levels_per_dropdown">2</item>
+                                </item>
+                                <item>
+                                    <item name="type">html</item>
+                                    <item name="size">4</item>
+                                    <item name="display_mode">if_has_children</item>
+                                    <item name="content"><![CDATA[<div class="hide md:show" style="position:relative;max-height:310px;overflow:hidden;margin:10px 0;">
+    <img alt="Bestsellers"
+        width="298" height="234"
+        src="{{media url='wysiwyg/argentobreeze-business/gardening-298.webp'}}"
+        srcset="{{media url='wysiwyg/argentobreeze-business/gardening-298.webp'}} 1x,
+                {{media url='wysiwyg/argentobreeze-business/gardening-596.webp'}} 2x"
+        loading="lazy"
+    />
+    <div style="position:absolute;bottom:0;left:0;width:100%;padding:12px 15px;box-sizing:border-box;">
+        <a href="{{store direct_url='women/tops-women/hoodies-and-sweatshirts-women.html'}}" class="button action primary button-hero inverted">Next level gardening</a>
+    </div>
+</div>]]></item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="items">
+                    <item name="products">
+                        <item name="name">Products</item>
+                        <item name="url_path">departments</item>
+                        <item name="items">
+                            <item name="categories">
+                                <item name="method">importCategories</item>
+                            </item>
+                        </item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}}">
+    <span class="flex gap-2 items-center">
+        <svg class="md:hide" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16.5" cy="16.5" r="16.5" fill="rgb(var(--pastel-color))"/><path d="M20.334 9.334h-6.667c-.733 0-1.333.6-1.333 1.333v10.667c0 .733.6 1.326 1.333 1.326l6.667.007c.733 0 1.333-.6 1.333-1.334V10.668c0-.733-.6-1.333-1.333-1.333Zm-3.333 1.333c.733 0 1.333.6 1.333 1.333s-.6 1.334-1.333 1.334a1.334 1.334 0 0 1 0-2.667Zm0 10.667a3.335 3.335 0 0 1 0-6.667 3.335 3.335 0 0 1 0 6.667ZM17 16c-1.107 0-2 .893-2 2s.893 2 2 2c1.106 0 2-.893 2-2s-.894-2-2-2Z" fill="currentColor"/></svg>
+        {{var item.name}}
+    </span>
+</a>]]></item>
+                    </item>
+                    <item name="blog">
+                        <item name="name">Blog</item>
+                        <item name="url_path">blog</item>
+                        <item name="css_class">navpro-blog</item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}}">
+    <span class="flex gap-2 items-center">
+        <svg class="md:hide" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16.5" cy="16.5" r="16.5" fill="rgb(var(--pastel-color))"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17 12.5a3.501 3.501 0 0 1 4.517-3.35.5.5 0 0 1 .209.832l-2.214 2.213a1.5 1.5 0 0 0 1.294 1.292l2.212-2.212a.5.5 0 0 1 .832.208 3.5 3.5 0 0 1-3.648 4.504c-.678-.057-1.246.067-1.539.423l-4.767 5.79a2.197 2.197 0 0 1-3.744-.608 2.198 2.198 0 0 1 .648-2.487l5.79-4.768c.355-.293.48-.86.422-1.54A3.367 3.367 0 0 1 17 12.5Zm-5.255 8.25a.5.5 0 0 1 .5-.5h.005a.5.5 0 0 1 .5.5v.005a.5.5 0 0 1-.5.5h-.005a.5.5 0 0 1-.5-.5v-.005Z" fill="currentColor"/><path d="m15.717 13.76-1.467-1.467V11.25a.5.5 0 0 0-.243-.428l-2.5-1.5a.5.5 0 0 0-.61.075l-.5.5a.5.5 0 0 0-.076.61l1.5 2.5a.5.5 0 0 0 .429.243h1.043l1.374 1.375 1.05-.864Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m17.371 19.553 2.789 2.788a2.25 2.25 0 0 0 3.182-3.182l-2.204-2.204c-.338.048-.68.058-1.02.029a1.774 1.774 0 0 0-.578.028.4.4 0 0 0-.112.042l-2.057 2.499Zm2.276-.907a.5.5 0 0 1 .707 0l1.25 1.25a.498.498 0 0 1-.154.83.5.5 0 0 1-.553-.123l-1.25-1.25a.5.5 0 0 1 0-.706" fill="currentColor"/></svg>
+        {{var item.name}}
+    </span>
+</a>]]></item>
+                    </item>
+                    <item name="faq">
+                        <item name="name">FAQ</item>
+                        <item name="url_path">faq</item>
+                        <item name="css_class">navpro-faq</item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}}">
+    <span class="flex gap-2 items-center">
+        <svg class="md:hide" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16.5" cy="16.5" r="16.5" fill="rgb(var(--pastel-color))"/><path d="M17 9.334A6.67 6.67 0 0 0 10.335 16a6.67 6.67 0 0 0 6.667 6.667A6.669 6.669 0 0 0 23.667 16a6.67 6.67 0 0 0-6.666-6.666Zm.667 11.333h-1.333v-1.334h1.333v1.334Zm1.38-5.167-.6.613c-.48.487-.78.887-.78 1.887h-1.333v-.333c0-.734.3-1.4.78-1.887l.827-.84c.246-.24.393-.573.393-.94 0-.733-.6-1.333-1.333-1.333-.734 0-1.334.6-1.334 1.333h-1.333a2.666 2.666 0 1 1 5.333 0c0 .587-.24 1.12-.62 1.5Z" fill="currentColor"/></svg>
+        {{var item.name}}
+    </span>
+</a>]]></item>
+                    </item>
+                    <item name="about">
+                        <item name="name">About</item>
+                        <item name="url_path">about</item>
+                        <item name="css_class">navpro-about</item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}}">
+    <span class="flex gap-2 items-center">
+        <svg class="md:hide" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16.5" cy="16.5" r="16.5" fill="rgb(var(--pastel-color))"/><path d="m23.496 16.22-6-6.666a.687.687 0 0 0-.99 0l-6 6.666A.666.666 0 0 0 11 17.333h1.333V22a.667.667 0 0 0 .667.666h2a.667.667 0 0 0 .666-.666v-2.667h2.667V22a.667.667 0 0 0 .667.666h2a.667.667 0 0 0 .666-.666v-4.667h1.334a.665.665 0 0 0 .495-1.113Z" fill="currentColor"/></svg>
+        {{var item.name}}
+    </span>
+</a>]]></item>
+                    </item>
+                    <item name="contact">
+                        <item name="name">Contact</item>
+                        <item name="url_path">contact</item>
+                        <item name="css_class">navpro-contact</item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}}">
+    <span class="flex gap-2 items-center">
+        <svg class="md:hide" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16.5" cy="16.5" r="16.5" fill="rgb(var(--pastel-color))"/><path d="M22.334 11.666H11.667c-.733 0-1.326.6-1.326 1.334l-.007 8c0 .733.6 1.333 1.333 1.333h10.667c.733 0 1.333-.6 1.333-1.333v-8c0-.733-.6-1.334-1.333-1.334Zm0 2.667-5.333 3.333-5.334-3.333V13l5.334 3.333L22.334 13v1.333Z" fill="currentColor"/></svg>
+        {{var item.name}}
+    </span>
+</a>]]></item>
+                    </item>
+                    <item name="phone">
+                        <item name="name">0800 085 8850</item>
+                        <item name="url_path">tel:08000858850</item>
+                        <item name="css_class">navpro-phone ml-auto hide sm:show</item>
+                        <item name="html"><![CDATA[<a href="{{var item.url}}" class="{{var item.class}} flex gap-1">
+    <svg class="color-brand" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 14V8.03125V7C4 3.68629 6.68629 1 10 1V1C13.3137 1 16 3.68629 16 7V13.7869C16 15.0092 15.0092 16 13.7869 16H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M16 9H17.5C18.3284 9 19 9.67157 19 10.5V12.5C19 13.3284 18.3284 14 17.5 14H16" stroke="currentColor" stroke-width="1.5"></path>
+        <path d="M4 9H2.5C1.67157 9 1 9.67157 1 10.5V12.5C1 13.3284 1.67157 14 2.5 14H4" stroke="currentColor" stroke-width="1.5"></path>
+        <circle cx="10.5" cy="16.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+    </svg><span>{{var item.name}}</span>
+</a>]]></item>
+                    </item>
+                </item>
+            </item>
+        </data>
+    </command>
+</config>

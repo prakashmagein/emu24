@@ -1,0 +1,61 @@
+type Query {
+    getTestimonials (
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        pageSize: Int = 6 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+    ): Testimonials
+    @resolver(class: "Swissup\\Testimonials\\Model\\Resolver\\Testimonials") @doc(description: ".")
+    @cache(cacheIdentity: "Swissup\\Testimonials\\Model\\Resolver\\Testimonials\\Identity")
+}
+
+type Testimonials @doc(description: "The Products object is the top-level object returned in a product search.") {
+    items: [TestimonialInterface] @doc(description: "An array of products that match the specified search criteria.")
+    page_info: SearchResultPageInfo @doc(description: "An object that includes the page_info and currentPage values specified in the query.")
+    total_count: Int @doc(description: "The number of products returned.")
+}
+
+type Testimonial implements TestimonialInterface @doc(description: "") {
+}
+
+interface TestimonialInterface @typeResolver(class: "Swissup\\Testimonials\\Model\\Resolver\\TestimonialTypeResolver") @doc(description: "") {
+    testimonial_id: ID @doc(description: "")
+    status: ID @doc(description: "")
+    date: String @doc(description: "") @resolver(class: "\\Swissup\\Testimonials\\Model\\Resolver\\Testimonials\\DateFormat")
+    name: String @doc(description: "")
+    email: String @doc(description: "")
+    message: String @doc(description: "")
+    company: String @doc(description: "")
+    website: String @doc(description: "")
+    twitter: String @doc(description: "")
+    facebook: String @doc(description: "")
+    image: String @doc(description: "URL") @resolver(class: "\\Swissup\\Testimonials\\Model\\Resolver\\Testimonials\\ImageUrl")
+    rating: Int @doc(description: "")
+    widget: Boolean @doc(description: "")
+}
+
+type Mutation {
+    createTestimonial(
+        email: String!,
+        name: String!,
+        message: String!,
+        rating: Int!,
+        company: String,
+        website: String,
+        facebook: String,
+        twitter: String
+    ): TestimonialInterface @resolver(class: "\\Swissup\\Testimonials\\Model\\Resolver\\CreateTestimonial") @doc(description:"Create testimonial")
+}
+
+type StoreConfig {
+    testimonials_general_approve : Boolean  @doc(description: "Extended Config Data - testimonials/general/approve")
+    testimonials_general_allowGuestSubmit : Boolean  @doc(description: "Extended Config Data - testimonials/general/allow_guest_submit")
+    testimonials_list_itemsPerPage : Int  @doc(description: "Extended Config Data - testimonials/list/items_per_page")
+    testimonials_list_imageWidth : Int  @doc(description: "Extended Config Data - testimonials/list/image_width")
+    testimonials_list_imageHeight : Int  @doc(description: "Extended Config Data - testimonials/list/image_height")
+    testimonials_list_showEmail : Boolean  @doc(description: "Extended Config Data - testimonials/list/show_email")
+    testimonials_form_enableCompany : Boolean  @doc(description: "Extended Config Data - testimonials/form/enable_company")
+    testimonials_form_enableWebsite : Boolean  @doc(description: "Extended Config Data - testimonials/form/enable_website")
+    testimonials_form_enableTwitter : Boolean  @doc(description: "Extended Config Data - testimonials/form/enable_twitter")
+    testimonials_form_enableFacebook : Boolean  @doc(description: "Extended Config Data - testimonials/form/enable_facebook")
+    testimonials_form_ratingRequired : Boolean  @doc(description: "Extended Config Data - testimonials/form/rating_required")
+    testimonials_form_sentMessage : String  @doc(description: "Extended Config Data - testimonials/form/sent_message")
+}

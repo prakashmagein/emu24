@@ -1,0 +1,80 @@
+<div class="title block-title" data-bind="visible: !askedSuccessfully()">
+    <strong id="askit-question-form-heading"
+            role="heading"
+            aria-level="2"
+            data-bind="i18n: 'Ask Your Question'"></strong>
+</div>
+<!-- ko foreach: getRegion('askit-messages') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div class="block-content" aria-labelledby="askit-question-form-heading" data-bind="visible: !askedSuccessfully()" afterRender="function (element) {jQuery(element).trigger('contentUpdated')}">
+    <button type="button"
+            class="action askit-show-form"
+            data-bind="event: {click: isFormVisible.bind(this, !isFormVisible())}">
+        <span data-bind="i18n: 'Ask Your Question'"></span>
+    </button>
+    <form class="form"
+          method="post"
+          id="askit-new-question-form"
+          data-bind="event: {submit: save }, visible: isFormVisible"
+          data-mage-init='{"validation":{}}' >
+
+        <div class="fieldset" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+            <div class="field name required">
+                <label class="label" for="question_customer_name"><span data-bind="i18n: 'Name'"></span></label>
+                <div class="control">
+                    <input name="customer_name"
+                           id="question_customer_name"
+                           type="text"
+                           class="input-text"
+                           data-bind="attr: {autocomplete: autocomplete}, value: customerName"
+                           data-validate="{required:true}" ></input>
+                </div>
+            </div>
+            <!-- ko if: customer().fullname  -->
+            <div class="field">
+                <div class="control">
+                    <input name="is_private" id="question_is_private" data-bind="attr: {title: $t('Post a private question')}" value="1" type="checkbox" ></input>
+                    <label class="label" for="question_is_private">
+                        <span data-bind="i18n: 'Post a private question'"></span>
+                    </label>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <div class="field email required">
+                <label class="label" for="question_email"><span data-bind="i18n: 'Email'"></span></label>
+                <div class="control">
+                    <input name="email"
+                           id="question_email"
+                           type="email"
+                           class="input-text"
+                           data-bind="attr: {autocomplete: autocomplete}"
+                           data-validate="{required:true, 'validate-email':true}">
+                    </input>
+                </div>
+            </div>
+            <!-- /ko -->
+            <div class="field text required">
+                <label class="label" for="question_text"><span data-bind="i18n: 'Question'"></span></label>
+                <div class="control">
+                    <textarea name="text"
+                           id="question_text"
+                           class="input-text" cols="5" rows="3"
+                           data-validate="{required:true}"></textarea>
+                    <small data-bind="i18n: 'Plain text only. HTML is not allowed.'"></small>
+                </div>
+            </div>
+            <!-- ko foreach: getRegion('additional-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit" data-bind="{attr: {title: $t('Submit')}}">
+                    <span data-bind="i18n: 'Submit Question'"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

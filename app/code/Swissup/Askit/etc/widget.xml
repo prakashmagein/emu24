@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="swissup_askit_form" class="Swissup\Askit\Block\Question\Widget" is_email_compatible="false"
+        placeholder_image="Magento_Cms::images/widget_page_link.png" ttl="86400">
+        <label translate="true">Askit: Questions + New Question Form</label>
+        <description>Shows all assigned questions and new question submit form</description>
+        <parameters>
+            <parameter name="is_hide_block_listing" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hide listing block</label>
+                <description>Enable if you want to hide listing block</description>
+            </parameter>
+            <parameter name="is_hide_block_form" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hide form block</label>
+                <description>Enable if you want to hide new question form block</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

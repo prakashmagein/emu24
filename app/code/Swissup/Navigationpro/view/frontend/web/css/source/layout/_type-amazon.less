@@ -1,0 +1,22 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    .navpro {
+        &-amazon {
+            li.level1 {
+                position: static;
+            }
+            .navpro-departments {
+                .navpro-dropdown-level2 {
+                    top: -1px !important;
+                    left: 100% !important;
+
+                    .rtl & {
+                        left: auto !important;
+                        right: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+}

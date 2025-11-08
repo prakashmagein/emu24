@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="colors" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="7">
+        <label>Global colors</label>
+
+        <field id="rootcolor_cssproprgb_baseColor" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Text color</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+        <field id="root_cssproprgb_brandColor" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Brand color (Primary buttons, icons, focus-ring)</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+        <field id="root_cssproprgb_brandHoverColor" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Brand hovered color (Primary buttons, icons, focus-ring)</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+        <field id="root_cssproprgb_brandTextColor" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Brand text color (Special price, active tab title, page numbers)</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+        <field id="root_cssproprgb_pastelColor" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Subtle color (Background for images, tab content, navigation dropdown)</label>
+            <comment>This color must be as light as possible because it will blend with product images</comment>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+        <field id="root_cssproprgb_pastelDarkenColor" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Subtle darken color</label>
+            <frontend_model>Swissup\ThemeEditor\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+        </field>
+    </group>
+</include>

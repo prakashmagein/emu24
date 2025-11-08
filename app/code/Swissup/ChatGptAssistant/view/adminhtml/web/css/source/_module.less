@@ -1,0 +1,137 @@
+& when (@media-common = true) {
+    .ai-generate {
+        &-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            .action-default {
+                display: flex;
+                padding: 0.5rem 1em 0.5rem;
+
+                span {
+                    margin-left: 5px;
+                }
+            }
+
+            .action-toggle {
+                padding: 0 0.6rem;
+                font-weight: bold;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            &.loading {
+                pointer-events: none;
+
+                .logo {
+                    animation: loading 2s linear infinite;
+                }
+
+                @keyframes loading {
+                    0% {
+                        transform: rotate(0);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+
+            textarea[name="product[description]"] + & {
+                top: -32px;
+            }
+        }
+
+        &-modal .modal-inner-wrap {
+            width: 1000px;
+        }
+
+        &-popup {
+            .textarea {
+                width: 100%;
+                resize: none;
+
+                &.error {
+                    border-color: #e22626;
+                }
+            }
+
+            .row {
+                padding-bottom: 10px;
+                position: relative;
+
+                &.right {
+                    text-align: right;
+                }
+
+                .action.send {
+                    position: absolute;
+                    right: 15px;
+                    bottom: 15px;
+                }
+            }
+
+            .chat {
+                height: 400px;
+                border: 1px solid #ccc;
+                padding: 5px;
+                overflow-y: scroll;
+
+                .entry {
+                    display: flex;
+                    padding-bottom: 20px;
+
+                    .content {
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 10px;
+                        margin-left: 10px;
+
+                        pre {
+                            margin: 0;
+                            white-space: pre-wrap;
+                        }
+                    }
+
+                    .actions {
+                        width: 50px;
+                        padding: 0 10px;
+
+                        .action {
+                            padding: 10px;
+
+                            &.show-msg::after {
+                                content: attr(data-message);
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+
+                    .actions-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        position: sticky;
+                        top: 0;
+                    }
+                }
+
+                .user .content {
+                    background-color: #3b82f6;
+                    color: #fff;
+                }
+
+                .assistant .content {
+                    border: 1px solid #ccc;
+                }
+            }
+        }
+    }
+}

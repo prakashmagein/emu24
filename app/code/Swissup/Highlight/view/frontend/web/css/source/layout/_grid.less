@@ -1,0 +1,54 @@
+& when (@media-common = true) {
+    .block.block-highlight.widget .products-grid .product-items {
+        gap: 0;
+        margin-left: -@highlight-product-grid-item-gutter;
+        .product-item {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .generate-highlight-columns(6);
+    .generate-highlight-columns(@columns_count, @i: 1) when (@i =< @columns_count) {
+        .page-layout-1column .block.widget.highlight-cols-@{i} .products-grid .product-items {
+            margin-left: -@highlight-product-grid-item-gutter;
+            .product-item {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .block.widget.highlight-cols-@{i},
+        .page-layout-1column .block.widget.highlight-cols-@{i},
+        .page-layout-3columns .block.widget.highlight-cols-@{i} {
+            .products-grid {
+                .product-item {
+                    &:nth-child(n) {
+                        margin: 0 0 @highlight-product-grid-item-gutter-bottom @highlight-product-grid-item-gutter;
+                        width: ~"calc(100% / @{i} - @{highlight-product-grid-item-gutter} - 0.1px)";
+                    }
+                }
+            }
+        }
+        .generate-highlight-columns(@columns_count, (@i + 1));
+    }
+    @media (max-width: 767px) {
+        /* Three columns instead of six */
+        .highlight-cols-6 li.item {
+            width: ~"calc(100% / 3 - @{highlight-product-grid-item-gutter} - 0.1px)" !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Two columns for small screen */
+        .page-layout-1column .block.widget.highlight-grid:not(.highlight-cols-1):not(.highlight-carousel),
+        .block.widget.highlight-grid:not(.highlight-cols-1):not(.highlight-carousel) {
+            .product-items:not(.product-items-images) {
+                .product-item,
+                .product-item:nth-child(n) {
+                    width: ~"calc(50% - @{highlight-product-grid-item-gutter} - 0.1px)" !important;
+                }
+            }
+        }
+    }
+}

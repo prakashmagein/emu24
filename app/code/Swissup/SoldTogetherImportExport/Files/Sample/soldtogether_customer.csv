@@ -1,0 +1,6 @@
+product_sku,related_sku,weight,is_admin
+SKU-3,SKU-2,10,1
+SKU-3,SKU-5,9,1
+SKU-1,SKU-2,30,1
+SKU-1,SKU-3,20,1
+SKU-1,SKU-4,4,1

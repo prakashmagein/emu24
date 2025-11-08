@@ -1,0 +1,70 @@
+"Delete Item","Item verwijderen"
+"Are you sure you want to do this?","Weet je zeker dat je dit wilt doen?"
+"Menu Settings",Menu-instellingen
+"You deleted the item.","Je hebt het item verwijderd."
+"We can't find a item to delete.","We kunnen geen item vinden om te verwijderen."
+"Import completed.","Import voltooid."
+"Something went wrong while importing item.","Er ging iets mis tijdens het importeren van artikel."
+"This item no longer exists.","Dit item bestaat niet meer."
+"Something went wrong while saving item.","Er ging iets mis tijdens het opslaan van artikel."
+"You saved item.","Je hebt het object opgeslagen."
+"Something went wrong while saving menu.","Er ging iets mis tijdens het opslaan van menu."
+"You deleted the menu.","Je hebt het menu verwijderd."
+"We can't find a menu to delete.","We kunnen geen menu vinden om te verwijderen."
+"A total of %1 record(s) have been deleted.","In totaal zijn %1 record(s) verwijderd."
+"A total of %1 record(s) have been updated.","In totaal zijn de %1-record(s) bijgewerkt."
+"New Menu","Nieuw menu"
+"This menu no longer exists.","Dit menu bestaat niet meer."
+"You saved menu.","Je hebt het menu opgeslagen."
+"Stick to Left","Vasthouden aan links"
+"Stick to Right","Blijf bij rechts"
+Standard,Standaard
+Left,Links
+Top,Boven
+Fullscreen,Fullscreen
+Full-Width,"Volledige breedte"
+Boxed,Boxed
+Small,Kleine
+Medium,Medium
+Large,Grote
+"Extra Large","Extra groot"
+"Item was not registered","Object is niet geregistreerd"
+Horizontal,Horizontale
+Vertical,Verticale
+Blank,Lege
+Dark,Donkere
+"Dark Bar","Donkere balk"
+"Dark Dropdown","Donkere dropdown"
+Flat,Platte
+Compact,Compact
+"Menu was not registered","Menu is niet geregistreerd"
+"An item cannot be parent for itself","Een item kan niet zelf ouder zijn"
+"This name is already in use.","Deze naam is al in gebruik."
+"Top Menu","Bovenste menu"
+Menu,Menu
+Navigationpro,Navigatiepro
+"Show Active Branch Only","Alleen actieve vertakking weergeven"
+"Show Parent Category","Bovenliggende rubriek weergeven"
+"Initially Shown Levels Count","In eerste instantie weergegeven niveaus tellen"
+Orientation,Oriëntatie
+"Dropdown Positioning",Vervolgkeuzepositie
+"Additional CSS Class","Extra CSS-klasse"
+"Wrap into Block Template","Inbloksjabloon inpakken"
+"Block CSS Class","CSS-klasse blokkeren"
+"Select item in the tree on the left sidebar, or create a new one","Item selecteren in de structuur op de linkerzijbalk of een nieuwe maken"
+"Sync Name and URL with Category Data","Naam en URL synchroniseren met categoriegegevens"
+"CSS Class",CSS-klasse
+"Use Menu Settings","Menu-instellingen gebruiken"
+"New Item","Nieuw object"
+"Import Item","Object importeren"
+"Columns Direction",Kolommenrichting
+"Nested Levels per Dropdown","Geneste niveaus per vervolgkeuzelijst"
+"Add New Menu","Nieuw menu toevoegen"
+"Are you sure you want to delete selected menu's?","Weet je zeker dat je geselecteerde menu's wilt verwijderen?"
+"Replace Top Menu at","Bovenmenu vervangen op"
+"Leave empty if you don't want to replace Top Menu","Laat leeg als u het bovenste menu niet wilt vervangen"
+Direction,Richting
+"Maximal Depth","Maximale diepte"
+"Dropdown Position",Vervolgkeuzepositie
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Houd er rekening mee dat de positie van de dropdown bovendien wordt aangepast in de navigatiebalkdruk wanneer de vervolgkeuzeweer wordt weergegeven aan de frontend"
+"Dropdown Settings","Vervolgkeuzelijst Instellingen"

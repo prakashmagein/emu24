@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <suggestpage>
+            <general>
+                <show_after_addtocart>1</show_after_addtocart>
+            </general>
+            <blocks>
+                <crosssell>1</crosssell>
+            </blocks>
+            <!-- <mobile>
+                <show_after_addtocart>1</show_after_addtocart>
+            </mobile> -->
+        </suggestpage>
+    </default>
+</config>

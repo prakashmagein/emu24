@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_gdpr>
+            <consents>
+                <swissup_testimonials>
+                    <enabled>1</enabled>
+                    <sort_order>10</sort_order>
+                    <title><![CDATA[I agree to my personal data being stored and used to display my testimonial on the site]]></title>
+                    <forms>swissup:testimonials</forms>
+                </swissup_testimonials>
+            </consents>
+        </swissup_gdpr>
+    </default>
+</config>

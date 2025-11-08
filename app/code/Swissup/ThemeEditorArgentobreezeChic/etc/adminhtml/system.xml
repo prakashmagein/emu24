@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_argentobreeze_chic" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Argento Breeze Chic</label>
+            <tab>theme_editor</tab>
+            <resource>Swissup_ThemeEditorArgentobreezeChic::config</resource>
+
+            <include path="Swissup_ThemeEditor::system/frontend_mode.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/layout.xml"/><!-- Layout -->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/header.xml"/><!-- Page Header Styles -->
+<!--            <include path="Swissup_ThemeEditor::system/header_config.xml"/> &lt;!&ndash; Header Builder &ndash;&gt;-->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/footer.xml"/><!-- Footer -->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/buttons.xml"/><!-- Buttons -->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/fonts.xml"/><!-- Fonts and Colors -->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/category.xml"/><!-- Category -->
+            <include path="Swissup_ThemeEditorArgentobreezeChic::system/product.xml"/><!-- Product -->
+            <include path="Swissup_ThemeEditor::system/head.xml"/><!-- Additional styles -->
+            <include path="Swissup_ThemeEditor::system/themes.xml"/><!-- Selected theme -->
+        </section>
+    </system>
+</config>

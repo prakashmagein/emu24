@@ -1,0 +1,36 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+        <referenceBlock name="product.info.media.image" template="Swissup_Amp::catalog/product/view/gallery.phtml" />
+        <referenceBlock name="product.info.review" template="Swissup_Amp::catalog/product/view/review.phtml" />
+
+        <referenceBlock name="view.addto.compare" template="Swissup_Amp::catalog/product/list/addto/compare.phtml" />
+        <referenceBlock name="view.addto.wishlist" template="Swissup_Amp::catalog/product/list/addto/wishlist.phtml" />
+        <referenceBlock name="product.info" template="Swissup_Amp::catalog/product/view/form.phtml"/>
+        <referenceBlock name="customize.button" template="Swissup_Amp::bundle/catalog/product/view/customize.phtml"/>
+        <referenceBlock name="bundle.back.button" template="Swissup_Amp::bundle/catalog/product/view/backbutton.phtml"/>
+        <referenceBlock name="product.info.bundle.options.select" template="Swissup_Amp::bundle/catalog/product/view/type/option/select.phtml" />
+        <referenceBlock name="product.info.bundle.options.radio" template="Swissup_Amp::bundle/catalog/product/view/type/option/radio.phtml" />
+
+        <move element="product.price.final" destination="product.info.main" before="product.info.review" />
+        <move element="product.info.overview" destination="product.info.main" before="product.info" />
+        <move element="product.info.addtocart.bundle" destination="product.info.options.wrapper.bottom" after="-" />
+
+        <referenceContainer name="skip_gallery_before.wrapper" remove="true" />
+        <referenceContainer name="skip_gallery_after.wrapper" remove="true" />
+        <referenceContainer name="product.info.sku" remove="true" />
+        <referenceContainer name="product.info.upsell" remove="true" />
+        <referenceContainer name="product.info.additional" remove="true" />
+        <referenceContainer name="bundle.summary" remove="true" />
+
+        <!-- Replace ajax reviews tab with static reviews list -->
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Review\Block\Product\View\ListView" name="reviews.list.tab" as="reviews_list" template="Swissup_Amp::review/product/view/list.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">30</argument>
+                    <argument translate="true" name="title" xsi:type="string">Customer Reviews</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</layout>

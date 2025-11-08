@@ -1,0 +1,8 @@
+& when (@critical) {
+    :root {
+        .lib-rgb(--brand-text-color, @theme__brand-text-color);
+        .lib-rgb(--pastel-color, @theme__pastel-background);
+        .lib-rgb(--pastel-hover-color, darken(@theme__pastel-background, 12%));
+        .lib-rgb(--pastel-darken-color, darken(@theme__pastel-background, 4%));
+    }
+}

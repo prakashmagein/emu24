@@ -1,0 +1,31 @@
+& when (@media-common = true) {
+    & when (@critical = unsure), (@critical) {
+        .cookie-bar {
+            ~ .cookie-wall {
+                z-index: @swissup-gdpr-cookie-wall__z-index;
+                position: fixed;
+                pointer-events: none;
+                opacity: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                background: @swissup-gdpr-cookie-wall__background;
+            }
+        }
+    }
+
+    & when (@critical = unsure), (@critical = false) {
+        .cookie-bar {
+            &.shown {
+                ~ .cookie-wall {
+                    transition-duration: 0ms;
+                    opacity: 1;
+                    pointer-events: all;
+                    transition: opacity 400ms ease-in-out 0ms,
+                                visibility 0ms linear 400ms;
+                }
+            }
+        }
+    }
+}

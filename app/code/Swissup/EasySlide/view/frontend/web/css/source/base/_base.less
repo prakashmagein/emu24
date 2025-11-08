@@ -1,0 +1,21 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .easyslide-wrapper {
+        .swiper-container { // override original swiper styles
+            text-align: center;
+
+            &-horizontal > .swiper-pagination-bullets {
+                bottom: 0.4em;
+            }
+        }
+    }
+
+    .easyslide-link {
+        display: block;
+    }
+
+    .columns .column.main {
+        min-width: 0; // fix calculate slider width with flexbox elements - commit f6f4ce7
+    }
+}
+}

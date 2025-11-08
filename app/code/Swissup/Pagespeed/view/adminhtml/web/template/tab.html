@@ -1,0 +1,77 @@
+<div class="swissup-pagespeed-tab-container">
+    <ol class="swissup-pagespeed-links-container">
+        <li>
+            <div class="swissup-pagespeed-title-container">
+                <span class="swissup-pagespeed-name">Opportunities</span>
+            </div>
+            <ol>
+            <!-- ko foreach: audits -->
+                <!-- ko if: opportunity -->
+                <li class="swissup-pagespeed-link-block" data-bind="click: $parent.activate.bind($parent), css: {'active': !$index()}">
+                    <span class="swissup-pagespeed-title" data-bind="text: title"></span>
+                    <!-- ko if: displayValue -->
+                    <span class="swissup-pagespeed-separator">(</span>
+                    <span class="swissup-pagespeed-time" data-bind="text: displayValue, css: {'red': score < 0.5, 'yellow': score > 0.49}"></span>
+                    <span class="swissup-pagespeed-separator">)</span>
+                    <!-- /ko -->
+                </li>
+                <!-- /ko -->
+            <!-- /ko -->
+            </ol>
+        </li>
+        <li>
+            <div class="swissup-pagespeed-title-container">
+                <span class="swissup-pagespeed-name">Diagnostics</span>
+            </div>
+            <ol>
+            <!-- ko foreach: audits -->
+                <!-- ko ifnot: opportunity -->
+                <li class="swissup-pagespeed-link-block" data-bind="click: $parent.activate.bind($parent), css: {'active': !$index()}">
+                    <span class="swissup-pagespeed-title" data-bind="text: title"></span>
+                    <!-- ko if: displayValue -->
+                    <span class="swissup-pagespeed-separator">(</span>
+                    <span class="swissup-pagespeed-time" data-bind="text: displayValue, css: {'red': score < 0.5, 'yellow': score > 0.49}"></span>
+                    <span class="swissup-pagespeed-separator">)</span>
+                    <!-- /ko -->
+                </li>
+                <!-- /ko -->
+            <!-- /ko -->
+            </ol>
+        </li>
+    </ol>
+    <!-- ko foreach: audits -->
+    <div class="swissup-pagespeed-recommendation-block" data-bind="css: {'hide': $index}, attr: {'data-swissup-pagespeed-audit': id}">
+        <div class="swissup-pagespeed-google-recommendation">
+            <p class="swissup-pagespeed-title-container">
+                <span class="swissup-pagespeed-name" data-bind="text: title"></span>
+                <!-- ko if: displayValue -->
+                <span class="swissup-pagespeed-separator">(</span>
+                <span class="swissup-pagespeed-time" data-bind="text: displayValue, css: {'red': score < 0.5, 'yellow': score > 0.49}"></span>
+                <span class="swissup-pagespeed-separator">)</span>
+                <!-- /ko -->
+            </p>
+            <!-- ko if: $data.description.hasLink -->
+            <div class="swissup-pagespeed-recommendation">
+                <!-- ko foreach: $data.description -->
+                <span data-bind="text: prevText"></span>
+                <!-- ko if: link != '' -->
+                    <a data-bind="attr:{ href: link, title: linkTitle }, text: linkTitle" target="_blank"></a>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: $data.description.hasLink -->
+            <p class="swissup-pagespeed-recommendation" data-bind="text: description.description"></p>
+            <!-- /ko -->
+        </div>
+        <!-- ko if: $data.recommendation -->
+        <div class="swissup-pagespeed-our-recommendation">
+            <div class="swissup-pagespeed-title-container">
+                <span class="swissup-pagespeed-name" data-bind="i18n: 'Recommendations:'"></span>
+            </div>
+            <div class="swissup-pagespeed-recommendation" data-bind="html: recommendation"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>

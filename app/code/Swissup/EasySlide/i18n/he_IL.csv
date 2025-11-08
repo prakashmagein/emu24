@@ -1,0 +1,43 @@
+"Save Slider","שמור את המחוון"
+"Delete Slider","מחק את המחוון"
+"Edit Slider - '%1'","ערוך את המחוון - '%1'"
+"New Slider","סליידר חדש"
+Parameters,פרמטרים
+Direction,כיוון
+Horizontal,אופקי
+Vertical,אנכי
+Effect,השפעה
+Slide,שקופית
+Fade,לדעוך
+Cube,קוביה
+Coverflow,"זרימת כיסוי"
+Flip,היפוך
+Speed,מהירות
+Autoplay,"הפעלה אוטומטית"
+Pagination,עימוד
+"Navigation Buttons","כפתורי ניווט"
+Scrollbar,"בר גלילה"
+"Scrollbar Hide","הסתר סרגל הגלילה"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,"הצגת שקופיות"
+Slides,שקופיות
+"Add New Slide","הוסף שקופית חדשה"
+"Slider was deleted.","המחוון נמחק."
+"Can't find a slider to delete.","לא ניתן למצוא מחוון למחיקה."
+EasySlide,EasySlide
+"Manage Sliders","נהל את המחוונים"
+"This slider no longer exists.","המחוון הזה כבר לא קיים."
+"Edit Slider","ערוך את המחוון"
+Sliders,סליידרים
+"Slider has been saved.","המחוון נשמר."
+"Something went wrong while saving the slider.","משהו השתבש בזמן ששמר את המחוון."
+Link,קישור
+"Open link in","פתח קישור ב"
+Description,תיאור
+"Description Position","תיאור מיקום"
+"Description Background","תיאור רקע"
+"Slide Detail","פרטי שקופיות"
+"Select Slider","בחר סליידר"
+"Add New Slider","הוסף סליידר חדש"
+Black,שחור
+White,לבן

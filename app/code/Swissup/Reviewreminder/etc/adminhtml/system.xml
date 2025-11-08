@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="reviewreminder" translate="label" type="text" sortOrder="1821" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Review Reminder</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Reviewreminder::config_reviewreminder</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_for_guests" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled for Guests</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Set to "No" to send reminders for registered customers only</comment>
+                </field>
+                <field id="emails_per_cron" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
+                    <label>Number of emails to send per cron iteration</label>
+                </field>
+                <field id="default_status" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Default reminder status</label>
+                    <source_model>Swissup\Reviewreminder\Model\Config\Source\DefaultStatus</source_model>
+                </field>
+            </group>
+
+            <group id="email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Settings</label>
+                <field id="send_from" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send email from</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="email_subject" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email subject</label>
+                    <comment>Available variables: {customer_name}, {product_name} Example: Please rate {product_name}, {customer_name}</comment>
+                </field>
+                <field id="email_template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="send_after" translate="label" type="text" sortOrder="40" showInDefault="1" canRestore="1">
+                    <label>Send email after, days</label>
+                    <comment>0 - send immediately after order status changed</comment>
+                </field>
+                <field id="allow_specific_order" translate="label" type="select" sortOrder="50" showInDefault="1" canRestore="1">
+                    <label>Process orders</label>
+                    <source_model>Swissup\Reviewreminder\Model\Config\Source\SpecificOrders</source_model>
+                </field>
+                <field id="specific_order" translate="label" type="multiselect" sortOrder="60" showInDefault="1" canRestore="1">
+                    <label>Consider orders with status</label>
+                    <source_model>Magento\Sales\Ui\Component\Listing\Column\Status\Options</source_model>
+                    <depends>
+                        <field id="allow_specific_order">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="initial_indexing" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Manual orders indexing</label>
+                <comment><![CDATA[You can launch orders indexing after extension installation if you want to send reminders for existing orders.]]></comment>
+                <field id="from_date_type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Index orders created</label>
+                    <source_model>Swissup\Reviewreminder\Model\Config\Source\DateFromType</source_model>
+                </field>
+                <field id="from_date" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom date</label>
+                    <comment>date in YYYY-MM-DD format</comment>
+                    <depends>
+                        <field id="from_date_type">4</field>
+                    </depends>
+                </field>
+                <field id="store_view" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Index orders made in store(s)</label>
+                    <source_model>Swissup\Reviewreminder\Model\Config\Source\Store</source_model>
+                </field>
+                <field id="run_indexing" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Run</label>
+                    <frontend_model>Swissup\Reviewreminder\Block\Adminhtml\System\Config\Fieldset\RunIndexing</frontend_model>
+                </field>
+            </group>
+
+            <group id="trustedshops" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Trusted Shops</label>
+                <comment><![CDATA[Configure Trusted Shops to replace product review link with Trusted Shops review link in reminder email.]]></comment>
+                <field id="url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Review URL</label>
+                    <comment>https://www.trustedshops.com/buyerrating/rate https://www.trustedshops.de/bewertung/bewerten</comment>
+                </field>
+                <field id="customer_number" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Number</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

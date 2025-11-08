@@ -1,0 +1,28 @@
+& when (@critical) {
+    .product.data.items.expanded:first-child {
+        > .title {
+            .counter {
+                display: none;
+            }
+        }
+        & when (@easytabs-expanded__reset-review-float) {
+            #product-review-container,
+            .review-add + .review-list,
+            .review-add {
+                float: none;
+                width: auto;
+            }
+        }
+        .review-add {
+            max-width: 600px;
+        }
+        > .content {
+            .review-add {
+                .block-title {
+                    &:extend(.breeze-sr-only-reset);
+                    margin-bottom: @2;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?php if ($this->helper(\Magento\Cookie\Helper\Cookie::class)->isCookieRestrictionModeEnabled()) : ?>
+    <?php /** @var \Magento\Cookie\Block\Html\Notices $block */
+        $showUrl = $block->getUrl('swissupamp/cookie/show', [
+            '_forced_secure' => true,
+            '_query' => ['timestamp' => 'TIMESTAMP']
+        ]);
+        $dismissUrl = $block->getUrl('swissupamp/cookie/allow', ['_forced_secure' => true]);
+    ?>
+    <amp-user-notification
+        layout="nodisplay"
+        id="amp-cookie-notice"
+        data-show-if-href="<?= $showUrl ?>"
+        data-persist-dismissal="false"
+        data-dismiss-href="<?= $dismissUrl ?>">
+        <p>
+            <strong><?= $block->escapeHtml(__('We use cookies to make your experience better.')) ?></strong>
+            <span><?= $block->escapeHtml(__('To comply with the new e-Privacy directive, we need to ask for your consent to set the cookies.')) ?></span>
+                <?= $block->escapeHtml(__('<a href="%1">Learn more</a>.', $block->getUrl('', ['_direct' => 'privacy-policy-cookie-restriction-mode'])), ['a']) ?>
+        </p>
+        <div class="actionbar">
+            <button class="button" on="tap:amp-cookie-notice.dismiss"><?= $block->escapeHtml(__('Allow')) ?></button>
+        </div>
+    </amp-user-notification>
+<?php endif; ?>

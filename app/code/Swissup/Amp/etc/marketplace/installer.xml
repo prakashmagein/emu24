@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <packages>
+        <package>swissup/amp</package>
+        <package>swissup/module-amp</package>
+    </packages>
+
+    <commands>
+        <include path="commands/config.xml"/>
+        <include path="commands/cms_page.xml"/>
+        <include path="commands/cms_block.xml"/>
+        <include path="commands/easyslide.xml"/>
+        <include path="commands/resources.xml"/>
+    </commands>
+</config>

@@ -1,0 +1,54 @@
+<?php
+/**
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+<?php $_product = $block->getProduct(); ?>
+
+<?php
+    $ampHelper = $this->helper('Swissup\Amp\Helper\Catalog');
+    $canShowAddToCart = $ampHelper->canShowAddToCart($_product);
+?>
+
+<div class="product-add-form">
+    <form data-product-sku="<?= $block->escapeHtml($_product->getSku()) ?>"
+          action="<?= /* @NoEscape */ $block->getSubmitUrl($_product) ?>" method="post"
+          id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $_product->getId() ?>" />
+        <input type="hidden" name="selected_configurable_option" value="" />
+        <input type="hidden" name="related_product" id="related-products-field" value="" />
+        <?= $block->getBlockHtml('formkey') ?>
+        <?= $block->getChildHtml('form_top') ?>
+        <?php if (!$block->hasOptions() && $canShowAddToCart):?>
+            <?= $block->getChildHtml('product_info_form_content') ?>
+        <?php else:?>
+            <?php if ($_product->isSaleable() && $block->getOptionsContainer() == 'container1' && $canShowAddToCart):?>
+                <?= $block->getChildChildHtml('options_container') ?>
+            <?php endif;?>
+        <?php endif; ?>
+
+        <?php if ($_product->isSaleable() && !$canShowAddToCart): ?>
+            <?php
+                $desktopUrl = $block->getUrl('*/*/*', [
+                    '_current' => true,
+                    '_use_rewrite' => true,
+                    '_query' => ['amp' => null]
+                ]);
+            ?>
+            <div class="box-tocart">
+                <div class="actions">
+                    <a href="<?= $desktopUrl ?>"
+                        title="<?= __("Configure and Buy") ?>"
+                        class="button action primary configure-and-buy"
+                    ><span><?= __("Configure and Buy") ?></span></a>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($_product->isSaleable() && $block->hasOptions() && $block->getOptionsContainer() == 'container2' && $canShowAddToCart):?>
+            <?= $block->getChildChildHtml('options_container') ?>
+        <?php endif;?>
+        <?= $block->getChildHtml('form_bottom') ?>
+    </form>
+</div>

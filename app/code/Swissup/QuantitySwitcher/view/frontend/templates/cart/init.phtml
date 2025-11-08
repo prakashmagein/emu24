@@ -1,0 +1,13 @@
+<?php
+    /** @var \Swissup\QuantitySwitcher\Block\Init $block */
+    $dataHelper = $block->getQuantitySwitcherHelper();
+?>
+<?php if ($dataHelper->isEnabledOnCart()): ?>
+<script type="text/x-magento-init">
+{
+    ".input-text.qty": {
+        "Swissup_QuantitySwitcher/js/cart": {}
+    }
+}
+</script>
+<?php endif; ?>

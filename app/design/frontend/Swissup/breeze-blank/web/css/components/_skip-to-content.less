@@ -1,0 +1,37 @@
+& when (@critical) {
+    .action.skip {
+        &:not(:focus-within) {
+            &:extend(.breeze-sr-only);
+        }
+    }
+}
+
+& when not (@critical) {
+    .action.skip {
+        .page-header & {
+            .lib-rgb(--base-color, @base__text-color);
+            --base-alpha: 1;
+            position: absolute;
+            .left(@2);
+            top: @2;
+            z-index: 40;
+            text-align: center;
+            background: @base__background;
+            color: @base__color;
+            &:hover {
+                text-decoration: underline;
+            }
+            &:focus-within {
+                outline-offset: 0;
+                padding: @container__padding;
+            }
+        }
+
+        @media @media-md-down {
+            // No need to have "skip" on mobile because layered nav is hidden
+            .sidebar & {
+                display: none !important;
+            }
+        }
+    }
+}

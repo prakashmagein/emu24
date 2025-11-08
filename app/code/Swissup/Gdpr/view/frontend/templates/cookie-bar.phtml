@@ -1,0 +1,27 @@
+<div class="<?= $block->getCssClass() ?>"
+    style="display: none"
+    data-mage-init='{"Swissup_Gdpr/js/view/cookie-bar": <?= $block->escapeHtmlAttr($block->getJsonConfig()) ?>}'>
+    <div class="cookie-bar-container">
+        <div class="cookie-bar-text">
+            <?= $block->getContentHtml() ?>
+            <?php if ($block->getDisplayMode() === 'full') : ?>
+                <?= $block->getChildHtml() ?>
+            <?php endif ?>
+        </div>
+
+        <?php if ($block->getDisplayMode() === 'minimalistic') : ?>
+            <div class="cookie-bar-buttons">
+                <button class="action secondary accept-cookie-consent" data-cookies-allow-necessary
+                    ><?= $block->escapeHtml(__('Deny')) ?></button>
+                <button class="action secondary" data-cookies-settings
+                    data-href="<?= $block->getCookieSettingsPageUrl() ?>"
+                    ><?= $block->escapeHtml(__('Accept Selection')) ?></button>
+                <button class="action primary accept-cookie-consent" data-cookies-allow-all
+                    ><?= $block->escapeHtml(__('Accept All')) ?></button>
+            </div>
+        <?php endif ?>
+    </div>
+</div>
+<?php if ($block->isCookieWallEnabled()) : ?>
+    <div class="cookie-wall"></div>
+<?php endif ?>

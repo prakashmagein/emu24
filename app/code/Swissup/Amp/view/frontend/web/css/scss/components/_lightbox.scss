@@ -1,0 +1,50 @@
+$lightbox-background-color: rgba(255,255,255,1) !default;
+$lightbox-content-background-color: #fff !default;
+$lightbox-content-padding: 40px 20px 20px !default;
+
+$lightbox-close-mask-image: $icon-close !default;
+$lightbox-close-mask-size: null !default;
+$lightbox-close-width: 40px !default;
+$lightbox-close-height: 40px !default;
+$lightbox-close-background-color: $mid-grey !default;
+
+%lightbox-close {
+    @include icon-mask(
+        $icon: $lightbox-close-mask-image,
+        $size: $lightbox-close-mask-size,
+        $color: $lightbox-close-background-color,
+        $width: $lightbox-close-width,
+        $height: $lightbox-close-height
+    );
+
+    position: absolute;
+    top: 5px;
+    @include right(15px);
+}
+
+%lightbox-content {
+    box-sizing: border-box;
+    max-width: 85vw;
+    width: 700px;
+    padding: $lightbox-content-padding;
+    background: $lightbox-content-background-color;
+    margin: 0 auto;
+}
+
+amp-lightbox {
+    background: $lightbox-background-color;
+
+    .lightbox {
+        @extend %lightbox-content;
+
+        h4:first-child,
+        .block-title:first-child {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .close {
+            @extend %lightbox-close;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+"Save Slider","Guardar control deslizante"
+"Delete Slider","Eliminar control deslizante"
+"Edit Slider - '%1'","Control deslizante de edición: '%1'"
+"New Slider","Nuevo control deslizante"
+Parameters,Parámetros
+Direction,Dirección
+Horizontal,Horizontal
+Vertical,Vertical
+Effect,Efecto
+Slide,Diapositiva
+Fade,Desvanecerse
+Cube,Cubo
+Coverflow,"Flujo de corriente"
+Flip,"Dar la vuelta"
+Speed,Velocidad
+Autoplay,Auto-reproducción
+Pagination,Paginación
+"Navigation Buttons","Botones de navegacion"
+Scrollbar,"Barra de desplazamiento"
+"Scrollbar Hide","Barra de desplazamiento Ocultar"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Diapositivas
+"Add New Slide","Agregar nueva diapositiva"
+"Slider was deleted.","El control deslizante fue eliminado."
+"Can't find a slider to delete.","No se puede encontrar un control deslizante para eliminar."
+EasySlide,EasySlide
+"Manage Sliders","Administrar controles deslizantes"
+"This slider no longer exists.","Este control deslizante ya no existe."
+"Edit Slider","Editar control deslizante"
+Sliders,Deslizadores
+"Slider has been saved.","El control deslizante se ha guardado."
+"Something went wrong while saving the slider.","Algo salió mal al guardar el control deslizante."
+Link,Enlace
+"Open link in","Abrir enlace en"
+Description,Descripción
+"Description Position","Descripción Posición"
+"Description Background","Descripción Antecedentes"
+"Slide Detail","Detalle de diapositiva"
+"Select Slider","Seleccionar control deslizante"
+"Add New Slider","Añadir nuevo control deslizante"
+Black,Negro
+White,Blanco

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/disable-row-click.phtml" name="disable_row_click"/>
+        <block class="Swissup\Attributepages\Block\Adminhtml\Page\Edit\Tab\Options" name="attributepages_page_edit_tab_options"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="options_grid_serializer">
+            <arguments>
+                <argument name="grid_block" xsi:type="string">attributepages_page_edit_tab_options</argument>
+                <argument name="callback" xsi:type="string">getExcludedOptions</argument>
+                <argument name="input_element_name" xsi:type="string">excluded_option_ids</argument>
+                <argument name="reload_param_name" xsi:type="string">options_excluded</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/add-form-part.phtml">
+            <arguments>
+                <argument name="selector" xsi:type="string">#excluded_option_grid_table tbody input, [name="excluded_option_ids"]</argument>
+                <argument name="form_part" xsi:type="string">attributepages_page_form</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

@@ -1,0 +1,162 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the top navigation or the site.
+// -----------------------------------------------------------------------------
+
+$nav-link-color       : $link-color !default;
+$nav-link-color-active: $link-hover-color !default;
+
+// $nav-trigger-type: 'triangle' !default;
+// $nav-trigger-type: 'plus' !default;
+$nav-trigger-type: 'shevron-to-cross' !default;
+
+nav.navigation {
+    li {
+        a,
+        label {
+            cursor: pointer;
+            color: $nav-link-color;
+            position: relative;
+            display: inline-block;
+            display: block;
+            padding: 8px 0;
+            transition: color 100ms ease-in;
+
+            @include on-event {
+                color: $nav-link-color-active;
+                text-decoration: none;
+            }
+        }
+        input[type=checkbox] {
+            display: none;
+        }
+
+        ul {
+            @include margin-left(12px);
+
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+
+            will-change: transform;
+            transform-style: preserve-3D;
+            transform: scale(0.9) rotateX(-60deg);
+            transform-origin: 50% 0;
+            transition:
+                // max-height 350ms ease-in-out,
+                opacity 250ms ease-in-out,
+                transform 250ms ease-in-out;
+        }
+
+        // active state
+        input:checked {
+            ~ ul {
+                max-height: none;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        &.active > a {
+            color: $nav-link-color-active;
+        }
+
+        // -----------------------------------
+        // parent item animated trigger styles
+        // -----------------------------------
+        &.parent {
+            // icon positioning
+            > label::after {
+                position: absolute;
+                @include right(6px);
+                top: 50%;
+            }
+
+            > input:checked ~ label {
+                color: $nav-link-color-active;
+            }
+
+            // --------------------------
+            // 1. selectbox like triangle
+            // --------------------------
+            @if $nav-trigger-type == 'triangle' {
+                > label::after {
+                    content: "";
+                    transition: transform .2s;
+                    width: 0;
+                    height: 0;
+                    margin-top: -0.15em;
+                    border: 0.3em solid transparent;
+                    border-top-color: $nav-link-color;
+                    border-bottom: none;
+                }
+                > input:checked ~ label {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+
+            // -------------------------
+            // 2. material like "+" sign
+            // -------------------------
+            @if $nav-trigger-type == 'plus' {
+                > label::after {
+                    color: $nav-link-color;
+                    transition: transform 0.3s ease-in-out;
+                    content: "+";
+                    font-size: 1.5em;
+                    line-height: 0.5em;
+                    margin-top: -0.25em;
+                }
+                > input:checked ~ label {
+                    &::after {
+                        transform: rotate(-225deg);
+                    }
+                }
+            }
+
+            // -----------------------------------
+            // 3. triangle to cross transformation
+            // -----------------------------------
+            @if $nav-trigger-type == 'shevron-to-cross' {
+                > label {
+                    &::before,
+                    &::after {
+                        box-sizing: border-box;
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -1px;
+                        height: 2px;
+                        width: 9px;
+                        background: $nav-link-color;
+                        backface-visibility: hidden;
+                        transition: width 0.3s, transform 0.3s;
+                    }
+
+                    &::before {
+                        @include right(5px);
+                        transform: rotate(rtl-invert(45deg));
+                    }
+                    &::after {
+                        @include right(0px);
+                        transform: rotate(rtl-invert(-45deg));
+                    }
+                }
+                > input:checked ~ label {
+                    &::before,
+                    &::after {
+                        width: 14px;
+                    }
+                    &::before {
+                        transform: translateX(rtl-invert(5px)) rotate(-45deg);
+                    }
+                    &::after {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+}

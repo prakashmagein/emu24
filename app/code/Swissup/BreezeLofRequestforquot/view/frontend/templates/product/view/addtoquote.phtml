@@ -1,0 +1,4 @@
+<?php
+    $blockTemplateFile = $block->getTemplateFile('Lof_RequestForQuote::product/view/addtoquote.phtml');
+?>
+<?= str_replace('<script', '<script data-breeze', $block->fetchView($blockTemplateFile)) ?>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="swissup_easyslide_slider" class="Swissup\EasySlide\Block\Slider" is_email_compatible="false"
+            placeholder_image="Swissup_EasySlide::images/slider.png" ttl="86400">
+        <label translate="true">EasySlide</label>
+        <description>Add New Slider</description>
+        <parameters>
+            <parameter name="identifier" xsi:type="select" visible="true" source_model="Swissup\EasySlide\Model\Config\Source\Slider">
+                <label translate="true">Select Slider</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

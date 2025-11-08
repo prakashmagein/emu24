@@ -1,0 +1,79 @@
+@icon-minus-sm: '\e900';
+.sidebar .block.filter {
+    .filter-options-title {
+        &::after {
+            .breeze-icon(@icon-minus-sm, @5);
+            & when (@critical) {
+                opacity: 0 !important;
+            }
+        }
+        & when not (@critical) {
+            &::after {
+                transform: rotate(180deg);
+                -webkit-mask-size: @6 @6;
+            }
+            &[aria-expanded="true"] {
+                &::after {
+                    opacity: .8 !important;
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+    & when (@critical) {
+        .filter-options-item.active {
+            .filter-options-title {
+                &::after {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+}
+
+& when (@critical) {
+    .block.filter {
+        .filter-title {
+            @media @media-md {
+                display: none;
+            }
+        }
+        .filter-current {
+            .filter-current-subtitle {
+                display: block;
+                margin-bottom: @1;
+            }
+            li {
+                color: @black;
+            }
+        }
+        .filter-options-content {
+            li.item {
+                margin-bottom: @0-5;
+                > a:has(.count) {
+                    display: flex;
+                    gap: @1-5;
+                }
+                .count {
+                    .margin-left(auto);
+                    font-size: @font-size__base;
+                    font-weight: 400;
+                    color: @gray-500;
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar .block.filter {
+        .filter-options-item {
+            &.active {
+                border-bottom: 2px solid @brand__color;
+                padding-bottom: @2;
+                margin-bottom: @5;
+            }
+        }
+    }
+}

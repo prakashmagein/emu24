@@ -1,0 +1,109 @@
+<?php
+    $_items = $block->getItems();
+    if (empty($_items)) {
+        return;
+    }
+
+    $htmlBlockId = $block->getNameInLayout();
+    $taxDisplay = $block->getTaxDisplayConfig();
+    $currentProductId = (int)$block->getProduct()->getId();
+    $isAmazonDefault = $block->getLayoutStyle() == 'amazon-default';
+?>
+<div class="block soldtogether-block <?= $block->getLayoutStyle(); ?>" id="<?= $htmlBlockId ?>">
+    <div class="block-title title" id="<?= $htmlBlockId ?>-title">
+        <strong class="block-order-heading" role="heading" aria-level="2"><?= /* @escapeNotVerified */ __($block->hasData('title') ? $block->getData('title') : 'Frequently Bought Together'); ?></strong>
+    </div>
+    <div class="block-content content" aria-labelledby="<?= $htmlBlockId ?>-title">
+        <ul class="amazonstyle-images">
+            <li id="soldtogether-image-<?= $currentProductId ?>" class="first item product-item">
+                <?= $block->renderCurrentItem($block->getProduct()) ?>
+            </li>
+            <?php foreach ($_items as $_item): ?>
+                <?php $_product = $_item['model'] ?>
+                <li class="plus"></li>
+                <li id="soldtogether-image-<?= (int)$_product->getId() ?>" class="item product-item<?php if (!$_product->isSaleable()) : ?> item-inactive<?php endif;?>">
+                    <?= $block->renderRelatedItem($_product) ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <div class="amazonstyle-checkboxes">
+            <?php if ($isAmazonDefault): ?>
+            <ul class="product-items-list">
+                <li class="product-item-details">
+                    <input type="checkbox"
+                           class="checkbox main-product"
+                           id="relatedorderamazon-checkbox<?= $currentProductId ?>"
+                           onclick="return false;"
+                           disabled="disabled"
+                           name="bought_related_products[]"
+                           value="<?= $currentProductId ?>" checked="checked"/>
+                    <?= /* @escapeNotVerified */ __('This Item') ?>:
+                    <label class="product name product-item-name" for="relatedorderamazon-checkbox<?= $currentProductId ?>">
+                        <?= $block->escapeHtml($block->getProduct()->getName()) ?>
+                    </label>
+                    <?= $block->getCurrentProductPriceHtml(); ?>
+                </li>
+                <?php foreach ($_items as $_item): ?>
+                    <?php $_product = $_item['model'] ?>
+                    <li class="product-item-details">
+                        <?= $block->renderRelatedItem($_product, 'product/order/related-item-amazon.phtml') ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <div class="button-cart">
+                <button type="button" title="Add to Cart" class="action soldtogether-cart-btn primary">
+                    <span><span><?= __('Add All to Cart') ?></span></span>
+                </button>
+            </div>
+
+            <div class="totalprice regular-price">
+                <?php if (1 == $taxDisplay || 2 == $taxDisplay) : ?>
+                    <div data-role="priceBox" class="price-box price-final_price">
+                        <span class="price-label"><?= __('Total price'); ?></span>
+                        <span class="price-container price-final_price tax weee">
+                            <span class="price-wrapper " data-price-type="finalPrice" >
+                                <span class="price"></span>
+                            </span>
+                        </span>
+                    </div>
+                <?php else : ?>
+                    <div data-role="priceBox" class="price-box price-final_price">
+                        <span class="price-container price-final_price tax weee">
+                            <span class="price-wrapper price-including-tax"
+                                  data-price-type="finalPrice"
+                                  data-label="<?= /* @escapeNotVerified */ __('Incl. Tax') ?>"
+                                  id="price-including-tax-product-price-all">
+                                  <span class="price"></span>
+                            </span>
+                            <span
+                                class="price-wrapper price-excluding-tax"
+                                data-price-type="basePrice"
+                                data-label="<?= /* @escapeNotVerified */ __('Excl. Tax') ?>"
+                                id="price-excluding-tax-product-price-all">
+                                <span class="price"></span>
+                            </span>
+                        </span>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+    /**
+     * Don't move js widgets initialization before template rendering.
+     * Because there are validations that rely on data set during render.
+     */
+?>
+<script type="text/x-magento-init">
+{
+    "#<?= str_replace('.', '\\\\.', $htmlBlockId) ?>": <?= json_encode(
+        \Magento\Framework\App\ObjectManager::getInstance()
+            ->get(\Swissup\SoldTogether\Model\CompositeJsConfigProvider::class)
+            ->getConfig($block)
+    )?>
+
+}
+</script>

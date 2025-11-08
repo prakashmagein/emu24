@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\Easybanner\Pagebuilder\SourceModel\Placeholder"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Entity">
+        <arguments>
+            <argument name="class" xsi:type="string">Swissup\Easybanner\Model\Placeholder</argument>
+            <argument name="globallyHiddenFieldNames" xsi:type="array">
+                <item name="placeholder" xsi:type="string">placeholder</item>
+            </argument>
+            <argument name="fields" xsi:type="array">
+                <item name="id" xsi:type="array">
+                    <item name="path" xsi:type="string">placeholder</item>
+                </item>
+                <item name="limit" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Banners Display Count</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Swissup\Easybanner\Pagebuilder\SourceModel\Banner"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Entity">
+        <arguments>
+            <argument name="class" xsi:type="string">Swissup\Easybanner\Model\Banner</argument>
+            <argument name="globallyHiddenFieldNames" xsi:type="array">
+                <item name="banner" xsi:type="string">banner</item>
+            </argument>
+            <argument name="fields" xsi:type="array">
+                <item name="id" xsi:type="array">
+                    <item name="path" xsi:type="string">getBannerData().getBannerId()</item>
+                </item>
+                <item name="url" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Url</item>
+                </item>
+                <item name="mode" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Mode</item>
+                    <item name="source_model" xsi:type="string">Swissup\Easybanner\Model\Banner\Source\Mode</item>
+                </item>
+                <item name="content" xsi:type="array">
+                    <item name="name" xsi:type="string">html</item>
+                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="mode" xsi:type="string">html</item>
+                    </item>
+                </item>
+                <item name="image" xsi:type="array">
+                    <item name="type" xsi:type="string">image</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="mode" xsi:type="string">image</item>
+                    </item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="basePath" xsi:type="string">easybanner</item>
+                    </item>
+                </item>
+                <item name="title" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="mode" xsi:type="string">image</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Pagebuilder\Model\Section\SourceModelProvider\Configurable">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="Swissup\Easybanner\Block\Placeholder" xsi:type="array">
+                    <item name="entity" xsi:type="string">Swissup\Easybanner\Pagebuilder\SourceModel\Placeholder</item>
+                </item>
+                <item name="Swissup\Easybanner\Block\Banner" xsi:type="array">
+                    <item name="entity" xsi:type="string">Swissup\Easybanner\Pagebuilder\SourceModel\Banner</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

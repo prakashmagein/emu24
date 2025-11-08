@@ -1,0 +1,198 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .block-highlight.hl-magazine {
+        .block-title-image {
+            display: none;
+        }
+
+        display: flex;
+
+        // layout
+        > .block-title {
+            width: 23%;
+        }
+        > .block-content {
+            width: 77%;
+            box-sizing: border-box;
+        }
+        &.highlight-carousel {
+            > .block-content {
+                display: block;
+            }
+        }
+
+        > .block-title {
+            .text-align(left);
+            box-sizing: border-box;
+            margin: 0;
+            padding: 25px; // gap for .marker text (can't use positioning to prevent overflowing the parent)
+            border: 0;
+            background: none;
+
+            position: relative;
+
+            // place all content above the image
+            > * {
+                position: relative;
+                z-index: 2;
+            }
+
+            > strong {
+                word-break: break-word;
+                padding: 3px 0;
+                display: inline;
+                font-size: 2.5rem;
+
+                @media (max-width: 768px) {
+                    font-size: 2rem;
+                }
+
+                span {
+                    display: inline;
+                }
+
+                .hl-black&,
+                .hl-blue&,
+                .hl-orange&,
+                .hl-green&,
+                .hl-purple&,
+                .hl-red& {
+                    color: #fff;
+                }
+
+                .hl-marker& {
+                    color: #333;
+                    background: #fff;
+                    box-shadow: 5px 0 0 #fff, -5px 0 0 #fff;
+
+                    .hl-white& {
+                        color: #fff;
+                        background: #000;
+                        box-shadow: 5px 0 0 #000, -5px 0 0 #000;
+                    }
+                }
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+            .subtitle {
+                margin: 20px 0 20px -5px;
+                a {
+                    display: inline-block;
+                    padding: 5px 12px;
+                    background-color: #fff;
+                    border-radius: 2px;
+                    box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+
+                    text-decoration: none;
+                    color: #333;
+                    font-size: 1.9rem;
+                    font-weight: 600;
+                    text-shadow: 0 0 3px rgba(0,0,0,0.1);
+
+                    transition: transform 200ms linear,
+                                box-shadow 200ms linear;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 2px 15px rgba(0,0,0,0.12);
+                    }
+
+                    .hl-white& {
+                        color: #fff;
+                        background: #000;
+                    }
+                }
+            }
+
+            // image
+            .block-title-background {
+                z-index: 1;
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background-repeat: no-repeat;
+                background-position: 0 100%;
+                background-color: transparent;
+
+                .title-image {
+                    position: absolute;
+
+                    img {
+                        display: block;
+                    }
+                }
+
+                .hl-black& {
+                    background-color: #000;
+                }
+                .hl-white& {
+                    background-color: #fff;
+                }
+                .hl-blue& {
+                    background-color: #1c73f5;
+                }
+                .hl-orange& {
+                    background-color: #fe6500;
+                }
+                .hl-green& {
+                    background-color: #45ca38;
+                }
+                .hl-purple& {
+                    background-color: #6346cf;
+                }
+                .hl-red& {
+                    background-color: #f54034;
+                }
+                .hl-gray&,
+                .hl-grey& {
+                    background-color: #f7f7f7;
+                }
+                .hl-cover& .title-image {
+                    top: 0;
+                    height: 100%;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .hl-contain& .title-image {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        .block-highlight.hl-magazine {
+            display: flex;
+            flex-direction: column;
+
+            > .block-title {
+                width: 100%;
+                padding: 15px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .subtitle {
+                    margin-left: 0;
+                }
+                .block-title-background .title-image {
+                    display: none;
+                }
+            }
+            > .block-content {
+                width: 100%;
+            }
+        }
+    }
+}
+}

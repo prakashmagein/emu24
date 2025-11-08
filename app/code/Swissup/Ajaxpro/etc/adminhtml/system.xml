@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ajaxpro" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Ajaxpro</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Ajaxpro::config</resource>
+            <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Main</label>
+                <comment><![CDATA[<a href="https://docs.swissuplabs.com/m2/extensions/ajaxpro/#configuration" target="_blank" rel="noopener">Documentation</a>.]]></comment>
+
+                <field id="enabled" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <group id="design" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>General Design</label>
+
+                    <field id="cart" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show results</label>
+                        <comment>Show results popup after product was added</comment>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>ajaxpro/main/cart</config_path>
+                    </field>
+
+                    <field id="cartHandle" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Results dialog window type</label>
+                        <source_model>Swissup\Ajaxpro\Model\Item\Source\Handle</source_model>
+                        <depends>
+                            <field id="cart">1</field>
+                        </depends>
+                        <config_path>ajaxpro/main/cartHandle</config_path>
+                    </field>
+
+                    <field id="overrideMinicart" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Replace Minicart Sidebar</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <depends>
+                            <field id="cart">1</field>
+                            <field id="cartHandle" separator=",">ajaxpro_popup_minicart,ajaxpro_popup_checkout_cart_index_fixes</field>
+                        </depends>
+                        <config_path>ajaxpro/main/overrideMinicart</config_path>
+                    </field>
+
+                    <field id="cartType" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Type of behaviour results</label>
+                        <comment>The behaviour type of results dialog window.</comment>
+                        <source_model>Swissup\Ajaxpro\Model\Item\Source\Type</source_model>
+                        <depends>
+                            <field id="cart">1</field>
+                        </depends>
+                        <config_path>ajaxpro/main/cartType</config_path>
+                    </field>
+
+                    <field id="modalCloseTimeout" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Auto close window after n seconds</label>
+                        <comment></comment>
+                        <depends>
+                            <field id="cart">1</field>
+                        </depends>
+                        <config_path>ajaxpro/main/modalCloseTimeout</config_path>
+                    </field>
+
+                    <field id="floatingCart" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show floating cart</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>ajaxpro/main/floatingCart</config_path>
+                    </field>
+
+                    <field id="animation" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Animation</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>ajaxpro/main/animation</config_path>
+                        <comment>Add animated product into minicart</comment>
+                    </field>
+                </group>
+
+                <group id="listing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Listing Design</label>
+
+                    <field id="validation" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Validation</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Enable/Disable product form validation before submitting at product listing page</comment>
+                        <config_path>ajaxpro/main/validation</config_path>
+                    </field>
+
+                    <field id="product" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show product popup for product with options</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>No - redirect to product page</comment>
+                        <depends>
+                            <field id="validation">0</field>
+                        </depends>
+                        <config_path>ajaxpro/main/product</config_path>
+                    </field>
+
+                    <field id="quickView" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Quick View</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>ajaxpro/main/quickView</config_path>
+                    </field>
+
+                    <field id="overrideGetAddToCartUrl" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Apply custom patch for Product List Block Url(s)</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>ajaxpro/main/overrideGetAddToCartUrl</config_path>
+                        <comment>Experimental. It can help if your addToCartUrl lost options=cart suffix for product with options</comment>
+                    </field>
+
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

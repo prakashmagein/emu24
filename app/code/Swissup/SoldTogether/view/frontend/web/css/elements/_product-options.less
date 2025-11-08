@@ -1,0 +1,140 @@
+@product-options-dropdown__max-width: 300px;
+@stripe-product-options-dropdown__background: #fff;
+@stripe-product-options-dropdown__font-size: 14px;
+@stripe-product-options-dropdown__padding: 10px;
+@stripe-product-options-dropdown__transition-duration: .4s;
+@stripe-product-options-dropdown__transition-timing-function: ~"cubic-bezier(.87,0,.13,1)";
+@stripe-product-options-dropdown__mobile__left: 32px;
+@stripe-product-options-dropdown__close_icon__color: #000;
+
+:is(.soldtogether-block.amazon-stripe, .soldtogether-swiper) {
+    .details-wrapper {
+        left: 0;
+        margin: 0;
+        max-height: ~'calc(100% - 60px)';
+        overflow: auto;
+        .padding(@stripe-product-options-dropdown__padding);
+        position: absolute;
+        right: 0;
+        text-align: initial;
+        top: 0;
+        transform: translateY(-100%);
+        transition-property: transform, visibility;
+        z-index: 2;
+        .lib-css(background , @stripe-product-options-dropdown__background);
+        .lib-css(font-size, @stripe-product-options-dropdown__font-size);
+        .lib-css(transition-duration, @stripe-product-options-dropdown__transition-duration);
+        .lib-css(transition-timing-function, @stripe-product-options-dropdown__transition-timing-function);
+
+        .scrollbar(@stripe-product-options-dropdown__close_icon__color);
+
+        &[hidden] {
+            height: auto;
+            overflow: auto;
+            width: auto;
+        }
+
+        &:empty {
+            display: none;
+        }
+
+        .product-custom-option {
+            font-size: inherit;
+        }
+    }
+
+    .configurable {
+        margin-bottom: 10px;
+
+        label {
+            font-weight: 700;
+        }
+    }
+
+    [class^="swatch-opt-"],
+    [class^="configurable-opt-"] {
+        > :last-child {
+            margin-bottom: 0;
+            .swatch-attribute-options {
+                margin-bottom: 0;
+            }
+        }
+        select {
+            .lib-css(max-width, @product-options-dropdown__max-width);
+        }
+    }
+}
+
+.soldtogether-swiper .soldtogether-tocart {
+    &:checked ~ .details-wrapper {
+        transform: translateY(0);
+    }
+}
+
+.soldtogether-swiper {
+    .field.choice {
+        position: static;
+        input {
+            margin-top: 0;
+        }
+    }
+
+    .details-wrapper {
+        display: block !important;
+    }
+}
+
+.soldtogether-block.amazon-stripe {
+    .details-wrapper {
+        max-height: 100%;
+    }
+
+    .details-toggler::after {
+        content: '\d7';
+        position: absolute;
+        top: .25rem;
+        .right(.25rem);
+        z-index: 3;
+        transform: scale(2) translateY(-200%);
+        transition-property: transform, visibility;
+        .lib-css(color, @stripe-product-options-dropdown__close_icon__color);
+        .lib-css(transition-duration, @stripe-product-options-dropdown__transition-duration);
+        .lib-css(transition-timing-function, @stripe-product-options-dropdown__transition-timing-function);
+    }
+
+
+    .product-item-details:has(.details-wrapper:not([hidden])) {
+        .details-toggler:hover {
+            text-decoration: none;
+        }
+
+        .details-toggler::after {
+            transform: scale(2) translateY(0);
+        }
+    }
+
+    .details-wrapper:not([hidden]) {
+        transform: translateY(0);
+    }
+
+    & when not (@stripe-product-options-dropdown__background = false) {
+        .product-item:has(.details-wrapper:not([hidden]))::after {
+            background: fade(@stripe-product-options-dropdown__background, .75);
+            backdrop-filter: blur(2px);
+            visibility: visible;
+        }
+    }
+}
+
+@media (max-width: 767px), print {
+    .soldtogether-block {
+        &.amazon-stripe {
+            .first.product-item ~ .product-item ~ .product-item {
+                [class^="swatch-opt-"],
+                [class^="configurable-opt-"] {
+                    .left(@stripe-product-options-dropdown__mobile__left)
+                }
+            }
+        }
+    }
+}

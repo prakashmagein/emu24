@@ -1,0 +1,36 @@
+<script id="swissup-ajaxsearch-product-template-header" type="text/x-magento-template">
+    <div class="ajaxsearch-header-container">
+        <h4 class="ajaxsearch-title"><%- $t('Products') %></h4>
+        <% if (hasGetViewAllUrl) { %>
+        <a class="view-all" href="<%- getViewAllUrl() %>"><%- $t('View All') %></a>
+        <% } %>
+    </div>
+</script>
+<script id="swissup-ajaxsearch-product-template" type="text/x-magento-template">
+    <div class="product-item-info">
+        <a href="<%= item.url %>" class="product photo product-item-photo" tabindex="-1">
+            <%= item.image_html %>
+        </a>
+        <div class="product details product-item-details">
+            <strong class="product name product-item-name">
+                <a class="product-item-link" href="<%= item.url %>"><%= item.title %></a>
+            </strong>
+            <div class="price-box price-final_price">
+                <span class="price-container price-final_price tax weee">
+                    <span class="price-wrapper">
+                        <span class="price">
+                            <span class="price-label"><%- $t('Price') %>:</span> <%= formatPrice(item.final_price, priceFormat) %>
+                        </span>
+                    </span>
+                </span>
+            </div>
+            <div class="product-info-stock-sku">
+                <div class="product attibute sku">
+                    <div itemprop="sku" class="value">
+                        <span class="sku-label"><%- $t('SKU') %>:</span> <%- item.sku %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,28 @@
+<?php $products = $this->getData('products'); ?>
+<?php $trustedshopsLink = $this->getData('ts_link'); ?>
+<?php if ($products): ?>
+<table style="width: 100%;">
+    <?php foreach ($products as $product) : ?>
+        <tr>
+            <td style="border: 1px solid #ccc; text-align: center; background-color: #fff;">
+                <a href="<?php echo $product['url'] ?>" title="<?php echo $product['name'] ?>"><img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"></a>
+            </td>
+            <td style="border: 1px solid #ccc; vertical-align: top; padding: 10px; background-color: #fff;">
+                <div>
+                    <a href="<?php echo $product['url'] ?>" title="<?php echo $product['name'] ?>"><?php echo $product['name']; ?></a>
+                </div>
+                <?php if (!$trustedshopsLink): ?>
+                <div style="margin-top: 50px;">
+                    <a style="border-radius: 6px; color: #fff; background: #f3920b; padding: 10px; text-decoration: none;" href="<?php echo $product['url']?>#review-form" title="<?php echo __('Write review') ?>"><?php echo __('Write Your Own Review') ?></a>
+                </div>
+                <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php if ($trustedshopsLink): ?>
+<div style="margin: 50px 0; text-align: center;">
+    <a style="border-radius: 6px; color: #fff; background: #f3920b; padding: 10px; text-decoration: none;" href="<?= $trustedshopsLink ?>" title="<?= __('Write review') ?>"><?php echo __('Write Your Own Review') ?></a>
+</div>
+<?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="breeze.js">
+            <arguments>
+                <argument name="bundles" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="items" xsi:type="array">
+                            <item name="Swissup_Ajaxsearch/js/ajaxsearch" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Ajaxsearch/js/breeze/ajaxsearch</item>
+                                <item name="mixins" xsi:type="array">
+                                    <item name="quickSearch" xsi:type="string">quickSearch</item>
+                                </item>
+                                <item name="import" xsi:type="array">
+                                    <item name="priceUtils" xsi:type="string">priceUtils</item>
+                                </item>
+                                <item name="enabled" xsi:type="helper" helper="Swissup\Breeze\Helper\Config::isEnabled">
+                                    <param name="0">ajaxsearch/main/enable</param>
+                                </item>
+                            </item>
+                            <item name="Swissup_Ajaxsearch/js/ajaxsearch/folded" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Ajaxsearch/js/breeze/folded</item>
+                                <item name="enabled" xsi:type="helper" helper="Swissup\Breeze\Helper\Config::isEqual">
+                                    <param name="0">ajaxsearch/folded/enable:1,2</param>
+                                </item>
+                                <item name="mixins" xsi:type="array">
+                                    <item name="quickSearch" xsi:type="string">quickSearch</item>
+                                </item>
+                            </item>
+                            <!--
+                            <item name="Swissup_Ajaxsearch/js/ajaxsearch/category" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Ajaxsearch/js/breeze/category</item>
+                                <item name="enabled" xsi:type="helper" helper="Swissup\Breeze\Helper\Config::isEnabled">
+                                    <param name="0">ajaxsearch/category/filter</param>
+                                </item>
+                            </item>
+                            -->
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="breeze.container">
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/autocomplete.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/category.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/notFound.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/page.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/popular.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Breeze\Block\HtmlTemplate" template="Swissup_Ajaxsearch::x-magento-template/product.html">
+                <arguments>
+                    <argument name="wrapper" xsi:type="boolean">false</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

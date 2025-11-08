@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="category.view.container">
+            <container name="category.view.content.container" htmlTag="div" htmlClass="category-content-wrapper" after="category.image"/>
+        </referenceContainer>
+        <move element="page.main.title" destination="category.view.content.container"/>
+        <move element="category.description" destination="category.view.content.container"/>
+        <move element="category.cms" destination="columns.top"/>
+    </body>
+</page>

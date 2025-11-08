@@ -1,0 +1,8 @@
+<?php foreach ($block->getAttributeCodes() as $attributeCode):
+    $html = $block->renderAttribute($attributeCode);
+    if (!$html) {
+        continue;
+    }
+?>
+    <div class="product attibute <?= $attributeCode ?>"><?= $html ?></div>
+<?php endforeach; ?>

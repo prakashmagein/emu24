@@ -1,0 +1,79 @@
+Handles,Ручки
+"Save Banner","Зберегти банер"
+"Delete Banner","Видалити банер"
+"Edit Banner - '%1'","Редагувати банер - ""%1"""
+"New Banner","Новий банер"
+"Css Class","Клас Css"
+"Image Options","Параметри зображення"
+"Use image resizer","Використовуйте розмір зображення"
+"Retina support","Підтримка сітківки"
+"Actual image size should be twice larger then entered width and height","Фактичний розмір зображення повинен бути вдвічі більшим, ніж введені ширина та висота"
+"Background Color","Колір фону"
+"Html Content","Вміст Html"
+Banner,Банер
+Lightbox,Лайтбокс
+Awesomebar,Awesomebar
+"Hide Url","Сховати URL-адресу"
+Target,Ціль
+Popup,Вискочити
+Blank,Пустий
+Self,Я
+"Sort Order","Порядок сортування"
+"Store View","Перегляд магазину"
+Placeholder,Заповнювач
+Statistics,Статистика
+"New Placeholder","Новий заповнювач"
+"Banners Display Count","Кількість показів банерів"
+"Sort mode","Режим сортування"
+"By Banners Sort Order","Порядок сортування банерів"
+Random,Випадкові
+"Banner was deleted.","Банер видалено"
+"Banner was disabled.","Банер вимкнено."
+EasyBanner,EasyBanner
+Banners,Банери
+"This banner no longer exists.","Цей банер більше не існує."
+"Edit Banner","Редагувати банер"
+"Banner was enabled.","Банер увімкнено."
+"Manage Banners","Управління банерами"
+"Banner has been saved.","Банер збережено."
+"Something went wrong while saving the banner.","Щось пішло не так, зберігаючи банер."
+"Placeholder was deleted.","Заповнювач заповнено"
+"Placeholder was disabled.","Замісник місця не було вимкнено."
+Placeholders,Заповнювачі
+"This placeholder no longer exists.","Цей заповнювач більше не існує."
+"Placeholder was enabled.","Встановлено заповнювач."
+"Manage Placeholders","Керуйте заповнювачами"
+"Placeholder has been saved.","Заповнювач місця збережено."
+"Something went wrong while saving the placeholder.","Щось пішло не так, зберігаючи заповнювач."
+"Subtotal (Excl.Tax)","Підсумковий (Без податку)"
+"Subtotal (Incl.Tax)","Підсумковий (включно з податком)"
+"Clicks Count","Кількість кліків"
+"Display Count","Кількість дисплей"
+"Display Count per Customer","Кількість показів на кожного клієнта"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Лайтбокс / Awesomebar: час перегляду клієнтів (секунди)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: час бездіяльності клієнта (секунди)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Лайтбокс / Awesomebar: час діяльності клієнта (секунди)"
+"Lightbox/Awesomebar: Scroll offset","Lightbox / Awesomebar: зміщення прокрутки"
+"Open Chooser","Відкритий вибір"
+%1%1"Last 7 days","Останні 7 днів"
+"Last 30 days","Останні 30 днів"
+"Last 6 Month","Останні 6 місяців"
+"Last 12 Month","Останній 12 місяць"
+"All Time","Весь час"
+"Banner Statistics","Статистика банерів"
+"EasyBanner Banner","EasyBanner Banner"
+"Select Banner...","Виберіть банер ..."
+"EasyBanner Placeholder","EasyBanner Placeholder"
+"Select Placeholder...","Виберіть заповнювач ..."
+"Add Banner","Додати банер"
+"Image Title","Назва зображення"
+"Is Active",Активний
+"Add Placeholder","Додати заповнювач"
+"Additional CSS Class","Додатковий клас CSS"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Якщо ви збираєтеся показати цей заповнювач на бічній панелі, рекомендується встановити наступне значення: block block-easybanner-placeholder"
+"Parent Container","Контейнер для батьків"
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Не знаєте назву контейнера? Залиште його порожнім і призначте заповнювач заповнення необхідному контейнеру через інтерфейс ""Вміст> Віджети"". Ви також можете переглянути список загальних позицій заповнювачів місць за адресою http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Позиція
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","Синтаксис атрибута XML обов'язковий. Приклади: before = ""-"", after = ""-"", before = ""block.name"""
+"Don't show anymore","Більше не показувати"
+"Exit intent time (seconds)","Час виходу із задуму (секунди)"

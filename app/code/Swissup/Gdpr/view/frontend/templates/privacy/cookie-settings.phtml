@@ -1,0 +1,15 @@
+<?php
+    $html = $this->getChildHtml();
+    if (!$html) {
+        return;
+    }
+?>
+
+<div class="block block-cookie-settings">
+    <div class="block-title">
+        <strong><?= __('Cookie Settings') ?></strong>
+    </div>
+    <div class="block-content">
+        <?= $this->getChildHtml() ?>
+    </div>
+</div>

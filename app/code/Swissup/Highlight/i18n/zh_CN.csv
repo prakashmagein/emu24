@@ -1,0 +1,39 @@
+Popularity,人气度
+"1 Month",1个月
+"1 Year",1年
+"6 Months",6个月
+"1 Week",1周
+"1 Day",1天
+"1 Hour",1小时
+"Product ID",产品编号
+Random,随机
+"Add to Wish List",加入心愿单
+"Highlight Pages",突出页面
+"Featured Products",特色产品
+"On Sale Products",特价产品
+"Popular Products",人气商品
+"Calculation Period",计算期间
+"Minimum Popularity",最低人气
+"Highlight: All Products",重点：所有产品
+"Sort Direction",排序方向
+"Grid Template",网格模板
+"List Template",清单范本
+"Sidebar: Images and Names Template",边栏：图像和名称模板
+"Sidebar: Names Only Template",边栏：仅命名模板
+"Sidebar: Images Only Template",侧栏：仅图像模板
+"Custom Template",自订范本
+"Used, when template value is set to 'Custom'",模板值设置为“自定义”时使用
+"Highlight: Attribute Yes/No",突出显示：属性是/否
+"Highlight: Attribute Date",突出显示：属性日期
+"Highlight: Featured Products",亮点：特色产品
+"Show link to Highlight Page",显示指向重点页面的链接
+"Link Title",链接标题
+"Highlight: New Products",重点：新产品
+"Highlight: Onsale Products (Special Price)",亮点：促销产品（特价）
+"Highlight: Popular Products",亮点：热门产品
+"Minimum views count to show products",最少观看次数即可显示产品
+"Highlight: Bestsellers",亮点：畅销书
+"Minimum purchase count to show products",最低购买数量才能展示产品
+"Hidden, when filter or pagination is used",隐藏，使用过滤器或分页时
+"CSS Class",CSS类
+"Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/",用于自定义目的的类名称。您可以在http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/上查看准备使用的CSS类助手。

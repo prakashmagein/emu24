@@ -1,0 +1,59 @@
+$sidebar-width: 400px !default;
+$sidebar-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !default;
+$sidebar-background-color: #fff !default;
+
+$sidebar-section-heading-color: $dark-grey !default;
+$sidebar-section-heading-background-color: null !default;
+$sidebar-section-heading-border-bottom: 1px solid #fff !default;
+$sidebar-section-active-heading-background-color: transparent !default;
+$sidebar-section-active-heading-border-bottom: none !default;
+
+$welcome-link-color: $link-color !default;
+$welcome-link-hover-color: $link-hover-color !default;
+
+amp-sidebar {
+    width: $sidebar-width;
+    box-shadow: $sidebar-shadow;
+    background-color: $sidebar-background-color;
+
+    .nav-toolbar {
+        padding: 15px 10px;
+
+        .hamburger {
+            @include margin-left(10px);
+        }
+    }
+
+    nav {
+        section {
+            .heading {
+                background-color: $sidebar-section-heading-background-color;
+                color: $sidebar-section-heading-color;
+            }
+            .content {
+                padding: 5px 20px;
+            }
+
+            &[expanded] {
+                .heading {
+                    background-color: $sidebar-section-active-heading-background-color;
+                    border-bottom: $sidebar-section-active-heading-border-bottom;
+                }
+            }
+
+            // welcome links
+            &.links {
+                li {
+                    display: inline-block;
+                    @include margin(0, 10px, 5px, 0);
+                }
+                a {
+                    color: $welcome-link-color;
+                    @include on-event {
+                        color: $welcome-link-hover-color;
+                    }
+                }
+            }
+        }
+    }
+}

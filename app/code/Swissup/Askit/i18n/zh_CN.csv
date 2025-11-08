@@ -1,0 +1,100 @@
+"Edit '%1'","编辑 '%1'"
+"Answer Information",回答信息
+Hint,暗示
+Questions,问题
+"Edit Question '%1'","编辑问题 '%1'"
+"No Found",没有找到
+"Created date",创建日期
+"Update date",更新日期
+"Are you sure?",你确定吗？
+Unknown,未知
+Private,私人的
+"Add New Answer",添加新答案
+"Questions %1",问题％1
+"Please select item(s).",请选择项目。
+"The answer has been deleted.",答案已被删除。
+"We can't find a answer to delete.",我们找不到要删除的答案。
+Askit,阿斯奇
+Answers,答案
+"This item no longer exists.",此项目不再存在。
+"Askit Items",杂项物品
+"Askit Recent Answers",Askit最近的答案
+"Manage Recent Askit Answers",管理最近的Askit答案
+"You saved.",你节约了。
+"Something went wrong while saving the question.",保存问题时出了点问题。
+"A total of %1 record(s) have been deleted.",总共％1个记录已被删除。
+"A total of %1 record(s) have been changed.",总共％1个记录已更改。
+"The question has been deleted.",问题已被删除。
+"We can't find a question to delete.",我们找不到要删除的问题。
+"New Askit Question",新的Askit问题
+"Askit Questions",Askit问题
+"Manage Askit Questions",管理Askit问题
+"You question saved.",您的问题已保存。
+"You answer was added.",您的答案已添加。
+"We can't process your request right now. Sorry, that's all we know.",我们目前无法处理您的请求。抱歉，这就是我们所知道的。
+"My Questions",我的问题
+"Your must login",您必须登录
+"Sorry, only logged in customer can hint.",抱歉，只有登录的客户可以提示。
+"Sorry, already voted",抱歉，已投票
+Pending,待定
+Approved,已批准
+Disapproved,被拒登
+"Askit Question",Askit问题
+"Askit Answer",Askit答案
+"Edit Question",编辑问题
+"New Answer",新答案
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","只有注册用户才可以发表评论。请<a href=""%1"">登录</a>或<a href=""%2"">创建帐户</a>"
+"Your Answer",你的答案
+"Leave a Reply",发表评论
+"%1 people found this answer helpful.",％1个人认为此答案很有帮助。
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","只有注册用户可以写问题。请<a href=""%1"">登录</a>或<a href=""%2"">创建帐户</a>"
+"Ask Your Question",问你的问题
+"Jot us a note and we’ll get back to you as quickly as possible.",给我们写个便条，我们会尽快与您联系。
+Question,题
+"Post a private question",发表私人问题
+Submit,提交
+"You have submitted no questions.",您没有提出任何问题。
+"answer' 'answers",回答''答案
+"%1 people already voted for this question.",已经有％1人对这个问题投了赞成票。
+"Vote for It",为它投票
+"New products question was just posted or updated. Please see details below",新产品问题刚刚发布或更新。请在下面查看详细信息
+E-mail,电子邮件
+"You can follow the question at Swissup -> Askit Questions","您可以在Swissup-> Askit问题中关注问题"
+Dear,亲
+"New answer was just posted to your question regarding",新答案刚刚发布到您的有关
+"Your question:",你的问题：
+Answer:,回答：
+"Thank you again",再次感谢你
+"Default question status",默认问题状态
+"Default answer status",默认答案状态
+"Allow guest to ask questions",允许客人提问
+"Allow customers comment",允许客户发表评论
+"Allow guest comment",允许客人发表评论
+"Allow customer vote",允许客户投票
+"Show customer name on frontend",在前端显示客户名称
+"Show link to related item (Product, Category or Page)",显示相关项目（产品，类别或页面）的链接
+"Enable Gravatar integration",启用Gravatar集成
+"Add questions block to all category pages",将问题栏添加到所有类别页面
+"Add questions block to all CMS pages",向所有CMS页面添加问题栏
+"Enable 'no questions' message",启用“没有问题”消息
+Sender,发件人
+"Customer Notification Template",客户通知模板
+"Email template chosen based on theme fallback when ""Default"" option is selected.",选择“默认”选项时，将基于主题回退选择电子邮件模板。
+"Send admin notification to",发送管理员通知至
+"Admin Notification Template",管理员通知模板
+"Askit: Questions + New Question Form",Askit：问题+新问题表格
+"Hide listing block",隐藏列表块
+"Hide form block",隐藏表格块
+"Assigned Products",分配的产品
+"Assigned Pages",分配的页面
+"Assigned Categories",分配的类别
+"Delete items",删除项目
+"Answer,回答
+"Entity Type",实体类型
+Entity,实体
+Votes,投票数
+"Your question was answered on",您的问题已于回答
+"It is helpful",有帮助
+"Not much help",没有太大的帮助
+asks,问
+about,关于

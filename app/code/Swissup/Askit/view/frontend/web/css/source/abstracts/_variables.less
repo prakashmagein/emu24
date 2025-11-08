@@ -1,0 +1,72 @@
+@askit__theme: 'default';
+
+@askit__border: 1px solid rgba(0,0,0,0.05);
+
+//
+//  Questions
+//  _____________________________________________
+@askit-question-avatar__width: 50px;
+@askit-question-avatar__height: @askit-question-avatar__width;
+@askit-question__margin: 0 0 @indent__xl;
+
+@askit-question-status__background: #ffce3c;
+@askit-question-status__border-radius: 3px;
+@askit-question-status__color: #212529;
+@askit-question-status__padding: 0 5px;
+
+@askit-question__padding-top: 15px;
+@askit-question__padding-right: 15px;
+@askit-question__padding-bottom: 0;
+@askit-question__padding-left: @askit-question-avatar__width + 30;
+
+@askit-question__box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+@askit-question-same__color: #444;
+@askit-question-vote__color: #767676;
+
+//
+//  Answers
+//  _____________________________________________
+@askit-answer-avatar__width: @askit-question-avatar__width;
+@askit-answer-avatar__height: @askit-question-avatar__height;
+@askit-answer-same__color: #aaa;
+
+
+@askit-avatar__left: 15px;
+
+//
+//  Loader
+//  _____________________________________________
+@askit-loader-show: true;
+@askit-loader__width: 30px;
+@askit-loader__height: 30px;
+@askit-loader-line__width: 3px;
+@askit-loader-line__color: lighten(@text__color, 60%);
+@askit-loader-line-accent__color: @text__color;
+@askit-loader__top: (@askit-loader__height / 2);
+@askit-loader__left: ~"calc(50% - @{askit-loader__width} / 2)";
+@askit-loader__spin-time: .6s;
+
+@askit-content-busy__min-height: 2 * 30px + 15px;
+
+//
+//  Theme - HOME
+//  _____________________________________________
+@askit-theme-home-toggler__background: rgba(0,0,0,.05);
+@askit-theme-home-toggler-hover__background: rgba(0,0,0,.1);
+@askit-theme-home-toggler__color: false;
+@askit-theme-home-question__background: rgba(0,0,0,.02);
+@askit-theme-home-question__border: false;
+@askit-theme-home-question__border-radius: 4px;
+@askit-theme-home-question__padding: 15px 15px 15px @askit-question-avatar__width + 30;
+
+@askit-theme-home-no-avatar__background: false;
+@askit-theme-home-no-avatar__color: #FDE0B3;
+@askit-theme-home-no-avatar__font-size: 32px;
+@askit-theme-home-no-avatar__font-weight: 600;
+
+@askit-theme-home-no-avatar-answer__color: #A8DCD0;
+
+//
+//  Toolbar
+//  _____________________________________________
+@askit-toolbar-top-show: true;

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="swissupamp_prepare_pages_config">
+        <observer name="swissup_highlight_amp_prepare_config" instance="Swissup\Highlight\Observer\SwissupAmpPrepareConfig" />
+    </event>
+    <event name="swissupamp_is_page_supported">
+        <observer name="swissup_highlight_is_page_supported" instance="Swissup\Highlight\Observer\SwissupAmpPageSupported" />
+    </event>
+</config>

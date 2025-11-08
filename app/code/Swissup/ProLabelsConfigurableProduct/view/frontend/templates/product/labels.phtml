@@ -1,0 +1,21 @@
+<?php
+    $helper = $this->helper('Swissup\ProLabelsConfigurableProduct\Helper\Data');
+    $labels = $helper->prepareLabels($block);
+    if (!$labels) {
+        return;
+    }
+
+    $encoder = $this->helper('Swissup\ProLabels\Helper\Catalog');
+?>
+<script type="text/x-magento-init">
+{
+    "#maincontent .column.main": {
+        "Swissup_ProLabelsConfigurableProduct/js/prolabels": <?= /* @escapeNotVerified */ $encoder->jsonEncode([
+            'swatchOptions' => '[data-role=swatch-options]',
+            'configurableOptions' => '#product_addtocart_form .field.configurable',
+            'superProduct' => $block->getCurrentProduct()->getId(),
+            'labels' => $labels
+        ]) ?>
+    }
+}
+</script>

@@ -1,0 +1,19 @@
+@critical: unsure;
+
+@import 'abstracts/_modrtl.less';
+@import 'abstracts/_variables.less';
+@import (reference) 'abstracts/_abstracts.less';
+
+@import 'components/_dropdown.less';
+@import 'components/_category-filter.less';
+
+@import 'layout/_default.less';
+@import 'layout/_folded-base.less';
+@import 'layout/_folded-inline.less';
+@import 'layout/_folded-fullscreen.less';
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    // Category dropdown is hidden on mobile.
+    // So select2 styles required only for desktop.
+    @import 'vendor/_select2.less';
+}

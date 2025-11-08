@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_navigationpro_menu" resource="default" engine="innodb" comment="NavigationPro Menu Table">
+    <column xsi:type="int" name="menu_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Menu ID"/>
+    <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Menu Identifier"/>
+    <column xsi:type="smallint" name="is_active" padding="6" unsigned="false" nullable="false" identity="false" default="1" comment="Is Menu Active"/>
+    <column xsi:type="varchar" name="direction" nullable="true" length="16" comment="Items Direction"/>
+    <column xsi:type="smallint" name="max_depth" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Max Depth"/>
+    <column xsi:type="text" name="css_class" nullable="true" comment="CSS Class"/>
+    <column xsi:type="text" name="dropdown_settings" nullable="true" comment="Dropdown Settings"/>
+    <column xsi:type="text" name="item_settings" nullable="true" comment="Item Settings"/>
+    <column xsi:type="text" name="styles" nullable="true" comment="Menu Styles"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="menu_id"/>
+    </constraint>
+  </table>
+  <table name="swissup_navigationpro_item" resource="default" engine="innodb" comment="NavigationPro Item Table">
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Item ID"/>
+    <column xsi:type="int" name="parent_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Parent ID"/>
+    <column xsi:type="int" name="menu_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Menu ID"/>
+    <column xsi:type="varchar" name="path" nullable="true" length="255" comment="Tree Path"/>
+    <column xsi:type="int" name="position" padding="10" unsigned="true" nullable="false" identity="false" default="1" comment="Item Position"/>
+    <column xsi:type="int" name="level" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Tree Level"/>
+    <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Is Item Active"/>
+    <column xsi:type="smallint" name="remote_entity_type" padding="5" unsigned="true" nullable="true" identity="false" comment="Remote Entity Type"/>
+    <column xsi:type="int" name="remote_entity_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Remote Entity ID"/>
+    <column xsi:type="smallint" name="use_remote_data" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Use Remote Data"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="item_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_547679C58114028088F4E0219ECB99A3" table="swissup_navigationpro_item" column="parent_id" referenceTable="swissup_navigationpro_item" referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_9280C8DDEFCA020A7997E88D086CDAEE" table="swissup_navigationpro_item" column="menu_id" referenceTable="swissup_navigationpro_menu" referenceColumn="menu_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_PARENT_ID" indexType="btree">
+      <column name="parent_id"/>
+    </index>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_MENU_ID" indexType="btree">
+      <column name="menu_id"/>
+    </index>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_LEVEL" indexType="btree">
+      <column name="level"/>
+    </index>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_REMOTE_ENTITY_TYPE" indexType="btree">
+      <column name="remote_entity_type"/>
+    </index>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_REMOTE_ENTITY_ID" indexType="btree">
+      <column name="remote_entity_id"/>
+    </index>
+  </table>
+  <table name="swissup_navigationpro_item_content" resource="default" engine="innodb" comment="NavigationPro Item Content Table">
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Item ID"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Item Name"/>
+    <column xsi:type="varchar" name="url_path" nullable="true" length="255" comment="Item URL Path"/>
+    <column xsi:type="text" name="html" nullable="true" comment="Item HTML"/>
+    <column xsi:type="text" name="css_class" nullable="true" comment="CSS Class"/>
+    <column xsi:type="text" name="dropdown_settings" nullable="true" comment="Dropdown Settings"/>
+    <constraint xsi:type="foreign" referenceId="FK_D624E1BDE2C8E59DEE58B89278B5F4F8" table="swissup_navigationpro_item_content" column="item_id" referenceTable="swissup_navigationpro_item" referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_NAVIGATIONPRO_ITEM_CONTENT_STORE_ID_STORE_STORE_ID" table="swissup_navigationpro_item_content" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <constraint xsi:type="primary" referenceId="SWISSUP_NAVIGATIONPRO_ITEM_CONTENT_ITEM_ID_STORE_ID">
+      <column name="item_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <index referenceId="SWISSUP_NAVIGATIONPRO_ITEM_CONTENT_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+</schema>

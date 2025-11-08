@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Highlight</title>
+    </head>
+    <body>
+        <attribute name="class" value="page-highlight"/>
+        <attribute name="class" value="page-products"/>
+        <attribute name="class" value="page-with-filter"/>
+        <block class="Swissup\Highlight\Block\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+            <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+        </block>
+        <referenceContainer name="columns.top">
+            <container name="page.description.container" htmlTag="div" htmlClass="page-description" after="-">
+                <block class="Magento\Framework\View\Element\Text" name="page.description"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

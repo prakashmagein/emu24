@@ -1,0 +1,19 @@
+<?php
+    $emailVariables = [
+        [
+            'label' => __('[Sold Together] Frequently Bought Together'),
+            'value' => '{{layout handle="swissup_soldtogetheremail_order" order_id=$order_id products_count="3" area="frontend"}}'
+        ],
+        [
+            'label' => __('[Sold Together] Customers Also Bought'),
+            'value' => '{{layout handle="swissup_soldtogetheremail_customer" order_id=$order_id products_count="3" area="frontend"}}'
+        ]
+    ]
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Swissup_SoldTogetherEmail/js/initialize-variables": <?= json_encode(['variables' => $emailVariables]) ?>
+    }
+}
+</script>

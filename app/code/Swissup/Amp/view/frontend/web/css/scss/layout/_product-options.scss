@@ -1,0 +1,52 @@
+.product-options-wrapper {
+    br,
+    .fieldset .legend,
+    .downloads-all {
+        display: none;
+    }
+    .field {
+        .label {
+            margin-bottom: 3px;
+        }
+        .control {
+            margin-bottom: 10px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+        + .field {
+            margin-top: 10px;
+        }
+        .field {
+            margin-top: 0;
+
+            &.qty-holder {
+                margin-top: 5px;
+            }
+        }
+        .nested {
+            font-size: 0.9em;
+        }
+        .choice {
+            white-space: nowrap;
+
+            .label {
+                white-space: normal;
+                vertical-align: middle;
+            }
+        }
+    }
+    .qty-holder {
+        display: block;
+        margin-top: 5px;
+        .control {
+            display: inline-block;
+            input {
+                width: 3rem;
+            }
+        }
+        .label > span::after {
+            display: none;
+        }
+    }
+}

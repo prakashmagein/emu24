@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_argentobreeze_chic>
+            <layout>
+                <body_backgroundColor>#ffffff</body_backgroundColor>
+                <body_backgroundImage></body_backgroundImage>
+                <body_backgroundRepeat>no-repeat</body_backgroundRepeat>
+                <body_backgroundPosition>0,0</body_backgroundPosition>
+            </layout>
+            <header>
+                <pageHeader_backgroundColor>#ffffff</pageHeader_backgroundColor>
+                <pageHeader_backgroundImage></pageHeader_backgroundImage>
+                <pageHeader_backgroundRepeat>no-repeat</pageHeader_backgroundRepeat>
+                <pageHeader_backgroundPosition>0,0</pageHeader_backgroundPosition>
+                <pageHeader_borderColor>#e5e7eb</pageHeader_borderColor>
+
+                <pageHeaderPanel_backgroundColor>#000000</pageHeaderPanel_backgroundColor>
+                <pageHeaderPanel_backgroundImage></pageHeaderPanel_backgroundImage>
+                <pageHeaderPanel_backgroundRepeat>no-repeat</pageHeaderPanel_backgroundRepeat>
+                <pageHeaderPanel_backgroundPosition>0,0</pageHeaderPanel_backgroundPosition>
+                <pageHeaderPanel_borderColor>transparent</pageHeaderPanel_borderColor>
+
+                <search>
+                    <headerSearch_borderColor>rgba(17,24,39,1)</headerSearch_borderColor>
+                    <headerSearch_background>rgba(255,255,255,1)</headerSearch_background>
+                    <headerSearchFolder_boxShadow>0 0 0 1px #000</headerSearchFolder_boxShadow>
+<!--                    <headerSearchClose_color></headerSearchClose_color>-->
+                </search>
+            </header>
+<!--            <header_config>-->
+<!--            </header_config>-->
+            <footer>
+                <footer_background></footer_background>
+                <footer_backgroundColor></footer_backgroundColor>
+                <footer_backgroundRepeat></footer_backgroundRepeat>
+                <footer_backgroundPosition></footer_backgroundPosition>
+                <footer_color></footer_color>
+
+                <footerLink_color>inherit</footerLink_color>
+                <footerLinkHover_color></footerLinkHover_color>
+                <footerTitle_color>rgb(17, 24, 39)</footerTitle_color>
+                <footerTitle_fontSize>16px</footerTitle_fontSize>
+                <footerTitle_fontWeight>700</footerTitle_fontWeight>
+<!--                <footerNewsletterButton_backgroundColor>transparent</footerNewsletterButton_backgroundColor>-->
+<!--                <footerNewsletterButtonHover_backgroundColor>rgba(0, 0, 0, 0.9)</footerNewsletterButtonHover_backgroundColor>-->
+            </footer>
+            <buttons>
+                <button_background>rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box</button_background>
+                <button_borderColor>rgba(255, 255, 255, 0)</button_borderColor>
+                <button_borderWidth>1px</button_borderWidth>
+                <button_borderStyle>solid</button_borderStyle>
+                <button_color>rgba(0, 0, 0)</button_color>
+                <buttonHover_background>rgba(0, 0, 0, 0.9) none repeat scroll 0% 0% / auto padding-box border-box</buttonHover_background>
+                <buttonHover_borderColor>rgba(0, 0, 0, 0)</buttonHover_borderColor>
+                <buttonHover_borderWidth>1px</buttonHover_borderWidth>
+                <buttonHover_borderStyle>solid</buttonHover_borderStyle>
+                <buttonHover_color>#fff</buttonHover_color>
+
+                <buttonSecondary_background>rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box</buttonSecondary_background>
+                <buttonSecondary_borderColor>rgb(17, 24, 39)</buttonSecondary_borderColor>
+                <buttonSecondary_borderWidth>0px</buttonSecondary_borderWidth>
+                <buttonSecondary_borderStyle>none</buttonSecondary_borderStyle>
+                <buttonSecondary_color>rgb(17, 24, 39)</buttonSecondary_color>
+                <buttonSecondaryHover_background>#rgba(0, 0, 0, 0.9) none repeat scroll 0% 0% / auto padding-box border-box</buttonSecondaryHover_background>
+                <buttonSecondaryHover_borderColor>rgba(0, 0, 0, 0)</buttonSecondaryHover_borderColor>
+                <buttonSecondaryHover_borderWidth>1px</buttonSecondaryHover_borderWidth>
+                <buttonSecondaryHover_borderStyle>solid</buttonSecondaryHover_borderStyle>
+                <buttonSecondaryHover_color>rgb(255, 255, 255)</buttonSecondaryHover_color>
+
+                <buttonTocart_background>rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box</buttonTocart_background>
+                <buttonTocart_borderColor>rgb(31, 41, 55)</buttonTocart_borderColor>
+                <buttonTocart_borderWidth>0px</buttonTocart_borderWidth>
+                <buttonTocart_borderStyle>none</buttonTocart_borderStyle>
+                <buttonTocart_color>rgb(31, 41, 55)</buttonTocart_color>
+                <buttonTocartHover_background>rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box</buttonTocartHover_background>
+                <buttonTocartHover_borderColor>rgb(31, 41, 55)</buttonTocartHover_borderColor>
+                <buttonTocartHover_borderWidth>0px</buttonTocartHover_borderWidth>
+                <buttonTocartHover_borderStyle>none</buttonTocartHover_borderStyle>
+                <buttonTocartHover_color>rgb(31, 41, 55)</buttonTocartHover_color>
+            </buttons>
+            <fonts>
+                <pageTitle_fontFamily>Inter, "Inter Fallback", "Inter Fallback Linux", sans-serif</pageTitle_fontFamily>
+                <pageTitle_fontWeight>700</pageTitle_fontWeight>
+                <pageTitle_color>#111827</pageTitle_color>
+                <blockTitle_fontFamily>Inter, "Inter Fallback", "Inter Fallback Linux", sans-serif</blockTitle_fontFamily>
+                <blockTitle_fontWeight>500</blockTitle_fontWeight>
+                <blockTitle_color>#111827</blockTitle_color>
+                <finalPrice_color>#111827</finalPrice_color>
+            </fonts>
+            <category>
+                <max_width>1440</max_width>
+                <grid>
+                    <columns_count>{"640":{"columns":"3","spacing":"6"}}</columns_count>
+                </grid>
+            </category>
+            <product>
+                <max_width>1440</max_width>
+                <media_width>57</media_width>
+                <infomain_width>40</infomain_width>
+            </product>
+            <css_selector>
+<!--                Swissup_ThemeEditorArgentobreezeChic::system/layout.xml-->
+                <body>body</body>
+                <page>.page-wrapper</page>
+                <content-container><![CDATA[.navigation, .breadcrumbs, .catalog-category-view .page-main .breadcrumbs, .catalog-category-view .page-main .columns, .page-header .header.panel, .header.content, .footer-middle, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main, .page-container > .content, .jumbotron > .container]]></content-container>
+<!--                Swissup_ThemeEditorArgentobreezeChic::system/header.xml-->
+                <page-header><![CDATA[.page-header]]></page-header>
+                <page-header-panel><![CDATA[.page-header .panel.wrapper]]></page-header-panel>
+                <header-search>.page-header .block-search .input-text</header-search>
+                <header-search-folder>.block-search.block-swissup-ajaxsearch.inline .field.search .input-text</header-search-folder>
+                <header-search-close>.page-header .block-search.inline .action.close</header-search-close>
+<!--                Swissup_ThemeEditorArgentobreezeChic::system/footer.xml-->
+                <footer>.page-footer</footer>
+                <footer-top>.page-footer .footer-top</footer-top>
+                <footer-middle>.page-footer .footer-middle</footer-middle>
+                <footer-bottom>.page-footer .footer-bottom</footer-bottom>
+                <footer-link>.footer .links a, .footer-middle .links a:visited, .page-footer .footer-toolbar-top a, .page-footer .footer-toolbar-top .alink</footer-link>
+                <footer-link-hover>.page-footer .footer-middle .links a:hover, .footer-middle .links a:visited:hover, .page-footer .footer-toolbar-top a:hover, .page-footer .footer-toolbar-top .alink:hover</footer-link-hover>
+                <footer-title>.page-footer div.h4, .page-footer .block.newsletter .label</footer-title>
+                <footer-newsletter-button>.page-footer .footer-middle .block.newsletter .action.subscribe</footer-newsletter-button>
+                <footer-newsletter-button-hover>.page-footer .footer-middle .block.newsletter .action.subscribe:hover, .page-footer .footer-middle .block.newsletter .action.subscribe:focus, .page-footer .footer-middle .block.newsletter .action.subscribe:active</footer-newsletter-button-hover>
+                <footer-newsletter-button-image>.page-footer .block.newsletter .action.subscribe::before</footer-newsletter-button-image>
+<!--                Swissup_ThemeEditorArgentobreezeChic::system/buttons.xml-->
+                <button>.action.primary</button>
+                <button-hover>.action.primary:hover, .action.primary:focus, .action.primary:active</button-hover>
+                <button-secondary><![CDATA[button, .abs-revert-to-action-secondary, .paypal-review .block .actions-toolbar .action.primary, .abs-discount-block .actions-toolbar .action.primary, .abs-discount-block .actions-toolbar .action.cancel, .block-compare .action.primary, .cart-summary .block .actions-toolbar > .primary .action.primary, .cart-summary .form.giftregistry .fieldset .action.primary, .paypal-review-discount .actions-toolbar .action.primary, .paypal-review-discount .actions-toolbar .action.cancel, .cart-discount .actions-toolbar .action.primary, .cart-discount .actions-toolbar .action.cancel, .product.data.items .review-add .review-form .action.submit.primary, .cms-index-index a.button:not(.primary), .cms-index-index .column.main .block .actions-toolbar .action.view, .background-divider.element .content .action]]></button-secondary>
+                <button-secondary-hover><![CDATA[button:hover, .abs-revert-secondary-color:hover, .abs-revert-to-action-secondary:hover, .paypal-review .block .actions-toolbar .action.primary:hover,.abs-discount-block .actions-toolbar .action.primary:hover, .abs-discount-block .actions-toolbar .action.cancel:hover, .block-compare .action.primary:hover, .cart-summary .block .actions-toolbar > .primary .action.primary:hover, .cart-summary .form.giftregistry .fieldset .action.primary:hover, .paypal-review-discount .actions-toolbar .action.primary:hover, .paypal-review-discount .actions-toolbar .action.cancel:hover, .cart-discount .actions-toolbar .action.primary:hover, .cart-discount .actions-toolbar .action.cancel:hover, .product.data.items .review-add .review-form .action.submit.primary:hover, .cms-index-index a.button:not(.primary):hover, .cms-index-index .column.main .block .actions-toolbar .action.view:hover, .background-divider.element .content .action:hover, /*ACTIVE STATE*/ button:active, .abs-revert-secondary-color:active, .abs-revert-to-action-secondary:active, .paypal-review .block .actions-toolbar .action.primary:active,.abs-discount-block .actions-toolbar .action.primary:active, .abs-discount-block .actions-toolbar .action.cancel:active, .block-compare .action.primary:active, .cart-summary .block .actions-toolbar > .primary .action.primary:active, .cart-summary .form.giftregistry .fieldset .action.primary:active, .paypal-review-discount .actions-toolbar .action.primary:active, .paypal-review-discount .actions-toolbar .action.cancel:active, .cart-discount .actions-toolbar .action.primary:active, .cart-discount .actions-toolbar .action.cancel:active, .product.data.items .review-add .review-form .action.submit.primary:active, .cms-index-index a.button:not(.primary):active, .cms-index-index .column.main .block .actions-toolbar .action.view:active, .background-divider.element .content .action:active, /*FOCUS STATE*/ button:focus, .abs-revert-secondary-color:focus, .abs-revert-to-action-secondary:focus, .paypal-review .block .actions-toolbar .action.primary:focus,.abs-discount-block .actions-toolbar .action.primary:focus, .abs-discount-block .actions-toolbar .action.cancel:focus, .block-compare .action.primary:focus, .cart-summary .block .actions-toolbar > .primary .action.primary:focus, .cart-summary .form.giftregistry .fieldset .action.primary:focus, .paypal-review-discount .actions-toolbar .action.primary:focus, .paypal-review-discount .actions-toolbar .action.cancel:focus, .cart-discount .actions-toolbar .action.primary:focus, .cart-discount .actions-toolbar .action.cancel:focus, .product.data.items .review-add .review-form .action.submit.primary:focus, .cms-index-index a.button:not(.primary):focus, .cms-index-index .column.main .block .actions-toolbar .action.view:focus, .background-divider.element .content .action:focus]]></button-secondary-hover>
+                <button-tocart>.tocart.action, .block.soldtogether-block .soldtogether-cart-btn, .bundle-actions .action.primary.customize</button-tocart>
+                <button-tocart-hover>.tocart.action:hover, .block.soldtogether-block .soldtogether-cart-btn:hover, .bundle-actions .action.primary.customize:hover, .tocart.action:active, .block.soldtogether-block .soldtogether-cart-btn:active, .bundle-actions .action.primary.customize:active, .tocart.action:focus, .block.soldtogether-block .soldtogether-cart-btn:focus, .bundle-actions .action.primary.customize:focus</button-tocart-hover>
+<!--                Swissup_ThemeEditorArgentobreezeChic::system/fonts.xml -->
+                <page-title><![CDATA[.page-title-wrapper .page-title, .catalog-product-view .column.main > .block .block-title [role="heading"]]]></page-title>
+                <block-title><![CDATA[div.block .block-title strong, .block.askit-question-form > .block-title strong, .contact.form .legend, .column.main .block-title [aria-level="3"], div.block .content-heading [role="heading"]]]></block-title>
+                <final-price>.product-info-main .product-info-price .price-box .price-container [data-price-type=finalPrice] .price, .product-info-main .product-info-price .price-box .price-container [data-price-type=minPrice] .price, .product-info-main .product-info-price .price-box .price-container [data-price-type=maxPrice] .price, .bundle-options-container .block-bundle-summary .price-box [data-price-type=finalPrice] .price</final-price>
+            </css_selector>
+        </swissup_argentobreeze_chic>
+    </default>
+</config>

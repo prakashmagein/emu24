@@ -1,0 +1,75 @@
+"Accepted Consents",受け入れられた同意
+"Client's Requests",クライアントのリクエスト
+"A total of %1 record(s) have been canceled.",合計％1件のレコードがキャンセルされました。
+"A total of %1 record(s) have been skipped",合計％1レコードがスキップされました
+"A total of %1 record(s) have been processed.",合計％1レコードが処理されました。
+"This item no longer exists.",このアイテムは存在しません。
+"Requested item was skipped.",リクエストされたアイテムはスキップされました。
+"Request was successfully processed.",リクエストは正常に処理されました。
+"Request processing was failed.",リクエスト処理に失敗しました。
+"Privacy Tools",プライバシーツール
+"Please accept all required checkboxes",必要なチェックボックスをすべて受け入れてください
+Goodbye!,さようなら！
+"Export Data",データのエクスポート
+"Delete Data",データを削除
+"View Privacy Tools",プライバシーツールを表示
+Running,ランニング
+Failed,失敗した
+"Unsupported request type: '%1'","サポートされていない要求タイプ： '％1'"
+"Can't remove data. Incompleted orders found: %1",データを削除できません。未完了の注文が見つかりました：％1
+"Please accept all consents.",すべての同意に同意してください。
+"Open Customer Page",顧客ページを開く
+"Here you can view the consents you have given.",ここでは、付与した同意を表示できます。
+"To use this website, you accepted our Privacy Policy.",このWebサイトを使用するには、プライバシーポリシーに同意してください。
+"If you wish to withdraw your acceptance, please use the ""Delete My Data"" button below.",同意を取り消す場合は、下の[マイデータの削除]ボタンを使用してください。
+"Delete Account",アカウントを削除する
+"Once you delete your data, there is no going back. Please be certain.",データを削除すると、元に戻すことはできません。確認してください。
+"Delete My Data",データを削除
+"Are you absolutely sure?",本当によろしいですか？
+"Unexpected bad things will happen if you don’t read this!",これを読まないと予期しない悪いことが起こります！
+"This will permanently delete your orders, comments, questions, reviews, and other associations with your account.",これにより、注文、コメント、質問、レビュー、およびアカウントとの他の関連付けが完全に削除されます。
+"Once you press ""Delete My Data"" button, <strong>you will be logged out, and will never be able to login into this account.</strong>","[データを削除]ボタンを押すと、<strong>ログアウトされ、このアカウントにログインできなくなります。</ strong>"
+"I have read the text above and want to erase all of my data",上記のテキストを読み、すべてのデータを消去したい
+"Your data is queued for automatic deletion and nobody can stop this.",データは自動削除のためにキューに入れられ、誰もこれを止めることはできません。
+"It was a great time, though.",しかし、それは素晴らしい時間でした。
+"Yes, Delete My Data",はい、データを削除します
+"Personal Data Consents",個人データの同意
+"Deletion Requests",削除リクエスト
+"Anonymized data placeholder",匿名化されたデータのプレースホルダー
+"Automate request processing",リクエスト処理を自動化する
+"Days to wait",待つ日
+"Show in Forms",フォームで表示
+"Custom Consent 1",カスタムコンセント1
+"Custom Consent 2",カスタムコンセント2
+"Custom Consent 3",カスタムコンセント3
+"Personal Data",個人データ
+"Privacy Policy",個人情報保護方針
+"Client's Identity",クライアントのアイデンティティ
+"Form ID",フォームID
+Consent,同意
+"Process requests",リクエストの処理
+"Cancel requests",リクエストをキャンセル
+"Cancel requests?",リクエストをキャンセルしますか？
+"Are you sure you want to cancel selected requests?",選択したリクエストをキャンセルしてもよろしいですか？
+"Delete requests",リクエストを削除
+"Delete requests?",リクエストを削除しますか？
+"Are you sure you want to delete selected requests?",選択したリクエストを削除してもよろしいですか？
+"Request Type",リクエストの種類
+"Executed At",実行場所
+"Cookie Consents",クッキーの同意
+"Cookie Bar",クッキーバー
+"Cookie Settings Page",クッキー設定ページ
+"To override built-in page, use an URL of existing CMS page",組み込みページを上書きするには、既存のCMSページのURLを使用します
+"Cookie Settings",クッキー設定
+"This group is required.",このグループは必須です。
+Saved,保存しました
+Saving..,保存しています...
+"Show Cookies",クッキーを表示
+"Hide Cookies",クッキーを隠す
+"View Built-In Cookies",組み込みCookieを表示
+"View Cookie Groups",Cookieグループを表示
+"Register New Cookie",新しいクッキーを登録
+"Cookie Groups",クッキーグループ
+"Built-in Cookies",組み込みCookie
+"Allow All & Save",すべて許可します
+"Accept & Save",同意してセーブ

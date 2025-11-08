@@ -1,0 +1,29 @@
+<!--@subject {{var subject}}@-->
+<!--@vars {
+"var user_name":"User name",
+"var user_email":"User email",
+"var item_name":"Item name",
+"var item_url":"Item url",
+"var answer":"Answer",
+"var subject":"Subject",
+"var question":"Question"
+} @-->
+<table>
+    <tr class="email-information">
+        <td>
+            <table class="message-info">
+                <tr>
+                    <td>
+                        <p>{{trans "New products question was just posted or updated. Please see details below"}} : </p><br>
+                        <p>{{trans "Name"}} : {{var user_name}}</p>
+                        <p>{{trans "E-mail"}} : {{var user_email}}</p>
+                        <p>{{trans "Question"}} : {{var question}}</p>
+                        {{if answer}}<p>{{trans "Answer"}} : {{var answer}}</p>{{/if}}
+                        {{if item_url}}<p>{{trans "Item"}} : <a href="{{var item_url}}">{{var item_name}}</a></p>{{/if}}
+                        <p>{{trans "You can follow the question at Swissup -> Askit Questions"}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

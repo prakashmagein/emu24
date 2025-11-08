@@ -1,0 +1,40 @@
+<?php
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+
+$url = $block->getReviewsUrl(true) . '#reviews';
+$urlForm = $block->getReviewsUrl(true) . '#review-form';
+$ampHelper = $this->helper('Swissup\Amp\Helper\Catalog');
+?>
+<?php if ($block->getReviewsCount()): ?>
+<?php $rating = $block->getRatingSummary(); ?>
+<div class="product-reviews-summary<?= !$rating ? ' no-rating' : '' ?>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <?php if ($rating):?>
+    <div class="rating-summary">
+         <span class="label"><span><?= $block->escapeHtml(__('Rating')) ?>:</span></span>
+         <div class="rating-result" title="<?= $ampHelper->escapeHtmlAttr($rating); ?>%">
+            <?php foreach ($ampHelper->getSummaryIcons($rating) as $star) : ?>
+                <i class="<?= $star ?>"></i>
+            <?php endforeach; ?>
+            <meta itemprop="ratingValue" content="<?= $block->escapeHtml($rating); ?>" />
+            <meta itemprop="bestRating" content="100" />
+         </div>
+     </div>
+    <?php endif;?>
+    <div class="reviews-actions">
+        <a class="action view"
+           href="<?= $block->escapeUrl($url) ?>">
+            <span itemprop="reviewCount"><?= $block->escapeHtml($block->getReviewsCount()) ?></span>&nbsp;<span><?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></span>
+        </a>
+        <span class="separator">|</span>
+        <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>"><?= $block->escapeHtml(__('Add Your Review')) ?></a>
+    </div>
+</div>
+<?php elseif ($block->getDisplayIfEmpty()): ?>
+<div class="product-reviews-summary empty">
+    <div class="reviews-actions">
+        <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+            <?= $block->escapeHtml(__('Be the first to review this product')) ?>
+        </a>
+    </div>
+</div>
+<?php endif; ?>

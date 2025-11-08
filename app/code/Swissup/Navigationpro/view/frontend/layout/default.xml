@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="store.menu">
+            <block class="Swissup\Navigationpro\Block\Menu" name="navpro.topnav" template="Swissup_Navigationpro::menu.phtml" before="-" ifconfig="navigationpro/top/identifier">
+                <arguments>
+                    <argument name="identifier" xsi:type="helper" helper="Swissup\Navigationpro\Helper\Data::getTopmenuIdentifier"/>
+                    <argument name="nav_css_class" xsi:type="string">navigation</argument>
+                    <argument name="lazy_init" xsi:type="boolean">true</argument>
+                    <argument name="extra_attributes" xsi:type="string">data-action="navigation"</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <!--Container to use in widgets-->
+        <referenceContainer name="div.sidebar.main">
+            <container name="sidebar.main.top" before="-" label="Sidebar Main Top"/>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.additional">
+            <container name="sidebar.additional.top" before="-" label="Sidebar Additional Top"/>
+        </referenceContainer>
+    </body>
+</page>

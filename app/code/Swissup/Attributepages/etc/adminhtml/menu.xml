@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_Attributepages::attributepages" title="Attribute Pages" module="Swissup_Attributepages" sortOrder="50" parent="Swissup_Core::swissup" resource="Swissup_Attributepages::attributepages" />
+        <add id="Swissup_Attributepages::attributepages_page" title="Manage Pages" module="Swissup_Attributepages" sortOrder="10" parent="Swissup_Attributepages::attributepages" action="attributepages/page/index" resource="Swissup_Attributepages::attributepages_page"/>
+        <add id="Swissup_Attributepages::attributepages_option" title="Manage Options" module="Swissup_Attributepages" sortOrder="20" parent="Swissup_Attributepages::attributepages" action="attributepages/option/index" resource="Swissup_Attributepages::attributepages_option"/>
+    </menu>
+</config>

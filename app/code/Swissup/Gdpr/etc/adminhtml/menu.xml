@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_Gdpr::main"
+            title="GDPR"
+            module="Swissup_Gdpr"
+            sortOrder="717"
+            parent="Swissup_Core::swissup"
+            resource="Swissup_Gdpr::main"
+        />
+        <add id="Swissup_Gdpr::cookieregistry"
+            title="Cookie Registry"
+            module="Swissup_Gdpr"
+            sortOrder="5"
+            parent="Swissup_Gdpr::main"
+            action="swissup_gdpr/cookie/index"
+            resource="Swissup_Gdpr::cookieregistry"
+        />
+        <add id="Swissup_Gdpr::clientconsent"
+            title="Accepted Consents"
+            module="Swissup_Gdpr"
+            sortOrder="10"
+            parent="Swissup_Gdpr::main"
+            action="swissup_gdpr/clientconsent/index"
+            resource="Swissup_Gdpr::clientconsent"
+        />
+        <add id="Swissup_Gdpr::clientrequest"
+            title="Client's Requests"
+            module="Swissup_Gdpr"
+            sortOrder="20"
+            parent="Swissup_Gdpr::main"
+            action="swissup_gdpr/clientrequest/index"
+            resource="Swissup_Gdpr::clientrequest"
+        />
+    </menu>
+</config>

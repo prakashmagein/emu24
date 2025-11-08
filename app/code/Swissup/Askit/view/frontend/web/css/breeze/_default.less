@@ -1,0 +1,24 @@
+@import '../source/_module.less';
+
+@askit-loader__width: 24px;
+@askit-loader__height: 24px;
+@askit-loader-line__width: 2px;
+@askit-loader-line__color: ~"rgb(var(--spinner-border-color))";
+@askit-loader-line-accent__color: transparent;
+
+& when (@critical) {
+    .askit-question-form {
+        margin-bottom: @4;
+    }
+    .askit-item {
+        > p {
+            margin-bottom: @1;
+        }
+        small {
+            font-size: .9rem;
+        }
+    }
+    .askit-item-actions {
+        margin-top: @2;
+    }
+}

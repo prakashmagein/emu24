@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <htmlContent name="limit_check">
+        <block class="Emu24\CreditLimit\Block\Adminhtml\Customer\Edit\Tab\LimitCheck" name="limit_check">
+            <arguments>
+                <argument name="sort_order" xsi:type="number">910</argument>
+            </arguments>
+        </block>
+    </htmlContent>
+</form>

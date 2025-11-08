@@ -1,0 +1,11 @@
+<?php /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */ ?>
+<?php
+$scriptString = <<<script
+require([
+    'Swissup_ChatGptAssistant/js/assistant'
+], function(assistant){
+    assistant.init({$block->getSettingsJson()});
+});
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>

@@ -1,0 +1,81 @@
+type Query {
+    getNavproMenu (
+        identifier: String,
+        categoryId: String,
+    ): NavproMenu
+    @resolver(class: "Swissup\\Navigationpro\\Model\\Resolver\\Menu")
+    @cache(cacheIdentity: "Swissup\\Navigationpro\\Model\\Resolver\\Menu\\Identity")
+}
+
+type NavproMenu @doc(description: ".") {
+    nav: NavproMenuNav
+}
+
+type NavproMenuNav @doc(description: ".") {
+    classes: [String],
+    ul: NavproMenuNavUl
+}
+
+type NavproMenuNavUl @doc(description: ".") {
+    classes: [String],
+    items: [NavproMenuItem]
+    total_count: Int @doc(description: "The number of children returned.")
+}
+
+interface NavproCatalogUrlSuffixInterface @typeResolver(class: "Swissup\\Navigationpro\\Model\\Resolver\\NavproMenuItemResolver") @doc(description: "Just add url attribute(s).") {
+    url_suffix: String @doc(description: "The part of the category URL that is appended after the url key") @resolver(class: "Magento\\CatalogUrlRewriteGraphQl\\Model\\Resolver\\CategoryUrlSuffix")
+}
+
+type NavproMenuItem implements NavproCatalogUrlSuffixInterface @doc(description: ".") {
+    id: ID  @doc(description: ".")
+    name: String  @doc(description: ".")
+    url: String @doc(description: ".")
+    url_path: String @doc(description: ".")
+    classes: [String] @doc(description: ".")
+    link: NavproMenuItemLink @doc(description: ".")
+    html: String @doc(description: ".")
+    is_category: Boolean @doc(description: ".")
+#    is_active: Int @doc(description: ".")
+    level: Int @doc(description: ".")
+    childrens: [String] @doc(description: ".")
+    dropdown: NavproMenuItemDropdown @doc(description: ".")
+    layout_settings: [NavproMenuItemLayoutRegion]
+}
+
+type NavproMenuItemLink @doc(description: ".") {
+    classes: [String] @doc(description: ".")
+}
+
+type NavproMenuItemDropdown @doc(description: ".") {
+    has: Boolean @doc(description: ".")
+    classes: [String] @doc(description: ".")
+}
+
+type NavproMenuItemLayoutRegion @doc(description: ".") {
+    id: ID
+    code: String
+    size: Int
+    rows: [NavproMenuItemLayoutRow]
+}
+
+type NavproMenuItemLayoutRow @doc(description: ".") {
+    size: Int
+    cols: [NavproMenuItemLayoutColumn]
+}
+
+type NavproMenuItemLayoutColumn @doc(description: ".") {
+    type: String
+    content: String
+    columns_count: Int
+    direction: String
+    max_children_count: Int
+    levels_per_dropdown: Int
+    id: ID
+    size: Int
+    is_active: Boolean
+}
+
+type StoreConfig {
+    navigationpro_top_identifier : String  @doc(description: "Extended Config Data - navigationpro/top/identifier")
+}
+

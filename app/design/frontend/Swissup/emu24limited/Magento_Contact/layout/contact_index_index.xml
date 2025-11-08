@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="narrow-page-reset"/>
+
+        <referenceContainer name="content">
+            <container name="contact.grid" htmlTag="div" htmlClass="contact-wrapper">
+                <container name="contact.content.wrapper" htmlTag="div" htmlClass="contact-content-wrapper">
+                    <block class="Magento\Cms\Block\Block" name="contact_content">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">contact_content</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="contact.form.wrapper" htmlTag="div" htmlClass="contact-form-wrapper" />
+            </container>
+        </referenceContainer>
+        <move element="contactForm" destination="contact.form.wrapper"/>
+        <move element="page.main.title" destination="contact.grid" before="-" />
+    </body>
+</page>

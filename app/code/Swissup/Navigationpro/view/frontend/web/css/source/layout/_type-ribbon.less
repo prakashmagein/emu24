@@ -1,0 +1,54 @@
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    .navpro-ribbon {
+        .navpro-dropdown {
+            border-radius: 0 !important;
+        }
+
+        .orientation-horizontal & {
+            .navpro-dropdown {
+                max-width: none;
+                border-width: 1px 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                &:not(.size-fullscreen) {
+                    > .navpro-dropdown-inner {
+                        .navpro-container();
+                    }
+                }
+                .navpro-dropdown {
+                    top: 100% !important;
+                }
+                .navpro-icon-caret::before {
+                    transform: rotate(0);
+                }
+            }
+            .children {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        .navpro-slideout.orientation-vertical & {
+            .navpro-dropdown {
+                left: 100% !important;
+                top: -1px !important;
+                bottom: -1px;
+            }
+        }
+        .rtl .orientation-vertical &,
+        .dropdown-left.orientation-vertical & {
+            .navpro-dropdown {
+                left: auto !important;
+                right: 100% !important;
+            }
+        }
+        .rtl .dropdown-left.orientation-vertical & {
+            .navpro-dropdown {
+                right: auto !important;
+                left: 100% !important;
+            }
+        }
+    }
+}
+}

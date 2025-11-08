@@ -1,0 +1,29 @@
+& when (@media-common = true) {
+& when (@critical = unsure) {
+    .hide {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+    .display-none { display: none !important }
+
+    @media @navpro-breakpoint-xs-only {
+      .xs-hide { display: none !important }
+    }
+    @media @navpro-breakpoint-sm-only {
+      .sm-hide { display: none !important }
+    }
+}
+}
+
+& when (@media-target = 'desktop') {
+    @media @navpro-breakpoint-md-only {
+      .md-hide { display: none !important }
+    }
+
+    @media @navpro-breakpoint-lg-only {
+      .lg-hide { display: none !important }
+    }
+}

@@ -1,0 +1,88 @@
+.action.delete {
+    @include icon-mask($icon-trash-outline);
+}
+
+.data.table.table-comparison {
+    table-layout: fixed;
+    width: 100%;
+
+    .action.delete,
+    .cell.label.remove,
+    .cell.label.product,
+    .action.towishlist {
+        span {
+            display: none;
+        }
+    }
+
+    .cell.remove.product {
+        @include text-align(right);
+    }
+
+    tbody + tbody tr {
+        &:nth-child(even) {
+            background-color: #fff;
+        }
+        &:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+    }
+
+    th {
+        width: 70px;
+        word-break: break-word;
+        @include text-align(right);
+        hyphens: auto;
+        -webkit-hyphens: auto;
+
+        &.label {
+            display: table-cell;
+        }
+    }
+
+    td {
+        width: 130px;
+    }
+
+    .product-item-name {
+        font-weight: normal;
+    }
+
+    .product-item-photo {
+        display: block;
+    }
+
+    .price-box {
+        font-size: 1.2em;
+    }
+
+    .product-item-actions {
+        display: flex;
+
+        > :first-child {
+            flex-shrink: 0;
+            margin: 0;
+        }
+
+        .action.tocart {
+            @extend .button;
+        }
+
+        .action.towishlist {
+            text-align: center;
+            @include icon-mask(
+                $icon: $icon-heart-outline,
+                $size: 23px 23px
+            );
+        }
+    }
+
+    .stock {
+        &.unavailable {
+            @extend %button-static;
+
+            background-color: $light-grey;
+            color: $dark-grey;
+        }
+    }
+}

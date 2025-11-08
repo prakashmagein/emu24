@@ -1,0 +1,65 @@
+<?php
+    $groupedOptions = $block->getOptions();
+    if (!count($groupedOptions)) {
+        return;
+    }
+    $imageHelper = $block->getImageHelper();
+?>
+
+<?php foreach ($groupedOptions as $code => $options): ?>
+    <ul class="list-attributepages <?= $block->getCssClass() ?>"<?= $block->getCssStyle() ? ' style="' . $block->getCssStyle() . '"' : '' ?>>
+    <?php
+    $counter = 1;
+    $limit = count($options);
+
+    foreach ($options as $option):
+        $optionTitle = $block->escapeHtml($option->getTitle());
+        $aClassName = 'attributepages-option-title';
+        $aInnerHtml = $optionTitle;
+
+        if ($block->getUseImage($option)) {
+            $imageHelper = $imageHelper->init($option, $block->getImageType());
+            $image = $imageHelper->resize($block->getWidth(), $block->getHeight());
+            $image2x = $imageHelper->resize($block->getWidth() * 2, $block->getHeight() * 2);
+
+            if ($image) {
+                $aClassName = 'attributepages-option-image';
+                $aInnerHtml = '<img src="' . $image . '" srcset="' . $image . ' 1x, ' . $image2x . ' 2x" alt="' . $optionTitle . '" title="' . $optionTitle . '" width="'.$block->getWidth().'" height="'.$block->getHeight().'"/>';
+            }
+        }
+        ?>
+
+        <li class="attributepages-<?= $option->getParentPage()->getIdentifier() . '-' . $option->getIdentifier() ?>">
+            <?php if ($counter == 1): ?>
+                <span class="attributepages-parent-title">
+                    <?= $block->escapeHtml($option->getParentPage()->getTitle()); ?>:
+                </span>
+            <?php endif; ?>
+
+            <?php if ($block->getUseLink($option)) : ?>
+                <a href="<?= $option->getUrl() ?>"
+                    title="<?= __("View other %1 products", $optionTitle) ?>"
+                    class="<?= $aClassName ?>"
+                ><?= $aInnerHtml ?></a>
+            <?php else : ?>
+                <span class="<?= $aClassName ?>"><?= $aInnerHtml ?></span>
+            <?php endif; ?>
+
+            <?php if ($option->getShortDescription()) : ?>
+                <div class="attributepages-short-description">
+                    <?= $option->getShortDescription() ?>
+                </div>
+            <?php endif ?>
+        </li>
+        <?php if ($counter === $limit && ($linkTitle = $block->getParentPageLinkTitle($option))) : ?>
+            <li>
+                <a class="attributepages-parent-link"
+                    href="<?= $option->getParentPage()->getUrl() ?>"
+                    title="<?= __($linkTitle) ?>"
+                ><?= __($linkTitle) ?></a>
+            </li>
+        <?php endif; ?>
+        <?php $counter++; ?>
+    <?php endforeach; ?>
+    </ul>
+<?php endforeach; ?>

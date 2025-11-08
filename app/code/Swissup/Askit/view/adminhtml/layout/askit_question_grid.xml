@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <update handle="formkey"/>
+    <update handle="styles"/>
+    <container name="root" label="Root">
+        <!-- <uiComponent name="askit_question_listing"/> -->
+        <block class="Swissup\Askit\Block\Adminhtml\Product\Edit\Tab\Questions" name="askit_question_listing"/>
+    </container>
+</layout>

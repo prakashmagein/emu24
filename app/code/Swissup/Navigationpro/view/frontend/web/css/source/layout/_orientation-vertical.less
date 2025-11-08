@@ -1,0 +1,48 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        &.orientation-vertical {
+            .level0 {
+                margin: 0;
+            }
+            .children > li > a,
+            .level0 > .level-top,
+            .level0.active > .level-top,
+            .level0.has-active > .level-top {
+                display: block;
+            }
+            .parent-expanded {
+                > a {
+                    font-weight: bold;
+                }
+                .parent-expanded {
+                    > a {
+                        font-weight: normal;
+                    }
+                }
+            }
+            > ul {
+                // use flex to allow to align items to the center, left, right edges
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .navpro-dropdown {
+                .children {
+                    > li > a,
+                    .parent > a {
+                        padding: @navpro-vertical-link__padding;
+                    }
+                }
+            }
+            .level0 {
+                > .level-top {
+                    padding: @navpro-vertical-link-level0__padding;
+                }
+            }
+        }
+    }
+}
+}

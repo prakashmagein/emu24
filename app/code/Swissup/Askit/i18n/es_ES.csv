@@ -1,0 +1,102 @@
+"Edit '%1'","Editar '%1'"
+"Answer Information","Información de respuesta"
+Hint,Insinuación
+Questions,Preguntas
+"Edit Question '%1'","Editar pregunta '%1'"
+"No Found","No encontrado"
+"Created date","Fecha de creación"
+"Update date","Fecha de actualización"
+"Are you sure?","¿Estás seguro?"
+Unknown,Desconocido
+Private,Privado
+"Add New Answer","Agregar nueva respuesta"
+"Questions %1","Preguntas %1"
+"Please select item(s).","Por favor seleccione artículo (s)."
+"The answer has been deleted.","La respuesta ha sido eliminada."
+"We can't find a answer to delete.","No podemos encontrar una respuesta para eliminar."
+Askit,Askit
+Answers,Respuestas
+"This item no longer exists.","Este artículo ya no existe."
+"Askit Items","Artículos Askit"
+"Askit Recent Answers","Askit Respuestas recientes"
+"Manage Recent Askit Answers","Administrar respuestas recientes de Askit"
+"You saved.",Salvaste.
+"Something went wrong while saving the question.","Algo salió mal al guardar la pregunta."
+"A total of %1 record(s) have been deleted.","Se ha eliminado un total de %1 registro (s)."
+"A total of %1 record(s) have been changed.","Se ha cambiado un total de %1 registro (s)."
+"The question has been deleted.","La pregunta ha sido eliminada."
+"We can't find a question to delete.","No podemos encontrar una pregunta para eliminar."
+"New Askit Question","Nueva pregunta Askit"
+"Askit Questions","Askit preguntas"
+"Manage Askit Questions","Gestionar preguntas Askit"
+"You question saved.","Tu pregunta guardada."
+"You answer was added.","Su respuesta fue agregada."
+"We can't process your request right now. Sorry, that's all we know.","No podemos procesar su solicitud en este momento. Lo siento, eso es todo lo que sabemos."
+"My Questions","Mis preguntas"
+"Your must login","Debe iniciar sesión"
+"Sorry, only logged in customer can hint.","Lo sentimos, solo el cliente conectado puede dar pistas."
+"Sorry, already voted","Lo siento, ya voté"
+Pending,Pendiente
+Approved,Aprobado
+Disapproved,Rechazado
+"Askit Question","Pregunta Askit"
+"Askit Answer","Askit Answer"
+"Edit Question","Editar pregunta"
+"New Answer","Nueva respuesta"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Solo los usuarios registrados pueden escribir comentarios. <a href=""%1""> Inicie sesión </a> o <a href=""%2""> Cree una cuenta </a>"
+"Your Answer","Tu respuesta"
+"Leave a Reply","Deja una respuesta"
+"%1 people found this answer helpful.","%1 personas encontraron útil esta respuesta."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Solo los usuarios registrados pueden escribir preguntas. <a href=""%1""> Inicie sesión </a> o <a href=""%2""> Cree una cuenta </a>"
+"Ask Your Question","Haz tu pregunta"
+"Jot us a note and we’ll get back to you as quickly as possible.","Escríbanos una nota y nos pondremos en contacto con usted lo antes posible."
+Question,Pregunta
+"Post a private question","Publica una pregunta privada"
+Submit,Enviar
+"You have submitted no questions.","No has enviado ninguna pregunta."
+"answer' 'answers","respuesta '' respuestas"
+"%1 people already voted for this question.","%1 personas ya votaron por esta pregunta."
+"Vote for It","Vota por ello"
+"New products question was just posted or updated. Please see details below","La pregunta de nuevos productos se acaba de publicar o actualizar. Por favor vea los detalles a continuación"
+E-mail,"Correo electrónico"
+"You can follow the question at Swissup -> Askit Questions","Puedes seguir la pregunta en Swissup -> Preguntas Askit"
+Dear,querido
+"New answer was just posted to your question regarding","Se acaba de publicar una nueva respuesta a su pregunta sobre"
+"Your question:","Tu pregunta:"
+Answer:,Responder:
+"Thank you again","Gracias de nuevo"
+"Default question status","Estado de pregunta predeterminado"
+"Default answer status","Estado de respuesta predeterminado"
+"Allow guest to ask questions","Permitir que el invitado haga preguntas"
+"Allow customers comment","Permitir comentarios de clientes"
+"Allow guest comment","Permitir comentario de invitado"
+"Allow customer vote","Permitir voto del cliente"
+"Show customer name on frontend","Mostrar el nombre del cliente en la interfaz"
+"Show link to related item (Product, Category or Page)","Mostrar enlace al artículo relacionado (Producto, Categoría o Página)"
+"Enable Gravatar integration","Habilitar la integración de Gravatar"
+"Add questions block to all category pages","Agregar bloque de preguntas a todas las páginas de categorías"
+"Add questions block to all CMS pages","Agregar bloque de preguntas a todas las páginas de CMS"
+"Enable 'no questions' message","Habilite el mensaje 'sin preguntas'"
+Sender,Remitente
+"Customer Notification Template","Plantilla de notificación al cliente"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Plantilla de correo electrónico elegida en función de la reserva del tema cuando se selecciona la opción ""Predeterminado""."
+"Send admin notification to","Enviar notificación de administrador a"
+"Admin Notification Template","Plantilla de notificación de administrador"
+"Askit: Questions + New Question Form","Askit: preguntas + nuevo formulario de preguntas"
+"Hide listing block","Ocultar bloque de listado"
+"Hide form block","Ocultar bloque de formulario"
+"Assigned Products","Productos asignados"
+"Assigned Pages","Páginas asignadas"
+"Assigned Categories","Categorías asignadas"
+"Delete items","Eliminar objetos"
+"Answer,Responder
+"Entity Type","Tipo de entidad"
+Entity,Entidad
+Votes,Votos
+"Your question was answered on","Su pregunta fue respondida el"
+"It is helpful","Es útil"
+"Not much help","No mucha ayuda"
+asks,pregunta
+about,"acerca de"
+"Something went wrong while saving the answer.","Algo salió mal al guardar la respuesta."
+"Answer saved.","Answer saved."

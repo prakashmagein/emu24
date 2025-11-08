@@ -1,0 +1,38 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        .navpro-search .block-search {
+            float: none;
+            align-self: center;
+            margin: 0;
+            padding: 0;
+            left: auto;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            transform: none;
+            position: static;
+            width: auto;
+
+            .block-title {
+                margin: 0 0 15px;
+            }
+            .form.minisearch {
+                position: relative;
+            }
+        }
+
+        // search is rendered as item
+        .li-item > .navpro-search .block-search {
+            .block-title {
+                display: none;
+            }
+            .field {
+                label {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+}

@@ -1,0 +1,53 @@
+<script>
+require([
+    'jquery',
+    'underscore',
+    'mageUtils',
+    'mage/utils/objects'
+], function ($, _, mageUtils, utils) {
+    var defaultAttributes = {
+        method: 'post',
+        enctype: 'multipart/form-data'
+    };
+
+    mageUtils.submit = _.wrap(mageUtils.submit, (o, options, attrs) => {
+        if (!options.url.includes('/attributepages/')) {
+            return o(options, attrs);
+        }
+
+        // copy of mage/utils/misc.js@submit
+        var form = document.createElement('form'),
+            data = utils.serialize(options.data),
+            attributes = _.extend({}, defaultAttributes, attrs || {});
+
+        if (!attributes.action) {
+            attributes.action = options.url;
+        }
+
+        data['form_key'] = window.FORM_KEY;
+
+        _.each(attributes, function (value, name) {
+            form.setAttribute(name, value);
+        });
+
+        data = _.map(
+            data,
+            function (value, name) {
+                return '<input type="hidden" ' +
+                    'name="' + _.escape(name) + '" ' +
+                    'value="' + _.escape(value) + '"' +
+                    '>';
+            }
+        ).join('');
+
+
+        form.insertAdjacentHTML('afterbegin', data);
+        document.body.appendChild(form);
+
+        // modification
+        $(form).hide().append($('.main-col input[type=file]').clone());
+
+        form.submit();
+    });
+});
+</script>

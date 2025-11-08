@@ -1,0 +1,138 @@
+.modrtl(@property, @ltrValue, @rtlValue) {
+    @{property}: @ltrValue;
+    [dir="rtl"] & {
+        @{property}: @rtlValue;
+    }
+}
+
+// Block-based .modrtl: applies whole block for RTL
+.modrtl(@rules) when (isruleset(@rules)) {
+    [dir="rtl"] & {
+        @rules();
+    }
+}
+// Border side helpers
+.border-left(@style) {
+    border-left: @style;
+}
+
+.border-right(@style) {
+    border-right: @style;
+}
+
+.border-top(@style) {
+    border-top: @style;
+}
+
+.border-bottom(@style) {
+    border-bottom: @style;
+}
+
+// Optional: for RTL handling if needed later
+.border-left-color(@color) {
+    border-left-color: @color;
+}
+
+.border-right-color(@color) {
+    border-right-color: @color;
+}
+
+.border-left-width(@width) {
+    border-left-width: @width;
+}
+
+.border-right-width(@width) {
+    border-right-width: @width;
+}
+
+// Clear float helper
+.clear(@direction) when (@direction = left) {
+    clear: left;
+}
+
+.clear(@direction) when (@direction = right) {
+    clear: right;
+}
+
+.clear(@direction) when (@direction = both) {
+    clear: both;
+}
+
+// Direction mixin - returns current direction or sets specific direction
+.direction() {
+    direction: @modrtl-dir;
+}
+
+.direction(@value) {
+    direction: @value;
+}
+@modrtl-dir: ltr; // fallback value
+// Background-position mixin for LTR/RTL
+.background-position(@ltrValue, @rtlValue) {
+    background-position: @ltrValue;
+
+    [dir="rtl"] & {
+        background-position: @rtlValue;
+    }
+}
+// Border width helper
+.border-width(@value) {
+    border-width: @value;
+}
+
+.border-top-width(@value) {
+    border-top-width: @value;
+}
+
+.border-right-width(@value) {
+    border-right-width: @value;
+}
+
+.border-bottom-width(@value) {
+    border-bottom-width: @value;
+}
+
+.border-left-width(@value) {
+    border-left-width: @value;
+}
+// Text indent helper
+.text-indent(@value) {
+    text-indent: @value;
+}
+
+// Ajax search scrollbar styling helper
+.ajaxsearch-scrollbar() {
+    /* Webkit browsers */
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+
+    /* Firefox scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+
+.right(@value) { right: @value; }
+.left(@value) { left: @value; }
+.text-align(@value) { text-align: @value; }
+.float(@value) { float: @value; }
+.margin(@value) { margin: @value; }
+.margin-left(@value) { margin-left: @value; }
+.margin-right(@value) { margin-right: @value; }
+.margin-top(@value) { margin-top: @value; }
+.margin-bottom(@value) { margin-bottom: @value; }
+.padding(@value) { padding: @value; }
+.padding-right(@value) { padding-right: @value; }
+.padding-left(@value) { padding-left: @value; }
+.padding-top(@value) { padding-top: @value; }
+.padding-bottom(@value) { padding-bottom: @value; }
+

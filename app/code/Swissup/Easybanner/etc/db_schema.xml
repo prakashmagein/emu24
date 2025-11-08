@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_easybanner_banner" resource="default" engine="innodb" comment="swissup_easybanner_banner">
+    <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Banner Id"/>
+    <column xsi:type="varchar" name="identifier" nullable="false" length="64" comment="Identifier"/>
+    <column xsi:type="smallint" name="type" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Type"/>
+    <column xsi:type="smallint" name="sort_order" padding="5" unsigned="true" nullable="false" identity="false" default="100" comment="Sort Order"/>
+    <column xsi:type="text" name="title" nullable="false" comment="Title"/>
+    <column xsi:type="varchar" name="url" nullable="false" length="255" default="" comment="Url"/>
+    <column xsi:type="varchar" name="image" nullable="false" length="255" comment="Image"/>
+    <column xsi:type="text" name="html" nullable="false" comment="Html"/>
+    <column xsi:type="smallint" name="status" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Status"/>
+    <column xsi:type="text" name="mode" nullable="false" comment="Mode"/>
+    <column xsi:type="text" name="target" nullable="false" comment="Target"/>
+    <column xsi:type="smallint" name="hide_url" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Hide Url"/>
+    <column xsi:type="text" name="conditions_serialized" nullable="false" comment="Conditions Serialized"/>
+    <column xsi:type="smallint" name="resize_image" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Resize Image"/>
+    <column xsi:type="smallint" name="width" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Width"/>
+    <column xsi:type="smallint" name="height" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Height"/>
+    <column xsi:type="smallint" name="retina_support" padding="6" unsigned="false" nullable="false" identity="false" default="1" comment="Retina Support"/>
+    <column xsi:type="varchar" name="background_color" nullable="false" length="11" default="255" comment="Background Color"/>
+    <column xsi:type="boolean" name="is_trackable" nullable="false" default="false" comment="Statistics Flag"/>
+    <column xsi:type="boolean" name="is_responsive" nullable="false" comment="Use Responsive Sizes"/>
+    <column xsi:type="text" name="sizes" nullable="true" comment="Responsive Sizes"/>
+    <column xsi:type="text" name="class_name" nullable="false" comment="Class Name"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="banner_id"/>
+    </constraint>
+  </table>
+  <table name="swissup_easybanner_placeholder" resource="default" engine="innodb" comment="swissup_easybanner_placeholder">
+    <column xsi:type="int" name="placeholder_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Placeholder Id"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="64" comment="Name"/>
+    <column xsi:type="smallint" name="status" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Status"/>
+    <column xsi:type="smallint" name="limit" padding="5" unsigned="true" nullable="false" identity="false" comment="Limit"/>
+    <column xsi:type="text" name="mode" nullable="false" comment="Mode"/>
+    <column xsi:type="smallint" name="banner_offset" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Banner Offset"/>
+    <column xsi:type="text" name="sort_mode" nullable="false" comment="Sort Mode"/>
+    <column xsi:type="varchar" name="container" nullable="false" length="255" default="" comment="Parent Container"/>
+    <column xsi:type="varchar" name="position" nullable="false" length="255" default="" comment="Position in Parent Container"/>
+    <column xsi:type="varchar" name="additional_css_class" nullable="false" length="255" default="" comment="Additional CSS Classes"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="placeholder_id"/>
+    </constraint>
+  </table>
+  <table name="swissup_easybanner_banner_placeholder" resource="default" engine="innodb" comment="swissup_easybanner_banner_placeholder">
+    <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Banner Id"/>
+    <column xsi:type="int" name="placeholder_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Placeholder Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="banner_id"/>
+      <column name="placeholder_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_15A431AEA52B6712FD8B66C79ECD1400" table="swissup_easybanner_banner_placeholder" column="banner_id" referenceTable="swissup_easybanner_banner" referenceColumn="banner_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_33F8687AEBC4D6D5AE8C940C44DA8AB6" table="swissup_easybanner_banner_placeholder" column="placeholder_id" referenceTable="swissup_easybanner_placeholder" referenceColumn="placeholder_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_EASYBANNER_BANNER_PLACEHOLDER_PLACEHOLDER_ID" indexType="btree">
+      <column name="placeholder_id"/>
+    </index>
+  </table>
+  <table name="swissup_easybanner_banner_statistic" resource="default" engine="innodb" comment="swissup_easybanner_banner_statistic">
+    <column xsi:type="bigint" name="id" padding="20" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Banner Id"/>
+    <column xsi:type="date" name="date" comment="Date"/>
+    <column xsi:type="int" name="display_count" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Display Count"/>
+    <column xsi:type="int" name="clicks_count" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Clicks Count"/>
+    <constraint xsi:type="foreign" referenceId="FK_E14293872973269E61464FBAF16CBDE6" table="swissup_easybanner_banner_statistic" column="banner_id" referenceTable="swissup_easybanner_banner" referenceColumn="banner_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_EASYBANNER_BANNER_STATISTIC_ID_ID" indexType="btree">
+      <column name="id"/>
+    </index>
+    <index referenceId="SWISSUP_EASYBANNER_BANNER_STATISTIC_BANNER_ID" indexType="btree">
+      <column name="banner_id"/>
+    </index>
+  </table>
+  <table name="swissup_easybanner_banner_store" resource="default" engine="innodb" comment="swissup_easybanner_banner_store">
+    <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Banner Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" comment="Store Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="banner_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_83A8EDAB6BD054B529E6C2B7B019CA71" table="swissup_easybanner_banner_store" column="banner_id" referenceTable="swissup_easybanner_banner" referenceColumn="banner_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_EASYBANNER_BANNER_STORE_STORE_ID_STORE_STORE_ID" table="swissup_easybanner_banner_store" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_EASYBANNER_BANNER_STORE_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+    <index referenceId="SWISSUP_EASYBANNER_BANNER_STORE_BANNER_ID_BANNER_ID" indexType="btree">
+      <column name="banner_id"/>
+    </index>
+  </table>
+  <table name="swissup_easybanner_placeholder_offset" resource="default" engine="innodb" comment="swissup_easybanner_placeholder_offset">
+    <column xsi:type="bigint" name="id" padding="20" unsigned="true" nullable="false" identity="true" comment="Record Id"/>
+    <column xsi:type="int" name="placeholder_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Placeholder Id"/>
+    <column xsi:type="smallint" name="banner_offset" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Banner Offset"/>
+    <column xsi:type="timestamp" name="insert_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Record Insert Time"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_995117F5F1EBFE90A17A1B27ACE016A4" table="swissup_easybanner_placeholder_offset" column="placeholder_id" referenceTable="swissup_easybanner_placeholder" referenceColumn="placeholder_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_EASYBANNER_PLACEHOLDER_OFFSET_PLACEHOLDER_ID" indexType="btree">
+      <column name="placeholder_id"/>
+    </index>
+  </table>
+</schema>

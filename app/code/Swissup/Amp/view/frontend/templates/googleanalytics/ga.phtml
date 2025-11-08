@@ -1,0 +1,19 @@
+<?php /** @var $block \Magento\GoogleAnalytics\Block\Ga */ ?>
+<?php $accountId = $block->getConfig(\Magento\GoogleAnalytics\Helper\Data::XML_PATH_ACCOUNT) ?>
+<!-- BEGIN GOOGLE ANALYTICS CODE -->
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+    {
+        "vars": {
+            "account": "<?= $accountId ?>"
+        },
+        "triggers": {
+            "trackPageview": {
+                "on": "visible",
+                "request": "pageview"
+            }
+        }
+    }
+    </script>
+</amp-analytics>
+<!-- END GOOGLE ANALYTICS CODE -->

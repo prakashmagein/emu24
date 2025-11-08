@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="pagespeed" translate="label" type="text" sortOrder="1606" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Pagespeed</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Pagespeed::config</resource>
+            <include path="Swissup_Pagespeed::system/main.xml" />
+            <include path="Swissup_Pagespeed::system/html_content.xml" />
+            <include path="Swissup_Pagespeed::system/js.xml" />
+            <include path="Swissup_Pagespeed::system/css.xml" />
+            <include path="Swissup_Pagespeed::system/image.xml" />
+            <include path="Swissup_Pagespeed::system/preload.xml" />
+            <include path="Swissup_Pagespeed::system/expire.xml" />
+            <include path="Swissup_Pagespeed::system/diagnost.xml" />
+        </section>
+    </system>
+</config>

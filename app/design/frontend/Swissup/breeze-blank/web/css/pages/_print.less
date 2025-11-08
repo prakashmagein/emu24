@@ -1,0 +1,45 @@
+& when (@critical) {
+    .page-print {
+        .logo {
+            display: inline-block;
+            margin-bottom: 0.5cm;
+        }
+    }
+
+    @media print {
+        @page {
+            size: auto;
+            margin: 0;
+        }
+
+        body {
+            margin: 1cm;
+            min-height: auto;
+        }
+
+        a {
+            .lib-rgb(--link-color, @black);
+        }
+
+        .page-header,
+        .page-footer {
+            display: none;
+        }
+
+        .page-wrapper {
+            min-height: 0;
+        }
+        .page-main {
+            padding: 0;
+            margin: 0;
+        }
+
+        [data-action="toggle-nav"] {
+            display: none;
+        }
+
+        .hidden-print {
+            display: none !important;
+        }
+    }
+}

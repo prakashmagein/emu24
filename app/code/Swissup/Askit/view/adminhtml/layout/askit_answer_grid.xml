@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <update handle="styles"/>
+    <update handle="formkey"/>
+    <container name="root" label="Root">
+        <block class="Swissup\Askit\Block\Adminhtml\Answer\Grid" name="askit_answer_listing"/>
+        <block class="Swissup\Askit\Block\Adminhtml\Question\Edit\Tab\NewAnswer" name="askit_new_answer"/>
+    </container>
+</layout>

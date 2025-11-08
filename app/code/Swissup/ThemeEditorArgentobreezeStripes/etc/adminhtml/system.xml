@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_argentobreeze_stripes" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Argento Breeze Stripes</label>
+            <tab>theme_editor</tab>
+            <resource>Swissup_ThemeEditorArgentobreezeStripes::config</resource>
+            <include path="Swissup_ThemeEditor::system/frontend_mode.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/layout.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/header.xml"/>
+<!--            <include path="Swissup_ThemeEditor::system/header_config.xml"/>-->
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/footer.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/buttons.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/fonts.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/category.xml"/>
+            <include path="Swissup_ThemeEditorArgentobreezeStripes::system/product.xml"/>
+            <include path="Swissup_ThemeEditor::system/head.xml"/>
+            <include path="Swissup_ThemeEditor::system/themes.xml"/>
+        </section>
+    </system>
+</config>

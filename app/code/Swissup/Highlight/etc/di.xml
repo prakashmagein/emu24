@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sitemap\Model\ItemProvider\Composite">
+        <arguments>
+            <argument name="itemProviders" xsi:type="array">
+                <item name="highlightPagesProvider" xsi:type="object">Swissup\Highlight\Model\Sitemap\ItemProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Highlight\Block\ProductList\All">
+        <plugin name="addViewModelBeforeToHtml" type="Swissup\Highlight\Plugin\Block\ProductList\AllPlugin"/>
+    </type>
+
+    <!-- Do not calculate last page to improve performance -->
+    <type name="Magento\Framework\Data\Collection">
+        <plugin name="currentPageDetection" disabled="true" />
+    </type>
+    <type name="Magento\Framework\Setup\Patch\PatchList">
+        <arguments>
+            <argument name="patches" xsi:type="array">
+                <item name="highlightCreateIndexesInCategoryProductAndProductPriceIndexTables" xsi:type="string">Swissup\Highlight\Setup\Patch\Schem\CreateIndexesInCategoryProductAndProductPriceIndexTables</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Sorting\Model\Catalog\Toolbar\GetDefaultDirection">
+        <plugin name="swissup_highlight_get_default_direction_plugin"
+                type="Swissup\Highlight\Plugin\Amasty\Sorting\Model\Catalog\Toolbar\GetDefaultDirectionPlugin"
+                sortOrder="10"/>
+    </type>
+</config>

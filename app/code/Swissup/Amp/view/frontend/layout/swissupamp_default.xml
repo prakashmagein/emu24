@@ -1,0 +1,80 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+        <referenceContainer name="header">
+            <block class="Swissup\Amp\Block\Js" name="swissupamp.scripts" as="swissupamp.scripts"/>
+            <block class="Swissup\Amp\Block\Scss" name="swissupamp.styles" as="swissupamp.styles"/>
+        </referenceContainer>
+
+        <referenceBlock name="messages" template="Swissup_Amp::messages.phtml"/>
+
+        <!-- Google Analytics -->
+        <move element="google_analytics" destination="after.body.start" />
+        <referenceBlock name="google_analytics" template="Swissup_Amp::googleanalytics/ga.phtml"/>
+
+        <!-- Sidebar items -->
+        <referenceContainer name="root">
+            <block class="Magento\Framework\View\Element\Template" name="swissupamp.sidebar" template="Swissup_Amp::sidebar.phtml">
+                <block class="Magento\Theme\Block\Html\Welcome" name="welcome" />
+            </block>
+        </referenceContainer>
+        <referenceBlock name="catalog.topnav">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Theme::html/topmenu.phtml</argument>
+            </action>
+            <action method="unsetData">
+                <argument name="key" xsi:type="string">ttl</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="store_language" template="Swissup_Amp::store/switch/languages.phtml" />
+        <move element="store_language" destination="swissupamp.sidebar" />
+        <move element="catalog.topnav" destination="swissupamp.sidebar" />
+        <move element="top.links" destination="swissupamp.sidebar" />
+
+        <!-- Header items -->
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="swissupamp.header.nav-right" template="Swissup_Amp::header/nav-right.phtml" after="logo" />
+        </referenceContainer>
+        <referenceBlock name="top.search" template="Swissup_Amp::search/form.mini.phtml" />
+        <referenceBlock name="catalog.compare.link" template="Swissup_Amp::catalog/product/compare/link.phtml" />
+        <referenceBlock name="minicart" template="Swissup_Amp::checkout/cart/minicart.phtml" />
+        <move element="catalog.compare.link" destination="swissupamp.header.nav-right" />
+        <move element="minicart" destination="swissupamp.header.nav-right" />
+
+        <!-- Footer items -->
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="swissupamp_footer">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">swissupamp_footer</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <move element="copyright" destination="footer"/>
+
+        <!-- Products listing -->
+        <referenceBlock name="category.products.list" template="Swissup_Amp::catalog/product/list.phtml" />
+        <referenceBlock name="product_list_toolbar">
+            <action method="disableViewSwitcher" />
+            <arguments>
+                <argument name="_current_grid_mode" xsi:type="string">grid</argument>
+                <argument name="_current_limit" xsi:type="string">12</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="category.product.addto.compare" template="Swissup_Amp::catalog/product/list/addto/compare.phtml" />
+        <referenceBlock name="category.product.addto.wishlist" template="Swissup_Amp::catalog/product/list/addto/wishlist.phtml" />
+
+        <!-- Catalog search -->
+        <referenceBlock name="search_result_list" template="Swissup_Amp::catalog/product/list.phtml" />
+        <referenceBlock name="catalogsearch.product.addto.compare" template="Swissup_Amp::catalog/product/list/addto/compare.phtml" />
+        <referenceBlock name="catalogsearch.product.addto.wishlist" template="Swissup_Amp::catalog/product/list/addto/wishlist.phtml" />
+
+        <referenceBlock name="skip_to_content" remove="true"/>
+        <referenceBlock name="store_switcher" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="navigation.sections" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceBlock name="main_css_preloader" remove="true"/>
+        <referenceBlock name="cookie-status-check" remove="true"/>
+    </body>
+</layout>

@@ -1,0 +1,74 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .easyslide-description {
+        position: absolute;
+        overflow: hidden;
+        padding: 15px 20px;
+        text-align: left;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        pointer-events: none;
+        * {
+            pointer-events: auto;
+        }
+
+        &-top,
+        &-bottom {
+            left: 0;
+            width: 100%;
+        }
+        &-left,
+        &-right {
+            top: 0;
+            bottom: 0;
+            @media (min-width: 640px) {
+                width: 45%;
+            }
+        }
+        &-top { top: 0; }
+        &-bottom { bottom: 0; }
+        &-right { right: 0; }
+        &-left { left: 0; }
+
+        &-center {
+            inset: 0;
+            align-items: center;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5a5a5a;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        p {
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    // Description background
+    .easyslide-background {
+        &-light {
+            background: rgba(255, 255, 255, .65);
+            color: #000;
+        }
+
+        &-dark {
+            background: rgba(0, 0, 0, .65);
+            color: #fff;
+        }
+
+        &-transparent {
+            color: #000;
+        }
+    }
+}
+}

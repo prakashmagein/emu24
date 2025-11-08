@@ -1,0 +1,70 @@
+"Delete Item",アイテムの削除
+"Are you sure you want to do this?",本当にこれをしますか?
+"Menu Settings",メニュー設定
+"You deleted the item.",アイテムを削除しました。
+"We can't find a item to delete.",削除する項目が見つかりません。
+"Import completed.",インポートが完了しました。
+"Something went wrong while importing item.",アイテムのインポート中に何か問題が発生しました。
+"This item no longer exists.",このアイテムは存在しません。
+"Something went wrong while saving item.",アイテムを保存中に何かが問題になった。
+"You saved item.",アイテムを保存しました。
+"Something went wrong while saving menu.",メニューを保存中に何かが間違っていた。
+"You deleted the menu.",メニューを削除しました。
+"We can't find a menu to delete.",削除するメニューが見つかりません。
+"A total of %1 record(s) have been deleted.","合計 %1 件のレコードが削除されました。"
+"A total of %1 record(s) have been updated.","合計 %1 件のレコードが更新されました。"
+"New Menu",新しいメニュー
+"This menu no longer exists.",このメニューは存在しません。
+"You saved menu.",メニューを保存しました。
+"Stick to Left",左に固執
+"Stick to Right",右に固執する
+Standard,標準
+Left,左
+Top,ページのトップへ
+Fullscreen,フルスクリーン
+Full-Width,全幅
+Boxed,箱入り
+Small,小さな
+Medium,媒体
+Large,大きな
+"Extra Large",特大
+"Item was not registered",アイテムが登録されていません
+Horizontal,水平
+Vertical,垂直
+Blank,空白
+Dark,暗い
+"Dark Bar",ダークバー
+"Dark Dropdown",ダークドロップダウン
+Flat,フラット
+Compact,コンパクト
+"Menu was not registered",メニューが登録されていませんでした
+"An item cannot be parent for itself",アイテムをそれ自体の親にすることはできません
+"This name is already in use.",この名前は既に使用されています。
+"Top Menu",トップメニュー
+Menu,メニュー
+Navigationpro,ナビゲーションプロ
+"Show Active Branch Only",アクティブブランチのみを表示
+"Show Parent Category",親カテゴリの表示
+"Initially Shown Levels Count",最初に表示されるレベル数
+Orientation,方向
+"Dropdown Positioning",ドロップダウンの位置
+"Additional CSS Class","追加 CSS クラス"
+"Wrap into Block Template","ブロック テンプレートにラップ"
+"Block CSS Class","ブロック CSS クラス"
+"Select item in the tree on the left sidebar, or create a new one",左側のサイドバーのツリーで項目を選択するか、新しい項目を作成します。
+"Sync Name and URL with Category Data","カテゴリデータと同期名と URL"
+"CSS Class","CSS クラス"
+"Use Menu Settings",メニュー設定を使用
+"New Item",新しいアイテム
+"Import Item",アイテムのインポート
+"Columns Direction",列の方向
+"Nested Levels per Dropdown",ドロップダウンごとのネストされたレベル
+"Add New Menu",新しいメニューの追加
+"Are you sure you want to delete selected menu's?",選択したメニューを削除しますか?
+"Replace Top Menu at",トップメニューを置き換える
+"Leave empty if you don't want to replace Top Menu",トップメニューを置き換えない場合は空のままにする
+Direction,方向
+"Maximal Depth",最大深さ
+"Dropdown Position",ドロップダウン位置
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend",ドロップダウンがフロントエンドでレンダリングされる場合、ドロップダウン位置はナビゲーションバーの制約内でさらに調整されることに注意してください。
+"Dropdown Settings",ドロップダウン設定

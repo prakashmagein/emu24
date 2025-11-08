@@ -1,0 +1,73 @@
+<?php
+    /** @var \Swissup\Navigationpro\Block\Menu $block */
+    $_menu = $block->getHtml('level-top');
+    $_additionalHtml = $block->getChildHtml();
+
+    $requiredTopLevelItems = 8;
+    $liCount = 0;
+    foreach ([$_menu, $_additionalHtml] as $htmlFragment) {
+        if (!$htmlFragment) {
+            continue;
+        }
+
+        $liCount += preg_match_all('/<li\b/i', $htmlFragment);
+    }
+
+    $placeholderHtml = '';
+    if ($liCount < $requiredTopLevelItems) {
+        for ($i = $liCount; $i < $requiredTopLevelItems; $i++) {
+            $placeholderHtml .= '<li class="navpro-menu-item navpro-menu-item--placeholder" '
+                . 'aria-hidden="true" role="presentation">'
+                . '<span class="navpro-menu-item__spacer"></span>'
+                . '</li>';
+        }
+    }
+
+    if (empty($_menu) && empty($_additionalHtml)) {
+        return;
+    }
+
+    $ulCssClass = $block->getCssClass();
+?>
+
+<nav class="swissup-navigationpro navpro <?php echo $block->escapeHtml($block->getNavCssClass()) ?>"
+    <?php /* @escapeNotVerified */ echo $block->getExtraAttributes() ?>>
+    <ul id="<?= $block->getJsId() ?>"
+        class="navpro-menu <?php echo $block->escapeHtml($ulCssClass) ?>"
+        data-mage-init='<?= $this->getJsLayout() ?>'
+        >
+        <?php /* @escapeNotVerified */ echo $_menu; ?>
+        <?php /* @escapeNotVerified */ echo $_additionalHtml; ?>
+        <?php echo /* @noEscape */ $placeholderHtml; ?>
+    </ul>
+
+    <?php if ($styles = $block->getMenu()->getStyles()) : ?>
+        <style>
+            <?php echo $styles ?>
+        </style>
+    <?php endif; ?>
+
+    <?php if ($placeholderHtml) : ?>
+        <style>
+            .navpro-menu-item--placeholder {
+                display: none;
+            }
+        </style>
+    <?php endif; ?>
+</nav>
+
+<?php if (strpos($ulCssClass, 'navpro-overlay') !== false) : ?>
+    <div class="navpro-overlay-element"></div>
+<?php endif; ?>
+
+<?php
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+$scriptString = "require(['Swissup_Navigationpro/js/nowrap'])";
+
+if (isset($secureRenderer)) {
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else {
+    echo "<script>{$scriptString}</script>";
+}
+
+?>

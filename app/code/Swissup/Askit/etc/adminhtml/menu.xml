@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_Askit::askit"
+            title="Askit"
+            module="Swissup_Askit"
+            sortOrder="171"
+            parent="Swissup_Core::swissup"
+            resource="Swissup_Askit::question" />
+        <add id="Swissup_Askit::question"
+            title="Questions"
+            module="Swissup_Askit"
+            sortOrder="10"
+            parent="Swissup_Askit::askit"
+            action="askit/question"
+            resource="Swissup_Askit::question"/>
+        <add id="Swissup_Askit::answer"
+            title="Recent Answers"
+            module="Swissup_Askit"
+            sortOrder="20"
+            parent="Swissup_Askit::askit"
+            action="askit/answer"
+            resource="Swissup_Askit::question"/>
+    </menu>
+</config>

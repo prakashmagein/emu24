@@ -1,0 +1,267 @@
+//
+//  Variables
+//  _____________________________________________
+
+@swissup-pagespeed_border-gray: 1px solid #ebeef5;
+@swissup-pagespeed_color-orange: #ffa400;
+@swissup-pagespeed_color-red: #f27061;
+@swissup-pagespeed_color-green: #48b75f;
+@swissup-pagespeed_color-gray: #C8C8C8;
+@swissup-pagespeed_color-white: #fff;
+@swissup-pagespeed_color-blue: #3367d6;
+
+//
+//  Common
+//  ----------------------------------------------`
+
+& when (@media-common = true) {
+    .swissup-pagespeed-button {
+        padding: 7px 35px;
+        min-width: auto;
+        border: 0;
+        border-radius: 2px;
+        font-weight: 600;
+        background-color: @swissup-pagespeed_color-blue;
+        color: @swissup-pagespeed_color-white;
+        box-shadow: none;
+        margin: 10px 0;
+    }
+    .swissup-pagespeed-analyze-container {
+        margin-bottom: 50px;
+
+        .swissup-pagespeed-btn {
+            padding: 7px 35px;
+            min-width: auto;
+            border: 0;
+            border-radius: 2px;
+            font-weight: 600;
+            background-color: @swissup-pagespeed_color-blue;
+            color: @swissup-pagespeed_color-white;
+            box-shadow: none;
+            margin-bottom: 10px;
+        }
+
+        .swissup-pagespeed-main-container {
+            display: none;
+            margin-bottom: 40px;
+
+            .swissup-pagespeed-total-score {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .swissup-pagespeed-total-chart {
+                    position: relative;
+                    display: inline-block;
+                    font-size: 0;
+                    transform: scale(1.3);
+
+                    .swissup-pagespeed-circle {
+                        fill: @swissup-pagespeed_color-white;
+                        stroke-dasharray: 314;
+                        stroke-dashoffset: 314;
+                        stroke-linecap: round;
+                        transition: all 1s linear;
+                    }
+
+                    .swissup-pagespeed-score {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin: 0;
+                        font-size: 42px;
+                        font-weight: 600;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    &.green .swissup-pagespeed-score {
+                        color: @swissup-pagespeed_color-green;
+                    }
+
+                    &.orange .swissup-pagespeed-score {
+                        color: @swissup-pagespeed_color-orange;
+                    }
+
+                    &.red .swissup-pagespeed-score {
+                        color: @swissup-pagespeed_color-red;
+                    }
+
+                    &.green .swissup-pagespeed-circle {
+                        stroke: @swissup-pagespeed_color-green;
+                        fill: rgba(72, 183, 95, .2);
+                    }
+
+                    &.orange .swissup-pagespeed-circle {
+                        stroke: @swissup-pagespeed_color-orange;
+                        fill: rgba(255, 164, 0, .2);
+                    }
+
+                    &.red .swissup-pagespeed-circle {
+                        stroke: @swissup-pagespeed_color-red;
+                        fill: rgba(242, 112, 97, .2);
+                    }
+
+                    .swissup-pagespeed-circle-svg {
+                        transform: rotate(-90deg);
+                    }
+                }
+
+                .swissup-pagespeed-hint-container {
+                    margin-top: 3em;
+                    margin-bottom: 1.5em;
+
+                    .swissup-pagespeed-url {
+                        margin-left: 15px;
+                    }
+                    .swissup-pagespeed-hint-block {
+                        /*display: inline-flex;*/
+                        margin: 12px auto 0 auto;
+                        border: 1px solid @swissup-pagespeed_color-gray;
+                        border-radius: 20px;
+                        padding: 8px 8px;
+                        display: flex;
+
+                        .swissup-pagespeed-hint {
+                            position: relative;
+                            margin: 0 15px;
+                            padding-left: 30px;
+                            font-size: 17px;
+                            font-weight: 600;
+
+                            &:before {
+                                position: absolute;
+                                top: calc(50% - 3px);
+                                left: 0;
+                                width: 18px;
+                                height: 6px;
+                                border-radius: 3px;
+                                content: '';
+                            }
+                        }
+
+                        .swissup-pagespeed-hint.green:before {
+                            background: @swissup-pagespeed_color-green;
+                        }
+
+                        .swissup-pagespeed-hint.red:before {
+                            background: @swissup-pagespeed_color-red;
+                        }
+
+                        .swissup-pagespeed-hint.orange:before {
+                            background: #eca254;
+                        }
+                    }
+                }
+            }
+
+            .swissup-pagespeed-tabs-container {
+                display: flex;
+                /*justify-content: center;*/
+                .swissup-pagespeed-tab {
+                    margin-bottom: -1px;
+                    padding: 20px 42px;
+                    border-left: @swissup-pagespeed_border-gray;
+                    background: #f1f1f1;
+                    cursor: pointer;
+
+                    &.active {
+                        border-top: 2px solid #eb5202;
+                        border-bottom: 1px solid @swissup-pagespeed_color-white;
+                        border-right: @swissup-pagespeed_border-gray;
+                        background: @swissup-pagespeed_color-white;
+                    }
+                    &.mobile div {
+                        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4NCiAgICA8cGF0aCBmaWxsPSIlMjNmZmYiIGQ9Ik0xNyAxLjAxTDcgMWMtMS4xIDAtMiAuOS0yIDJ2MThjMCAxLjEuOSAyIDIgMmgxMGMxLjEgMCAyLS45IDItMlYzYzAtMS4xLS45LTEuOTktMi0xLjk5ek0xNyAxOUg3VjVoMTB2MTR6Ii8+DQo8L3N2Zz4=')
+                            no-repeat
+                            left center;
+                        padding-left: 30px;
+                    }
+                    &.desktop div {
+                        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4NCiAgICA8cGF0aCBkPSJNMjAgMThjMS4xIDAgMi0uOSAyLTJWNmMwLTEuMS0uOS0yLTItMkg0Yy0xLjEgMC0yIC45LTIgMnYxMGMwIDEuMS45IDIgMiAySDB2MmgyNHYtMmgtNHpNNCA2aDE2djEwSDRWNnoiIGZpbGw9IiUyM2ZmZiIvPg0KPC9zdmc+')
+                            no-repeat
+                            left center;
+                        padding-left: 30px;
+                    }
+                }
+                .swissup-pagespeed-tabs-container {
+                    border-left: @swissup-pagespeed_border-gray;
+                    border-right: @swissup-pagespeed_border-gray;
+                }
+                .swissup-pagespeed-tab-content {
+                    box-sizing: border-box;
+                    border: @swissup-pagespeed_border-gray;
+                }
+            }
+        }
+    }
+
+    .swissup-pagespeed-tab-container {
+        display: flex;
+
+        .swissup-pagespeed-time {
+            font-weight: bold;
+        }
+
+        .swissup-pagespeed-time.red {
+            color: @swissup-pagespeed_color-red;
+        }
+
+        .swissup-pagespeed-time.yellow {
+            color: #eca254;
+        }
+
+        .swissup-pagespeed-title-container {
+            margin-bottom: 15px;
+
+            .swissup-pagespeed-name,
+            .swissup-pagespeed-time {
+                font-weight: bold;
+            }
+        }
+
+        .swissup-pagespeed-links-container {
+            flex-basis: 33%;
+            margin: 20px 10px 10px;
+            list-style-type: none;
+
+            ol {
+                list-style-type: none;
+            }
+
+            .swissup-pagespeed-title-container {
+                margin:10px;
+            }
+
+            .swissup-pagespeed-link-block {
+                padding: 5px 10px;
+                border-radius: 2px;
+                cursor: pointer;
+                border-bottom: 1px solid @swissup-pagespeed_color-gray;
+
+                &:hover {
+                    background: #f5f7fa;
+                }
+
+                &.active {
+                    background: #f5f7fa;
+                }
+            }
+        }
+
+        .swissup-pagespeed-recommendation-block {
+            flex-basis: 75%;
+            padding: 20px;
+            border-left: @swissup-pagespeed_border-gray;
+            background: #f7f8fa;
+
+            &.hide {
+                display: none;
+            }
+
+            .swissup-pagespeed-google-recommendation .swissup-pagespeed-recommendation {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<?php
+    /* @var $block \Swissup\Highlight\Block\ProductList\All */
+    /* @var $highlight \Swissup\Highlight\Block\ProductList\All */
+    $highlight = $block->getHighlightBlock();
+    /* @var $helper \Swissup\Highlight\Helper\Data */
+    $helper = $this->helper(\Swissup\Highlight\Helper\Data::class);
+?>
+
+<div class="block widget highlight-swiper <?php /* @escapeNotVerified */ echo $highlight->getCssClass() ?>" data-content-type="highlight">
+    <?php if ($highlight->getTitle()): ?>
+        <div class="block-title">
+            <strong role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo $highlight->getTitle() ?></strong>
+            <?php if ($highlight->getShowPageLink() && $highlight->getPageLinkPosition() === 'top') : ?>
+                <p class="subtitle">
+                    <a class="action view"
+                        href="<?= $block->escapeHtml($highlight->getPageUrl()) ?>"
+                        title="<?= $block->escapeHtml($highlight->getPageLinkTitle()) ?>"
+                    >
+                        <span><?= $block->escapeHtml($highlight->getPageLinkTitle()) ?></span>
+                    </a>
+                </p>
+            <?php endif ?>
+
+            <div class="block-title-background">
+                <?php if ($titleImageUrl = $highlight->getTitleImageUrl()): ?>
+                    <span class="title-image">
+                        <img alt="<?= $block->escapeHtml(strip_tags(html_entity_decode($highlight->getTitle()))) ?>"
+                           src="<?= $block->escapeHtml($titleImageUrl) ?>" />
+                    </span>
+                <?php endif ?>
+            </div>
+        </div>
+    <?php endif ?>
+    <div class="block-content">
+        <?php
+            $html = $block->getContent();
+            $config = $helper->getSwiperData($highlight, '', 'json');
+        ?>
+        <?php if (!$highlight->getCarousel()) : ?>
+            <?php echo $html ?>
+        <?php else : ?>
+            <div class="swiper-container" data-mage-init='{"Swissup_Highlight/js/carousel": <?= $config;?>}'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide">
+                        <?php echo $html ?>
+                    </div>
+                    <?php if ($highlight->hasMorePages()): ?>
+                        <div class="swiper-slide slide loading" title="<?= __('Load more') ?>"></div>
+                    <?php endif ?>
+                </div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
+            </div>
+            <div class="swiper-config carousel-config" data-config='<?= $config ?>'></div>
+        <?php endif ?>
+
+        <?php echo $highlight->getPagerHtml() ?>
+
+        <?php if ($highlight->getShowPageLink() && $highlight->getPageLinkPosition() !== 'top') : ?>
+            <div class="actions-toolbar">
+                <a class="action view"
+                    href="<?= $block->escapeHtml($highlight->getPageUrl()) ?>"
+                    title="<?= $block->escapeHtml($highlight->getPageLinkTitle()) ?>"
+                >
+                    <span><?= $block->escapeHtml($highlight->getPageLinkTitle()) ?></span>
+                </a>
+            </div>
+        <?php endif ?>
+    </div>
+</div>

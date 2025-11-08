@@ -1,0 +1,24 @@
+<?php
+if (!$block->isSuitablePageType()) {
+    return;
+}
+
+    $isLoggedIn = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+    $isAllowedCustomerQuestion = $configHelper->isAllowedCustomerQuestion();
+    $isAllowedGuestQuestion = $configHelper->isAllowedGuestQuestion();
+    $showNewQuestionForm = ($isAllowedCustomerQuestion && $isLoggedIn) || $isAllowedGuestQuestion;
+
+if (!$showNewQuestionForm) {
+    return;
+}
+
+    $path = (string) $block->getRequest()->getAlias(\Magento\Framework\UrlInterface::REWRITE_REQUEST_PATH_ALIAS);
+    $isQuestionsPage = strpos($path, 'questions/') === 0;
+    $directUrl = $isQuestionsPage ? $path : "questions/{$path}";
+?>
+<div class="block askit-question-form">
+    <a href="<?= $block->escapeUrl($block->getUrl('', ['_direct' => $directUrl, '_fragment' => 'askit-question-form', '_query' => ['amp' => 0]])) ?>" class="button action">
+        <?= $block->escapeHtml(__('Ask Your Question')) ?>
+    </a>
+</div>

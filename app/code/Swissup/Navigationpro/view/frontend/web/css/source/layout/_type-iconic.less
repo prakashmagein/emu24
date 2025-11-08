@@ -1,0 +1,24 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        &.navpro {
+            .navpro-iconic {
+                .navpro-wrapped-items .level1 > a,
+                .level0 > .level-top {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        margin: 3px;
+                    }
+                }
+                &.iconic-vertical {
+                    .navpro-wrapped-items .level1 > a,
+                    .level0 > .level-top {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+}
+}

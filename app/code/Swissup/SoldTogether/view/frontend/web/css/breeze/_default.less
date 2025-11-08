@@ -1,0 +1,18 @@
+@listing-grid-item__reveal-on-hover: false;
+.listing-reveal-on-hover-reset {}
+
+& when not (@listing-grid-item__reveal-on-hover = false) {
+    .soldtogether-swiper .products-grid .product-item {
+        .listing-reveal-on-hover-reset();
+    }
+}
+
+& when (@critical) {
+    .soldtogether-block {
+        .amazonstyle-images {
+            .product-image-container {
+                width: auto;
+            }
+        }
+    }
+}

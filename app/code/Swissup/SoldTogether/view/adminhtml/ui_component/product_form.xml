@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="soldtogether">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string">Sold Together</item>
+                <item name="sortOrder" xsi:type="number">300</item>
+                <item name="additionalClasses" xsi:type="string">soldtogether-section</item>
+            </item>
+        </argument>
+        <container name="soldtogether_order">
+            <htmlContent name="block_order">
+                <block name="soldtogether_assigned_products" class="Swissup\SoldTogether\Block\Adminhtml\AssignedProducts" />
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

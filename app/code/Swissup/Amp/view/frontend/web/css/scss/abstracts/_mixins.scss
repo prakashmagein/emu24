@@ -1,0 +1,83 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin icon-mask(
+  $icon,
+  $size: null,
+  $color: null,
+  $width: null,
+  $height: null
+) {
+  @extend .icon;
+
+  background-color: $color;
+  // Wait for a browser support
+  // mask-image: $icon;
+  // mask-size: $size;
+  -webkit-mask-image: url('data:image/svg+xml,#{$icon}');
+  -webkit-mask-size: $size;
+  width: $width;
+  height: $height;
+}
+
+@mixin icon-mask-reset {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  -webkit-mask-image: none;
+  text-indent: 0;
+}
+
+@mixin icon-fa(
+  $icon,
+  $size: null,
+  $color: null,
+  $width: null,
+  $height: null,
+  $weight: null,
+  $pos: '::after'
+) {
+  @extend .icon;
+  width: $width;
+  height: $height;
+  line-height: $height;
+
+  &#{$pos} {
+    display: inline-block;
+    color: $color;
+    content: $icon;
+    font-size: $size;
+    font-weight: $weight;
+  }
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_gdpr" type="text" sortOrder="717" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>GDPR</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Gdpr::config_gdpr</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="cookie_consents" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cookie Consents</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="lifetime" translate="label" type="text" sortOrder="20" showInDefault="1">
+                    <label>Lifetime, days</label>
+                </field>
+                <field id="google_consent" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Integrate with Google Consent Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="google_consent_defaults" translate="label" type="textarea" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Google Consent Defaults</label>
+                    <comment><![CDATA[Possible values are: "denied" or "granted".<br/>More information: <a href="https://docs.swissuplabs.com/m2/extensions/gdpr/configuration/#google-consent-defaults">https://docs.swissuplabs.com/m2/extensions/gdpr/configuration/#google-consent-defaults</a>]]></comment>
+                    <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Json</frontend_model>
+                    <depends>
+                        <field id="google_consent">1</field>
+                    </depends>
+                </field>
+                <field id="cookie_bar" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Bar</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="cookie_wall_enabled" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Wall Mode</label>
+                    <comment>Cover site content with overlay until client will accept the consent</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cookie_bar_display_mode" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Mode</label>
+                    <source_model>Swissup\Gdpr\Model\Config\Source\CookieBarDisplayMode</source_model>
+                </field>
+                <field id="cookie_bar_text_full" translate="label" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Content</label>
+                    <depends>
+                        <field id="cookie_bar_display_mode">full</field>
+                    </depends>
+                </field>
+                <field id="cookie_bar_text_minimalistic" translate="label" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Content</label>
+                    <depends>
+                        <field id="cookie_bar_display_mode">minimalistic</field>
+                    </depends>
+                </field>
+                <field id="cookie_page" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Settings Page</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="cookie_page_url" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL</label>
+                    <comment>To override built-in page, use an URL of existing CMS page</comment>
+                </field>
+                <field id="cookie_page_text" translate="label" type="textarea" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Content</label>
+                </field>
+            </group>
+            <group id="consents" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Personal Data Consents</label>
+                <include path="Swissup_Gdpr::system/privacy.xml"/>
+                <include path="Swissup_Gdpr::system/terms.xml"/>
+                <include path="Swissup_Gdpr::system/personal-data.xml"/>
+                <include path="Swissup_Gdpr::system/newsletter.xml"/>
+                <include path="Swissup_Gdpr::system/contacts.xml"/>
+                <include path="Swissup_Gdpr::system/review.xml"/>
+                <include path="Swissup_Gdpr::system/cookie.xml"/>
+                <include path="Swissup_Gdpr::system/custom.xml"/>
+            </group>
+            <group id="request" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Client's Requests</label>
+                <group id="delete_data" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Deletion Requests</label>
+                    <field id="placeholder" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Anonymized data placeholder</label>
+                    </field>
+                    <field id="automate" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Automate request processing</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="days_to_wait" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Days to wait</label>
+                        <comment>Automatically process requests created for more than X days</comment>
+                        <depends>
+                            <field id="automate">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

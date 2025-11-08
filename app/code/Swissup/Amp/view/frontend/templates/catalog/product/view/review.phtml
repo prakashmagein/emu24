@@ -1,0 +1,3 @@
+<?php /** @var $block \Magento\Catalog\Block\Product\AbstractProduct */ ?>
+<?php $ampHelper = $this->helper('Swissup\Amp\Helper\Catalog'); ?>
+<?= $ampHelper->getReviewsSummaryHtml($block->getProduct(), false, true) ?>

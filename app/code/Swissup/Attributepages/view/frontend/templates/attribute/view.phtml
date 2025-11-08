@@ -1,0 +1,20 @@
+<?php /** @var $block \Swissup\Attributepages\Block\Attribute\View */ ?>
+<?php echo $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+
+<?php if ($block->canShowDescription()) : ?>
+    <div class="category-description std">
+        <?php echo $block->getPageDescription() ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($this->canShowChildren()): ?>
+    <?php if ($this->getCurrentPage()->isAttributeBasedPage()) : ?>
+        <?php echo $this->getChildHtml() ?>
+    <?php else: ?>
+        <?php
+            echo $this->getChildHtml('before');
+            echo $this->getChildHtml('product_list');
+            echo $this->getChildHtml('after');
+        ?>
+    <?php endif; ?>
+<?php endif; ?>

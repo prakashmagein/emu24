@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="dnsprefetch" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Preload, Dns-prefetch and Preconnect</label>
+        <field id="link_preload" translate="label" type="select" sortOrder="45" showInDefault="1">
+            <label>Link rel="preload" enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/main/link_preload</config_path>
+        </field>
+        <field id="custom_preload_link" translate="label" type="textarea" sortOrder="47" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Additional resource links for preloading</label>
+            <config_path>pagespeed/main/custom_preload_link</config_path>
+            <comment><![CDATA[<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content" target="_blank">Verify HTTP/2 support manually</a>.]]></comment>
+            <depends>
+                <field id="link_preload">1</field>
+            </depends>
+        </field>
+        <field id="enable" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Dns-prefetch Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="preconnect" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Preconnect Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/preconnect/enable</config_path>
+        </field>
+    </group>
+</include>

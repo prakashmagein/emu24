@@ -1,0 +1,121 @@
+{
+    "swissup_gdpr_client_consent": {
+        "column": {
+            "entity_id": true,
+            "client_identity_field": true,
+            "client_identity": true,
+            "visitor_id": true,
+            "customer_id": true,
+            "form_id": true,
+            "consent_id": true,
+            "consent_title": true,
+            "updated_at": true,
+            "website_id": true
+        },
+        "index": {
+            "SWISSUP_GDPR_CLIENT_CONSENT_WEBSITE_ID": true,
+            "SWISSUP_GDPR_CLIENT_CONSENT_CLIENT_IDENTITY_FIELD": true,
+            "SWISSUP_GDPR_CLIENT_CONSENT_CLIENT_IDENTITY": true,
+            "SWISSUP_GDPR_CLIENT_CONSENT_VISITOR_ID": true,
+            "SWISSUP_GDPR_CLIENT_CONSENT_UPDATED_AT": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_GDPR_CLIENT_CONSENT_CSTR_ID_CSTR_ENTT_ENTT_ID": true
+        }
+    },
+    "swissup_gdpr_client_request": {
+        "column": {
+            "entity_id": true,
+            "client_identity_field": true,
+            "client_identity": true,
+            "customer_id": true,
+            "type": true,
+            "confirmation_token": true,
+            "created_at": true,
+            "confirmed_at": true,
+            "executed_at": true,
+            "status": true,
+            "report": true,
+            "website_id": true
+        },
+        "index": {
+            "SWISSUP_GDPR_CLIENT_REQUEST_WEBSITE_ID": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_CLIENT_IDENTITY_FIELD": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_CLIENT_IDENTITY": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_TYPE": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_CONFIRMATION_TOKEN": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_CREATED_AT": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_EXECUTED_AT": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_STATUS": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_GDPR_CLIENT_REQUEST_CSTR_ID_CSTR_ENTT_ENTT_ID": true
+        }
+    },
+    "swissup_gdpr_cookie": {
+        "column": {
+            "cookie_id": true,
+            "name": true,
+            "group": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_gdpr_cookie_content": {
+        "column": {
+            "cookie_id": true,
+            "store_id": true,
+            "description": true
+        },
+        "index": {
+            "SWISSUP_GDPR_COOKIE_CONTENT_STORE_ID": true
+        },
+        "constraint": {
+            "FK_E511A11F6D580B01CAEE597428BFF974": true,
+            "SWISSUP_GDPR_COOKIE_CONTENT_STORE_ID_STORE_STORE_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "swissup_gdpr_cookie_group": {
+        "column": {
+            "group_id": true,
+            "code": true,
+            "sort_order": true,
+            "required": true,
+            "prechecked": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_gdpr_cookie_group_content": {
+        "column": {
+            "group_id": true,
+            "store_id": true,
+            "title": true,
+            "description": true
+        },
+        "index": {
+            "SWISSUP_GDPR_COOKIE_GROUP_CONTENT_STORE_ID": true
+        },
+        "constraint": {
+            "FK_558C5BCF0FD672B218185C5AB4EEEF43": true,
+            "SWISSUP_GDPR_COOKIE_GROUP_CONTENT_STORE_ID_STORE_STORE_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "swissup_gdpr_blocked_cookie": {
+        "column": {
+            "cookie_id": true,
+            "name": true,
+            "description": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

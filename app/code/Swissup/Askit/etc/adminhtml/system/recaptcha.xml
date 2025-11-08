@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <section id="recaptcha_frontend">
+        <group id="type_for">
+            <field id="swissup_askit_new_question_form" translate="label" type="select" sortOrder="710" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                <label>Enable for Swissup Askit New Question form</label>
+                <source_model>Magento\ReCaptchaAdminUi\Model\OptionSource\Type</source_model>
+            </field>
+            <field id="swissup_askit_new_answer_form" translate="label" type="select" sortOrder="720" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                <label>Enable for Swissup Askit New Answer form</label>
+                <source_model>Magento\ReCaptchaAdminUi\Model\OptionSource\Type</source_model>
+            </field>
+        </group>
+    </section>
+</include>

@@ -1,0 +1,39 @@
+Popularity,Popularitet
+"1 Month","1 månad"
+"1 Year","1 år"
+"6 Months","6 månader"
+"1 Week","1 vecka"
+"1 Day","1 dag"
+"1 Hour","1 timme"
+"Product ID",Serienummer
+Random,Slumpmässig
+"Add to Wish List","Lägg till i önskelista"
+"Highlight Pages","Markera sidor"
+"Featured Products","Utvalda produkter"
+"On Sale Products","Till salu produkter"
+"Popular Products","Populära produkter"
+"Calculation Period",Beräkningsperiod
+"Minimum Popularity","Minsta popularitet"
+"Highlight: All Products","Markera: Alla produkter"
+"Sort Direction","Sortera riktning"
+"Grid Template",Rastermall
+"List Template",Listmall
+"Sidebar: Images and Names Template","Sidofält: mallar för bilder och namn"
+"Sidebar: Names Only Template","Sidofält: Endast namnmall"
+"Sidebar: Images Only Template","Sidofält: endast mallmall"
+"Custom Template","Anpassad mall"
+"Used, when template value is set to 'Custom'","Används när mallvärdet är inställt på ""Anpassad"""
+"Highlight: Attribute Yes/No","Markera: Attribut Ja / Nej"
+"Highlight: Attribute Date","Markera: Attributdatum"
+"Highlight: Featured Products","Markera: utvalda produkter"
+"Show link to Highlight Page","Visa länk till Highlight Page"
+"Link Title",Länktitel
+"Highlight: New Products","Markera: Nya produkter"
+"Highlight: Onsale Products (Special Price)","Markera: Onsale-produkter (specialpris)"
+"Highlight: Popular Products","Markera: Populära produkter"
+"Minimum views count to show products","Minsta visningar räknas för att visa produkter"
+"Highlight: Bestsellers","Highlight: Bästsäljare"
+"Minimum purchase count to show products","Minsta köpantal för att visa produkter"
+"Hidden, when filter or pagination is used","Dold när filter eller paginering används"
+"CSS Class",CSS-klass
+"Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/","Klassnamn för anpassningsändamål. Du kan se redo att använda css-klassens hjälpare på http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/"

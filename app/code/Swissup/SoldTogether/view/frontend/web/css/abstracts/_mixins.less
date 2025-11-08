@@ -1,0 +1,63 @@
+.lib-css(
+    @_property,
+    @_value
+) when not (@_value = '')
+  and not (@_value = false)
+  and not (extract(@_value, 1) = false)
+  and not (extract(@_value, 2) = false)
+  and not (extract(@_value, 3) = false)
+  and not (extract(@_value, 4) = false)
+  and not (extract(@_value, 5) = false) {
+    @{_property}: @_value;
+}
+
+// mixin for plus sign
+// -----------------------------------
+.soldtogether-plus () {
+    position: relative;
+    .padding-left(@amazon-images-plus__width);
+
+    &::before {
+        position: absolute;
+        content: '';
+        .lib-css(background-color, @amazon-images-plus__background-color);
+        .lib-css(border-radius, @amazon-images-plus__border-radius);
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" /></svg>');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        display: block;
+        .lib-css(height, @amazon-images-plus__height);
+        .lib-css(width, @amazon-images-plus__width);
+        .left(0);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.scrollbar(
+    @_color
+) when not (@_color = '')
+  and not (@_color = false) {
+    scrollbar-color: fade(@_color, 20%) fade(@_color, 4%);
+    scrollbar-color: unset;
+    -ms-overflow-style: none;
+    //  Don't hide scrollbar on Firefox and Safari.
+    //  scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: block;
+        height: 4px;
+        width: 4px;
+        padding: 0 ~"calc(4px / 2)";
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: fade(@_color, 20%);
+        border-width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: fade(@_color, 4%);
+    }
+}

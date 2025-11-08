@@ -1,0 +1,100 @@
+"Edit '%1'","تحرير '%1'"
+"Answer Information","معلومات الإجابة"
+Hint,ملحوظة
+Questions,الأسئلة
+"Edit Question '%1'","تحرير السؤال '%1'"
+"No Found","لم يوجد"
+"Created date","تاريخ الإنشاء"
+"Update date","تاريخ التحديث"
+"Are you sure?","هل أنت واثق؟"
+Unknown,"غير معروف"
+Private,نشر
+"Add New Answer","أضف إجابة جديدة"
+"Questions %1","الأسئلة %1"
+"Please select item(s).","يرجى تحديد العنصر (العناصر)."
+"The answer has been deleted.","تم حذف الإجابة."
+"We can't find a answer to delete.","لا يمكننا العثور على إجابة لحذفها."
+Askit,"أسأل أو إسأله"
+Answers,الإجابات
+"This item no longer exists.","هذا العنصر لم يعد موجودا."
+"Askit Items","Askit البنود"
+"Askit Recent Answers","Askit الإجابات الأخيرة"
+"Manage Recent Askit Answers","إدارة إجابات Askit الأخيرة"
+"You saved.","قمت بحفظه."
+"Something went wrong while saving the question.","حدث خطأ أثناء حفظ السؤال."
+"A total of %1 record(s) have been deleted.","تم حذف إجمالي %1 سجل (سجلات)."
+"A total of %1 record(s) have been changed.","تم تغيير إجمالي %1 سجل (سجلات)."
+"The question has been deleted.","تم حذف السؤال."
+"We can't find a question to delete.","لا يمكننا العثور على سؤال لحذفه."
+"New Askit Question","سؤال Askit الجديد"
+"Askit Questions","أسأل الأسئلة"
+"Manage Askit Questions","إدارة أسئلة Askit"
+"You question saved.","تم حفظ سؤالك."
+"You answer was added.","تمت إضافة إجابتك."
+"We can't process your request right now. Sorry, that's all we know.","لا يمكننا معالجة طلبك الآن. آسف ، هذا كل ما نعرفه."
+"My Questions",أسئلتي
+"Your must login","يجب تسجيل الدخول الخاص بك"
+"Sorry, only logged in customer can hint.","عذرا ، فقط العملاء المسجلين يمكنهم التلميح."
+"Sorry, already voted","آسف ، صوت بالفعل"
+Pending,"قيد الانتظار"
+Approved,وافق
+Disapproved,مرفوض
+"Askit Question","السؤال Askit"
+"Askit Answer","إجابة Askit"
+"Edit Question","تحرير السؤال"
+"New Answer","إجابة جديدة"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","يمكن للمستخدمين المسجلين فقط إرسال تعليقات. يرجى <a href=""%1""> تسجيل الدخول </a> أو <a href=""%2""> إنشاء حساب </a>"
+"Your Answer",اجابتك
+"Leave a Reply","اترك رد"
+"%1 people found this answer helpful.","وجد%1 شخص أن هذه الإجابة مفيدة."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","يمكن للمستخدمين المسجلين فقط كتابة الأسئلة. يرجى <a href=""%1""> تسجيل الدخول </a> أو <a href=""%2""> إنشاء حساب </a>"
+"Ask Your Question","اسأل سؤالك"
+"Jot us a note and we’ll get back to you as quickly as possible.","يرجى تدوين ملاحظة وسنرد عليك في أسرع وقت ممكن."
+Question,سؤال
+"Post a private question","انشر سؤالًا خاصًا"
+Submit,إرسال
+"You have submitted no questions.","لم ترسل أي أسئلة."
+"answer' 'answers","أجب عن إجابات"
+"%1 people already voted for this question.","صوت%1  شخص بالفعل لصالح هذا السؤال."
+"Vote for It","التصويت له"
+"New products question was just posted or updated. Please see details below","تم نشر أو تحديث سؤال المنتجات الجديدة. يرجى الاطلاع على التفاصيل أدناه"
+E-mail,"البريد الإلكتروني"
+"You can follow the question at Swissup -> Askit Questions","يمكنك متابعة السؤال في Swissup -> Askit Questions"
+Dear,العزيز
+"New answer was just posted to your question regarding","تم نشر إجابة جديدة للتو على سؤالك بشأن"
+"Your question:",سؤالك:
+Answer:,إجابة:
+"Thank you again","شكرا مرة اخرى"
+"Default question status","حالة السؤال الافتراضية"
+"Default answer status","حالة الإجابة الافتراضية"
+"Allow guest to ask questions","السماح للضيف بطرح الأسئلة"
+"Allow customers comment","السماح للعملاء بالتعليق"
+"Allow guest comment","السماح بتعليق الضيف"
+"Allow customer vote","السماح بتصويت العملاء"
+"Show customer name on frontend","إظهار اسم العميل في الواجهة الأمامية"
+"Show link to related item (Product, Category or Page)","إظهار ارتباط إلى العنصر ذي الصلة (المنتج أو الفئة أو الصفحة)"
+"Enable Gravatar integration","تمكين تكامل Gravatar"
+"Add questions block to all category pages","أضف كتلة أسئلة لجميع صفحات الفئات"
+"Add questions block to all CMS pages","أضف كتلة الأسئلة إلى جميع صفحات نظام إدارة المحتوى"
+"Enable 'no questions' message","تمكين رسالة ""لا أسئلة"""
+Sender,مرسل
+"Customer Notification Template","نموذج إخطار العملاء"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","تم اختيار قالب البريد الإلكتروني بناءً على سمة الرجوع للخلف عند تحديد الخيار ""افتراضي""."
+"Send admin notification to","إرسال إشعار المسؤول إلى"
+"Admin Notification Template","قالب إعلام المسؤول"
+"Askit: Questions + New Question Form","Askit: أسئلة + نموذج سؤال جديد"
+"Hide listing block","إخفاء كتلة القائمة"
+"Hide form block","إخفاء كتلة النموذج"
+"Assigned Products","المنتجات المخصصة"
+"Assigned Pages","الصفحات المخصصة"
+"Assigned Categories","الفئات المعينة"
+"Delete items","حذف العناصر"
+"Answer,إجابة
+"Entity Type","نوع الكيان"
+Entity,شخصية
+Votes,الأصوات
+"Your question was answered on","تم الرد على سؤالك في"
+"It is helpful","هذا يساعدنا"
+"Not much help","ليس الكثير من المساعدة"
+asks,يسأل
+about,حول

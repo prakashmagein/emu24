@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="easybanner_condense_banner_offset" instance="Swissup\Easybanner\Cron\CondenseBannerOffset" method="execute">
+            <!-- schedule task at 10:00 every day -->
+            <schedule>0 10 * * *</schedule>
+        </job>
+        <job name="easybanner_condense_banner_statistic" instance="Swissup\Easybanner\Cron\CondenseBannerStatistic" method="execute">
+            <!-- schedule task at 10:00 every day -->
+            <schedule>0 10 * * *</schedule>
+        </job>
+        <job name="easybanner_statistics_cleanup" instance="Swissup\Easybanner\Cron\CleanupStatistics" method="execute">
+            <!-- Every tuesday at 02:15 -->
+            <schedule>15 2 * * 2</schedule>
+        </job>
+    </group>
+</config>

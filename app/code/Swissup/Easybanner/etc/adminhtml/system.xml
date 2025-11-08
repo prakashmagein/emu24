@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="easybanner" type="text" sortOrder="518" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Easybanner</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Easybanner::config_easybanner</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="cookie" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Name</label>
+                    <validate>required-entry validate-alphanum validate-not-number-first</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">navigationpro_menu_new.navigationpro_menu_new_data_source</item>
+            <item name="deps" xsi:type="string">navigationpro_menu_new.navigationpro_menu_new_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">navigationpro_menu_new</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Menu\Edit\Button\Back</item>
+            <item name="save" xsi:type="string">Swissup\Navigationpro\Block\Adminhtml\Menu\Edit\Button\Save</item>
+        </item>
+    </argument>
+    <dataSource name="navigationpro_menu_new_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\Navigationpro\Ui\DataProvider\Form\CreateMenuDataProvider</argument>
+            <argument name="name" xsi:type="string">navigationpro_menu_new_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">menu_id</argument>
+            <argument name="requestFieldName" xsi:type="string">menu_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="navigationpro/menu/create"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+            </item>
+        </argument>
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-xml-identifier" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="type">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Config\Source\BuilderType</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Type</item>
+                    <item name="notice" xsi:type="string">Learn more about menu types at https://docs.swissuplabs.com/m2/extensions/navigationpro/menu-types/</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="root_category_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Config\Source\RootCategoryId</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Import Categories From</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/select</item>
+                    <item name="valuesForOptions" xsi:type="array">
+                        <item name="empty" xsi:type="string">empty</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="toggleVisibility" xsi:type="string">${$.parentName}.type:value</item>
+                    </item>
+                    <item name="inverseVisibility" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="config_scopes">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Navigationpro\Model\Menu\Source\StoresTree</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Replace Top Menu at</item>
+                    <item name="notice" xsi:type="string" translate="true">Leave empty if you don't want to replace Top Menu</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Swissup_Navigationpro/js/components/ui-select-unselectable</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">3</item>
+                    <item name="rules" xsi:type="array">
+                        <item name="unselectable" xsi:type="array">
+                            <item name="store_group" xsi:type="array">
+                                <!-- Magento config limitation -->
+                                <item name="property" xsi:type="string">value</item>
+                                <item name="comparator" xsi:type="string">indexOf</item>
+                                <item name="value" xsi:type="string">store_group_</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <fieldset name="widget">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">This type of menu requires widget. Please fill the values below and we will create it for you.</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/fieldset</item>
+                    <item name="valuesForOptions" xsi:type="array">
+                        <item name="amazon_sidebar" xsi:type="string">amazon_sidebar</item>
+                        <item name="sidebar" xsi:type="string">sidebar</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="toggleVisibility" xsi:type="string">navigationpro_menu_new.navigationpro_menu_new.general.type:value</item>
+                    </item>
+                </item>
+            </argument>
+            <field name="theme_id">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Magento\Framework\View\Design\Theme\Label</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string">Design Theme</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                    </item>
+                </argument>
+            </field>
+            <field name="store_ids">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</item>
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string">Assign to Store Views</item>
+                        <item name="formElement" xsi:type="string">multiselect</item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </fieldset>
+</form>

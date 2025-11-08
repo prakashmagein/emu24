@@ -1,0 +1,86 @@
+<?php
+    $items = $block->getItems();
+    if (empty($items)) {
+        return;
+    }
+
+    $htmlBlockId = $block->getNameInLayout();
+    $hideCheckboxes = $block->getHideCheckboxes()
+        || ($block->getRequest()->getFullActionName() !== 'catalog_product_view');
+    $allowedTypes = ['simple', 'configurable'];
+    $tocartCheckboxRendered = false;
+    if (!$block->hasData('image_id')) {
+        $block->setData('image_id', 'category_page_grid');
+    }
+
+    $imageId = $block->getData('image_id');
+?>
+
+<div class="block soldtogether-swiper block-carousel block-products-list" id="<?= $htmlBlockId ?>">
+    <div class="block-title title">
+        <strong id="block-soldtogether-heading" role="heading" aria-level="2"><?= __($block->hasData('title') ? $block->getData('title') : 'Customers Who Bought This Item Also Bought') ?></strong>
+    </div>
+    <div class="block-content">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            <?php foreach ($items as $_item) : ?>
+                <?php $_product = $_item['model'] ?>
+                <?php $_id = (int)$_product->getId() ?>
+                <?php $_name = $block->escapeHtml($_product->getName()) ?>
+                <?php $_url = $block->escapeUrl($block->getProductUrl($_product)) ?>
+                <div class="item product-item swiper-slide">
+                    <div class="product-item-info ">
+                        <a href="<?= $_url ?>" class="product photo product-item-photo">
+                            <?= $block->getImage($_product, $imageId)->toHtml(); ?>
+                        </a>
+                        <div class="product details product-item-details">
+                            <strong class="product name product-item-name" style="text-align: center;">
+                                <a class="product-item-link" title="<?= $_name ?>" href="<?= $_url ?>"><?= $_name ?></a>
+                            </strong>
+                            <?= /* @noEscape */ $block->getProductPrice($_product); ?>
+                            <?php if (!$hideCheckboxes && in_array($_product->getTypeId(), $allowedTypes)): ?>
+                                <?php $tocartCheckboxRendered = true; ?>
+                                <div class="field choice">
+                                    <input type="checkbox" class="checkbox soldtogether-tocart" id="soldtogether-tocart-checkbox<?= $_id ?>" name="soldtogether_tocart[]" value="<?= $_id ?>" />
+                                    <label class="label" for="soldtogether-tocart-checkbox<?= $_id ?>"><span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span></label>
+                                    <div class="details-wrapper" hidden><?= $block->renderDetailsHtml($_product) ?></div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            </div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+            <div class="swiper-button-next swiper-button-black"></div>
+        </div>
+    </div>
+</div>
+
+<?php $jsLayout = $block->getJsLayout(); ?>
+<?php if ($jsLayout !== '[]'): ?>
+<script type="text/x-magento-init">
+{
+    "#<?= str_replace('.', '\\\\.', $htmlBlockId) ?> .swiper-container": <?= /* @noEscape */ $block->getJsLayout() ?>
+}
+</script>
+<?php endif; ?>
+
+<?php if ($tocartCheckboxRendered) : ?>
+<?php
+    /**
+     * Don't move js widgets initialization before template rendering.
+     * Because there are validations that rely on data set during render.
+     */
+?>
+<script type="text/x-magento-init">
+{
+    "#<?= str_replace('.', '\\\\.', $htmlBlockId) ?>": <?= json_encode(
+        \Magento\Framework\App\ObjectManager::getInstance()
+            ->get(\Swissup\SoldTogether\Model\CompositeJsConfigProvider::class)
+            ->getConfig($block)
+    )?>
+
+}
+</script>
+<?php endif; ?>

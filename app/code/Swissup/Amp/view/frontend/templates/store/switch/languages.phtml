@@ -1,0 +1,30 @@
+<?php
+/** @var \Magento\Store\Block\Switcher $block */
+?>
+<?php if (count($block->getStores())>1): ?>
+<div class="switcher language switcher-language">
+    <amp-accordion disable-session-states>
+        <section>
+            <header class="current"><?= $block->escapeHtml($block->getStoreName()) ?></header>
+            <div class="others">
+                <?php foreach ($block->getStores() as $_lang): ?>
+                    <?php
+                        $postData = $block->getTargetStorePostData($_lang);
+                        $postArr = json_decode($postData, true);
+                        if (strpos($postArr['action'], 'stores/store/redirect') !== false) {
+                            $url = $block->getUrl('stores/store/redirect', ['_query' => $postArr['data']]);
+                        } else {
+                            $url = $block->escapeUrl($_lang->getCurrentUrl());
+                        }
+                    ?>
+                    <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                        <div>
+                            <a href="<?= $url ?>"><?= $block->escapeHtml($_lang->getName()) ?></a>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </amp-accordion>
+</div>
+<?php endif; ?>

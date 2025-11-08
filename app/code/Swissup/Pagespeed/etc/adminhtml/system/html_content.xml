@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="content" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Minify HTML Content</label>
+        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[<p class="message note"><span>Warning! Please notice that HTML minification of content could cause some increase in CPU and memory resource usage and slightly affect your store response rate on slow servers. We recommend using this option together with Full Page Cache enabled.</span></p>]]></comment>
+        </field>
+        <!-- <field id="type" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Compressing Type</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field> -->
+        <field id="js" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Js Content Minification Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+        <field id="css" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>CSS Content Minification Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+
+        <field id="template" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Minify Templates</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[<p class="note"><span>This option reflects the system setting found under Advanced -> Developer -> Template Settings -> Minify HTML (dev/template/minify_html).</span></p>]]></comment>
+            <config_path>dev/template/minify_html</config_path>
+        </field>
+    </group>
+</include>

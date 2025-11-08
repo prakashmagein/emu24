@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="highlight_product_all" class="Swissup\Highlight\Block\ProductList\All" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: All Products</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>All Products</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc" selected="true">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="true" visible="true">
+                <label translate="true">URL</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Featured Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_yesno" class="Swissup\Highlight\Block\ProductList\Attribute\Yesno" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Attribute Yes/No</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Featured Products</value>
+            </parameter>
+            <parameter name="attribute_code" xsi:type="text" required="true" visible="true">
+                <label translate="true">Attribute Code</label>
+                <value>featured</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc" selected="true">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="true" visible="true">
+                <label translate="true">URL</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Featured Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_date" class="Swissup\Highlight\Block\ProductList\Attribute\Date" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Attribute Date</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>New Products</value>
+            </parameter>
+            <parameter name="attribute_code" xsi:type="text" required="true" visible="true">
+                <label translate="true">Attribute Code</label>
+                <value>news_from_date,news_to_date</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc" selected="true">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="true" visible="true">
+                <label translate="true">URL</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Featured Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_featured" class="Swissup\Highlight\Block\ProductList\Featured" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Featured Products</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Featured Products</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc" selected="true">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Featured Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_new" class="Swissup\Highlight\Block\ProductList\NewList" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: New Products</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>New Products</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc" selected="true">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All New Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_onsale" class="Swissup\Highlight\Block\ProductList\Onsale" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Onsale Products (Special Price)</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Special Offers</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="order" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Sortorder">
+                <label translate="true">Sort Order</label>
+            </parameter>
+            <parameter name="dir" xsi:type="select" required="true" visible="true">
+                <label translate="true">Sort Direction</label>
+                <options>
+                    <option name="asc" value="asc">
+                        <label translate="true">Set Ascending Direction</label>
+                    </option>
+                    <option name="desc" value="desc" selected="true">
+                        <label translate="true">Set Descending Direction</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All On Sale Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_popular" class="Swissup\Highlight\Block\ProductList\Popular" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Popular Products</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Popular Products</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="period" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Period">
+                <label translate="true">Calculation Period</label>
+            </parameter>
+            <parameter name="min_popularity" xsi:type="text" required="false" visible="true">
+                <label translate="true">Minimum Popularity</label>
+                <description translate="true">Minimum views count to show products</description>
+                <value>1</value>
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Popular Products</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_bestsellers" class="Swissup\Highlight\Block\ProductList\Bestsellers" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Bestsellers (By orders count)</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Bestsellers</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="period" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Period">
+                <label translate="true">Calculation Period</label>
+            </parameter>
+            <parameter name="min_popularity" xsi:type="text" required="false" visible="true">
+                <label translate="true">Minimum Popularity</label>
+                <description translate="true">Minimum purchase count to show products</description>
+                <value>1</value>
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Bestsellers</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="highlight_product_bulksellers" class="Swissup\Highlight\Block\ProductList\Bulksellers" is_email_compatible="true"
+            placeholder_image="Swissup_Highlight::images/grid.png" ttl="86400">
+        <label translate="true">Highlight: Bulk Bestsellers (By quantity sold)</label>
+        <description></description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+                <value>Bulk Bestsellers</value>
+            </parameter>
+            <parameter name="carousel" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use Ajax Carousel</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="column_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Columns to Display</label>
+                <description translate="true">Used, when template value is set to 'Grid'</description>
+                <value>4</value>
+            </parameter>
+            <parameter name="page_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Pages to Display</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="catalog_list" value="Magento_Catalog::product/list.phtml" selected="true">
+                        <label translate="true">Full featured grid/list template (With theme modifications)</label>
+                    </option>
+                    <option name="highlight_list" value="Swissup_Highlight::product/list.phtml">
+                        <label translate="true">Clean grid/list template</label>
+                    </option>
+                    <option name="column_default"
+                            value="product/widget/column/list.phtml">
+                        <label translate="true">Sidebar: Images and Names Template</label>
+                    </option>
+                    <option name="column_names"
+                            value="product/widget/column/list_names.phtml">
+                        <label translate="true">Sidebar: Names Only Template</label>
+                    </option>
+                    <option name="column_images"
+                            value="product/widget/column/list_images.phtml">
+                        <label translate="true">Sidebar: Images Only Template</label>
+                    </option>
+                    <option name="custom" value="0">
+                        <label translate="true">Custom Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="mode" xsi:type="select" visible="true">
+                <label translate="true">Listing Mode</label>
+                <description translate="true">Sidebar templates does not support this option</description>
+                <options>
+                    <option name="grid" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Template</label>
+                <description translate="true">Used, when template value is set to 'Custom'</description>
+                <!-- <depends> Commented because it break depends rules at the widget_instance page
+                    <parameter name="template" value="0"/>
+                </depends> -->
+            </parameter>
+            <parameter name="period" xsi:type="select" visible="true"
+                    source_model="Swissup\Highlight\Model\Config\Source\Period">
+                <label translate="true">Calculation Period</label>
+            </parameter>
+            <parameter name="min_popularity" xsi:type="text" required="false" visible="true">
+                <label translate="true">Minimum Popularity</label>
+                <description translate="true">Minimum purchase count to show products</description>
+                <value>1</value>
+            </parameter>
+            <parameter name="show_page_link" xsi:type="select" visible="true">
+                <label translate="true">Show link to Highlight Page</label>
+                <options>
+                    <option name="no" value="0" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_link_position" xsi:type="select" visible="true">
+                <label translate="true">Link Position</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <options>
+                    <option name="bottom" value="bottom" selected="true">
+                        <label translate="true">Bottom</label>
+                    </option>
+                    <option name="top" value="top">
+                        <label translate="true">Top</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="page_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">URL</label>
+                <description translate="true">Leave empty to use default page url</description>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="page_link_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Link Title</label>
+                <depends>
+                    <parameter name="show_page_link" value="1"/>
+                </depends>
+                <value>View All Bulk Bestsellers</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="hide_when_filter_is_used" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Hidden, when filter or pagination is used</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" visible="true">
+                <label translate="true">CSS Class</label>
+                <description translate="true">Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

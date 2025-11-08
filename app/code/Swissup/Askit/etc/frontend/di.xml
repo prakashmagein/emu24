@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="swissupaskitrouter" xsi:type="array">
+                    <item name="class" xsi:type="string">Swissup\Askit\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">76</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Swissup\Askit\Observer\Captcha\NewQuestionFormObserver" type="Swissup\Askit\Observer\Captcha">
+        <arguments>
+            <argument name="formId" xsi:type="string">swissup_askit_new_question_form</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Swissup\Askit\Observer\Captcha\NewAnswerFormObserver" type="Swissup\Askit\Observer\Captcha">
+        <arguments>
+            <argument name="formId" xsi:type="string">swissup_askit_new_answer_form</argument>
+        </arguments>
+    </virtualType>
+</config>

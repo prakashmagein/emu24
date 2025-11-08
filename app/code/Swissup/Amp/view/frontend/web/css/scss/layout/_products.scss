@@ -1,0 +1,180 @@
+$product-listing-name-color: null !default;
+$product-listing-price-color: $dark-grey !default;
+
+.page-products {
+    .toolbar-products {
+        > div {
+            margin: 0 0 1em 0;
+        }
+
+        .shop-by,
+        .limiter,
+        .toolbar-amount {
+            display: none;
+        }
+
+        .sorter {
+            display: flex;
+
+            > div {
+                align-self: center;
+                box-sizing: border-box;
+                width: 49%;
+                max-width: 210px;
+            }
+
+            .switcher,
+            amp-accordion {
+                height: 40px;
+            }
+            .switcher {
+                @include margin-left(auto);
+                .current {
+                    text-align: center;
+                    height: 40px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                }
+            }
+        }
+
+        .pages {
+            display: none;
+        }
+    }
+
+    .products.wrapper ~ .toolbar-products {
+        > div {
+            margin: 1em 0 1em 0;
+        }
+        .sorter {
+            display: none;
+        }
+        .pages {
+            display: block;
+        }
+    }
+}
+
+.product-items {
+    @extend %listing;
+
+    > .item {
+        @extend %listing-item;
+
+        position: relative;
+        padding-bottom: 45px;
+
+        .product-item-photo {
+            @extend %listing-item-primary;
+            .product-image-container,
+            .product-image-wrapper {
+                display: block;
+            }
+        }
+        .product-item-details {
+            @extend %listing-item-secondary;
+        }
+    }
+
+    .product-item-name {
+        @extend %listing-item-title;
+        a {
+            color: $product-listing-name-color;
+        }
+    }
+
+    .price-box {
+        .price-label {
+            display: inline-block;
+            font-size: 0.6em;
+            @include margin-right(5px);
+        }
+
+        > p.price-from,
+        > p.price-to {
+            .price-label {
+                width: 45px;
+            }
+        }
+    }
+
+    .product-reviews-summary {
+        .reviews-actions,
+        .rating-summary .label {
+            white-space: nowrap;
+            display: none;
+        }
+    }
+
+    .actions {
+        position: absolute;
+        bottom: 10px;
+        @include left(10px);
+        @include right(10px);
+
+        display: flex;
+        align-self: center;
+
+        .action.tocart {
+            @extend .button;
+        }
+
+        // Don't shrink the button!
+        > :first-child {
+            flex-shrink: 0;
+            margin: 0;
+        }
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+    }
+
+    [data-role="add-to-links"] {
+        display: flex;
+        @include margin-left(auto);
+        align-self: inherit;
+
+        .action.tocompare {
+            @include media("<=small") {
+                display: none;
+            }
+        }
+
+        .separator {
+            display: none;
+        }
+    }
+}
+
+.products-list {
+    li.item {
+        margin: -1px 0 0 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-width: 1px 0;
+        padding-bottom: 10px;
+        display: flex;
+        align-self: center;
+
+        .product-item-photo {
+            flex: 0 0 100px;
+        }
+        .product-item-details {
+            @include margin-left(10px);
+        }
+    }
+    .product-name {
+        a {
+            white-space: normal;
+        }
+    }
+    .actions {
+        position: static;
+        margin: .5em 0;
+    }
+    [data-role="add-to-links"] {
+        @include margin-left(1em);
+    }
+}

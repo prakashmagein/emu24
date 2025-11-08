@@ -1,0 +1,215 @@
+.image.item .item-active {
+    color: #666;
+    font-size: 1.2rem;
+    padding: 1rem 0 0 1.5rem;
+}
+
+.image.item .item-active::before {
+    content: '\e62e ';
+    display: inline-block;
+    font-family: 'Admin Icons';
+    margin-left: -1.5rem;
+    width: 1.5rem;
+}
+
+.image.item .item-active:empty {
+    display: none;
+}
+
+[data-index="parameters"] > .fieldset-wrapper-title { display: none; }
+[data-index="parameters"] > .admin__fieldset-wrapper-content > .admin__fieldset { padding-top: 0; }
+.admin__scope-old .image.active { box-shadow: none; }
+.gallery { background: none; overflow: clip; }
+.image-panel-controls, .image-panel-preview {
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+    width: auto !important;
+}
+.action-make-base { display: none; }
+
+.image-panel-preview [data-role] span {
+    display: inline-block;
+    min-width: 16rem;
+}
+
+.image-panel-preview .image-wrapper {
+    margin: 2rem 0;
+}
+
+.image-panel-preview .actions {
+    margin-top: 2rem;
+}
+
+.visibility-toggler--wrapper {
+    margin: 1rem 0 3rem;
+}
+
+.image-panel .admin__control-select,
+.image-panel ._has-datepicker.admin__control-text {
+    max-width: 100%;
+    width: 20rem;
+}
+
+.thumbs-position {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+[name="slider_config\[thumbs_position\]"] {
+    display: none;
+}
+
+.thumbs-position .preview {
+    display: block;
+    height: 80px;
+    width: 120px;
+    background-size: 100%;
+}
+
+.thumbs-position[data-position="under"] .preview,
+.thumbs-position[data-position="above"] .preview {
+    background: url('../images/thumbs/under.png');
+}
+
+.thumbs-position[data-position="right"] .preview,
+.thumbs-position[data-position="left"] .preview {
+    background: url('../images/thumbs/right.png');
+}
+
+.thumbs-position[data-position="above"] .preview,
+.thumbs-position[data-position="left"] .preview {
+    transform: scale(-1);
+}
+
+.thumbs-position.selected {
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px #007bdb;
+    position: relative;
+}
+
+.thumbs-position.selected::after {
+    content: '\e62d';
+    color: #fff;
+    font-family: 'Admin Icons';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    background: #007bdb;
+}
+
+/**
+ * METRIC FIELD STYLES
+ */
+.admin__field-metric .admin__control-addon [class*='admin__control-'][class] {
+    background-color: #fff;
+    background-image: linear-gradient(#adadad, #adadad);
+    background-repeat: no-repeat;
+    background-size: 1px 100%;
+    border: 0;
+    background-position: 100%;
+    transition: background .1s linear;
+}
+.admin__field-metric .admin__control-addon [class*='admin__control-'][class]:focus {
+    background-image: linear-gradient(#007bdb, #007bdb);
+}
+
+.admin__field-metric .admin__control-addon [class*='admin__control-'][class]~[class*='admin__addon-']:last-child::before {
+    background-color: #e3e3e3;
+}
+
+.admin__field-metric .admin__control-addon [class*='admin__control-'][class]:focus~[class*='admin__addon-']:last-child::before {
+    background-color: #007bdb;
+}
+
+.admin__field-metric .admin__addon-suffix {
+    font-weight: 600;
+    transition: color .1s linear;
+}
+
+.admin__field-metric [class*='admin__control-']:focus ~ .admin__addon-suffix {
+    color: #fff;
+}
+
+.admin__field-metric._error .admin__control-addon [class*='admin__control-'][class] {
+    background-image: linear-gradient(#ee7d7d, #ee7d7d);
+}
+.admin__field-metric._error .admin__control-addon [class*='admin__control-'][class]:focus {
+    background-image: linear-gradient(#ee7d7d, #ee7d7d);
+}
+
+.admin__field-metric._error .admin__addon-suffix,
+.admin__field-metric._error [class*='admin__control-']:focus ~ .admin__addon-suffix {
+    color:  #fff;
+}
+
+.admin__field-metric._error .admin__control-addon [class*='admin__control-'][class]~[class*='admin__addon-']:last-child::before {
+    border-color: #ee7d7d;
+    background-color: #ee7d7d;
+}
+
+/**
+ * SLIDE GALLERY
+ */
+.slide-gallery--other-types {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+.slide-gallery--other-types:hover {
+    box-shadow: none;
+}
+
+.slide-gallery--other-types summary {
+    display: block;
+    padding: 2px 4px;
+    text-align: right;
+}
+
+.slide-gallery--other-types summary::before {
+    border-color: currentColor transparent transparent transparent;
+    border-style: solid;
+    border-width: 0.6rem 0.4rem 0 0.4rem;
+    content: '';
+    display: inline-block;
+    margin: 2px;
+    transition: transform .2s linear;
+}
+
+.slide-gallery--other-types[open] summary::before {
+    transform: rotate(180deg);
+}
+
+.slide-gallery--other-types[open] summary::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.slide-gallery--other-types .dropdown-menu {
+    left: auto;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    margin: 0;
+}
+
+.slide-gallery--other-types[open] .dropdown-menu {
+    display: block;
+}
+
+.image-panel .fieldset-html-panel {
+    width: 100%;
+}

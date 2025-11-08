@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="expire" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Expire Header</label>
+        <field id="enable" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Add Expire Header Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[<p class="note"><span>If the Cache Application is set to Varnish, this option will be ignored.
+<br /> This option depends the system setting found under: Advanced -> System -> Full Page Cache -> Caching Application
+<br /> Path: bin/magento config:show system/full_page_cache/caching_application</span></p>]]></comment>
+        </field>
+        <field id="ttl" type="text" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>TTL for public content</label>
+            <comment><![CDATA[<p class="note"><span>Public content cache lifetime in seconds. If field is empty default value 31536000 will be saved (+1 year).</span></p>]]></comment>
+            <backend_model>Magento\PageCache\Model\System\Config\Backend\Ttl</backend_model>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+    </group>
+</include>

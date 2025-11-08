@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Search\Model\Autocomplete">
+        <arguments>
+            <argument name="dataProviders" xsi:type="array">
+                <item name="10" xsi:type="object">Swissup\Ajaxsearch\Model\Catalog\Product\DataProvider</item>
+                <item name="20" xsi:type="object">Swissup\Ajaxsearch\Model\Catalog\Category\DataProvider</item>
+                <item name="30" xsi:type="object">Swissup\Ajaxsearch\Model\Cms\Page\DataProvider</item>
+                <item name="40" xsi:type="object">Swissup\Ajaxsearch\Model\Autocomplete\DataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollection" type="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection">
+        <arguments>
+            <argument name="searchRequestName" xsi:type="string">swissup_quick_search_container</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollection</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- for magento 2.3.1 and less  -->
+    <!-- <virtualType name="Swissup\Ajaxsearch\Model\Layer\Search\ItemCollectionProvider" type="Magento\Catalog\Model\Layer\Search\ItemCollectionProvider">
+        <arguments>
+            <argument name="collectionFactory" xsi:type="object">Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollectionFactory</argument>
+        </arguments>
+    </virtualType> -->
+
+    <!-- for magento 2.3.2 and greater -->
+    <!-- @todo replace Swissup\Ajaxsearch\Model\Layer\Search\ItemCollectionProvider to
+        Magento\Elasticsearch\Model\Layer\Search\ItemCollectionProvider
+    -->
+    <virtualType name="ajaxsearchElasticsearchFulltextSearchCollectionFactory" type="Magento\CatalogSearch\Model\ResourceModel\Fulltext\SearchCollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">elasticsearchFulltextSearchCollection</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="SwissupAjaxsearchModelLayerSearchItemCollectionProvider" type="Swissup\Ajaxsearch\Model\Layer\Search\ItemCollectionProvider">
+        <arguments>
+            <argument name="factories" xsi:type="array">
+                <item name="mysql" xsi:type="object">Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollectionFactory</item>
+                <item name="lmysql" xsi:type="object">Swissup\Ajaxsearch\Model\ResourceModel\Fulltext\SearchCollectionFactory</item>
+                <item name="elasticsearch" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="elasticsearch5" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="elasticsearch6" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="elasticsearch7" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="elasticsearch8" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="opensearch" xsi:type="object">ajaxsearchElasticsearchFulltextSearchCollectionFactory</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Ajaxsearch\Model\Layer\Search\Context" type="Magento\Catalog\Model\Layer\Search\Context">
+        <arguments>
+            <argument name="collectionProvider" xsi:type="object">SwissupAjaxsearchModelLayerSearchItemCollectionProvider</argument>
+            <argument name="stateKey" xsi:type="object">Magento\CatalogSearch\Model\Layer\Search\StateKey</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\Ajaxsearch\Model\Layer\Search">
+        <arguments>
+            <argument name="context" xsi:type="object">Swissup\Ajaxsearch\Model\Layer\Search\Context</argument>
+        </arguments>
+    </type>
+
+    <preference type="Swissup\Ajaxsearch\Model\Resolver\Items\Query\Search" for="Swissup\Ajaxsearch\Model\Resolver\Items\Query\ItemQueryInterface"/>
+
+</config>

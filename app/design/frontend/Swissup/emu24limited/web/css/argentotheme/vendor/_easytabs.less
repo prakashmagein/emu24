@@ -1,0 +1,105 @@
+& when (@critical) {
+    #product\.info\.description {
+        @media @media-lg-down {
+            &,
+            &[aria-hidden="false"] {
+                display: flex;
+            }
+            flex-direction: column;
+            gap: @2;
+            .additional-attributes-wrapper {
+                order: 10;
+            }
+        }
+        .additional-attributes-wrapper {
+            background: @base__background;
+            border-radius: @4;
+            padding: @4;
+
+            @media @media-lg {
+                float: right;
+                width: 45%;
+                .margin-left(@8);
+                padding: @6;
+            }
+
+            .table-caption {
+                &:extend(.breeze-sr-only-reset);
+                font-weight: 600;
+                font-size: @font-size__lg;
+                margin-bottom: @5;
+                .text-align(left);
+                @media @media-lg {
+                    .text-align(right);
+                }
+            }
+
+            .col.data {
+                .text-align(right);
+            }
+        }
+    }
+
+    .collapsed[data-content-type="easytabs"] {
+        background: none !important;
+    }
+    .accordion[data-content-type="easytabs"] {
+        > .title {
+            color: @base__color;
+            background-color: @base__background;
+            padding-top: @3-5;
+            padding-bottom: @3-5;
+        }
+        > [data-role="content"] {
+            background-color: @base__background;
+        }
+    }
+
+    .product.data.items.expanded {
+        .lib-css(background, @tab-content__background);
+        padding: 0 @8;
+        > .title:first-child {
+            border-top: 0;
+            + .content {
+                border-top: 0;
+            }
+        }
+        .title h2 {
+            position: sticky;
+            top: -@4;
+        }
+    }
+    .tabs-toolbar .tabs-toolbar-item,
+    .collapsed[data-content-type="easytabs"] > [role=tablist] > [data-role="collapsible"]
+    {
+        .business-tab-skew();
+        &:last-child {
+            .business-tab-skew-last-child();
+        }
+    }
+    .easytabs-tablist {
+        width: 100%;
+        > div {
+            flex-grow: 1;
+            justify-content: center;
+        }
+    }
+}
+
+& when not (@critical) {
+    .accordion[data-content-type="easytabs"] {
+        > .title {
+            --muted-alpha: .95;
+            &:hover {
+                background-color: @base__background;
+            }
+            &[aria-expanded="true"] {
+                color: @base__color;
+                background-color: @base__background;
+            }
+            &::after {
+                background-color: @brand__color;
+            }
+        }
+    }
+}

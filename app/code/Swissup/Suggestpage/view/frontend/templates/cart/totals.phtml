@@ -1,0 +1,7 @@
+<?php if ($block->getTotals()): ?>
+    <table>
+        <?php $_colspan = 2; ?>
+        <?php /* @escapeNotVerified */ echo $block->renderTotals(null, $_colspan); ?>
+        <?php /* @escapeNotVerified */ echo $block->renderTotals('footer', $_colspan); ?>
+    </table>
+<?php endif; ?>

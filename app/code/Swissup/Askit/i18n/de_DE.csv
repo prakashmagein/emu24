@@ -1,0 +1,100 @@
+"Edit '%1'","Bearbeiten Sie '%1'"
+"Answer Information",Antwortinformationen
+Hint,Hinweis
+Questions,Fragen
+"Edit Question '%1'","Frage '%1' bearbeiten"
+"No Found","Nicht gefunden"
+"Created date",Erstellungsdatum
+"Update date",Aktualisierungsdatum
+"Are you sure?","Bist du sicher?"
+Unknown,Unbekannt
+Private,Privat
+"Add New Answer","Neue Antwort hinzufügen"
+"Questions %1","Fragen %1"
+"Please select item(s).","Bitte wählen Sie Artikel aus."
+"The answer has been deleted.","Die Antwort wurde gelöscht."
+"We can't find a answer to delete.","Wir können keine Antwort zum Löschen finden."
+Askit,"Frag es"
+Answers,Antworten
+"This item no longer exists.","Dieser Artikel existiert nicht mehr."
+"Askit Items","Askit Items"
+"Askit Recent Answers","Fragen Sie nach den neuesten Antworten"
+"Manage Recent Askit Answers","Aktuelle Askit-Antworten verwalten"
+"You saved.","Du hast gespeichert."
+"Something went wrong while saving the question.","Beim Speichern der Frage ist ein Fehler aufgetreten."
+"A total of %1 record(s) have been deleted.","Insgesamt wurden %1 - Datensätze gelöscht."
+"A total of %1 record(s) have been changed.","Insgesamt wurden %1 - Datensätze geändert."
+"The question has been deleted.","Die Frage wurde gelöscht."
+"We can't find a question to delete.","Wir können keine Frage zum Löschen finden."
+"New Askit Question","Neue Askit-Frage"
+"Askit Questions","Fragen stellen"
+"Manage Askit Questions","Askit-Fragen verwalten"
+"You question saved.","Sie Frage gespeichert."
+"You answer was added.","Ihre Antwort wurde hinzugefügt."
+"We can't process your request right now. Sorry, that's all we know.","Wir können Ihre Anfrage derzeit nicht bearbeiten. Entschuldigung, das ist alles was wir wissen."
+"My Questions","Meine Fragen"
+"Your must login","Sie müssen sich anmelden"
+"Sorry, only logged in customer can hint.","Leider kann nur ein angemeldeter Kunde einen Hinweis geben."
+"Sorry, already voted","Sorry, schon abgestimmt"
+Pending,"steht aus"
+Approved,Genehmigt
+Disapproved,Missbilligt
+"Askit Question","Frage stellen"
+"Askit Answer","Askit Antwort"
+"Edit Question","Frage bearbeiten"
+"New Answer","Neue Antwort"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Nur registrierte Benutzer können Kommentare schreiben. Bitte <a href=""%1""> Anmelden </a> oder <a href=""%2""> Konto erstellen </a>"
+"Your Answer","Ihre Antwort"
+"Leave a Reply","Hinterlasse eine Antwort"
+"%1 people found this answer helpful.","%1 Personen fanden diese Antwort hilfreich."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Nur registrierte Benutzer können Fragen schreiben. Bitte <a href=""%1""> Anmelden </a> oder <a href=""%2""> Konto erstellen </a>"
+"Ask Your Question","Stell deine Frage"
+"Jot us a note and we’ll get back to you as quickly as possible.","Schreiben Sie uns eine Nachricht und wir werden uns so schnell wie möglich bei Ihnen melden."
+Question,Frage
+"Post a private question","Stellen Sie eine private Frage"
+Submit,einreichen
+"You have submitted no questions.","Sie haben keine Fragen eingereicht."
+"answer' 'answers","Antwort '' Antworten"
+"%1 people already voted for this question.","%1 Personen haben bereits für diese Frage gestimmt."
+"Vote for It","Stimmen Sie dafür"
+"New products question was just posted or updated. Please see details below","Die Frage nach neuen Produkten wurde gerade veröffentlicht oder aktualisiert. Bitte siehe Details unten"
+E-mail,Email
+"You can follow the question at Swissup -> Askit Questions","Sie können der Frage unter Swissup -> Askit Questions folgen"
+Dear,"sehr geehrter"
+"New answer was just posted to your question regarding","Eine neue Antwort wurde gerade auf Ihre Frage bezüglich gepostet"
+"Your question:","Ihre Frage:"
+Answer:,Antworten:
+"Thank you again","Danke nochmal"
+"Default question status",Standard-Fragenstatus
+"Default answer status",Standardantwortstatus
+"Allow guest to ask questions","Erlauben Sie dem Gast, Fragen zu stellen"
+"Allow customers comment","Kundenkommentar zulassen"
+"Allow guest comment","Gastkommentar zulassen"
+"Allow customer vote","Kundenabstimmung zulassen"
+"Show customer name on frontend","Kundennamen im Frontend anzeigen"
+"Show link to related item (Product, Category or Page)","Link zum verwandten Artikel anzeigen (Produkt, Kategorie oder Seite)"
+"Enable Gravatar integration","Aktivieren Sie die Gravatar-Integration"
+"Add questions block to all category pages","Fügen Sie allen Kategorieseiten einen Fragenblock hinzu"
+"Add questions block to all CMS pages","Fügen Sie allen CMS-Seiten einen Fragenblock hinzu"
+"Enable 'no questions' message","Aktivieren Sie die Nachricht ""Keine Fragen"""
+Sender,Absender
+"Customer Notification Template","Vorlage für Kundenbenachrichtigungen"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","E-Mail-Vorlage basierend auf dem Fallback des Themas ausgewählt, wenn die Option ""Standard"" ausgewählt ist."
+"Send admin notification to","Senden Sie eine Administratorbenachrichtigung an"
+"Admin Notification Template",Admin-Benachrichtigungsvorlage
+"Askit: Questions + New Question Form","Askit: Fragen + Neues Fragenformular"
+"Hide listing block","Listenblock ausblenden"
+"Hide form block","Formularblock ausblenden"
+"Assigned Products","Zugeordnete Produkte"
+"Assigned Pages","Zugewiesene Seiten"
+"Assigned Categories","Zugeordnete Kategorien"
+"Delete items","Elemente löschen"
+"Answer,Antworten
+"Entity Type",Entitätstyp
+Entity,Entität
+Votes,Stimmen
+"Your question was answered on","Ihre Frage wurde am beantwortet"
+"It is helpful","Es ist hilfreich"
+"Not much help","Nicht viel Hilfe"
+asks,fragt
+about,Über

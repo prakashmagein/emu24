@@ -1,0 +1,29 @@
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .navpro {
+            &-sticky {
+                top: 0;
+                position: sticky !important;
+                z-index: 99;
+
+                &.nav-sections {
+                    z-index: 3; // should be lower than 'top.search' and dropdowns (storeviews)
+                }
+
+                &.sticky-active {
+                    z-index: 500; // move above products list (above top.search too)
+                }
+            }
+
+            .navpro-sticky-top(@i: 100) when (@i > 0) {
+                &-top@{i} {
+                    top: ~"@{i}px";
+                }
+                .navpro-sticky-top(@i - 10);
+            }
+            .navpro-sticky-top();
+        }
+    }
+}
+}

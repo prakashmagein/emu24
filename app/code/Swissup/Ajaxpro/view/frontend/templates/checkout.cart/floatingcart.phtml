@@ -1,0 +1,21 @@
+<?php
+    /** @var \Swissup\Ajaxpro\ViewModel\Config $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+<?php if ($viewModel->isFloatingCartEnabled()):?>
+<div data-block="ajaxpro-floating-cart" class="minicart-wrapper">
+    <div data-bind="scope: 'ajaxpro_floatingcart_content'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='ajaxpro-floating-cart']": {
+            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>
+        },
+        "*": {
+            "Magento_Ui/js/block-loader": "<?= /* @noEscape */ $block->getViewFileUrl('images/loader-1.gif') ?>"
+        }
+    }
+    </script>
+</div>
+<?php endif; ?>

@@ -1,0 +1,40 @@
+<?php
+    $highlight = $block->getHighlightBlock();
+?>
+
+<div class="block widget <?php /* @escapeNotVerified */ echo $highlight->getCssClass() ?>">
+    <?php if ($highlight->getTitle()): ?>
+        <div class="block-title">
+            <strong role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo $highlight->getTitle() ?></strong>
+            <?php if ($highlight->getShowPageLink() && $highlight->getPageLinkPosition() === 'top') : ?>
+                <p class="subtitle">
+                    <a class="action view"
+                        href="<?php echo $block->escapeHtml($highlight->getPageUrl()) ?>"
+                        title="<?php echo $block->escapeHtml($highlight->getPageLinkTitle()) ?>"
+                        ><span><?php echo $block->escapeHtml($highlight->getPageLinkTitle()) ?></span></a>
+                </p>
+            <?php endif ?>
+
+            <?php $titleImageHtml = ''; ?>
+            <?php if ($titleImage = $highlight->getTitleImageUrl()): ?>
+                <?php $titleImageHtml = '<span class="title-image"><img alt="' .
+                    $block->escapeHtml($block->stripTags($highlight->getTitle())) . '" src="' . $block->escapeHtml($titleImage) . '" /></span>' ?>
+            <?php endif ?>
+            <div class="block-title-background"><?= $titleImageHtml ?></div>
+        </div>
+    <?php endif ?>
+    <div class="block-content">
+        <?php echo $block->getContent() ?>
+
+        <?php echo $highlight->getPagerHtml() ?>
+
+        <?php if ($highlight->getShowPageLink() && $highlight->getPageLinkPosition() !== 'top') : ?>
+            <div class="actions-toolbar">
+                <a class="action view"
+                    href="<?php echo $block->escapeHtml($highlight->getPageUrl()) ?>"
+                    title="<?php echo $block->escapeHtml($highlight->getPageLinkTitle()) ?>"
+                    ><span><?php echo $block->escapeHtml($highlight->getPageLinkTitle()) ?></span></a>
+            </div>
+        <?php endif ?>
+    </div>
+</div>

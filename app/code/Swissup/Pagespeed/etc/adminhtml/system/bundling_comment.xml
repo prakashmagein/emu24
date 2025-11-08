@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <comment><![CDATA[
+<strong style="color:red">Experimental option</strong>. If the option causes some problems on your site, just turn it off<br/><a href="https://docs.swissuplabs.com/m2/extensions/pagespeed/configuration/#if-you-want-to-enable-advanced-javascript-bundling-you-have-to-do-some-steps-first" target="_blank">See how to turn it on properly.</a>
+<br/>
+<a href="https://devdocs.magento.com/guides/v2.3/performance-best-practices/advanced-js-bundling.html" target="_blank">What is advanced requireJs bundling.</a>
+<script>
+require([
+    'ko',
+    'jquery'
+], function (ko, $) {
+    $('#pagespeed_js_enable_advanced_js_bundling').change(function () {
+        var editor = ko.dataFor($('#pagespeed_js_rjs_build_config').get(0)).editor;
+
+        setTimeout(editor.refresh.bind(editor), 100);
+    });
+});
+</script>
+        ]]></comment>
+</include>

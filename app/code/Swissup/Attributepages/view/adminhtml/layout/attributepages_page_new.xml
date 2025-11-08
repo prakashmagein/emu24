@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Swissup\Attributepages\Block\Adminhtml\Page\Edit" name="attributepages_page_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Swissup\Attributepages\Block\Adminhtml\Page\Edit\Tabs" name="attributepages_page_edit_tabs">
+                <block class="Swissup\Attributepages\Block\Adminhtml\Page\Edit\Tab\Attribute" name="attributepages_page_edit_tab_attribute"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">attribute_section</argument>
+                    <argument name="block" xsi:type="string">attributepages_page_edit_tab_attribute</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" template="Swissup_Attributepages::page/js.phtml" name="widget_page_js"/>
+        </referenceContainer>
+    </body>
+</page>

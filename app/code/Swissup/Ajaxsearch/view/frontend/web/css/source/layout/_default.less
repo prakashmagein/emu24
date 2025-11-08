@@ -1,0 +1,121 @@
+& when (@media-common = true) {
+    & when (@critical = unsure), (@critical) {
+        .block-swissup-ajaxsearch {
+            .input-text {
+                left: auto;
+                right: auto;
+                background: @ajaxsearch-input__background;
+                .lib-css(border, @ajaxsearch-input__border);
+                .lib-css(border-radius, @ajaxsearch-input__border-radius);
+                .padding(@ajaxsearch-input__padding);
+                &:focus {
+                    .lib-css(border, @ajaxsearch-input__focus__border);
+                }
+                &::placeholder {
+                    .lib-css(color, @ajaxsearch-input-placeholder__color);
+                }
+            }
+            .input-inner-wrapper {
+                position: relative;
+            }
+            .actions {
+                & when (@critical = unsure) {
+                    .action.search {
+                        position: absolute;
+                        top: -1000px;
+                    }
+                }
+                .action.close {
+                    text-align: center;
+                    cursor: pointer;
+                    display: flex;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    & when (@critical = unsure), (@critical = false) {
+        .block-swissup-ajaxsearch {
+            .twitter-typeahead {
+                width: 100%;
+            }
+            .tt-hint {
+                // Hide autocompletion 'cos it works bad when RTL site has latin product names
+                .modrtl(color, #999, ~"transparent !important");
+            }
+            .loading-mask {
+                --spinner-size: 1rem;
+                .right(@ajaxsearch-loader__right);
+                .left(auto);
+                .lib-css(top, @ajaxsearch-loader__top);
+                .lib-css(transform, @ajaxsearch-loader__transform);
+                background-color: transparent;
+                width: 20px;
+                height: 20px;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .input-inner-wrapper .close {
+                position: absolute;
+                .right(0);
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @ajaxsearch__breakpoint-desktop) {
+    & when (@critical = unsure), (@critical) {
+        .block-swissup-ajaxsearch {
+            &.block-search {
+                & when (@critical = unsure) {
+                    .actions .action.search {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                    }
+                }
+                .field.search {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    .origin {
+                       flex-grow: 1;
+                    }
+                }
+
+            }
+        }
+    }
+    & when (@critical = unsure), (@critical = false) {
+        .block-swissup-ajaxsearch {
+            ._block-content-loading {
+                .lib-css(position, @ajaxsearch-loader__desktop__position);
+            }
+
+            .loading-mask {
+                .right(@ajaxsearch-loader__desktop__right);
+                .lib-css(top, @ajaxsearch-loader__desktop__top);
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @ajaxsearch__breakpoint-desktop) {
+    & when (@critical = unsure), (@critical) {
+        .block-swissup-ajaxsearch {
+            .minisearch .inactive:not(:has(:focus-visible)) {
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                font-size: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    }
+}

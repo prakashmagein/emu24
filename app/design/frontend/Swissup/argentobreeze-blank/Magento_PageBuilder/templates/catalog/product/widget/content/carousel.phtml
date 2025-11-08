@@ -1,0 +1,71 @@
+<?php
+use Magento\Framework\App\Action\Action;
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/**
+ * @var \Magento\CatalogWidget\Block\Product\ProductsList $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->count())): ?>
+    <?php
+    $type = 'widget-product-carousel';
+    $mode = 'grid';
+    $image = 'category_page_grid';
+    $items = $block->getProductCollection()->getItems();
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+
+    /** @var \Magento\Catalog\Helper\Output $_helper */
+    $_helper = $this->helper(\Magento\Catalog\Helper\Output::class);
+    $actionsBlockPosition = $block->getVar("listing/{$mode}/actions/position", 'Argento_Theme');
+    $actionsBlock = $block->getLayout()
+        ->createBlock('Magento\Framework\View\Element\Template')
+        ->setTemplate('Magento_Catalog::product/list/actions.phtml');
+    $block->setChild('actions', $actionsBlock);
+    ?>
+    <ol class="product-items <?= /* @noEscape */ $type ?>">
+        <?php foreach ($items as $_item): ?>
+        <li class="product-item">
+            <div class="product-item-info">
+                <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+                    <?= $block->getImage($_item, $image)->toHtml() ?>
+                </a>
+                <div class="product-item-details">
+                    <strong class="product-item-name">
+                        <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+                           href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+                           class="product-item-link">
+                            <?= $block->escapeHtml($_item->getName()) ?>
+                        </a>
+                    </strong>
+                    <?php if ($templateType): ?>
+                        <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                    <?php endif; ?>
+
+                    <?= $block->getProductPriceHtml($_item, $type) ?>
+
+                    <?= $block->getProductDetailsHtml($_item) ?>
+
+                    <div class="product-item-inner">
+                        <?php if ($actionsBlockPosition === 'default') {
+                            echo $actionsBlock->setPosition($position ?? '')->setProduct($_item)->toHtml();
+                        } ?>
+                    </div>
+
+                    <?php if ($_helper->isModuleOutputEnabled('Swissup_FeaturedAttributes')) {
+                        echo $block->getLayout()
+                            ->createBlock('Swissup\FeaturedAttributes\Block\Attributes')
+                            ->setProduct($_item)
+                            ->toHtml();
+                    }?>
+                </div>
+                <?php if ($actionsBlockPosition === 'bottom') {
+                    echo $actionsBlock->setPosition($position ?? '')->setProduct($_item)->toHtml();
+                } ?>
+            </div>
+        </li>
+        <?php endforeach ?>
+    </ol>
+<?php endif;?>

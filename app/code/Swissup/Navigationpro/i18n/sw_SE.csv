@@ -1,0 +1,70 @@
+"Delete Item","Ta bort objekt"
+"Are you sure you want to do this?","Är du säker på att du vill göra det här?"
+"Menu Settings",Menyinställningar
+"You deleted the item.","Du har tagit bort objektet."
+"We can't find a item to delete.","Det går inte att hitta ett objekt att ta bort."
+"Import completed.","Importen har slutförts."
+"Something went wrong while importing item.","Något gick fel när objektet importerades."
+"This item no longer exists.","Det här objektet finns inte längre."
+"Something went wrong while saving item.","Något gick fel när du sparar objekt."
+"You saved item.","Du har sparat objektet."
+"Something went wrong while saving menu.","Något gick fel när du sparar menyn."
+"You deleted the menu.","Du har tagit bort menyn."
+"We can't find a menu to delete.","Vi kan inte hitta en meny att ta bort."
+"A total of %1 record(s) have been deleted.","Totalt %1 post har tagits bort."
+"A total of %1 record(s) have been updated.","Totalt %1 post har uppdaterats."
+"New Menu","Ny meny"
+"This menu no longer exists.","Den här menyn finns inte längre."
+"You saved menu.","Du sparade menyn."
+"Stick to Left","Håll dig till vänster"
+"Stick to Right","Håll dig till höger"
+Standard,Standard
+Left,Vänster
+Top,Topp
+Fullscreen,Fullscreen
+Full-Width,"Full bredd"
+Boxed,Boxed
+Small,Liten
+Medium,Medium
+Large,Stora
+"Extra Large","Extra stor"
+"Item was not registered","Artikeln har inte registrerats"
+Horizontal,Horisontella
+Vertical,Vertikala
+Blank,Tom
+Dark,Mörka
+"Dark Bar","Mörk stapel"
+"Dark Dropdown","Mörk rullgardinsmeny"
+Flat,Platt
+Compact,Kompakt
+"Menu was not registered","Menyn har inte registrerats"
+"An item cannot be parent for itself","En artikel kan inte vara överordnad för sig själv"
+"This name is already in use.","Det här namnet används redan."
+"Top Menu","Övre meny"
+Menu,Menyn
+Navigationpro,"Navigationpro (Navigationpro)"
+"Show Active Branch Only","Visa endast aktiv gren"
+"Show Parent Category","Visa överordnad kategori"
+"Initially Shown Levels Count","Initialt visade nivåer antal"
+Orientation,Orientering
+"Dropdown Positioning","Placering av listruta"
+"Additional CSS Class","Ytterligare CSS-klass"
+"Wrap into Block Template","Radbryts i blockmall"
+"Block CSS Class","Blockera CSS-klass"
+"Select item in the tree on the left sidebar, or create a new one","Markera objekt i trädet på vänster sidofält eller skapa ett nytt"
+"Sync Name and URL with Category Data","Synkronisera namn och URL med kategoridata"
+"CSS Class",CSS-klass
+"Use Menu Settings","Använda menyinställningar"
+"New Item","Nytt objekt"
+"Import Item","Importera artikel"
+"Columns Direction","Riktning för kolumner"
+"Nested Levels per Dropdown","Kapslade nivåer per listruta"
+"Add New Menu","Lägg till ny meny"
+"Are you sure you want to delete selected menu's?","Vill du ta bort markerade menyer?"
+"Replace Top Menu at","Ersätt övre meny på"
+"Leave empty if you don't want to replace Top Menu","Lämna tomt om du inte vill ersätta övre meny"
+Direction,Riktning
+"Maximal Depth","Maximalt djup"
+"Dropdown Position",Rullgardinsmeny
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Observera att rullgardinsmenyn kommer att justeras ytterligare inuti navbar begränsning när rullgardinsmenyn kommer att återges på frontend"
+"Dropdown Settings","Inställningar för rullgardinsmeny"

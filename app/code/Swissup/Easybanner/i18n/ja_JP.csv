@@ -1,0 +1,79 @@
+Handles,ハンドル
+"Save Banner",バナーを保存
+"Delete Banner",バナーを削除
+"Edit Banner - '%1'",バナーを編集-'％1'
+"New Banner",新しいバナー
+"Css Class",CSSクラス
+"Image Options",画像オプション
+"Use image resizer",画像リサイザを使用する
+"Retina support",網膜サポート
+"Actual image size should be twice larger then entered width and height",実際の画像サイズは、入力した幅と高さの2倍にする必要があります
+"Background Color",背景色
+"Html Content",HTMLコンテンツ
+Banner,バナー
+Lightbox,ライトボックス
+Awesomebar,すごい
+"Hide Url",URLを非表示
+Target,目標
+Popup,現れる
+Blank,ブランク
+Self,自己
+"Sort Order",ソート順
+"Store View",ストアビュー
+Placeholder,プレースホルダー
+Statistics,統計学
+"New Placeholder",新しいプレースホルダー
+"Banners Display Count",バナー表示数
+"Sort mode",ソートモード
+"By Banners Sort Order",バナーソート順
+Random,ランダム
+"Banner was deleted.",バナーを削除しました。
+"Banner was disabled.",バナーが無効になりました。
+EasyBanner,EasyBanner
+Banners,バナー
+"This banner no longer exists.",このバナーは存在しません。
+"Edit Banner",バナーを編集
+"Banner was enabled.",バナーが有効になりました。
+"Manage Banners",バナーを管理する
+"Banner has been saved.",バナーを保存しました。
+"Something went wrong while saving the banner.",バナーの保存中に問題が発生しました。
+"Placeholder was deleted.",プレースホルダーが削除されました。
+"Placeholder was disabled.",プレースホルダーが無効になりました。
+Placeholders,プレースホルダー
+"This placeholder no longer exists.",このプレースホルダーは存在しません。
+"Placeholder was enabled.",プレースホルダーが有効になりました。
+"Manage Placeholders",プレースホルダーを管理する
+"Placeholder has been saved.",プレースホルダーが保存されました。
+"Something went wrong while saving the placeholder.",プレースホルダーの保存中に問題が発生しました。
+"Subtotal (Excl.Tax)",小計（税抜き）
+"Subtotal (Incl.Tax)",小計（税込）
+"Clicks Count",クリック数
+"Display Count",表示数
+"Display Count per Customer",顧客ごとの表示数
+"Lightbox/Awesomebar: Customer browsing time (seconds)",ライトボックス/オーサムバー：顧客の閲覧時間（秒）
+"Lightbox/Awesomebar: Customer inactivity time (seconds)",ライトボックス/オーサムバー：顧客の非活動時間（秒）
+"Lightbox/Awesomebar: Customer activity time (seconds)",ライトボックス/オーサムバー：顧客のアクティビティ時間（秒）
+"Lightbox/Awesomebar: Scroll offset",ライトボックス/オーサムバー：スクロールオフセット
+"Open Chooser",セレクターを開く
+%1%1"Last 7 days",過去7日間
+"Last 30 days",過去30日間
+"Last 6 Month",過去6か月
+"Last 12 Month",過去12か月
+"All Time",いつも
+"Banner Statistics",バナー統計
+"EasyBanner Banner",EasyBannerバナー
+"Select Banner...",バナーを選択...
+"EasyBanner Placeholder",EasyBannerプレースホルダー
+"Select Placeholder...",プレースホルダーを選択...
+"Add Banner",バナーを追加
+"Image Title",画像のタイトル
+"Is Active",アクティブです
+"Add Placeholder",プレースホルダーを追加
+"Additional CSS Class",追加のCSSクラス
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","このプレースホルダーをサイドバーに表示する場合は、次の値を設定することをお勧めします：block block-easybanner-placeholder"
+"Parent Container",親コンテナ
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/",コンテナー名がわかりませんか？空のままにして、「コンテンツ>ウィジェット」インターフェースを介してプレースホルダーを必要なコンテナーに割り当てます。一般的なプレースホルダーの位置のリストは、http：//docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/でも確認できます。
+Position,ポジション
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","XML属性構文が必要です。例：before = ""-""、after = ""-""、before = ""block.name"""
+"Don't show anymore",もう見せない
+"Exit intent time (seconds)",終了意図時間（秒）

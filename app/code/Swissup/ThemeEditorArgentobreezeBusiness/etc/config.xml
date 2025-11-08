@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_argentobreeze_business>
+            <colors>
+                <rootcolor_cssproprgb_baseColor>#1e1d54</rootcolor_cssproprgb_baseColor>
+                <root_cssproprgb_brandColor>#deb86f</root_cssproprgb_brandColor>
+                <root_cssproprgb_brandHoverColor>#d9ae5a</root_cssproprgb_brandHoverColor>
+                <root_cssproprgb_brandTextColor>#8e6b29</root_cssproprgb_brandTextColor>
+                <root_cssproprgb_pastelColor>#f5f6f9</root_cssproprgb_pastelColor>
+                <root_cssproprgb_pastelDarkenColor>#e8ebf1</root_cssproprgb_pastelDarkenColor>
+            </colors>
+            <layout>
+                <page_maxWidth>100%</page_maxWidth>
+                <page_backgroundColor>transparent</page_backgroundColor>
+                <body_cssprop_maxWidth>1348px</body_cssprop_maxWidth>
+            </layout>
+            <header>
+                <pageHeaderPanel_backgroundColor>#282853</pageHeaderPanel_backgroundColor>
+                <pageHeaderPanelText_color>#ffffff</pageHeaderPanelText_color>
+
+                <pageHeader_backgroundColor>#374d9a</pageHeader_backgroundColor>
+                <pageHeaderText_color>#ffffff</pageHeaderText_color>
+            </header>
+            <buttons>
+                <button_cssproprgb_buttonBg>#e7c178</button_cssproprgb_buttonBg>
+                <button_cssproprgb_buttonColor>#1e1d54</button_cssproprgb_buttonColor>
+                <button_cssproprgb_buttonHoverBg>#dcb76f</button_cssproprgb_buttonHoverBg>
+                <buttonHover_cssproprgb_buttonColor>#1e1d54</buttonHover_cssproprgb_buttonColor>
+
+                <buttonSecondary_cssproprgb_buttonBg>#e8ebf1</buttonSecondary_cssproprgb_buttonBg>
+                <buttonSecondary_cssproprgb_buttonColor>#4b5563</buttonSecondary_cssproprgb_buttonColor>
+                <buttonSecondary_cssproprgb_buttonHoverBg>#e8ebf1</buttonSecondary_cssproprgb_buttonHoverBg>
+                <buttonSecondaryHover_cssproprgb_buttonColor>#4b5563</buttonSecondaryHover_cssproprgb_buttonColor>
+
+                <buttonHeroBg_cssproprgb_buttonBg>#374d9a</buttonHeroBg_cssproprgb_buttonBg>
+                <buttonHeroChevron_background>#e7c178</buttonHeroChevron_background>
+                <buttonHero_cssproprgb_buttonColor>#ffffff</buttonHero_cssproprgb_buttonColor>
+                <buttonHeroBg_cssproprgb_buttonHoverBg>#30458f</buttonHeroBg_cssproprgb_buttonHoverBg>
+                <buttonHeroHoverChevron_background>#dbb772</buttonHeroHoverChevron_background>
+                <buttonHeroHover_cssproprgb_buttonColor>#ffffff</buttonHeroHover_cssproprgb_buttonColor>
+
+                <buttonHeroInvertedBg_cssproprgb_buttonBg>#ffffff</buttonHeroInvertedBg_cssproprgb_buttonBg>
+                <buttonHeroInvertedChevron_background>#e7c178</buttonHeroInvertedChevron_background>
+                <buttonHeroInverted_cssproprgb_buttonColor>#1e1d54</buttonHeroInverted_cssproprgb_buttonColor>
+                <buttonHeroInvertedBg_cssproprgb_buttonHoverBg>#f2f2f2</buttonHeroInvertedBg_cssproprgb_buttonHoverBg>
+                <buttonHeroInvertedHoverChevron_background>#dbb772</buttonHeroInvertedHoverChevron_background>
+                <buttonHeroInvertedHover_cssproprgb_buttonColor>#1e1d54</buttonHeroInvertedHover_cssproprgb_buttonColor>
+
+                <buttonGhost_cssproprgb_buttonBg>#ffffff</buttonGhost_cssproprgb_buttonBg>
+                <buttonGhost_cssproprgb_buttonBorderColor>#374d9a</buttonGhost_cssproprgb_buttonBorderColor>
+                <buttonGhost_cssproprgb_buttonColor>#1e1d54</buttonGhost_cssproprgb_buttonColor>
+                <buttonGhost_cssproprgb_buttonHoverBg>#374d9a</buttonGhost_cssproprgb_buttonHoverBg>
+                <buttonGhostHover_cssproprgb_buttonBorderColor>#4761bd</buttonGhostHover_cssproprgb_buttonBorderColor>
+                <buttonGhostHover_cssproprgb_buttonColor>#1e1d54</buttonGhostHover_cssproprgb_buttonColor>
+            </buttons>
+            <category>
+                <max_width>1348</max_width>
+                <grid>
+                    <columns_count>{"1024":{"columns":"3","spacing":"10"},"1280":{"columns":"4","spacing":"10"}}</columns_count>
+                </grid>
+            </category>
+            <product>
+                <max_width>1348</max_width>
+            </product>
+            <css_selector>
+                <root>:root</root>
+                <rootcolor>:root, .block-swissup-ajaxsearch-results, .navpro-dropdown, .navigation ul a</rootcolor>
+                <body>body</body>
+                <page>.page-wrapper</page>
+                <content-container>.container</content-container>
+
+                <page-header-panel>.page-header .panel.wrapper</page-header-panel>
+                <page-header-panel-text>.page-header .header.panel</page-header-panel-text>
+                <page-header>.page-header</page-header>
+                <page-header-text>.page-header .header.content, .page-header .header.content li > .level-top</page-header-text>
+
+                <button>.action.primary, .action-primary, [type='submit'], .pagebuilder-button-primary, .block-highlight .view</button>
+                <button-hover>.action.primary:hover, .action-primary:hover, [type='submit']:hover, .pagebuilder-button-primary:hover, .block-highlight .view:hover</button-hover>
+
+                <button-secondary><![CDATA[button, input[type='button'], .pagebuilder-button-secondary]]></button-secondary>
+                <button-secondary-hover><![CDATA[button:hover, input[type='button']:hover, .pagebuilder-button-secondary:hover, button:focus, input[type='button']:focus, .pagebuilder-button-secondary:focus]]></button-secondary-hover>
+
+                <button-hero>.primary.button-hero, .button-hero .pagebuilder-button-primary</button-hero>
+                <button-hero-bg>.primary.button-hero, .button-hero .pagebuilder-button-primary, .primary.button-hero::after, .button-hero .pagebuilder-button-primary::after</button-hero-bg>
+                <button-hero-chevron>.primary.button-hero::before, .button-hero .pagebuilder-button-primary::before</button-hero-chevron>
+                <button-hero-hover>.primary.button-hero:hover, .button-hero .pagebuilder-button-primary:hover</button-hero-hover>
+                <button-hero-hover-bg>.primary.button-hero:hover, .button-hero .pagebuilder-button-primary:hover, .primary.button-hero:hover::after, .button-hero .pagebuilder-button-primary:hover::after</button-hero-hover-bg>
+                <button-hero-hover-chevron>.primary.button-hero:hover::before, .button-hero .pagebuilder-button-primary:hover::before</button-hero-hover-chevron>
+
+                <button-hero-inverted>.primary.button-hero.inverted, .button-hero.inverted .pagebuilder-button-primary</button-hero-inverted>
+                <button-hero-inverted-bg>.primary.button-hero.inverted, .button-hero.inverted .pagebuilder-button-primary, .primary.button-hero.inverted::after, .button-hero.inverted .pagebuilder-button-primary::after</button-hero-inverted-bg>
+                <button-hero-inverted-chevron>.primary.button-hero.inverted::before, .button-hero.inverted .pagebuilder-button-primary::before</button-hero-inverted-chevron>
+                <button-hero-inverted-hover>.primary.button-hero.inverted:hover, .button-hero.inverted .pagebuilder-button-primary:hover</button-hero-inverted-hover>
+                <button-hero-inverted-hover-bg>.primary.button-hero.inverted:hover, .button-hero.inverted .pagebuilder-button-primary:hover, .primary.button-hero.inverted:hover::after, .button-hero.inverted .pagebuilder-button-primary:hover::after</button-hero-inverted-hover-bg>
+                <button-hero-inverted-hover-chevron>.primary.button-hero.inverted:hover::before, .button-hero.inverted .pagebuilder-button-primary:hover::before</button-hero-inverted-hover-chevron>
+
+                <button-ghost>.button-ghost button, .button-ghost .pagebuilder-button-primary, .button-ghost .pagebuilder-button-secondary, .block-minicart .block-content > .actions .secondary .action, .block-wishlist .actions-toolbar .primary a, .block-highlight .view</button-ghost>
+                <button-ghost-hover>.button-ghost button:hover, .button-ghost .pagebuilder-button-primary:hover, .button-ghost .pagebuilder-button-secondary:hover, .block-minicart .block-content > .actions .secondary .action:hover, .block-wishlist .actions-toolbar .primary a:hover, .block-highlight .view:hover</button-ghost-hover>
+            </css_selector>
+        </swissup_argentobreeze_business>
+    </default>
+</config>

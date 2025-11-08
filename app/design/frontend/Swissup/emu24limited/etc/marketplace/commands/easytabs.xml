@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Easytabs\Installer\Command\UnsetTabs" module="Swissup_Easytabs">
+        <data>
+            <item>
+                <item name="block">Magento\Catalog\Block\Product\View\Attributes</item>
+            </item>
+        </data>
+    </command>
+    <command class="Swissup\Easytabs\Installer\Command\Tabs" module="Swissup_Easytabs">
+        <data>
+            <item>
+                <item name="title">Product Description</item>
+                <item name="alias">product.info.description</item>
+                <item name="block">Swissup\Easytabs\Block\Tab\Html</item>
+                <item name="sort_order">0</item>
+                <item name="widget_content"><![CDATA[{{block class="Magento\Catalog\Block\Product\View\Attributes" template="Magento_Catalog::product/view/attributes.phtml"}}
+{{block class="Magento\Catalog\Block\Product\View\Description" template="Magento_Catalog::product/view/description.phtml"}}]]></item>
+            </item>
+            <item>
+                <item name="title">{{eval code="getTabTitle()"}}</item>
+                <item name="alias">reviews</item>
+                <item name="block">Swissup\Easytabs\Block\Tab\Product\Review</item>
+                <item name="sort_order">15</item>
+                <item name="widget_template">Magento_Review::review.phtml</item>
+            </item>
+            <item>
+                <item name="title"><![CDATA[Questions <span class="counter">{{eval code="getCount()"}}</span>]]></item>
+                <item name="alias">questions</item>
+                <item name="block">Swissup\Easytabs\Block\Tab\Template</item>
+                <item name="sort_order">18</item>
+                <item name="widget_block">Swissup\Askit\Block\Question\Widget</item>
+                <item name="widget_template">template.phtml</item>
+                <item name="widget_unset">askit_listing,askit_form</item>
+            </item>
+            <item>
+                <item name="title">Customer service</item>
+                <item name="alias">customer_service</item>
+                <item name="block">Swissup\Easytabs\Block\Tab\Html</item>
+                <item name="sort_order">10</item>
+                <item name="widget_tab">1</item>
+                <item name="widget_content"><![CDATA[<div class="prose text-reset">
+<p>Great news! You can now enjoy free shipping on our latest product. Here's why you should act fast:</p>
+<ol>
+<li>Savings: No more shipping fees.</li>
+<li>Fast Delivery: We're quick!</li>
+<li>Hassle-Free: Easy, no extra costs.</li>
+<li>Confidence: Shop with trust. Don't miss out – get your hands on our newest product with free shipping today!</li>
+</ol>
+</div>]]></item>
+            </item>
+            <item>
+                <item name="title">Return policy</item>
+                <item name="alias">returns</item>
+                <item name="block">Swissup\Easytabs\Block\Tab\Html</item>
+                <item name="sort_order">20</item>
+                <item name="widget_tab">1</item>
+                <item name="widget_content"><![CDATA[<div class="prose text-reset">
+<p>Returning a product is easy with ArgentoBreeze Business. Enjoy hassle-free returns within 7 days from your purchase date. No questions asked. We offer multiple return options for your convenience and provide full refunds upon receipt of the product in its original condition.</p>
+</div>]]></item>
+            </item>
+        </data>
+    </command>
+</config>

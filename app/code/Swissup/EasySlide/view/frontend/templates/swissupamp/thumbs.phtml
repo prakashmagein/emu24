@@ -1,0 +1,24 @@
+<?php
+    $slider = $block->getSlider();
+    $helper = $this->helper(\Swissup\EasySlide\Helper\Image::class);
+    $imageRenderer = $block->getImageRenderer();
+    $sliderHtmlId = "easyslide-{$slider->getIdentifier()}";
+?>
+<div class="easyslide-thumbs">
+    <?php $i = 0; foreach ($slider->getSlides() as $slide) : ?>
+        <?php
+            // resize slider thumbnail
+            $thumbnailUrl = $helper->resize(
+                $slide['image'],
+                (int)$slider->getThumbWidth() ?: null,
+                (int)$slider->getThumbHeight() ?: null
+            );
+            $slide['image'] = str_replace($helper->getBaseUrl(), '', $thumbnailUrl);
+            // render thumbnail image
+            $imageHtml = $imageRenderer->render($slide, [], false);
+        ?>
+        <div on="tap:<?= $block->escapeHtmlAttr($sliderHtmlId) ?>.goToSlide(index=<?= $block->escapeHtmlAttr($i++) ?>)">
+            <?= /* @noEscape */ $imageHtml ?>
+        </div>
+    <?php endforeach; ?>
+</div>

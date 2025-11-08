@@ -1,0 +1,25 @@
+<?php
+    $items = $block->getItems();
+?>
+<?php if ($items) : ?>
+    <h3 style="text-align: center;"><?= $block->getTitle() ?></h3>
+    <div class="items" style="text-align: center; margin: 0 -.5rem;">
+        <?php foreach ($items as $_item) : ?>
+            <?php $_product = $_item['model'] ?>
+            <?php $_id = (int)$_product->getId() ?>
+            <?php $_name = $block->escapeHtml($_product->getName()) ?>
+            <?php $_url = $block->escapeUrl($block->getProductUrl($_product)) ?>
+            <div class="product-item-info" style="display: inline-block; margin: 0 .5rem; vertical-align: top; width: 150px;">
+                <a href="<?= $_url ?>" class="product photo product-item-photo">
+                    <?= $block->prepareImageHtml($_product); ?>
+                </a>
+                <div class="product details product-item-details">
+                    <strong class="product-name">
+                        <a href="<?= $_url ?>" title="<?= $_name ?>" ><?= $_name ?></a>
+                    </strong>
+                    <?= /* @noEscape */ $block->getProductPrice($_product); ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

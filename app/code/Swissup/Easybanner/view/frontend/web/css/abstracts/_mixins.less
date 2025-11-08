@@ -1,0 +1,12 @@
+.easybanner-tiny-scrollbar() {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: @easybanner-scrollbar__size;
+        height: @easybanner-scrollbar__size;
+        background-color: @easybanner-scrollbar__background-color;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: @easybanner-scrollbar-thumb__background-color;
+    }
+}

@@ -1,0 +1,42 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="swissup_suggestpage_cart_item_renderers"/>
+    <head>
+        <css src="Swissup_Suggestpage::css/suggestpage.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.messages">
+            <block class="Magento\Checkout\Block\Cart\ValidationMessages" name="checkout.cart.validationmessages"/>
+        </referenceContainer>
+        <move element="page.messages" destination="checkout.cart.form.col1.top" before="-"/>
+        <referenceContainer name="content">
+            <block class="Swissup\Suggestpage\Block\Cart" name="checkout.cart" template="Magento_Checkout::cart.phtml" cacheable="false">
+                <container name="checkout.cart.items" as="with-items">
+                    <container name="checkout.cart.container" htmlTag="div" htmlClass="cart-container" before="-">
+                        <block class="Swissup\Suggestpage\Block\Cart" name="checkout.cart.form" as="cart-items" template="Swissup_Suggestpage::cart/form.phtml" after="cart.summary">
+                            <container name="checkout.cart.form.col1.top" htmlTag="div" htmlClass="cart-form-col1-top" before="-"/>
+                            <block class="Magento\Checkout\Block\Cart\Totals" name="checkout.cart.totals" template="Swissup_Suggestpage::cart/totals.phtml" />
+                            <block class="Magento\Checkout\Block\Onepage\Link" name="checkout.cart.actions.onepage" template="onepage/link.phtml" />
+                            <block class="Magento\Framework\View\Element\RendererList" name="checkout.cart.item.renderers.override" as="renderer.list.custom"/>
+                            <arguments>
+                                <argument name="renderer_list_name" xsi:type="string">checkout.cart.item.renderers.override</argument>
+                            </arguments>
+                            <!--<block class="Magento\Framework\View\Element\RendererList" name="checkout.cart.item.renderers" as="renderer.list"/>-->
+                        </block>
+                    </container>
+                    <block class="Magento\Checkout\Block\Cart\Crosssell" ifconfig="suggestpage/blocks/crosssell" name="checkout.cart.crosssell" template="Magento_Catalog::product/list/items.phtml" after="-">
+                        <arguments>
+                            <argument name="type" xsi:type="string">crosssell</argument>
+                            <argument name="view_model" xsi:type="object">Swissup\Suggestpage\ViewModel\Product\Listing\PreparePostData</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="checkout.cart.noitems" as="no-items">
+                    <block class="Magento\Checkout\Block\Cart" name="checkout.cart.empty" before="-" template="cart/noItems.phtml">
+                        <container name="checkout.cart.empty.widget" as="checkout_cart_empty_widget" label="Empty Shopping Cart Content Before"/>
+                    </block>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

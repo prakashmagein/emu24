@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_Reviewreminder::reviewreminder" title="Review Reminder" module="Swissup_Reviewreminder" sortOrder="1821" parent="Swissup_Core::general" action="reviewreminder/index" resource="Swissup_Reviewreminder::reviewreminder"/>
+    </menu>
+</config>

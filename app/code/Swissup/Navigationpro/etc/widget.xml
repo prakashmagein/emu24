@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="navigationpro_menu" class="Swissup\Navigationpro\Block\Widget\Menu"
+            is_email_compatible="false"
+            placeholder_image="Magento_Widget::placeholder.gif"
+            ttl="86400">
+        <label translate="true">Navigationpro</label>
+        <description/>
+        <parameters>
+            <parameter name="identifier" xsi:type="select" required="true" visible="true"
+                       source_model="Swissup\Navigationpro\Model\Config\Source\MenuOnly">
+                <label translate="true">Menu</label>
+            </parameter>
+            <parameter name="show_active_branch" xsi:type="select" required="false" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Active Branch Only</label>
+            </parameter>
+            <parameter name="show_parent" xsi:type="select" required="false" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Parent Category</label>
+                <depends>
+                    <parameter name="show_active_branch" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="visible_levels" xsi:type="text" required="false" visible="true">
+                <label translate="true">Initially Shown Levels Count</label>
+                <depends>
+                    <parameter name="show_active_branch" value="0"/>
+                </depends>
+                <value>1</value>
+            </parameter>
+            <parameter name="theme" xsi:type="select" required="false" visible="true"
+                       source_model="Swissup\Navigationpro\Model\Menu\Source\Theme">
+                <label translate="true">Theme</label>
+            </parameter>
+            <parameter name="orientation" xsi:type="select" required="false" visible="true"
+                       source_model="Swissup\Navigationpro\Model\Menu\Source\Orientation">
+                <label translate="true">Layout</label>
+            </parameter>
+            <parameter name="dropdown_side" xsi:type="select" required="false" visible="true"
+                       source_model="Swissup\Navigationpro\Model\Menu\Source\DropdownSide">
+                <label translate="true">Dropdown Positioning</label>
+            </parameter>
+            <parameter name="css_class" xsi:type="text" required="false" visible="true">
+                <label translate="true">Additional CSS Class</label>
+            </parameter>
+            <parameter name="wrap" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Wrap into Block Template</label>
+            </parameter>
+            <parameter name="block_title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Block Title</label>
+                <depends>
+                    <parameter name="wrap" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="block_css" xsi:type="text" required="false" visible="true">
+                <label translate="true">Block CSS Class</label>
+                <depends>
+                    <parameter name="wrap" value="1"/>
+                </depends>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

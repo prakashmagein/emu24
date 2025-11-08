@@ -1,0 +1,27 @@
+.block-highlight .block-title .view {
+    &:extend(.breeze-button all);
+    &:extend(.breeze-button-primary all);
+    &:extend(.breeze-button-ghost all);
+    &:extend(.breeze-button-arrow-next all);
+}
+
+& when (@critical) {
+    .block-highlight {
+        .block-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: @2;
+            p {
+                display: flex;
+            }
+            .block-title-background {
+                display: none;
+            }
+            .view {
+                font-weight: 600;
+                letter-spacing: -0.01em;
+            }
+        }
+    }
+}

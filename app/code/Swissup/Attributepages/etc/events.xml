@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="swissupamp_prepare_pages_config">
+        <observer name="swissup_attributepages_amp_prepare_config" instance="Swissup\Attributepages\Observer\SwissupAmpPrepareConfig" />
+    </event>
+    <event name="swissupamp_is_page_supported">
+        <observer name="swissup_attributepages_is_page_supported" instance="Swissup\Attributepages\Observer\SwissupAmpPageSupported" />
+    </event>
+    <event name="swissup_seo_urls_prepare_rewrite_items">
+        <observer name="swissup_attributepages" instance="Swissup\Attributepages\Observer\SwissupSeoUrlsRegisterRewriteUrls" />
+    </event>
+</config>

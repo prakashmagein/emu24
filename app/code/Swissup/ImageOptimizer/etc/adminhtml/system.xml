@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="pagespeed" translate="label" type="text" sortOrder="1606" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="image" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Image Processing Settings</label>
+                <field id="default_adapter" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Image Adapter</label>
+                    <source_model>Magento\Config\Model\Config\Source\Image\Adapter</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image\Adapter</backend_model>
+                    <comment>When the adapter was changed, please flush Catalog Images Cache.</comment>
+                    <config_path>dev/image/default_adapter</config_path>
+                </field>
+
+                <group id="optimize" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Optimize Catalog images</label>
+                    <comment><![CDATA[
+                    Usage:
+                    <code>php bin/magento catalog:images:resize</code>
+                    ]]></comment>
+
+                    <field id="catalog_media_url_format" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Catalog media URL format</label>
+                        <source_model>Magento\Catalog\Model\Config\Source\Web\CatalogMediaUrlFormat</source_model>
+                        <comment><![CDATA[Images should be optimized based on query parameters by your CDN or web server. Use the legacy mode for backward compatibility. <a href="https://experienceleague.adobe.com/docs/commerce-admin/config/general/web.html">Learn more</a> about catalog URL formats.<br/><br/><strong style="color:red">Warning!</strong> If you switch back to legacy mode, you must <a href="https://developer.adobe.com/commerce/frontend-core/guide/themes/configure/#resize-catalog-images">use the CLI to regenerate images</a>.]]></comment>
+                        <config_path>web/url/catalog_media_url_format</config_path>
+                    </field>
+
+                    <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>pagespeed/image/enable</config_path>
+<!--                        <depends>-->
+<!--                            <field id="catalog_media_url_format">hash</field>-->
+<!--                        </depends>-->
+                    </field>
+
+                    <field id="provider" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Image Optimizers Provider</label>
+                        <source_model>Swissup\ImageOptimizer\Model\Config\Source\Image\Optimize\Provider</source_model>
+                        <config_path>pagespeed/image/provider</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="provider_local" translate="label" type="label" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Local Binaries</label>
+                        <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\CheckLocalImageOptimizers</frontend_model>
+                        <config_path>pagespeed/image/provider_local</config_path>
+                        <comment><![CDATA[Before images can be optimized, you will need to install the optimizers as described in <a href="https://github.com/spatie/image-optimizer#optimization-tools">article</a><br/>
+                    <code>
+                        <pre>
+                        sudo apt install jpegoptim
+                        sudo apt install optipng
+                        sudo apt install pngquant
+                        sudo npm install -g svgo
+                        sudo apt install gifsicle
+                        sudo apt-get install webp
+                        </pre>
+                    </code>
+                    ]]></comment>
+                        <depends>
+                            <field id="enable">1</field>
+                            <field id="provider">0</field>
+                        </depends>
+                    </field>
+
+                    <field id="apiUrl" translate="label comment" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>API Url</label>
+                        <config_path>pagespeed/image/provider_apiurl</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                            <field id="provider">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="apiKey" translate="label comment" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>API Key</label>
+                        <config_path>pagespeed/image/provider_apikey</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                            <field id="provider">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="webp_enable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable WebP Support</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>pagespeed/image/optimize_webp_enable</config_path>
+                        <comment><![CDATA[<a href="https://developers.google.com/speed/webp/">A new image format for the Web</a></br>
+                        Enable only after run
+                        <code>
+                            <pre>
+                            sudo apt-get install webp
+                            bin/magento catalog:images:resize
+                            </pre>
+                        </code>]]></comment>
+                    </field>
+
+                    <field id="cron_enable" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Cron Enable</label>
+                        <comment>Don't use this option if your server has not enough processor resources</comment>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>pagespeed/image/optimize_cron_enable</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="cron_limit" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Cron Limit</label>
+                        <comment>Limit images per one cron task. (Default: 100)</comment>
+                        <config_path>pagespeed/image/optimize_cron_limit</config_path>
+                        <depends>
+                            <field id="cron_enable">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="optimize_timeout" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Optimizer Timeout</label>
+                        <comment>Set the amount of seconds each separate optimizer may use. (Default: 10)</comment>
+                        <config_path>pagespeed/image/optimize_timeout</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="optimize_logging"  translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Logging Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>pagespeed/image/optimize_logging</config_path>
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+
+        </section>
+    </system>
+
+</config>

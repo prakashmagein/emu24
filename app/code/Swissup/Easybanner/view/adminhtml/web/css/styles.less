@@ -1,0 +1,29 @@
+.easybanner {
+    &__control-content-wrapper {
+        cursor: pointer;
+        position: relative;
+        > span {
+            display: block;
+            padding: 2px 1px;
+            position: absolute;
+            left: -5px;
+            top: -7px;
+            background: orange;
+            font-size: 11px;
+            line-height: 11px;
+            color: #fff;
+        }
+    }
+    &__control-content {
+        height: 17px;
+        overflow: hidden;
+    }
+    &.thumbnail-preview {
+        word-break: break-word;
+        text-align: initial !important;
+    }
+    .thumbnail-preview-content,
+    .thumbnail-preview-image-block {
+        text-align: center;
+    }
+}

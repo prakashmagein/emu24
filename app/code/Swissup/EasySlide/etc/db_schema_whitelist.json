@@ -1,0 +1,41 @@
+{
+    "swissup_easyslide_slider": {
+        "column": {
+            "slider_id": true,
+            "identifier": true,
+            "title": true,
+            "slider_config": true,
+            "is_active": true
+        },
+        "index": {
+            "SWISSUP_EASYSLIDE_SLIDER_IDENTIFIER_TITLE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_easyslide_slides": {
+        "column": {
+            "slide_id": true,
+            "slider_id": true,
+            "title": true,
+            "image": true,
+            "description": true,
+            "desc_position": true,
+            "desc_background": true,
+            "url": true,
+            "target": true,
+            "sort_order": true,
+            "is_active": true,
+            "active_from_timestamp": true,
+            "active_to_timestamp": true
+        },
+        "index": {
+            "SWISSUP_EASYSLIDE_SLIDES_SLIDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_7622FF91B5191709CE58A5D254E7193A": true
+        }
+    }
+}

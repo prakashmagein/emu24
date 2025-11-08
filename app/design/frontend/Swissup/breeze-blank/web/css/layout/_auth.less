@@ -1,0 +1,36 @@
+& when (@critical) {
+    [data-bind*="authenticationPopup"]:not([style]) {
+        display: none;
+    }
+}
+
+& when not (@critical) {
+    .popup-authentication {
+        .modal-inner-wrap {
+            --modal-max-width: 850px;
+        }
+        .block-authentication {
+            padding: 0 @4;
+            display: flex;
+            flex-direction: column;
+            gap: @4;
+
+            @media @media-md {
+                flex-direction: row;
+                gap: @8;
+                > .block {
+                    flex-grow: 1;
+                    flex-basis: 0;
+                }
+            }
+        }
+        .block-new-customer {
+            p {
+                &:extend(.breeze-prose p all);
+            }
+            ul {
+                &:extend(.breeze-prose :where(ul:not(.unstyled):not(.items)) all);
+            }
+        }
+    }
+}

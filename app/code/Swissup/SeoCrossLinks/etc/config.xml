@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <seo_cross_links>
+            <general>
+                <enabled>0</enabled>
+                <enabled_for_magefun_post>0</enabled_for_magefun_post>
+            </general>
+        </seo_cross_links>
+    </default>
+</config>

@@ -1,0 +1,61 @@
+<?php
+/**
+  * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+
+$helper = $this->helper('Swissup\Amp\Helper\Catalog');
+
+$orderModifiers = $helper->getOrderModifiers();
+$orders = $block->getAvailableOrders();
+$currentOrder = $block->getCurrentOrder();
+$currentOrderLabel = isset($orders[$currentOrder]) ? $orders[$currentOrder] : $currentOrder;
+$currentDirection = strtolower($block->getCurrentDirection());
+$currentOrderModifier = isset($orderModifiers[$currentOrder]) ? $orderModifiers[$currentOrder][$currentDirection] : $orderModifiers['*'][$currentDirection];
+if ($currentOrderModifier) {
+    $currentOrderLabel .= ' (' . __($currentOrderModifier) . ')';
+}
+?>
+<div class="toolbar-sorter sorter">
+<?php if ($helper->canShowShopBy()) : ?>
+    <div class="shop-by">
+        <button on="tap:shop-by-lightbox">
+            <?= __('Shop By') ?>
+            <?php $filters = $helper->getActiveFilters() ?>
+            <?= count($filters) ? '(' . count($filters) . ')' : '' ?>
+        </button>
+    </div>
+<?php endif; ?>
+    <div class="switcher">
+        <amp-accordion disable-session-states>
+            <section>
+                <header class="current">
+                    <?= __('Sort By') ?>
+                    <strong><?= $block->escapeHtml(__($currentOrderLabel)) ?></strong>
+                </header>
+                <div class="others">
+                    <?php foreach ($orders as $key => $order): ?>
+                        <?php
+                            $modifiers = isset($orderModifiers[$key]) ? $orderModifiers[$key] : $orderModifiers['*'];
+                        ?>
+
+                        <?php foreach ($modifiers as $dir => $suffix) : ?>
+                            <?php if (false === $suffix) : continue; endif; ?>
+                            <div>
+                                <a href="<?= $helper->getOrderUrl($block, $key, $dir) ?>"
+                                    ><?= __('Sort By') ?>
+                                    <strong>
+                                        <?= __($order) ?>
+                                        <?php if (!empty($suffix)) : ?>
+                                            (<?= __($suffix) ?>)
+                                        <?php endif ?>
+                                    </strong>
+                                </a>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+        </amp-accordion>
+    </div>
+</div>

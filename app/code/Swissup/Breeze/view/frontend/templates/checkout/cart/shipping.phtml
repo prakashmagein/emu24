@@ -1,0 +1,95 @@
+<?php /** @var $block \Magento\Checkout\Block\Cart\Shipping */
+
+$title = $block->escapeHtml(__('Estimate Shipping and Tax'));
+$note = $block->escapeHtml(__('Enter your destination to get a shipping estimate.'));
+
+if ($block->getQuote()->isVirtual()) {
+    $title = $block->escapeHtml(__('Estimate Tax'));
+    $note = $block->escapeHtml(__('Enter your billing address to get a tax estimate.'));
+}
+?>
+
+<div id="block-shipping"
+    class="block shipping"
+    data-mage-init='{"collapsible":{"openedState": "active", "saveState": true}}'>
+    <div class="title" data-role="title">
+        <strong id="block-shipping-heading" role="heading" aria-level="2"><?= $title ?></strong>
+    </div>
+    <div id="block-summary" class="content" data-role="content" aria-labelledby="block-shipping-heading">
+        <form method="post" id="shipping-zip-form">
+            <fieldset class="fieldset estimate">
+                <legend class="legend">
+                    <span><?= $title ?></span>
+                </legend>
+                <p class="field note"><?= $note ?></p>
+                <?= $this->getChildHtml('checkout.cart.shipping.fields') ?>
+            </fieldset>
+        </form>
+
+        <form id="co-shipping-method-form" data-bind="blockLoader: isLoading, visible: isShippingBlockVisible()" style="display:none">
+            <p class="field note" data-bind="visible: (!isLoading() && shippingRates().length <= 0)">
+                <!-- ko text: $t('Sorry, no quotes are available for this order at this time')--><!-- /ko -->
+            </p>
+            <fieldset class="fieldset rate" data-bind="visible: (shippingRates().length > 0)">
+                <dl class="items methods" data-bind="foreach: shippingRateGroups()">
+                    <dt class="item-title"><span data-bind="text: $data"></span></dt>
+                    <dd class="item-options" data-bind="foreach: { data: $parent.getRatesForGroup($data), as: 'method' }">
+                        <div data-bind="css: {'field choice item': available, 'message error': !available} ">
+                            <!-- ko ifnot: (available) -->
+                            <div data-bind="text: error_message"></div>
+                            <!-- /ko -->
+                            <!-- ko if: (available) -->
+                            <input type="radio"
+                                   class="radio"
+                                   data-bind="
+                                        click: $parents[1].selectShippingMethod.bind($parents[1]),
+                                        checked: $parents[1].shippingMethod,
+                                        attr: {
+                                            value: carrier_code + '_' + method_code,
+                                            id: 's_method_' + carrier_code + '_' + method_code
+                                        }"/>
+                            <label class="label" data-bind="attr: { for: 's_method_' + carrier_code + '_' + method_code }">
+                                <!-- ko text: $data.method_title --><!-- /ko -->
+
+                                <!-- ko if: $parents[1].isDisplayShippingPriceExclTax -->
+                                <span class="price"><span class="price" data-bind="text: $parents[1].getFormattedPrice(method.price_excl_tax)"></span></span>
+                                <!-- /ko -->
+
+                                <!-- ko ifnot: $parents[1].isDisplayShippingPriceExclTax -->
+                                    <!-- ko if: ($parents[1].isDisplayShippingBothPrices && (method.price_excl_tax != method.price_incl_tax))-->
+                                    <span class="price-including-tax" data-bind="attr: {'data-label': $t('Incl. Tax')}">
+                                        <span class="price"><span class="price" data-bind="text: $parents[1].getFormattedPrice(method.price_incl_tax)"></span></span>
+                                    </span>
+                                    <!-- /ko -->
+
+                                    <!-- ko ifnot: ($parents[1].isDisplayShippingBothPrices && (method.price_excl_tax != method.price_incl_tax))-->
+                                    <span class="price"><span class="price" data-bind="text: $parents[1].getFormattedPrice(method.price_incl_tax)"></span></span>
+                                    <!-- /ko -->
+                                <!-- /ko -->
+
+                                <!-- ko if: ($parents[1].isDisplayShippingBothPrices && (method.price_excl_tax != method.price_incl_tax))-->
+                                <span class="price-excluding-tax" data-bind="attr: {'data-label': $t('Excl. Tax')}">
+                                    <span class="price"><span class="price" data-bind="text: $parents[1].getFormattedPrice(method.price_excl_tax)"></span></span>
+                                </span>
+                                <!-- /ko -->
+                            </label>
+                            <!-- /ko -->
+                        </div>
+                    </dd>
+                </dl>
+            </fieldset>
+        </form>
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#block-summary": {
+                "Swissup_Breeze/js/components/estimate-shipping": {}
+            }
+        }
+    </script>
+    <script>
+        window.checkoutConfig = <?= /* @noEscape */ $block->getSerializedCheckoutConfig() ?>;
+        window.customerData = window.checkoutConfig.customerData;
+        window.isCustomerLoggedIn = window.checkoutConfig.isCustomerLoggedIn;
+    </script>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <referenceBlock name="checkout.cart.item.renderers.override">
+            <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="default" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="simple" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable" as="configurable" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\Downloadable\Block\Checkout\Cart\Item\Renderer" as="downloadable" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\Bundle\Block\Checkout\Cart\Item\Renderer" as="bundle" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="virtual" template="Swissup_Suggestpage::cart/item/default.phtml" />
+            <block class="Magento\GroupedProduct\Block\Cart\Item\Renderer\Grouped" as="grouped" template="Swissup_Suggestpage::cart/item/default.phtml" />
+        </referenceBlock>
+        <!--<referenceBlock name="checkout.cart.form">-->
+            <!--<action method="setOverriddenTemplates">-->
+                <!--<argument name="productTypes" xsi:type="array">-->
+                    <!--<item name="default" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="simple" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="virtual" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="bundle" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="configurable" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="downloadable" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                    <!--<item name="grouped" xsi:type="string">Swissup_Suggestpage::cart/item/default.phtml</item>-->
+                <!--</argument>-->
+            <!--</action>-->
+        <!--</referenceBlock>-->
+    </body>
+</page>

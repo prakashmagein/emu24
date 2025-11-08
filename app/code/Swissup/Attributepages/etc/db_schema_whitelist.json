@@ -1,0 +1,57 @@
+{
+    "swissup_attributepages_entity": {
+        "column": {
+            "entity_id": true,
+            "attribute_id": true,
+            "option_id": true,
+            "name": true,
+            "identifier": true,
+            "title": true,
+            "page_title": true,
+            "content": true,
+            "image": true,
+            "thumbnail": true,
+            "meta_keywords": true,
+            "meta_description": true,
+            "display_settings": true,
+            "root_template": true,
+            "layout_update_xml": true,
+            "use_for_attribute_page": true,
+            "use_for_product_page": true,
+            "excluded_option_ids": true,
+            "conditions_serialized": true,
+            "sort_order": true,
+            "short_description": true,
+            "hide_from_layered_navigation": true,
+            "meta_title": true
+        },
+        "index": {
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_ATTRIBUTE_ID": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_OPTION_ID": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_IDENTIFIER": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_TITLE": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_NAME_TITLE_IDENTIFIER": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_SORT_ORDER": true,
+            "SWISSUP_ATTRIBUTEPAGES_ENTITY_HIDE_FROM_LAYERED_NAVIGATION": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_ATTRPAGES_ENTT_ATTR_ID_EAV_ATTR_ATTR_ID": true,
+            "SWISSUP_ATTRPAGES_ENTT_OPT_ID_EAV_ATTR_OPT_OPT_ID": true
+        }
+    },
+    "swissup_attributepages_store": {
+        "column": {
+            "entity_id": true,
+            "store_id": true
+        },
+        "index": {
+            "SWISSUP_ATTRIBUTEPAGES_STORE_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_ATTRPAGES_STORE_ENTT_ID_SWISSUP_ATTRPAGES_ENTT_ENTT_ID": true,
+            "SWISSUP_ATTRIBUTEPAGES_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

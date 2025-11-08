@@ -1,0 +1,40 @@
+<!-- <?php //echo __FILE__; ?> -->
+<?php
+/** @var \Swissup\Ajaxpro\Block\Template $block */
+/** @var \Swissup\Ajaxpro\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+if ($viewModel && $viewModel->isCartViewEnabled()) :
+?>
+<div data-bind="scope: 'ajaxpro'">
+    <div class="ajaxpro-wrapper" data-block="ajaxpro" data-bind="visible: isActive()">
+        <!-- <button
+            type="button"
+            class="action action-auth-toggle"
+            data-trigger="ajaxpro">
+            <span data-bind="i18n: 'Modal Ajaxpro'"></span>
+        </button> -->
+        <div class="block-ajaxpro"
+             style="display: none"
+             data-bind="mageInit: {
+                'Swissup_Ajaxpro/js/modal':{
+                    'modalClass': '<?= /* @noEscape */ $viewModel->getCartPopupClassName() ?>',
+                    'closeTimeout': <?= /* @noEscape */ $viewModel->getCloseTimeout() ?>,
+                    'responsive': true,
+                    'innerScroll': true,
+                    'type': '<?= /* @noEscape */ $viewModel->getCartDialogType() ?>',
+                    'buttons': [{
+                        text: '<?= /* @noEscape */ __('Continue Shopping')?>',
+                        class: 'ajaxpro-continue-button',
+                        click: function() {
+                            this.closeModal();
+                        }
+                    }]
+                }}">
+            <div id="ajaxpro-checkout.cart"
+                 data-bind="afterRender: afterRender, bindHtml: bindBlock('checkout.cart')">
+            </div>
+        </div>
+    </div>
+    <div id="ajaxpro-checkout.cart.fixes" data-bind="html: bindBlock('checkout.cart.fixes')"></div>
+</div>
+<?php endif; ?>

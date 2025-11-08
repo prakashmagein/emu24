@@ -1,0 +1,43 @@
+"Save Slider","Salvar controle deslizante"
+"Delete Slider","Excluir controle deslizante"
+"Edit Slider - '%1'","Controle deslizante de edição - '%1'"
+"New Slider","New Slider"
+Parameters,Parâmetros
+Direction,Direção
+Horizontal,Horizontal
+Vertical,Vertical
+Effect,Efeito
+Slide,Deslizar
+Fade,Desvaneça
+Cube,Cubo
+Coverflow,Coverflow
+Flip,Giro
+Speed,Rapidez
+Autoplay,"Reprodução automática"
+Pagination,Paginação
+"Navigation Buttons","Botões de navegação"
+Scrollbar,"Barra de rolagem"
+"Scrollbar Hide","Ocultar barra de rolagem"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Slides
+"Add New Slide","Adicionar novo slide"
+"Slider was deleted.","O controle deslizante foi excluído."
+"Can't find a slider to delete.","Não foi possível encontrar um controle deslizante para excluir."
+EasySlide,EasySlide
+"Manage Sliders","Gerenciar controles deslizantes"
+"This slider no longer exists.","Esse controle deslizante não existe mais."
+"Edit Slider","Controle deslizante de edição"
+Sliders,Sliders
+"Slider has been saved.","O controle deslizante foi salvo."
+"Something went wrong while saving the slider.","Ocorreu um erro ao salvar o controle deslizante."
+Link,Ligação
+"Open link in","Abrir link em"
+Description,Descrição
+"Description Position","Descrição Posição"
+"Description Background","Descrição Histórico"
+"Slide Detail","Detalhe do slide"
+"Select Slider","Selecionar Slider"
+"Add New Slider","Adicionar novo controle deslizante"
+Black,Preto
+White,Branco

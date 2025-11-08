@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_easytabs" type="text" sortOrder="574" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <tab>swissup</tab>
+            <label>Easytabs</label>
+            <resource>Swissup_Easytabs::Easytabs_config</resource>
+            <group id="product_tabs" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product page tabs</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment>Replace default Magento tabs with powerful tabs from Swissup.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="layout" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Layout</label>
+                    <source_model>Swissup\Easytabs\Model\Config\Source\Layout</source_model>
+                </field>
+                <field id="multipleCollapsible" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Can open multiple tabs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="layout">accordion</field>
+                    </depends>
+                </field>
+                <field id="activeTabs" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Open initially</label>
+                    <comment>Tab's index opened by default. Index starts with "0". All closed when value is "-1". You can set few indexes separating them with comma.</comment>
+                    <validate>no-whitespace required-entry</validate>
+                    <depends>
+                        <field id="layout">accordion</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

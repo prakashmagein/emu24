@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_gdpr>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <request>
+                <delete_data>
+                    <method>anonymize</method>
+                    <placeholder>anonymous</placeholder>
+                    <automate>1</automate>
+                    <days_to_wait>10</days_to_wait>
+                </delete_data>
+            </request>
+            <cookie_consents>
+                <enabled>1</enabled>
+                <lifetime>90</lifetime>
+                <google_consent>1</google_consent>
+                <google_consent_defaults><![CDATA[[
+    {
+        "ad_storage": "denied",
+        "ad_user_data": "denied",
+        "ad_personalization": "denied",
+        "analytics_storage": "denied"
+    }
+]]]></google_consent_defaults>
+                <cookie_bar_display_mode>minimalistic</cookie_bar_display_mode>
+                <cookie_bar_text_full><![CDATA[
+<h3>Our use of cookies</h3>
+
+<p>
+    We use necessary cookies to make our site work. We'd also like to set optional cookies to help us improve it.
+    We won't set optional cookies unless you enable them.
+    Using this tool will set a cookie on your device to remember your preferences.
+</p>
+]]></cookie_bar_text_full>
+                <cookie_bar_text_minimalistic><![CDATA[
+<p>
+    This website uses cookies to improve your experience. By clicking “Deny”, you consent to the use of Necessary cookies only. You may also accept selected cookies only.
+</p>
+]]></cookie_bar_text_minimalistic>
+                <cookie_page_url>cookie-settings</cookie_page_url>
+                <cookie_page_text><![CDATA[
+<p>
+    Cookies are small text files that are placed on your computer by websites that you visit. They are widely used in order to make websites work, or work more efficiently, as well as to provide information to the owners of the site. The list below explains the cookies we use and why.
+</p>]]></cookie_page_text>
+                <cookie_page_columns_count>auto</cookie_page_columns_count>
+            </cookie_consents>
+            <consents>
+                <privacy>
+                    <enabled>1</enabled>
+                    <sort_order>10</sort_order>
+                    <title><![CDATA[I accept the <a href="{{store url="privacy-policy"}}" title="Privacy Policy">Privacy Policy</a>]]></title>
+                    <forms>magento:customer-registration</forms>
+                </privacy>
+                <terms>
+                    <enabled>1</enabled>
+                    <sort_order>11</sort_order>
+                    <title><![CDATA[I accept the <a href="{{store url="terms-and-conditions"}}" title="Terms and Conditions">Terms &amp; Conditions</a>]]></title>
+                    <forms>magento:customer-registration</forms>
+                </terms>
+                <personal_data>
+                    <enabled>1</enabled>
+                    <sort_order>20</sort_order>
+                    <title>I agree to my personal data being stored and used to provide website services. (Order processing, comments, reviews, questions, testimonials)</title>
+                    <forms>magento:customer-registration</forms>
+                </personal_data>
+                <newsletter>
+                    <enabled>1</enabled>
+                    <sort_order>20</sort_order>
+                    <title>I agree to my email being stored and used to receive information and commercial offers about your products and services</title>
+                    <forms>magento:newsletter-subscription,magento:newsletter-subscription-management</forms>
+                </newsletter>
+                <contacts>
+                    <enabled>1</enabled>
+                    <sort_order>20</sort_order>
+                    <title>I agree to my personal data being stored and used to contact with me</title>
+                    <forms>magento:contact-us</forms>
+                </contacts>
+                <review>
+                    <enabled>1</enabled>
+                    <sort_order>20</sort_order>
+                    <title>I agree to my personal data being stored and used to display my reviews on the site</title>
+                    <forms>magento:product-review</forms>
+                </review>
+                <cookie>
+                    <enabled>1</enabled>
+                    <sort_order>20</sort_order>
+                    <title>I accept following cookies: {{cookie_groups}}</title>
+                    <forms>swissup:cookie-consent</forms>
+                </cookie>
+            </consents>
+        </swissup_gdpr>
+        <subscriptionchecker>
+            <ignore>
+                <swissup_gdpr/>
+            </ignore>
+        </subscriptionchecker>
+    </default>
+</config>

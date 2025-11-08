@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <packages>
+        <package>swissup/argento-breeze</package>
+        <package>swissup/argento-breeze-business</package>
+        <package>swissup/theme-frontend-argentobreeze-business</package>
+    </packages>
+
+    <fields>
+        <field name="theme" title="Select Theme">
+            <option title="ArgentoBreeze Business">swissup/theme-frontend-argentobreeze-business</option>
+        </field>
+    </fields>
+
+    <commands>
+        <conditions>
+            <param name="theme">swissup/theme-frontend-argentobreeze-business</param>
+        </conditions>
+        <include path="commands/config.xml"/>
+        <include path="commands/cms_page.xml"/>
+        <include path="commands/cms_block.xml"/>
+        <include path="commands/easytabs.xml"/>
+        <include path="commands/navigationpro.xml"/>
+        <include path="commands/resources.xml"/>
+        <include path="commands/testimonials.xml"/>
+        <include path="commands/widget.xml"/>
+    </commands>
+</config>

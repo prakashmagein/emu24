@@ -1,0 +1,33 @@
+<?php
+
+$block->setMode('list');
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * @var $block \Swissup\Highlight\Block\Product\Abstract
+ */
+if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())) {
+    $title = $block->getTitle();
+    $items = $block->getProductCollection()->getItems();
+    $helper = $this->helper('Magento\Catalog\Helper\Output');
+}
+?>
+
+<?php if ($exist):?>
+    <ol class="product-items product-items-names">
+        <?php $iterator = 1; ?>
+        <?php foreach ($items as $_item): ?>
+            <li class="product-item">
+                <strong class="product-item-name">
+                    <a href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>"
+                       title="<?php /* @escapeNotVerified */ echo $block->stripTags($_item->getName(), null, true) ?>)"
+                       class="product-item-link">
+                        <?php /* @escapeNotVerified */ echo $helper->productAttribute($_item, $_item->getName(), 'name') ?>
+                    </a>
+                </strong>
+            </li>
+        <?php endforeach ?>
+    </ol>
+<?php endif;?>

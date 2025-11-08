@@ -1,0 +1,79 @@
+Handles,maniglie
+"Save Banner","Salva banner"
+"Delete Banner","Elimina banner"
+"Edit Banner - '%1'","Modifica banner - '%1'"
+"New Banner","Nuovo banner"
+"Css Class","Classe Css"
+"Image Options","Opzioni immagine"
+"Use image resizer","Usa ridimensionatore di immagini"
+"Retina support","Supporto Retina"
+"Actual image size should be twice larger then entered width and height","Le dimensioni effettive dell'immagine dovrebbero essere due volte più grandi della larghezza e dell'altezza immesse"
+"Background Color","Colore di sfondo"
+"Html Content","Contenuto HTML"
+Banner,bandiera
+Lightbox,ID
+Awesomebar,AwesomeBar
+"Hide Url","Nascondi URL"
+Target,Bersaglio
+Popup,Apparire
+Blank,vuoto
+Self,"Se stesso"
+"Sort Order",Ordinamento
+"Store View","Store View"
+Placeholder,segnaposto
+Statistics,statistica
+"New Placeholder","Nuovo segnaposto"
+"Banners Display Count","Conteggio visualizzazione banner"
+"Sort mode","Modalità di ordinamento"
+"By Banners Sort Order","Per banner Ordinamento"
+Random,Casuale
+"Banner was deleted.","Il banner è stato cancellato."
+"Banner was disabled.","Banner disabilitato."
+EasyBanner,EasyBanner
+Banners,banner
+"This banner no longer exists.","Questo banner non esiste più."
+"Edit Banner","Modifica banner"
+"Banner was enabled.","Banner abilitato."
+"Manage Banners","Gestisci banner"
+"Banner has been saved.","Banner è stato salvato."
+"Something went wrong while saving the banner.","Qualcosa è andato storto durante il salvataggio del banner."
+"Placeholder was deleted.","Il segnaposto è stato eliminato."
+"Placeholder was disabled.","Il segnaposto è stato disabilitato."
+Placeholders,segnaposto
+"This placeholder no longer exists.","Questo segnaposto non esiste più."
+"Placeholder was enabled.","Il segnaposto è stato abilitato."
+"Manage Placeholders","Gestisci segnaposto"
+"Placeholder has been saved.","Il segnaposto è stato salvato."
+"Something went wrong while saving the placeholder.","Qualcosa è andato storto durante il salvataggio del segnaposto."
+"Subtotal (Excl.Tax)","Totale parziale (IVA esclusa)"
+"Subtotal (Incl.Tax)","Totale parziale (IVA inclusa)"
+"Clicks Count","Clic conteggi"
+"Display Count","Visualizza conteggio"
+"Display Count per Customer","Visualizza conteggio per cliente"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: tempo di navigazione del cliente (secondi)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: tempo di inattività del cliente (secondi)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Lightbox / Awesomebar: tempo di attività del cliente (secondi)"
+"Lightbox/Awesomebar: Scroll offset","Lightbox / Barra impressionante: Scorri offset"
+"Open Chooser","Apri Scelta Risorse"
+%1%1"Last 7 days","Ultimi 7 giorni"
+"Last 30 days","Ultimi 30 giorni"
+"Last 6 Month","6 mesi scorsi"
+"Last 12 Month","12 mesi scorsi"
+"All Time",Sempre
+"Banner Statistics","Statistiche banner"
+"EasyBanner Banner","Banner di EasyBanner"
+"Select Banner...","Seleziona banner ..."
+"EasyBanner Placeholder","Segnaposto EasyBanner"
+"Select Placeholder...","Seleziona segnaposto ..."
+"Add Banner","Aggiungi banner"
+"Image Title","Titolo dell'immagine"
+"Is Active","È attivo"
+"Add Placeholder","Aggiungi segnaposto"
+"Additional CSS Class","Classe CSS aggiuntiva"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Se hai intenzione di mostrare questo segnaposto in una barra laterale, ti consigliamo di impostare il seguente valore: block block-easybanner-placeholder"
+"Parent Container","Contenitore principale"
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Non conosci il nome del contenitore? Lascialo vuoto e assegna il segnaposto al contenitore richiesto tramite l'interfaccia ""Contenuto> Widget"". Puoi anche visualizzare l'elenco delle posizioni dei segnaposto comuni su http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Posizione
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","È richiesta la sintassi dell'attributo XML. Esempi: before = ""-"", after = ""-"", before = ""block.name"""
+"Don't show anymore","Non mostrare più"
+"Exit intent time (seconds)","Tempo di intento di uscita (secondi)"

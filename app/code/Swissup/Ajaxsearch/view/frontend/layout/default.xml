@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Swissup\Ajaxsearch\Block\Filter\Category" name="filter.category.top.search" template="Swissup_Ajaxsearch::filter/category.phtml" ifconfig="ajaxsearch/category/filter">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Swissup\Ajaxsearch\ViewModel\Config</argument>
+                </arguments>
+            </block>
+            <block class="Swissup\Ajaxsearch\Block\Init" name="top.ajaxsearch.init" template="Swissup_Ajaxsearch::init.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Swissup\Ajaxsearch\ViewModel\Config</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

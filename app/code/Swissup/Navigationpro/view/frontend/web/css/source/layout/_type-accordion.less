@@ -1,0 +1,92 @@
+.navpro-accordion() {
+    // Transform top level links into block elements
+    &.navpro {
+        .level0 {
+            > .level-top {
+                display: block;
+            }
+            &.active,
+            &.has-active {
+                > .level-top {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    // Rotate caret: '>'
+    .navpro-icon-caret::before {
+        transition: transform 200ms ease-in-out;
+    }
+    .navpro-icon-caret::before {
+        transform: rotate(-90deg);
+    }
+    li.opened > a > .navpro-icon-caret::before {
+        transform: rotate(0deg);
+    }
+
+    // Use static positioning for dropdown
+    .navpro-dropdown {
+        .navpro-dropdown-reset();
+
+        position: static;
+        box-shadow: none !important;
+        width: auto !important;
+
+        min-height: 0 !important; // see updateDimensions in navpro.js
+        max-height: 0;
+        max-width: 100%; // @see navpro.js
+        overflow: hidden;
+
+        .multicolumn {
+            &.vertical {
+                // @see navpro.js
+                height: auto !important;
+            }
+        }
+
+        &.shown {
+            max-height: 1000em;
+        }
+
+        &-inner {
+            padding-top: 3px;
+            padding-bottom: 5px;
+        }
+
+        &-expanded {
+            > .navpro-dropdown-inner {
+                > .navpro-row > .navpro-col > .children > li {
+                    .navpro-dropdown > .navpro-dropdown-inner {
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+
+        .children {
+            display: block; /* reset ribbon style */
+            &.multicolumn > li {
+                width: 100%;
+            }
+        }
+    }
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-accordion {
+        .navpro-transformable {
+            .navpro-accordion();
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        &.navpro-accordion {
+            .navpro-accordion();
+        }
+    }
+}
+}

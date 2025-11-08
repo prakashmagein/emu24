@@ -1,0 +1,84 @@
+& when (@critical) {
+    .soldtogether-block {
+        .product-item {
+            padding: var(--listing-grid-item-padding) !important;
+            .lib-css(background, @listing-grid-item__background);
+
+            @media @media-sm {
+                flex: 1;
+            }
+            @media @media-md {
+                height: 100%;
+            }
+            @media @media-sm-down {
+                width: 50%;
+            }
+
+            &::before {
+                display: none !important;
+            }
+        }
+        @media @media-xl-down {
+            .plus {
+                display: none;
+            }
+        }
+    }
+    .soldtogether-block.amazon-stripe {
+        .block-content {
+            border: 1px solid @divider__color;
+            padding: @3;
+            gap: @3;
+        }
+        .amazonstyle-images {
+            margin: 0;
+            gap: @2;
+        }
+    }
+    .soldtogether-swiper .product-item-name,
+    .soldtogether-swiper .product.name a {
+        min-height: @6;
+    }
+}
+
+& when not (@critical) {
+    .soldtogether-block.amazon-stripe {
+        .details-toggler::after {
+            .right(.7rem);
+        }
+        .details-wrapper {
+            .lib-css(background, @listing-grid-item__background);
+        }
+        .item-inactive .product-photo-wrapper .checkbox {
+            opacity: 1;
+        }
+    }
+    .soldtogether-swiper {
+        .field.choice {
+            &:has(.soldtogether-tocart) {
+                &,
+                &:hover {
+                    border: 0;
+                    background: none;
+                }
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                [class*="swatch-opt-"] {
+                    width: 100%;
+                }
+            }
+            &:has(.soldtogether-tocart:checked) {
+                display: flex !important;
+            }
+        }
+        .product-item:has(.soldtogether-tocart:checked) {
+            .product-item-details {
+                max-height: 67%;
+                overflow: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Swissup\Attributepages\Block\Sitemap" name="seohtmlsitemap.attributepages" template="Swissup_SeoHtmlSitemap::sitemap.phtml" before="seohtmlsitemap.custom">
+                <action method="setTitle">
+                    <argument translate="true" name="title" xsi:type="string">Attribute Pages</argument>
+                </action>
+                <action method="setTemplate" ifconfig="seohtmlsitemap/content_settings/group_by_first_letter">
+                    <argument name='template' xsi:type='string'>Swissup_SeoHtmlSitemap::grouped.phtml</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,108 @@
+{
+    "swissup_easybanner_banner": {
+        "column": {
+            "banner_id": true,
+            "identifier": true,
+            "type": true,
+            "sort_order": true,
+            "title": true,
+            "url": true,
+            "image": true,
+            "html": true,
+            "status": true,
+            "mode": true,
+            "target": true,
+            "hide_url": true,
+            "conditions_serialized": true,
+            "resize_image": true,
+            "width": true,
+            "height": true,
+            "retina_support": true,
+            "background_color": true,
+            "class_name": true,
+            "is_responsive": true,
+            "sizes": true,
+            "is_trackable": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_easybanner_placeholder": {
+        "column": {
+            "placeholder_id": true,
+            "name": true,
+            "status": true,
+            "limit": true,
+            "mode": true,
+            "banner_offset": true,
+            "sort_mode": true,
+            "container": true,
+            "position": true,
+            "additional_css_class": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_easybanner_banner_placeholder": {
+        "column": {
+            "banner_id": true,
+            "placeholder_id": true
+        },
+        "index": {
+            "SWISSUP_EASYBANNER_BANNER_PLACEHOLDER_PLACEHOLDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_15A431AEA52B6712FD8B66C79ECD1400": true,
+            "FK_526528BEC12EBA478E89CCE3C023B70D": true
+        }
+    },
+    "swissup_easybanner_banner_statistic": {
+        "column": {
+            "id": true,
+            "banner_id": true,
+            "date": true,
+            "display_count": true,
+            "clicks_count": true
+        },
+        "index": {
+            "SWISSUP_EASYBANNER_BANNER_STATISTIC_ID": true,
+            "SWISSUP_EASYBANNER_BANNER_STATISTIC_BANNER_ID": true
+        },
+        "constraint": {
+            "FK_E14293872973269E61464FBAF16CBDE6": true
+        }
+    },
+    "swissup_easybanner_banner_store": {
+        "column": {
+            "banner_id": true,
+            "store_id": true
+        },
+        "index": {
+            "SWISSUP_EASYBANNER_BANNER_STORE_STORE_ID": true,
+            "SWISSUP_EASYBANNER_BANNER_STORE_BANNER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_83A8EDAB6BD054B529E6C2B7B019CA71": true,
+            "SWISSUP_EASYBANNER_BANNER_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "swissup_easybanner_placeholder_offset": {
+        "column": {
+            "id": true,
+            "placeholder_id": true,
+            "banner_offset": true,
+            "insert_time": true
+        },
+        "index": {
+            "SWISSUP_EASYBANNER_PLACEHOLDER_OFFSET_PLACEHOLDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_995117F5F1EBFE90A17A1B27ACE016A4": true
+        }
+    }
+}

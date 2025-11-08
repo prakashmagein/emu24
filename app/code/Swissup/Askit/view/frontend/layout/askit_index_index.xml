@@ -1,0 +1,19 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="askit_richsnippet_integration"/>
+    <head>
+        <title>Questions</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument name="title" translate="true" xsi:type="string">Questions</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Swissup\Askit\Block\Question\Listing" name="askit_listing" template="Swissup_Askit::question/listing-ajax.phtml" />
+            <block class="Swissup\Askit\Block\Question\Form" name="askit_form" template="Swissup_Askit::question/form.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

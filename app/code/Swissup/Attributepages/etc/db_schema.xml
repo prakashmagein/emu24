@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_attributepages_entity" resource="default" engine="innodb" comment="Swissup Attributepages Entity Table">
+    <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+    <column xsi:type="smallint" name="attribute_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Attribute Id"/>
+    <column xsi:type="int" name="option_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Option Id"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="64" comment="Name"/>
+    <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Identifier"/>
+    <column xsi:type="varchar" name="title" nullable="true" length="255" comment="Title"/>
+    <column xsi:type="varchar" name="page_title" nullable="false" length="255" default="" comment="Page Title"/>
+    <column xsi:type="text" name="content" nullable="true" comment="Content"/>
+    <column xsi:type="varchar" name="image" nullable="true" length="255" comment="Image"/>
+    <column xsi:type="varchar" name="thumbnail" nullable="true" length="255" comment="Thumbnail"/>
+    <column xsi:type="varchar" name="meta_title" nullable="false" length="255" default="" comment="Meta Title"/>
+    <column xsi:type="text" name="meta_keywords" nullable="true" comment="Meta Keywords"/>
+    <column xsi:type="text" name="meta_description" nullable="true" comment="Meta Description"/>
+    <column xsi:type="text" name="display_settings" nullable="true" comment="Display Settings"/>
+    <column xsi:type="varchar" name="root_template" nullable="true" length="255" comment="Root Template"/>
+    <column xsi:type="text" name="layout_update_xml" nullable="true" comment="Layout Update Xml"/>
+    <column xsi:type="smallint" name="use_for_attribute_page" padding="6" unsigned="false" nullable="false" identity="false" default="1" comment="Use For Attribute Page"/>
+    <column xsi:type="smallint" name="use_for_product_page" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Use For Product Page"/>
+    <column xsi:type="text" name="excluded_option_ids" nullable="true" comment="Excluded Option Ids"/>
+    <column xsi:type="text" name="conditions_serialized" nullable="true" comment="Conditions Serialized"/>
+    <column xsi:type="smallint" name="sort_order" padding="3" unsigned="false" nullable="true" identity="false" default="100" comment="Sort Order"/>
+    <column xsi:type="text" name="short_description" nullable="true" comment="Short Description"/>
+    <column xsi:type="smallint" name="hide_from_layered_navigation" padding="6" unsigned="false" nullable="true" identity="false" default="0" comment="Hide from layered navigation"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="entity_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_ATTRPAGES_ENTT_ATTR_ID_EAV_ATTR_ATTR_ID" table="swissup_attributepages_entity" column="attribute_id" referenceTable="eav_attribute" referenceColumn="attribute_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_ATTRPAGES_ENTT_OPT_ID_EAV_ATTR_OPT_OPT_ID" table="swissup_attributepages_entity" column="option_id" referenceTable="eav_attribute_option" referenceColumn="option_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_ATTRIBUTE_ID" indexType="btree">
+      <column name="attribute_id"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_OPTION_ID" indexType="btree">
+      <column name="option_id"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_IDENTIFIER" indexType="btree">
+      <column name="identifier"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_TITLE" indexType="btree">
+      <column name="title"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_NAME_TITLE_IDENTIFIER" indexType="fulltext">
+      <column name="name"/>
+      <column name="title"/>
+      <column name="identifier"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_SORT_ORDER" indexType="btree">
+      <column name="sort_order"/>
+    </index>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_ENTITY_HIDE_FROM_LAYERED_NAVIGATION" indexType="btree">
+      <column name="hide_from_layered_navigation"/>
+    </index>
+  </table>
+  <table name="swissup_attributepages_store" resource="default" engine="innodb" comment="Swissup Attribute Pages To Store Linkage Table">
+    <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Entity ID"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" comment="Store ID"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="entity_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_ATTRPAGES_STORE_ENTT_ID_SWISSUP_ATTRPAGES_ENTT_ENTT_ID" table="swissup_attributepages_store" column="entity_id" referenceTable="swissup_attributepages_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_ATTRIBUTEPAGES_STORE_STORE_ID_STORE_STORE_ID" table="swissup_attributepages_store" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_ATTRIBUTEPAGES_STORE_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+</schema>

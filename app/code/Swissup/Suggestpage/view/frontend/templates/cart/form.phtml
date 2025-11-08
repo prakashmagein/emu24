@@ -1,0 +1,32 @@
+<?php
+// @codingStandardsIgnoreFile
+/**  @var $block \Magento\Checkout\Block\Cart */
+$_items = $block->getItems();
+?>
+<div class="suggestpage-activity">
+    <?php if ($_items) : ?>
+        <div class="col-1 col-suggest-list">
+            <?php echo $block->getChildHtml('checkout.cart.form.col1.top'); ?>
+            <ol>
+                <?php foreach ($_items as $_item): ?>
+                    <?php echo $block->getItemHtml($_item);?>
+                <?php endforeach ?>
+            </ol>
+        </div>
+    <?php endif ?>
+    <div class="col-2 col-suggest-totals<?php echo $_items ? '' : ' col-suggest-totals-wide' ?>">
+        <div class="cartinfo">
+            <?php $_cartQty = (int) $block->getItemsSummaryQty() ?>
+            <?php if ($_cartQty == 1): ?>
+                <h3><?php echo __('There is <a href="%1">1 item</a> in your cart.', $block->getUrl('checkout/cart')) ?></h3>
+            <?php else: ?>
+                <h3><?php echo __('There are <a href="%1">%2 items</a> in your cart.', $block->getUrl('checkout/cart'), $_cartQty) ?></h3>
+            <?php endif ?>
+            <?php echo $block->getChildHtml('checkout.cart.totals'); ?>
+            <div class="actions">
+                <button onclick="window.location.href='<?php /* @escapeNotVerified */ echo $block->getUrl('checkout/cart') ?>';return false;" class="button btn-alt btn-suggest-page btn-suggest-cart" title="<?php echo __('Edit Your Cart') ?>" type="button"><span><?php echo __('Edit Your Cart') ?></span></button>
+                <?php echo $block->getChildHtml('checkout.cart.actions.onepage'); ?>
+            </div>
+        </div>
+    </div>
+</div>

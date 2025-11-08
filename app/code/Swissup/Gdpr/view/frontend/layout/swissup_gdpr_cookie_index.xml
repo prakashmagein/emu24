@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Cookie Settings</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Swissup\Gdpr\Block\CookieSettings" name="swissup_gdpr_cookie_settings"/>
+        </referenceContainer>
+        <referenceBlock name="swissup_gdpr_cookie_bar" remove="true"/>
+    </body>
+</page>

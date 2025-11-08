@@ -1,0 +1,56 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .block-highlight.highlight-carousel {
+        .swiper-container {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 640px) {
+        // disable carousel styles. @see Helper\Data::getSwiperData;
+        .block-highlight.highlight-carousel {
+            .swiper-container {
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: visible;
+            }
+        }
+        .block-highlight.highlight-swiper {
+            .block-content {
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                &::-webkit-scrollbar {
+                    width: 4px;
+                    height: 4px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: #eee;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    .block-highlight.highlight-carousel {
+        .swiper-container {
+            &.product-item-hovered {
+                margin: -20px auto -300px;
+                padding: 20px 0 300px;
+                z-index: 3; // cover other below list content
+
+                .swiper-button-prev,
+                .swiper-button-next {
+                    top: ~'calc(50% - (300px - 20px) / 2)';
+                }
+            }
+        }
+    }
+}
+}

@@ -1,0 +1,73 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var \Swissup\Ajaxsearch\Block\Init $block */
+/** @var \Swissup\Ajaxsearch\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+$wildcard = $viewModel->getWildcard();
+
+$graphQlUrl = $viewModel->getGraphQlUrl();
+$storeViewCode = $block->getStoreViewCode();
+?>
+<script id="swissup-ajaxsearch-init" type="text/x-magento-init">
+{
+    "#search": {
+        "Swissup_Ajaxsearch/js/ajaxsearch": {
+            "name": "Ajaxsearch",
+            "options": {
+                "url": "<?= $viewModel->getAjaxActionUrl($wildcard);?>",
+                "wildcard": "<?= $wildcard ?>",
+                "useGraphql": <?= $viewModel->useQraphQl() ? 'true' : 'false' ?>,
+                "graphqlUrl": "<?= $graphQlUrl;?>",
+                "storeViewCode": "<?= $storeViewCode ?>",
+                "isProductViewAllEnabled": <?= $viewModel->isProductViewAllEnabled() ? 'true' : 'false' ?>,
+                "classes": {
+                    "container": ".block-swissup-ajaxsearch",
+                    "additional": "<?= $viewModel->getAdditionalCssClass();?>"
+                },
+                "templates": {
+                    "autocomplete": "#swissup-ajaxsearch-autocomplete-template",
+                    "product": "#swissup-ajaxsearch-product-template",
+                    "page": "#swissup-ajaxsearch-page-template",
+                    "category": "#swissup-ajaxsearch-category-template",
+                    "popular": "#swissup-ajaxsearch-popular-template",
+                    "notFound": "#swissup-ajaxsearch-template-not-found"
+                },
+                "loader": {
+                    "container": ".block-swissup-ajaxsearch .input-inner-wrapper",
+                    "loaderImage": "<?= $block->getViewFileUrl('images/loader-1.gif'); ?>"
+                },
+                "typeahead": {
+                    "options": {
+                        "highlight": <?= $viewModel->isHighligth() ? 'true' : 'false';?>,
+                        "hint": <?= $viewModel->isHint() ? 'true' : 'false';?>,
+                        "minLength": <?= $viewModel->getMinQueryLength();?>,
+                        "classNames": <?= $viewModel->getClassNames()?>
+                    },
+                    "limit": <?= $viewModel->getLimit()?>
+                },
+                "settings": <?= $block->getSettings()?>
+            }
+        }<?php if ($viewModel->isCategoryFilterEnabled()) :?>,
+            "Swissup_Ajaxsearch/js/ajaxsearch/category": {
+                "matchMedia": "(min-width: 768px)",
+                "categoryVarName": "<?= $viewModel->getCategoryVarName() ?>",
+                "isCategoryFilterLoadOptionsByGraphql": <?= $viewModel->isCategoryFilterLoadOptionsByGraphql() ? 'true' : 'false' ?>,
+                "graphqlUrl": "<?= $graphQlUrl ?>",
+                "storeViewCode": "<?= $storeViewCode ?>",
+                "currentCategoryId": <?= $block->getCurrentCategory()->getId() ?>
+            }
+        <?php endif; ?>
+        <?php if ($viewModel->isFoldedDesignEnabled()) :?>,
+        "Swissup_Ajaxsearch/js/ajaxsearch/folded": {
+            "closeBtn": <?= json_encode('<span title="Close" class="action close"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></span>') ?>,
+            "classes": {
+                "container": ".block-swissup-ajaxsearch",
+                "mask": ".ajaxsearch-mask"
+            }
+        }
+        <?php endif; ?>
+    }
+}
+</script>

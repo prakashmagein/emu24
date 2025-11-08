@@ -1,0 +1,50 @@
+{
+    "name": "swissup/module-ajaxsearch",
+    "description": "Advanced ajax search",
+    "keywords": [
+        "ajaxsearch",
+        "search"
+    ],
+    "type": "magento2-module",
+    "version": "1.13.27",
+    "license": "OSL-3.0",
+    "require": {
+        "magento/framework": ">=102.0",
+        "magento/module-backend": ">=101.0",
+        "magento/module-catalog": ">=103.0",
+        "magento/module-checkout": ">=100.3",
+        "magento/module-store": ">=101.0",
+        "magento/module-cms": ">=103.0",
+        "magento/module-search": ">=101.0",
+        "magento/module-graph-ql": ">=100.3",
+        "magento/module-tax": ">=100.3",
+        "swissup/module-core": "^1.12.22",
+        "swissup/module-rtl": "^1.3.4",
+        "ext-pcre": "*"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\Ajaxsearch\\": ""
+        }
+    },
+    "extra": {
+        "swissup": {
+            "links": {
+                "marketplace"   : "https://marketplace.magento.com/swissup-ajaxsearch.html",
+                "store"         : "https://swissuplabs.com/",
+                "docs"          : "http://docs.swissuplabs.com/m2/extensions/ajaxsearch/",
+                "changelog"     : "http://docs.swissuplabs.com/m2/extensions/ajaxsearch/changelog/"
+            }
+        },
+        "marketplace": {
+            "gallery": [
+                "https://docs.swissuplabs.com/images/marketplace/module-ajaxsearch.png"
+            ],
+            "links": {
+                "docs": "https://docs.swissuplabs.com/m2/extensions/ajaxsearch/",
+                "changelog": "https://docs.swissuplabs.com/m2/extensions/ajaxsearch/changelog/"
+            }
+        }
+    }
+}

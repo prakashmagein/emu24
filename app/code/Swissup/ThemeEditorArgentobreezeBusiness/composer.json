@@ -1,0 +1,18 @@
+{
+    "name": "swissup/module-theme-editor-argentobreeze-business",
+    "description": "Theme editor for ArgentoBreeze Business theme",
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/module-theme-editor": "^1.11.2"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Swissup\\ThemeEditorArgentobreezeBusiness\\": ""
+        }
+    }
+}

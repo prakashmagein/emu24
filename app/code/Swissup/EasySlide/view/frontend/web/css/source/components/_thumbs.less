@@ -1,0 +1,103 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .easyslide-thumbs {
+        &.swiper-container {
+            padding: @indent__s 0 ;
+            text-align: inherit;
+        }
+
+        &:not(.swiper-container-initialized) {
+            .swiper-slide:not(:first-child) {
+                display: none;
+            }
+        }
+
+        .swiper-slide {
+            cursor: pointer;
+            margin-right: @indent__s;
+            width: auto;
+
+            &:not(:has(img)) {
+                width: 10rem;
+                max-width: 100%;
+                background: currentColor;
+                opacity: .1;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.swiper-slide-thumb-active {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border: 2px solid rgb(0, 122, 255);
+
+                    .easyslide-thumbs-black& {
+                        border-color: #000;
+                    }
+
+                    .easyslide-thumbs-white& {
+                        border-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .easyslide-wrapper-thumbs-above {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .swiper-container {
+            max-width: 100%;
+        }
+
+        .easyslide-thumbs {
+            margin: 0;
+
+            &.swiper-container {
+                padding: 0 0 @indent__s;
+            }
+        }
+    }
+
+    .easyslide-wrapper-thumbs-right,
+    .easyslide-wrapper-thumbs-left {
+        display: flex;
+        align-items: flex-start;
+
+        .easyslide-thumbs {
+            flex-shrink: 0;
+
+            &.swiper-container {
+                padding: 0 0 0 @indent__s;
+            }
+
+            .swiper-slide {
+                margin: 0 0 @indent__s;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+    }
+
+    .easyslide-wrapper-thumbs-left {
+        flex-direction: row-reverse;
+
+        .easyslide-thumbs {
+            &.swiper-container {
+                padding: 0 @indent__s 0 0;
+            }
+        }
+    }
+}
+}

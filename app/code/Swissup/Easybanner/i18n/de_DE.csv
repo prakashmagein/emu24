@@ -1,0 +1,79 @@
+Handles,Griffe
+"Save Banner","Banner speichern"
+"Delete Banner","Banner löschen"
+"Edit Banner - '%1'","Banner bearbeiten - '%1'"
+"New Banner","Neues Banner"
+"Css Class",CSS-Klasse
+"Image Options",Bildoptionen
+"Use image resizer","Verwenden Sie den Bild-Resizer"
+"Retina support",Netzhautunterstützung
+"Actual image size should be twice larger then entered width and height","Die tatsächliche Bildgröße sollte doppelt so groß sein wie die eingegebene Breite und Höhe"
+"Background Color",Hintergrundfarbe
+"Html Content",HTML-Inhalt
+Banner,Banner
+Lightbox,Leuchtkasten
+Awesomebar,Awesomebar
+"Hide Url","URL verstecken"
+Target,Ziel
+Popup,Auftauchen
+Blank,Leer
+Self,Selbst
+"Sort Order",Sortierung
+"Store View",Store-Ansicht
+Placeholder,Platzhalter
+Statistics,Statistiken
+"New Placeholder","Neuer Platzhalter"
+"Banners Display Count","Anzahl der Banneranzeigen"
+"Sort mode",Sortiermodus
+"By Banners Sort Order","Nach Bannern Sortierreihenfolge"
+Random,Zufällig
+"Banner was deleted.","Banner wurde gelöscht."
+"Banner was disabled.","Banner wurde deaktiviert."
+EasyBanner,EasyBanner
+Banners,Banner
+"This banner no longer exists.","Dieses Banner existiert nicht mehr."
+"Edit Banner","Banner bearbeiten"
+"Banner was enabled.","Banner wurde aktiviert."
+"Manage Banners","Banner verwalten"
+"Banner has been saved.","Banner wurde gespeichert."
+"Something went wrong while saving the banner.","Beim Speichern des Banners ist ein Fehler aufgetreten."
+"Placeholder was deleted.","Platzhalter wurde gelöscht."
+"Placeholder was disabled.","Platzhalter wurde deaktiviert."
+Placeholders,Platzhalter
+"This placeholder no longer exists.","Dieser Platzhalter existiert nicht mehr."
+"Placeholder was enabled.","Platzhalter wurde aktiviert."
+"Manage Placeholders","Platzhalter verwalten"
+"Placeholder has been saved.","Platzhalter wurde gespeichert."
+"Something went wrong while saving the placeholder.","Beim Speichern des Platzhalters ist ein Fehler aufgetreten."
+"Subtotal (Excl.Tax)","Zwischensumme (ohne Steuern)"
+"Subtotal (Incl.Tax)","Zwischensumme (inkl. Steuer)"
+"Clicks Count","Anzahl der Klicks"
+"Display Count","Anzahl anzeigen"
+"Display Count per Customer","Anzahl pro Kunde anzeigen"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: Browsing-Zeit des Kunden (Sekunden)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: Inaktivitätszeit des Kunden (Sekunden)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Lightbox / Awesomebar: Kundenaktivitätszeit (Sekunden)"
+"Lightbox/Awesomebar: Scroll offset","Leuchtkasten / Awesomebar: Bildlaufversatz"
+"Open Chooser","Öffnen Sie die Auswahl"
+%1%1"Last 7 days","Letzten 7 Tage"
+"Last 30 days","Letzte 30 Tage"
+"Last 6 Month","Letzte 6 Monate"
+"Last 12 Month","Letzte 12 Monate"
+"All Time","Alle Zeit"
+"Banner Statistics",Bannerstatistik
+"EasyBanner Banner","EasyBanner Banner"
+"Select Banner...","Wählen Sie Banner ..."
+"EasyBanner Placeholder","EasyBanner Platzhalter"
+"Select Placeholder...","Platzhalter auswählen ..."
+"Add Banner","Banner hinzufügen"
+"Image Title",Bildtitel
+"Is Active","Ist aktiv"
+"Add Placeholder","Platzhalter hinzufügen"
+"Additional CSS Class","Zusätzliche CSS-Klasse"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Wenn Sie diesen Platzhalter in einer Seitenleiste anzeigen möchten, wird empfohlen, den folgenden Wert festzulegen: block block-easybanner-placeholder"
+"Parent Container","Übergeordneter Container"
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Sie kennen den Containernamen nicht? Lassen Sie es leer und weisen Sie dem gewünschten Container über die Benutzeroberfläche ""Inhalt> Widgets"" einen Platzhalter zu. Sie können die Liste der allgemeinen Platzhalterpositionen auch unter http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/ anzeigen."
+Position,Position
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","XML-Attributsyntax ist erforderlich. Beispiele: before = ""-"", after = ""-"", before = ""block.name"""
+"Don't show anymore","Nicht mehr zeigen"
+"Exit intent time (seconds)","Absichtszeit beenden (Sekunden)"

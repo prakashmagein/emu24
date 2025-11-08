@@ -1,0 +1,16 @@
+{
+    "name": "swissup/module-sold-together-import-export",
+    "description": "Manage Sold Together relations with Magento Import/Export",
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "license": ["OSL-3.0"],
+    "require": {
+        "swissup/module-sold-together": "^1.9.1"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\SoldTogetherImportExport\\": ""
+        }
+    }
+}

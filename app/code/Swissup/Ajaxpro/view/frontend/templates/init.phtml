@@ -1,0 +1,38 @@
+<?php
+$ajaxcianSelectors = [
+    '.action.tocart',
+    '.ajaxpro-modal-dialog #shopping-cart-table .action-delete',
+    // '.ajaxpro-modal-dialog #shopping-cart-table .cart.actions .update',
+    '.action.tocompare',
+    '.block-compare .action.delete',
+    // '.table-comparison .action.delete',
+    '.block-wishlist .action.delete',
+    '.block-wishlist .action.tocart',
+    '.action.towishlist:not(.updated)',
+    '.ajaxpro-modal-dialog #shopping-cart-table .action.action-towishlist',
+];
+/** @var \Swissup\Ajaxpro\Block\Init $block */
+/** @var \Swissup\Ajaxpro\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout();?>,
+        "Swissup_Ajaxpro/js/get-product-view-request": <?= /* @noEscape */ $block->getJsonEncodedCatalogProductViewConfig() ?>
+        <?php if ($viewModel->isOverrideMinicart()) :
+            ?>,"Swissup_Ajaxpro/js/view/minicart/override": <?= /* @noEscape */ $block->getJsonEncodedMinicartOverrideViewConfig() ?>
+        <?php endif;
+        if ($viewModel->isQuickViewEnabled()) :
+            ?>, "Swissup_Ajaxpro/js/quick-view": <?= /* @noEscape */ $block->getJsonEncodedQuickViewConfig() ?>
+        <?php endif;
+        if ($viewModel->isAnimationEnabled()) :
+            ?>, "Swissup_Ajaxpro/js/view/animation": []
+        <?php endif;
+        ?>
+    },
+    "<?= /* @noEscape */ implode(', ', $ajaxcianSelectors) ?>": {
+        "Swissup_Ajaxpro/js/ajaxcian-data-post": <?= /* @noEscape */ $block->getJsonEncodedAjaxcianDataPostConfig() ?>
+    }
+}
+</script>

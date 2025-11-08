@@ -1,0 +1,39 @@
+Popularity,Popularität
+"1 Month","1 Monat"
+"1 Year","1 Jahr"
+"6 Months","6 Monate"
+"1 Week","1 Woche"
+"1 Day","1 Tag"
+"1 Hour","1 Stunde"
+"Product ID","Produkt ID"
+Random,Zufällig
+"Add to Wish List","Zur Wunschliste hinzufügen"
+"Highlight Pages","Markieren Sie Seiten"
+"Featured Products","Ausgewählte Produkte"
+"On Sale Products","On Sale Produkte"
+"Popular Products","beliebte Produkte"
+"Calculation Period",Berechnungszeitraum
+"Minimum Popularity","Minimale Popularität"
+"Highlight: All Products","Highlight: Alle Produkte"
+"Sort Direction",Sortierrichtung
+"Grid Template",Rastervorlage
+"List Template",Listenvorlage
+"Sidebar: Images and Names Template","Seitenleiste: Vorlage für Bilder und Namen"
+"Sidebar: Names Only Template","Seitenleiste: Nur Namensvorlage"
+"Sidebar: Images Only Template","Seitenleiste: Nur Bilder Vorlage"
+"Custom Template","Benutzerdefinierte Vorlage"
+"Used, when template value is set to 'Custom'","Wird verwendet, wenn der Vorlagenwert auf ""Benutzerdefiniert"" gesetzt ist."
+"Highlight: Attribute Yes/No","Highlight: Attribut Ja / Nein"
+"Highlight: Attribute Date","Highlight: Attribut Datum"
+"Highlight: Featured Products","Highlight: Ausgewählte Produkte"
+"Show link to Highlight Page","Link zur Seite ""Hervorheben"" anzeigen"
+"Link Title",Link-Titel
+"Highlight: New Products","Highlight: Neue Produkte"
+"Highlight: Onsale Products (Special Price)","Highlight: Onsale-Produkte (Sonderpreis)"
+"Highlight: Popular Products","Highlight: Beliebte Produkte"
+"Minimum views count to show products","Mindestansichten zählen, um Produkte anzuzeigen"
+"Highlight: Bestsellers","Highlight: Bestseller"
+"Minimum purchase count to show products","Mindesteinkaufsanzahl, um Produkte anzuzeigen"
+"Hidden, when filter or pagination is used","Versteckt, wenn Filter oder Paginierung verwendet wird"
+"CSS Class",CSS-Klasse
+"Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/","Klassennamen für Anpassungszwecke. Sie können gebrauchsfertige CSS-Klassenhelfer unter http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/ anzeigen."

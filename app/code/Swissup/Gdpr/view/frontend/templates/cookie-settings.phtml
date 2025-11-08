@@ -1,0 +1,89 @@
+<div class="<?= $block->getCssClass() ?>" data-bind="scope: 'cookie-settings'">
+    <?= $block->getDescriptionHtml() ?>
+    <div class="cookie-buttons">
+        <button class="action cookie-allow-all accept-cookie-consent" data-bind="
+            event: {
+                click: enableAllAndSave
+            }
+        "><?= $block->escapeHtml(__('Allow All & Save')) ?></button>
+        <button class="action primary accept-cookie-consent" data-bind="
+            visible: isAcceptButtonVisible(),
+            event: {
+                click: acceptConsent
+            }
+        " style="display: none;"><?= $block->escapeHtml(__('Accept & Save')) ?></button>
+    </div>
+
+    <div class="cookie-groups">
+        <?php foreach ($block->getGroupedCookies() as $group): ?>
+            <div class="cookie-group">
+                <div class="cookie-group-heading">
+                    <div class="h3"><?= $block->escapeHtml($group['title']) ?></div>
+                    <span class="cookie-group-toggler-message" data-bind="text: getMessage('<?= $group['code'] ?>')"></span>
+                    <span class="cookie-group-toggler" role="switch" aria-label="<?= $block->escapeHtml(__('Toggle group')) ?>" tabindex="0" data-bind="
+                        event: {
+                            click: toggleGroup.bind($data, '<?= $group['code'] ?>'),
+                            keypress: function (data, event) {
+                                keypress('<?= $group['code'] ?>', event);
+                            }
+                        },
+                        css: {
+                            active: isGroupEnabled('<?= $group['code'] ?>')
+                        },
+                        attr: {
+                            'aria-checked': isGroupEnabled('<?= $group['code'] ?>') ? 'true' : 'false'
+                        }
+                    ">
+                        <span aria-hidden="true"></span>
+                    </span>
+                </div>
+                <p class="cookie-group-description"><?= $block->escapeHtml($group['description']) ?></p>
+                <?php if (!empty($group['cookies'])): ?>
+                    <div class="cookie-list">
+                        <input class="cookie-list-toggler" type="checkbox" id="toggle-<?= $group['code'] ?>">
+                        <label class="cookie-list-caption show" for="toggle-<?= $group['code'] ?>"
+                            ><?= $block->escapeHtml(__('Show Cookies')) ?></label>
+                        <label class="cookie-list-caption hide" for="toggle-<?= $group['code'] ?>"
+                            ><?= $block->escapeHtml(__('Hide Cookies')) ?></label>
+                        <table class="table">
+                            <colgroup>
+                                <col class="cookie-name">
+                                <col class="cookie-description">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th><?= $block->escapeHtml(__('Name')) ?></th>
+                                    <th><?= $block->escapeHtml(__('Description')) ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($group['cookies'] as $cookie): ?>
+                                    <tr>
+                                        <td><?= str_replace(',', ',<br>', $cookie['name']) ?></td>
+                                        <td><?= $block->escapeHtml($cookie['description']) ?></td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php endif ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+{
+    ".cookie-settings": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "cookie-settings": {
+                    "component": "Swissup_Gdpr/js/view/cookie-settings",
+                    "groups": <?= $block->getGroupedCookiesJson() ?>,
+                    "cookieName": "<?= \Swissup\Gdpr\Model\CookieManager::COOKIE_NAME ?>"
+                }
+            }
+        }
+    }
+}
+</script>

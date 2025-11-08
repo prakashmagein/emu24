@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Csp\Model\Collector\DynamicCollector">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Csp\PolicyCollector" />
+    </type>
+
+    <!-- Replace Magento_Theme::root.phtml template -->
+    <type name="Magento\Framework\View\FileSystem">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\ViewFileSystem" sortOrder="1" />
+    </type>
+
+    <!-- Convert html to amphtml -->
+    <type name="Magento\Framework\View\Result\Page">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\ViewResultPage" sortOrder="-1"/>
+    </type>
+
+    <!-- Apply AMP homepage dynamically -->
+    <type name="Magento\Cms\Helper\Page">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Helper\CmsPage" sortOrder="1" />
+    </type>
+
+    <!-- Remove all non-whitelisted updates -->
+    <type name="Magento\Framework\View\Layout\File\Collector\Aggregated">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\ViewLayoutFileCollectorAggregated" sortOrder="1" />
+    </type>
+
+    <!-- Add `amp=1` query to all urls -->
+    <type name="Magento\Framework\UrlInterface">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\Url"/>
+    </type>
+
+    <!-- Modify topmenu html -->
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Block\Topmenu" />
+    </type>
+
+    <!-- Replace toolbar sorter template -->
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Block\ProductListToolbar" />
+    </type>
+
+    <!-- Disable form-key validation for some actions -->
+    <type name="Magento\Framework\Data\Form\FormKey\Validator">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\FormKeyValidator" />
+    </type>
+
+    <!-- Modify add to cart response -->
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Controller\CheckoutCartAdd" />
+    </type>
+
+    <!-- Modify add to compare response -->
+    <type name="Magento\Catalog\Controller\Product\Compare\Add">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Controller\CatalogCompareAdd" />
+    </type>
+
+    <!-- Modify remove from compare response -->
+    <type name="Magento\Catalog\Controller\Product\Compare\Remove">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Controller\CatalogCompareRemove" />
+    </type>
+
+    <!-- Modify add to wishlist response -->
+    <type name="Magento\Wishlist\Controller\Index\Add">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Controller\WishlistIndexAdd" sortOrder="100" />
+    </type>
+
+    <!-- Layouts cache compatibility -->
+    <type name="Magento\Framework\View\Layout\ProcessorFactory">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\LayoutProcessorFactory" />
+    </type>
+
+    <!-- Disable Pagespeed -->
+    <type name="Swissup\Pagespeed\Helper\Config">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Swissup\Pagespeed\HelperConfig" />
+    </type>
+
+    <!-- Disable Configurable Header -->
+    <type name="Swissup\ThemeEditor\Helper\Data">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Swissup\ThemeEditor\HelperConfig" />
+    </type>
+    <type name="Swissup\ThemeEditor\Helper\Header">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Swissup\ThemeEditor\HeaderConfig" />
+    </type>
+
+    <!-- Disable Design Exceptions -->
+    <type name="Magento\Framework\View\DesignExceptions">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\ViewDesignExceptions" />
+    </type>
+
+    <!-- Add amp-bind to configurable product price -->
+    <type name="Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\ConfigurableProduct\FinalPriceBoxRender" />
+    </type>
+
+    <!-- Redirect to ?amp=1 url when AMP is forced -->
+    <type name="Magento\Framework\App\FrontControllerInterface">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Framework\FrontController" sortOrder="-1" />
+    </type>
+
+    <!-- Disable config on AMP -->
+    <type name="Magento\Framework\App\Config">
+        <plugin name="swissup-amp-app-config" type="Swissup\Amp\Plugin\Framework\AppConfig" />
+    </type>
+
+    <!-- Modify contact us response -->
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="swissupAmp" type="Swissup\Amp\Plugin\Controller\ContactIndexPost" sortOrder="100" />
+    </type>
+
+    <!-- Disable GDPR -->
+    <type name="Swissup\Gdpr\Helper\Data">
+        <plugin name="swissup-amp-gdpr-disable" type="Swissup\Amp\Plugin\Swissup\Gdpr\HelperData" />
+    </type>
+
+    <!-- Pass filters to Filter model -->
+    <type name="Swissup\Amp\Model\Html\Filter">
+        <arguments>
+            <argument name="domFilters" xsi:type="array">
+                <item name="dom_script_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\ScriptFactory</item>
+                <item name="dom_style_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\StyleFactory</item>
+                <item name="dom_prohibitedtags_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\ProhibitedTagsFactory</item>
+                <!-- must be invoked before 'dom_attribute_filter' -->
+                <item name="dom_button_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\ButtonFactory</item>
+                <!-- must be before img and others as it could change src and other attributes -->
+                <item name="dom_attribute_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\AttributeFactory</item>
+                <item name="dom_image_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\ImageFactory</item>
+                <item name="dom_iframe_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\IframeFactory</item>
+                <item name="dom_video_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\VideoFactory</item>
+                <item name="dom_audio_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\AudioFactory</item>
+                <item name="dom_form_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\FormFactory</item>
+                <item name="dom_table_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\TableFactory</item>
+                <item name="dom_link_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\LinkFactory</item>
+                <!-- these filters must be at the bottom -->
+                <item name="dom_ampscripts_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\AmpscriptsFactory</item>
+                <item name="dom_ampstyles_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Dom\AmpstylesFactory</item>
+            </argument>
+            <argument name="stringFilters" xsi:type="array">
+                <item name="string_libxml_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Str\LibxmlFactory</item>
+                <item name="string_varnish_filter" xsi:type="object">Swissup\Amp\Model\Html\Filter\Str\VarnishFactory</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Swissup\Highlight\Block\Sitemap" name="seohtmlsitemap.highlight" template="Swissup_SeoHtmlSitemap::sitemap.phtml" before="seohtmlsitemap.custom">
+                <action method="setTitle">
+                    <argument translate="true" name="title" xsi:type="string">Highlight Pages</argument>
+                </action>
+                <action method="setTemplate" ifconfig="seohtmlsitemap/content_settings/group_by_first_letter">
+                    <argument name='template' xsi:type='string'>Swissup_SeoHtmlSitemap::grouped.phtml</argument>
+                </action>
+                <action method="setTemplate" ifconfig="seohtmlsitemap/content_settings/hide_highlight_pages">
+                    <argument name="mode" xsi:type='boolean'>false</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

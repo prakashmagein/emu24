@@ -1,0 +1,48 @@
+Duplicate,Duplikat
+"Select Attribute","Wählen Sie Attribut"
+"Attributes with available options are not found.","Attribute mit verfügbaren Optionen wurden nicht gefunden."
+"Description and children","Beschreibung und Kinder"
+"Description only","Nur Beschreibung"
+"Children only","Nur für Kinder"
+"Columns Count","Spalten zählen"
+"1 — 8 columns are supported","Es werden 1 - 8 Spalten unterstützt"
+"Group Options by First Letter","Gruppenoptionen nach Anfangsbuchstaben"
+"Listing Mode",Listing-Modus
+"Image Width","Bild breite"
+"Image Height",Bildhöhe
+"Used to identify page in backend grid","Wird verwendet, um die Seite im Backend-Raster zu identifizieren"
+"Relative to Website Base URL","Relativ zur Website-Basis-URL"
+"Option Information",Optionsinformationen
+"Exclude from Display","Von der Anzeige ausschließen"
+"Unable to find a page to delete.","Es konnte keine Seite zum Löschen gefunden werden."
+"The page has been duplicated.","Die Seite wurde dupliziert."
+"Unable to find a page to duplicate.","Es konnte keine Seite zum Duplizieren gefunden werden."
+"Attribute Pages",Attributseiten
+"Manage Options","Optionen verwalten"
+"This option no longer exists.","Diese Option existiert nicht mehr."
+"Invalid link received.","Ungültiger Link empfangen."
+"Edit Option","Option bearbeiten"
+"Attribute Options",Attributoptionen
+"The following urls where automatically changed because of duplicates.","Die folgenden URLs wurden aufgrund von Duplikaten automatisch geändert."
+"There are no options matching the selection.","Es gibt keine Optionen, die der Auswahl entsprechen."
+"View other %1 products","Andere %1 - Produkte anzeigen"
+"Attributepages: List of attribute based pages","Attributseiten: Liste der attributbasierten Seiten"
+"Pages to exclude","Auszuschließende Seiten"
+"Pages to include","Zu enthaltende Seiten"
+"Remove Block Wrapper and Title","Block Wrapper und Titel entfernen"
+"Attributepages: Option List","Attributseiten: Optionsliste"
+"Attribute Page",Attributseite
+"Show as Slider","Als Schieberegler anzeigen"
+"Unique Slider Id","Einzigartige Slider-ID"
+"Number of visible slides","Anzahl der sichtbaren Folien"
+"Number of slides to scroll","Anzahl der zu scrollenden Folien"
+"Automatically play slider","Schieberegler automatisch abspielen"
+"Items limit",Artikellimit
+"Attributepages: Product Option","Attributseiten: Produktoption"
+"Additional css classes","Zusätzliche CSS-Klassen"
+"Render as link","Als Link rendern"
+"Show Image","Bild anzeigen"
+"Image type",Bildtyp
+"Label for 'View All' link","Beschriftung für den Link ""Alle anzeigen"""
+"Delete items","Elemente löschen"
+"

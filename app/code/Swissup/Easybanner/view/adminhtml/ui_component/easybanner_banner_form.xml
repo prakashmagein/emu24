@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">easybanner_banner_form.easybanner_banner_form_data_source</item>
+            <item name="deps" xsi:type="string">easybanner_banner_form.easybanner_banner_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Banner Settings</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">easybanner_banner_form</item>
+        </item>
+        <item name="layout" xsi:type="array">
+            <item name="navContainerName" xsi:type="string">left</item>
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+        <!-- <item name="template" xsi:type="string">templates/form/collapsible</item> -->
+        <item name="buttons" xsi:type="array">
+            <item name="save_and_continue" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Placeholder\Edit\SaveAndContinueButton</item>
+            <item name="save" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Placeholder\Edit\SaveButton</item>
+            <item name="clear_statistics" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Banner\Edit\ClearStatisticsButton</item>
+            <item name="duplicate" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Banner\Edit\DuplicateButton</item>
+            <item name="delete" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Banner\Edit\DeleteButton</item>
+            <item name="back" xsi:type="string">Swissup\Easybanner\Block\Adminhtml\Placeholder\Edit\BackButton</item>
+        </item>
+    </argument>
+    <dataSource name="easybanner_banner_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\Easybanner\Ui\DataProvider\Form\BannerDataProvider</argument>
+            <argument name="name" xsi:type="string">easybanner_banner_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">banner_id</argument>
+            <argument name="requestFieldName" xsi:type="string">banner_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="easybanner/banner/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">General</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <field name="banner_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enabled</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </field>
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Identifier</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-xml-identifier" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="type">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Easybanner\Model\Banner\Source\Type</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Type</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="default" xsi:type="string">1</item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_trackable">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enable Statistics</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+        <field name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Sort Order</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
+                        <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="default" xsi:type="string">50</item>
+                </item>
+            </argument>
+        </field>
+        <field name="stores">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Store View</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="default" xsi:type="string">0</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="placeholders">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Easybanner\Model\Banner\Source\Placeholder</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Placeholder</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+
+                    <item name="component" xsi:type="string">Swissup_Easybanner/js/components/visible-on-option/multiselect</item>
+                    <item name="valuesForOptions" xsi:type="array">
+                        <item name="1" xsi:type="number">1</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.type</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="content">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Content</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <field name="url">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Url</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="hide_url">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Hide Url</item>
+                    <item name="notice" xsi:type="string" translate="true">Hidden URL example: example.com/easybanner/click/index/id/:id, visible URL example: example.com/easybanner/click/index/id/:id/url/:url</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+        <field name="target">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Easybanner\Model\Banner\Source\Target</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Open link in</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="default" xsi:type="string">self</item>
+                </item>
+            </argument>
+        </field>
+        <field name="class_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Css Class</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+        <field name="mode">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Swissup\Easybanner\Model\Banner\Source\Mode</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Mode</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="default" xsi:type="string">image</item>
+                </item>
+            </argument>
+        </field>
+        <fieldset name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Image Options</item>
+                    <item name="dataScope" xsi:type="string"></item>
+
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/fieldset</item>
+                    <item name="valuesForOptions" xsi:type="array">
+                        <item name="image" xsi:type="string">image</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.mode</item>
+                    </item>
+                </item>
+            </argument>
+            <field name="image">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">string</item>
+                        <item name="label" xsi:type="string" translate="true">Image</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="formElement" xsi:type="string">fileUploader</item>
+                        <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                        <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+                        <item name="required" xsi:type="boolean">false</item>
+                        <item name="sortOrder" xsi:type="number">40</item>
+                        <item name="uploaderConfig" xsi:type="array">
+                            <item name="url" xsi:type="url" path="easybanner/banner_image/upload"/>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="title">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Title</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                    </item>
+                </argument>
+            </field>
+            <container name="dimensions">
+                <argument name="data" xsi:type="array">
+                    <item name="type" xsi:type="string">group</item>
+                    <item name="config" xsi:type="array">
+                        <item name="breakLine" xsi:type="boolean">false</item>
+                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                        <item name="label" xsi:type="string" translate="true"></item>
+                        <item name="dataScope" xsi:type="boolean">false</item>
+                    </item>
+                </argument>
+                <field name="width">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="label" xsi:type="string" translate="true">Width, px</item>
+                            <item name="notice" xsi:type="string" translate="true">Leave empty to render original size</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                            </item>
+                            <item name="default" xsi:type="number">0</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="height">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalClasses" xsi:type="string">admin__field-group-show-label admin__field-small</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="label" xsi:type="string" translate="true">Height, px</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                            </item>
+                            <item name="default" xsi:type="number">0</item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+            <field name="resize_image">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Use image resizer</item>
+                        <item name="notice" xsi:type="string" translate="true">When disabled and width or height options are defined - image will be resized with css styles only</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+
+                        <item name="component" xsi:type="string">Swissup_Easybanner/js/components/visible-on-option/resize-image</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="imageWidth" xsi:type="string">${ $.provider }:data.width</item>
+                            <item name="imageHeight" xsi:type="string">${ $.provider }:data.height</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="background_color">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Background Color</item>
+                        <item name="notice" xsi:type="string" translate="true">Comma separated RGB channels: 255,255,255</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="default" xsi:type="string">255,255,255</item>
+
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/input</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.resize_image</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="is_responsive">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Use responsive images</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="number">1</item>
+                            <item name="false" xsi:type="number">0</item>
+                        </item>
+                        <item name="default" xsi:type="number">0</item>
+                        <item name="notice" xsi:type="string">Force image to use `srcset` attribute. This option can increase PageSpeed score when properly configured.</item>
+
+                        <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                        <item name="valuesForOptions" xsi:type="array">
+                            <item name="1" xsi:type="number">1</item>
+                        </item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.resize_image</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <container name="sizes">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">ui/dynamic-rows/templates/default</item>
+                        <item name="label" xsi:type="string" translate="true">Sizes</item>
+                        <item name="componentType" xsi:type="string">dynamicRows</item>
+                        <item name="recordTemplate" xsi:type="string">record</item>
+                        <item name="addButtonLabel" xsi:type="string">New Size</item>
+                        <item name="deleteProperty" xsi:type="boolean">false</item>
+                        <item name="component" xsi:type="string">Swissup_Easybanner/js/components/visible-on-option/responsive-sizes</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="toggleResizer" xsi:type="string">${ $.parentName }.resize_image:value</item>
+                            <item name="toggleResponsive" xsi:type="string">${ $.parentName }.is_responsive:value</item>
+                        </item>
+                    </item>
+                </argument>
+                <container name="record">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Dynamic Rows</item>
+                            <item name="component" xsi:type="string" translate="true">Magento_Ui/js/dynamic-rows/record</item>
+                            <item name="isTemplate" xsi:type="boolean">true</item>
+                            <item name="is_collection" xsi:type="boolean">true</item>
+                            <item name="showFallbackReset" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                    <field name="row_id">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">ID</item>
+                                <item name="visible" xsi:type="boolean">false</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">row_id</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <field name="media_query">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="label" xsi:type="string" translate="true">Media condition</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">media_query</item>
+                                <item name="showFallbackReset" xsi:type="boolean">false</item>
+                                <item name="sortOrder" xsi:type="string">10</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <field name="image_width">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="additionalClasses" xsi:type="string">admin__field-small admin__field-metric</item>
+                                <item name="addafter" xsi:type="string">px</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="label" xsi:type="string" translate="true">Image width</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="dataScope" xsi:type="string">image_width</item>
+                                <item name="showFallbackReset" xsi:type="boolean">false</item>
+                                <item name="sortOrder" xsi:type="string">20</item>
+                            </item>
+                        </argument>
+                    </field>
+                    <actionDelete>
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="componentType" xsi:type="string">actionDelete</item>
+                                <item name="dataType" xsi:type="string">text</item>
+                                <item name="fit" xsi:type="boolean">false</item>
+                                <item name="label" xsi:type="string">Actions</item>
+                                <item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
+                                <item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete</item>
+                            </item>
+                        </argument>
+                    </actionDelete>
+                    <field name="position">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="dataType" xsi:type="string">number</item>
+                                <item name="formElement" xsi:type="string">input</item>
+                                <item name="componentType" xsi:type="string">field</item>
+                                <item name="label" xsi:type="string" translate="true">Position</item>
+                                <item name="dataScope" xsi:type="string">position</item>
+                                <item name="visible" xsi:type="boolean">false</item>
+                            </item>
+                        </argument>
+                    </field>
+                </container>
+            </container>
+        </fieldset>
+        <fieldset name="html">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Html Content</item>
+                    <item name="dataScope" xsi:type="string"></item>
+
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/fieldset</item>
+                    <item name="valuesForOptions" xsi:type="array">
+                        <item name="html" xsi:type="string">html</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="toggleVisibility" xsi:type="string">${ $.provider }:data.mode</item>
+                    </item>
+                </item>
+            </argument>
+            <field name="html">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Content</item>
+                        <item name="formElement" xsi:type="string">wysiwyg</item>
+                        <item name="wysiwyg" xsi:type="boolean">true</item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </fieldset>
+    <fieldset name="conditions">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Conditions</item>
+            </item>
+        </argument>
+        <container name="conditions_apply_to">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Swissup\Easybanner\Block\Adminhtml\Banner\Edit\Tab\Conditions</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+    <fieldset name="statistics">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Statistics</item>
+            </item>
+        </argument>
+        <container name="statistics">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Swissup\Easybanner\Block\Adminhtml\Banner\Edit\Tab\Statistics</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

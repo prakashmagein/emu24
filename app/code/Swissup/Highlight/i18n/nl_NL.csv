@@ -1,0 +1,39 @@
+Popularity,Populariteit
+"1 Month","1 maand"
+"1 Year","1 jaar"
+"6 Months","6 maanden"
+"1 Week","1 week"
+"1 Day","1 dag"
+"1 Hour","1 uur"
+"Product ID",Product-ID
+Random,Willekeurig
+"Add to Wish List","Toevoegen aan verlanglijstje"
+"Highlight Pages","Markeer pagina's"
+"Featured Products","Aanbevolen producten"
+"On Sale Products","Te koop producten"
+"Popular Products","populaire producten"
+"Calculation Period",Berekeningsperiode
+"Minimum Popularity","Minimale populariteit"
+"Highlight: All Products","Markeer: Alle producten"
+"Sort Direction",Sorteerrichting
+"Grid Template","Raster sjabloon"
+"List Template",Lijstsjabloon
+"Sidebar: Images and Names Template","Zijbalk: sjabloon voor afbeeldingen en namen"
+"Sidebar: Names Only Template","Zijbalk: alleen sjabloon voor namen"
+"Sidebar: Images Only Template","Zijbalk: sjabloon voor alleen afbeeldingen"
+"Custom Template","Aangepaste sjabloon"
+"Used, when template value is set to 'Custom'","Gebruikt wanneer de sjabloonwaarde is ingesteld op 'Aangepast'"
+"Highlight: Attribute Yes/No","Markeer: Kenmerk Ja / Nee"
+"Highlight: Attribute Date","Markeer: Datum van kenmerk"
+"Highlight: Featured Products","Markeer: Aanbevolen producten"
+"Show link to Highlight Page","Toon link naar Markeerpagina"
+"Link Title",Linktitel
+"Highlight: New Products","Markeer: nieuwe producten"
+"Highlight: Onsale Products (Special Price)","Hoogtepunt: Onsale-producten (speciale prijs)"
+"Highlight: Popular Products","Markeer: populaire producten"
+"Minimum views count to show products","Het minimumaantal weergaven telt om producten te tonen"
+"Highlight: Bestsellers","Markeer: Bestsellers"
+"Minimum purchase count to show products","Minimumaantal aankopen om producten te tonen"
+"Hidden, when filter or pagination is used","Verborgen, wanneer filter of paginering wordt gebruikt"
+"CSS Class",CSS-klasse
+"Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/","Klassenamen voor aanpassingsdoeleinden. U kunt kant-en-klare css-klasse helpers bekijken op http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/"

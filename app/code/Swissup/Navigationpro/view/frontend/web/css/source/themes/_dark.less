@@ -1,0 +1,94 @@
+.navpro-theme-dark-dropdown() {
+    background: @navpro-theme__dark-dropdown__background;
+    border-color: @navpro-theme__dark-dropdown__border-color;
+    color: @navpro-theme__dark-dropdown__color;
+
+    h3,
+    .children a,
+    .children .parent > a {
+        color: @navpro-theme__dark-dropdown__color;
+    }
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro.navpro {
+        &-theme {
+            &-dark,
+            &-dark-bar {
+                background: @navpro-theme__dark-bar__background;
+                .level0 > .level-top {
+                    color: @navpro-theme__dark-bar__color !important;
+                }
+            }
+            &-dark-bar {
+                .navpro-dropdown {
+                    @media @navpro-breakpoint-accordion {
+                        .navpro-theme-dark-dropdown();
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    .navpro.navpro {
+        &-theme {
+            &-dark,
+            &-dark-dropdown {
+                .navpro-dropdown {
+                    .navpro-theme-dark-dropdown();
+                    &.size-boxed > .navpro-dropdown-inner {
+                        .navpro-theme-dark-dropdown();
+                    }
+                    @media @navpro-breakpoint-md {
+                        box-shadow: @navpro-theme__dark-dropdown__shadow;
+                    }
+                    .panel {
+                        background-color: lighten(@navpro-theme__dark-dropdown__background, 3%);
+                    }
+                    > .navpro-dropdown-inner > .navpro-row > .navpro-col > .children > .parent-expanded {
+                        > a {
+                            .lib-css(color, @navpro-theme__dark-dropdown__color);
+                        }
+                    }
+                }
+                &.orientation-horizontal {
+                    li.level-top.parent {
+                        a.level-top {
+                            &::before,
+                            &::after {
+                                border-bottom-color: @navpro-theme__dark-dropdown__background;
+                            }
+                        }
+                    }
+                    li.level-top {
+                        > .navpro-dropdown {
+                            > .navpro-shevron {
+                                background: @navpro-theme__dark-dropdown__background;
+                                border: 1px solid @navpro-theme__dark-dropdown__background;
+                                border-color: @navpro-theme__dark-dropdown__background transparent transparent @navpro-theme__dark-dropdown__background;
+                            }
+                        }
+                    }
+                    &.dropdown-top {
+                        li.level-top.parent {
+                            a.level-top {
+                                &::before,
+                                &::after {
+                                    border-top-color: @navpro-theme__dark-dropdown__background;
+                                    border-bottom-color: transparent;
+                                }
+                                &::after {
+                                    border-top-color: @navpro-theme__dark-dropdown__border-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

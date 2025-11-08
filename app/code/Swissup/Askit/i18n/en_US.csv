@@ -1,0 +1,103 @@
+"Edit '%1'","Edit '%1'"
+"Answer Information","Answer Information"
+Hint,Hint
+Questions,Questions
+"Edit Question '%1'","Edit Question '%1'"
+"No Found","No Found"
+"Created date","Created date"
+"Update date","Update date"
+"Are you sure?","Are you sure?"
+Unknown,Unknown
+Private,Private
+"Add New Answer","Add New Answer"
+"Questions %1","Questions %1"
+"Please select item(s).","Please select item(s)."
+"The answer has been deleted.","The answer has been deleted."
+"We can't find a answer to delete.","We can't find a answer to delete."
+Askit,Askit
+Answers,Answers
+"This item no longer exists.","This item no longer exists."
+"Askit Items","Askit Items"
+"Askit Recent Answers","Askit Recent Answers"
+"Manage Recent Askit Answers","Manage Recent Askit Answers"
+"You saved.","You saved."
+"Something went wrong while saving the question.","Something went wrong while saving the question."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"The question has been deleted.","The question has been deleted."
+"We can't find a question to delete.","We can't find a question to delete."
+"New Askit Question","New Askit Question"
+"Askit Questions","Askit Questions"
+"Manage Askit Questions","Manage Askit Questions"
+"You question saved.","You question saved."
+"You answer was added.","You answer was added."
+"We can't process your request right now. Sorry, that's all we know.","We can't process your request right now. Sorry, that's all we know."
+"My Questions","My Questions"
+"Your must login","Your must login"
+"Sorry, only logged in customer can hint.","Sorry, only logged in customer can hint."
+"Sorry, already voted","Sorry, already voted"
+Pending,Pending
+Approved,Approved
+Disapproved,Disapproved
+"Askit Question","Askit Question"
+"Askit Answer","Askit Answer"
+"Edit Question","Edit Question"
+"New Answer","New Answer"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>"
+"Your Answer","Your Answer"
+"Leave a Reply","Leave a Reply"
+"%1 people found this answer helpful.","%1 people found this answer helpful."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>"
+"Ask Your Question","Ask Your Question"
+"Jot us a note and we’ll get back to you as quickly as possible.","Jot us a note and we’ll get back to you as quickly as possible."
+Question,Question
+"Post a private question","Post a private question"
+Submit,Submit
+"You have submitted no questions.","You have submitted no questions."
+"answer' 'answers","answer' 'answers"
+"%1 people already voted for this question.","%1 people already voted for this question."
+"Vote for It","Vote for It"
+"New products question was just posted or updated. Please see details below","New products question was just posted or updated. Please see details below"
+E-mail,E-mail
+"You can follow the question at Swissup -> Askit Questions","You can follow the question at Swissup -> Askit Questions"
+Dear,Dear
+"New answer was just posted to your question regarding","New answer was just posted to your question regarding"
+"Your question:","Your question:"
+Answer:,Answer:
+"Thank you again","Thank you again"
+"Default question status","Default question status"
+"Default answer status","Default answer status"
+"Allow guest to ask questions","Allow guest to ask questions"
+"Allow customers comment","Allow customers comment"
+"Allow guest comment","Allow guest comment"
+"Allow customer vote","Allow customer vote"
+"Show customer name on frontend","Show customer name on frontend"
+"Show link to related item (Product, Category or Page)","Show link to related item (Product, Category or Page)"
+"Enable Gravatar integration","Enable Gravatar integration"
+"Add questions block to all category pages","Add questions block to all category pages"
+"Add questions block to all CMS pages","Add questions block to all CMS pages"
+"Enable 'no questions' message","Enable 'no questions' message"
+Sender,Sender
+"Customer Notification Template","Customer Notification Template"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Email template chosen based on theme fallback when ""Default"" option is selected."
+"Send admin notification to","Send admin notification to"
+"Admin Notification Template","Admin Notification Template"
+"Askit: Questions + New Question Form","Askit: Questions + New Question Form"
+"Hide listing block","Hide listing block"
+"Hide form block","Hide form block"
+"Assigned Products","Assigned Products"
+"Assigned Pages","Assigned Pages"
+"Assigned Categories","Assigned Categories"
+"Delete items","Delete items"
+"Answer,Answer
+"Entity Type","Entity Type"
+Entity,Entity
+"Entity was deleted","Entity was deleted"
+Votes,Votes
+"Your question was answered on","Your question was answered on"
+"It is helpful", "It is helpful"
+"Not much help", "Not much help"
+asks, asks
+about, about
+"Something went wrong while saving the answer.","Something went wrong while saving the answer."
+"Answer saved.","Answer saved."

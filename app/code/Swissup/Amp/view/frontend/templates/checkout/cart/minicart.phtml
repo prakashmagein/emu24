@@ -1,0 +1,16 @@
+<?php
+    $cartUrl = $block->getUrl('swissupamp/checkout/cart', ['_forced_secure' => true]);
+?>
+
+<amp-list id="minicart" class="minicart" credentials="include" layout="fixed"
+    height="40px" width="40px"
+    src="<?= $cartUrl ?>" binding="no" items=".">
+    <template type="amp-mustache" id="cart-items">
+        <div class="{{^isEmpty}}badge{{/isEmpty}}" data-badge="{{qty}}">
+            <a class="cart-icon"
+                href="<?= $block->getShoppingCartUrl() ?>"
+                title="<?= __('Cart'); ?>"
+            ></a>
+        </div>
+    </template>
+</amp-list>

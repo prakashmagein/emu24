@@ -1,0 +1,6 @@
+$actionbar-padding: 0.6em 0.5em 0.7em !default;
+
+%actionbar {
+    padding: $actionbar-padding;
+    @include text-align(right);
+}

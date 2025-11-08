@@ -1,0 +1,48 @@
+<?php
+    /** @var \Swissup\Askit\Block\Question\Answer\View $block */
+    $isLoggedIn   = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+    $urlHelper    = $block->getUrlHelper();
+
+    $isAllowHint         = $configHelper->isAllowedHint();
+    $isShareCustomerName = $configHelper->isAllowedShareCustomerName();
+    $isEnabledGravatar   = $configHelper->isEnabledGravatar();
+
+    $answer = $block->getAnswer();
+    /** @var \Magento\Framework\Data\Helper\PostHelper $postDataHelper */
+    $postDataHelper = $block->getPostDataHelper();
+?>
+<?php if ($isEnabledGravatar): ?>
+<div class="askit-item-avatar askit-item-answer-avatar">
+    <?= /* @noEscape */ $isEnabledGravatar ? $urlHelper->getGravatar($answer->getEmail(), 100) : '' ?>
+</div>
+<?php endif;?>
+<?php if ($isShareCustomerName):?>
+<p class="askit-item-author">
+    <strong><?= $block->escapeHtml($answer->getCustomerName());?></strong> <?= $block->escapeHtml(__('answers')) ?> <span class="askit-item-timestamp"><?= $block->escapeHtml($block->formatDate($answer->getCreatedTime(), \IntlDateFormatter::MEDIUM));?></span>
+</p>
+<?php endif;?>
+<p class="askit-item-body">
+    <?= /* @noEscape */ nl2br($block->stripTags($answer->getText())) ?>
+</p>
+
+<?php if ($isAllowHint && $isLoggedIn && $block->canVoted($answer->getId()) || $answer->getHint()) : ?>
+<p class="askit-item-answer-same">
+    <span class="askit-item-vote" data-number="<?= $block->escapeHtmlAttr($answer->getHint()) ?>">
+        <small>
+        <?php if ($isAllowHint && $isLoggedIn && $block->canVoted($answer->getId())):?>
+                <a href="#" data-vote="<?= $block->escapeUrl($postDataHelper->getPostData($block->getUrl('askit/vote/inc'), ['id' => $answer->getId()]));?>" class="action"><?= $block->escapeHtml(__('It is helpful')) ?></a>
+                <span class="separator">|</span>
+                <a href="#" data-vote="<?= $block->escapeUrl($postDataHelper->getPostData($block->getUrl('askit/vote/dec'), ['id' => $answer->getId()]));?>" class="action"><?= $block->escapeHtml(__('Not much help')); ?></a>
+        <?php endif;?>
+            <span><?= $answer->getHint() ?
+                (
+                    $answer->getHint() > 0
+                        ? $block->escapeHtml(__('%1 people found this answer helpful.', $answer->getHint()))
+                        : $block->escapeHtml(__('%1 people found this answer useless.', abs($answer->getHint())))
+                ) :
+                  '' ?></span>
+        </small>
+    </span>
+</p>
+<?php endif;?>

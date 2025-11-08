@@ -1,0 +1,19 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .askit {
+        &-item {
+            &-avatar {
+                .lib-css(height, @askit-question-avatar__height);
+                .lib-css(width, @askit-question-avatar__width);
+
+                .no-avatar & {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+}

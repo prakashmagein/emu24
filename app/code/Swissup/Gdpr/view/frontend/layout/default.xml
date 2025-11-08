@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Swissup\Gdpr\Block\Js" name="swissup_gdpr_js" before="-"/>
+            <block class="Swissup\Gdpr\Block\GoogleConsent" name="swissup_gdpr_google_consent" after="swissup_gdpr_js"/>
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block class="Swissup\Gdpr\Block\Consents" name="swissup_gdpr_consents"/>
+            <block class="Swissup\Gdpr\Block\CookieBar" name="swissup_gdpr_cookie_bar">
+                <block class="Swissup\Gdpr\Block\CookieSettings" name="swissup_gdpr_cookie_bar_settings">
+                    <arguments>
+                        <argument name="hide_description" xsi:type="boolean">true</argument>
+                        <argument name="columns_count" xsi:type="number">1</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

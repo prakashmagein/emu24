@@ -1,0 +1,14 @@
+"Continue Shopping","Продолжить покупки"
+Checkout,"Разместить заказ"
+Added,Добавлен
+"Add to Cart","Добавить в корзину"
+"Are you sure you would like to remove this item from the shopping cart?","Вы уверены, что хотите удалить этот товар из корзины?"
+Ajaxpro,Аякспро
+Main,Главный
+"Show popup after product was added","Показать всплывающее окно после добавления продукта"
+"Add to cart dialog window type","Тип диалогового окна при добавлении в корзину "
+"Override Minicart Sidebar","Переопределить боковую панель корзины"
+"The type of cart dialog window","Диалоговое окно типа корзины"
+"Show floating cart","Показать плавающую корзину"
+"Show product popup for product with any options","Показать всплывающее окно для продукта с любыми опциями"
+"Forced validation for ajax request in catalog","Принудительная проверка для запроса ajax в каталоге"

@@ -1,0 +1,60 @@
+$switch-shadow: 0px 1px 2px #b7b7b7 !default;
+
+$switch-font-size: 12px !default;
+
+$switch-item-width: 160px !default;
+$switch-item-height: 30px !default;
+$switch-item-padding: 7px 10px !default;
+$switch-item-background-color: #f4f4f4 !default;
+$switch-item-border-bottom: 1px solid #e7ebec !default;
+$switch-item-color: $link-color !default;
+
+%switch-like-block {
+    background-color: $switch-item-background-color;
+    box-shadow: $switch-shadow;
+    font-size: $switch-font-size;
+}
+
+.switcher {
+    align-self: center;
+    position: relative;
+    z-index: 50;
+    width: $switch-item-width;
+    height: $switch-item-height;
+    box-shadow: $switch-shadow;
+
+    amp-accordion {
+        font-size: $switch-font-size;
+        height: $switch-item-height;
+        section {
+            padding: 0;
+
+            .current {
+                height: $switch-item-height;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .others {
+                box-shadow: $switch-shadow;
+                padding: 0;
+            }
+
+            .current,
+            .others div {
+                box-sizing: border-box;
+                line-height: normal;
+                background-color: $switch-item-background-color;
+                padding: $switch-item-padding;
+                margin: 0;
+                border: 0;
+            }
+            .others div {
+                border-bottom: $switch-item-border-bottom;
+                a {
+                    display: block;
+                    color: $switch-item-color;
+                }
+            }
+        }
+    }
+}

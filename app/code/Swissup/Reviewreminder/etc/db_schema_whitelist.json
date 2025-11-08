@@ -1,0 +1,28 @@
+{
+    "swissup_reviewreminder_entity": {
+        "column": {
+            "entity_id": true,
+            "order_id": true,
+            "order_date": true,
+            "customer_email": true,
+            "status": true,
+            "hash": true
+        },
+        "index": {
+            "SWISSUP_REVIEWREMINDER_ENTITY_CUSTOMER_EMAIL": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_reviewreminder_unsubscribe": {
+        "column": {
+            "id": true,
+            "email": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_REVIEWREMINDER_UNSUBSCRIBE_EMAIL": true
+        }
+    }
+}

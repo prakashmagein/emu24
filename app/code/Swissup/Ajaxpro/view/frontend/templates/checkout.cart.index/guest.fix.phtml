@@ -1,0 +1,15 @@
+<script>
+require([
+    'Magento_Customer/js/customer-data'
+], function (customerData) {
+    'use strict';
+
+    var cart = customerData.get('cart');
+
+    if (cart().isGuestCheckoutAllowed === false) {
+        cart().isGuestCheckoutAllowed = true;
+    }
+
+    return true;
+});
+</script>

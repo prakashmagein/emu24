@@ -1,0 +1,54 @@
+"Manage Reminders",管理提醒
+Send,发送
+"Edit Reminder '%1'","编辑提醒 '%1'"
+"Reminder Information",提醒信息
+"Customer Name",客户名称
+"Customer Email",客户电子邮件
+"Review Status",审核状态
+"Order Products",订购产品
+Run,运行
+"Reminder was deleted.",提醒已被删除。
+"Can't find a reminder to delete.",找不到要删除的提醒。
+"Review Reminders",查看提醒
+"This reminder no longer exists.",此提醒不再存在。
+"Edit Reminder",编辑提醒
+"Please select store view(s)",请选择商店视图
+"Please enter correct date in YYYY-MM-DD format",请输入正确的日期在YYYYY-MM-DD格式
+"Please select item(s).",请选择项目。
+"Something went wrong while sending the reminder.",发送提醒时出现问题。
+"A total of %1 reminders have been sent.","总共发送了 %1 提醒。"
+"A total of %1 record(s) have been changed.","共更改 %1 记录。"
+"Reminder has been saved.",已保存提醒。
+"Something went wrong while saving the reminder.",保存提醒时出现问题。
+"Reminder has been sent.",已发送提醒。
+"Unable to find a reminder to send.",找不到要发送的提醒。
+"Last year",去年
+"Last month",上个月
+"Last week",上个星期
+"From custom date",从自定义日期开始
+"Not reviewed",未审核
+Reviewed,检讨
+"Customer not found",未找到客户
+"Write review",撰写评论
+Hello,你好
+"You\'ve recently bought %products_list what do you think about it?",你最近买了%products_list你觉得怎么样？
+"An error occured:",发生错误：
+"Completed. {count} items were processed","完成。处理 [计数] 项"
+Success,成功
+"Review Reminder",查看提醒
+"Number of emails to send per cron iteration","每个 cron 迭代要发送的电子邮件数"
+"Default reminder status",默认提醒状态
+"Email Settings",电子邮件设置
+"Send email from",发送电子邮件来自
+"Email subject",电子邮件主题
+"Send email after, days",发送电子邮件后，天
+"Process orders",处理订单
+"Consider orders with status",考虑具有状态的订单
+"Manual orders indexing",手动订单索引
+"Index orders created",创建索引订单
+"Custom date",自定义日期
+"Index orders made in store(s)",在商店中下达的索引订单
+"Delete items",删除项目
+"Send items",发送项目
+"Are you sure you want to send selected reminders?",是否确实要发送选定的提醒？
+"Are you sure you want to change selected reminders status?",是否确实要更改选定的提醒状态？

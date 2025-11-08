@@ -1,0 +1,181 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        // Luma and other third-party themes
+        &-icon-caret,
+        &.navigation .level0.parent > .level-top > .ui-menu-icon {
+            position: static;
+            display: block;
+        }
+        &-icon-caret::after {
+            display: none !important;
+        }
+
+        .caret-hidden > a.level-top {
+            & when not (@navpro-link-level0__padding = false) {
+                padding: @navpro-link-level0__padding !important;
+            }
+            &::before,
+            > .navpro-icon-caret::before {
+                display: none !important;
+            }
+        }
+    }
+
+    .navpro-icon-caret::before,
+    .navpro .parent > a::before {
+        content: '';
+
+        position: absolute;
+        right: 1px;
+        top: calc(~"50% - 10px");
+        transform: rotate(-90deg);
+
+        .rtl & {
+            left: 1px;
+            right: auto;
+            transform: rotate(90deg);
+        }
+
+        opacity: @navpro-parent-item__caret-opacity;
+        background-color: currentColor;
+        -webkit-mask: url('data:image/svg+xml,@{navpro-parent-item__caret}') no-repeat 50% 50%;
+        -webkit-mask-size: @navpro-parent-item__caret-size;
+        width: 20px;
+        height: 20px;
+    }
+    .navpro.navpro .parent > a:has(.navpro-icon-caret)::before {
+        display: none !important; // hide css-only caret in favor of js-based, when js is ready
+    }
+    // do not combine with prev selector until firefox will support :has
+    .navpro.navpro .parent.ui-menu-item > a::before {
+        display: none !important;
+    }
+
+    .caret-bottom a.level-top > .navpro-icon-caret::before,
+    .caret-bottom .parent > a.level-top::before {
+        top: auto;
+        right: auto;
+        left: calc(~"50% - 8px");
+        bottom: 5px;
+    }
+
+    .navpro {
+        &.navpro {
+            .caret-hidden {
+                .level0 {
+                    > .level-top {
+                        padding: @navpro-link-level0__padding !important;
+                        &::before,
+                        > .navpro-icon-caret,
+                        > .navpro-icon-caret::before {
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        // change caret styles for top level items (parent indicator)
+        &.orientation-horizontal {
+            .caret-bottom {
+                .level0 {
+                    > .level-top {
+                        &,
+                        .rtl & {
+                            padding:  @navpro-link-level0__padding;
+                            padding-bottom: @navpro-link-level0-caret__padding;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    .navpro {
+        &.dropdown-left {
+            .children .navpro-icon-caret::before,
+            .children .parent > a::before {
+                right: auto;
+                left: 1px;
+                transform: rotate(90deg);
+
+                .rtl & {
+                    right: 1px;
+                    left: auto;
+                    transform: rotate(-90deg);
+                }
+            }
+            .navpro-dropdown .children .parent > a {
+                padding-right:  @navpro-link__padding-right;
+                padding-left: @navpro-link-caret__padding;
+
+                .rtl & {
+                    padding-right: @navpro-link-caret__padding;
+                    padding-left: @navpro-link__padding-left;
+                }
+            }
+            // apply styles to the level0 of vertical oriented menu's
+            &.orientation-vertical {
+                .navpro-icon-caret::before,
+                .parent > a::before {
+                    right: auto;
+                    left: 1px;
+                    transform: rotate(90deg);
+
+                    .rtl & {
+                        right: 1px;
+                        left: auto;
+                        transform: rotate(-90deg);
+                    }
+                }
+                .level0.parent > .level-top {
+                    padding:  @navpro-vertical-link-level0__padding;
+                    padding-left: @navpro-link-level0-caret__padding;
+
+                    .rtl & {
+                        padding: @navpro-vertical-link-level0__padding;
+                        padding-right: @navpro-link-level0-caret__padding;
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical) {
+    @media @navpro-breakpoint-md {
+        .navpro-icon-caret {
+            opacity: 1 !important;
+        }
+        a.level-top > .navpro-icon-caret::before,
+        .navpro .parent > a.level-top::before {
+            opacity: @navpro-parent-item-level0__caret-opacity;
+            -webkit-mask: url('data:image/svg+xml,@{navpro-parent-item-level0__caret}') no-repeat 50% 50%;
+            -webkit-mask-size: @navpro-parent-item-level0__caret-size;
+        }
+        .orientation-horizontal a.level-top > .navpro-icon-caret::before,
+        .orientation-horizontal .parent > a.level-top::before {
+            transform: rotate(0);
+        }
+    }
+}
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .navpro {
+            &.dropdown-top {
+                &.orientation-horizontal {
+                    a.level-top .navpro-icon-caret::before,
+                    .parent > a.level-top::before {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}
+}

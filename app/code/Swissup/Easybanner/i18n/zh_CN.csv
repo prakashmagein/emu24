@@ -1,0 +1,79 @@
+Handles,提手
+"Save Banner",保存横幅
+"Delete Banner",删除横幅
+"Edit Banner - '%1'",编辑横幅-'％1'
+"New Banner",新横幅
+"Css Class",CSS类
+"Image Options",图片选项
+"Use image resizer",使用图像大小调整器
+"Retina support",视网膜支持
+"Actual image size should be twice larger then entered width and height",实际图像尺寸应大两倍，然后输入宽度和高度
+"Background Color",背景颜色
+"Html Content",HTML内容
+Banner,旗帜
+Lightbox,灯箱
+Awesomebar,真棒
+"Hide Url",隐藏网址
+Target,目标
+Popup,弹出
+Blank,空白
+Self,自
+"Sort Order",排序
+"Store View",店铺检视
+Placeholder,占位符
+Statistics,统计
+"New Placeholder",新的占位符
+"Banners Display Count",横幅显示计数
+"Sort mode",排序方式
+"By Banners Sort Order",按横幅排序
+Random,随机
+"Banner was deleted.",标语已删除。
+"Banner was disabled.",标语被禁用。
+EasyBanner,易横幅
+Banners,标语
+"This banner no longer exists.",该横幅不再存在。
+"Edit Banner",编辑横幅
+"Banner was enabled.",横幅已启用。
+"Manage Banners",管理横幅
+"Banner has been saved.",标语已保存。
+"Something went wrong while saving the banner.",保存标语时出了点问题。
+"Placeholder was deleted.",占位符已删除。
+"Placeholder was disabled.",占位符被禁用。
+Placeholders,占位符
+"This placeholder no longer exists.",该占位符不再存在。
+"Placeholder was enabled.",占位符已启用。
+"Manage Placeholders",管理占位符
+"Placeholder has been saved.",占位符已保存。
+"Something went wrong while saving the placeholder.",保存占位符时出了点问题。
+"Subtotal (Excl.Tax)",小计（不含税）
+"Subtotal (Incl.Tax)",小计（含税）
+"Clicks Count",点击计数
+"Display Count",显示计数
+"Display Count per Customer",每个客户的显示计数
+"Lightbox/Awesomebar: Customer browsing time (seconds)","灯箱/ Awesomebar：客户浏览时间（秒）"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","灯箱/ Awesomebar：客户闲置时间（秒）"
+"Lightbox/Awesomebar: Customer activity time (seconds)","灯箱/ Awesomebar：客户活动时间（秒）"
+"Lightbox/Awesomebar: Scroll offset","灯箱/ Awesomebar：滚动偏移"
+"Open Chooser",打开选择器
+%1%1"Last 7 days",最近7天
+"Last 30 days",最近30天
+"Last 6 Month",最近6个月
+"Last 12 Month",最近12个月
+"All Time",整天
+"Banner Statistics",横幅统计
+"EasyBanner Banner",易横幅广告
+"Select Banner...",选择横幅...
+"EasyBanner Placeholder",EasyBanner占位符
+"Select Placeholder...",选择占位符...
+"Add Banner",添加横幅
+"Image Title",图片标题
+"Is Active",活跃
+"Add Placeholder",添加占位符
+"Additional CSS Class",附加CSS类
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","如果要在边栏中显示此占位符，建议设置以下值：block block-easybanner-placeholder"
+"Parent Container",父容器
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/",不知道容器名称吗？将其保留为空，然后通过“内容>小部件”界面将占位符分配给所需的容器。您也可以在http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/查看常见的占位符位置列表
+Position,位置
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","XML属性语法是必需的。示例：before =“-”，after =“-”，before =“ block.name”"
+"Don't show anymore",不再显示
+"Exit intent time (seconds)",退出意图时间（秒）

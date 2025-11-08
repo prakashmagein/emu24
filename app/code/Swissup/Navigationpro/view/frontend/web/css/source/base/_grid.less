@@ -1,0 +1,151 @@
+@grid-columns: 12;
+@grid-gutter: 12px;
+
+// Generate Columns
+.navpro-generate-grid-columns() {
+    .navpro-loop-grid-columns(@index) when (@index >= 0) {
+        .navpro-col-@{index} {
+            width: (100% / @grid-columns * @index);
+        }
+        .navpro-offset-@{index} {
+            @width: (100% / @grid-columns * @index);
+            margin-left: @width;
+        }
+        .navpro-loop-grid-columns(@index - 1);
+    }
+    .navpro-loop-grid-columns(@grid-columns);
+
+    .navpro .gutters {
+        .navpro-loop-grid-gutters(@index) when (@index >= 0) {
+            & > .navpro-col-@{index} {
+                @width: (100% / @grid-columns * @index);
+                width: calc(~"@{width} - @{grid-gutter}");
+            }
+            & > .navpro-offset-@{index} {
+                @width: (100% / @grid-columns * @index);
+                margin-left: calc(~"@{width} + @{grid-gutter}") !important;
+            }
+            .navpro-loop-grid-gutters(@index - 1);
+        }
+        .navpro-loop-grid-gutters(@grid-columns);
+    }
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    // Grid Row
+    .navpro-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @media (max-width: @navpro__sm__max-width) {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        // Gutters
+        &.gutters,
+        &.gutters > .navpro-row {
+            margin-left: -@grid-gutter;
+
+            @media (max-width: @navpro__sm__max-width) {
+                margin-left: 0;
+            }
+
+            & > .navpro-col {
+                margin-left: @grid-gutter;
+
+                @media (max-width: @navpro__sm__max-width) {
+                    margin-left: 0;
+                }
+            }
+        }
+        &.around {
+            justify-content: space-around;
+        }
+        &.between {
+            justify-content: space-between;
+        }
+        &.auto {
+            & .navpro-col {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    // Grid Columns
+    .navpro-generate-grid-columns();
+
+    // Offset
+    [class^='offset-'],
+    [class*=' offset-'] {
+        @media (max-width: @navpro__sm__max-width) {
+            margin-left: 0;
+        }
+    }
+
+    // Ordering
+    .navpro .pull-first    { order: -1; }
+    .navpro .push-last     { order: 1;  }
+    @media (max-width: @navpro__sm__max-width) {
+        .navpro-row {
+            & .navpro-col {
+                margin-left: 0;
+                width: 100%;
+            }
+            &.gutters {
+                .navpro-col {
+                    margin-left: 0;
+                    width: 100%;
+                }
+                .navpro-col + .navpro-col {
+                    margin-top: 16px;
+                }
+            }
+        }
+        .navpro .pull-first-sm { order: -1; }
+        .navpro .push-last-sm  { order: 1;  }
+    }
+
+    // Push
+    .navpro .gutters .navpro-col.push-left,
+    .navpro .push-left  { margin-right: auto; }
+
+    .navpro .gutters .navpro-col.push-right,
+    .navpro .push-right  { margin-left: auto; }
+
+    .navpro .gutters .navpro-col.push-center,
+    .navpro .push-center { margin-left: auto; margin-right: auto; }
+
+    .navpro .gutters .navpro-col.push-middle,
+    .navpro .push-middle { margin-top:  auto; margin-bottom: auto; }
+
+    .navpro .push-bottom { margin-top:  auto; }
+
+    @media (max-width: @navpro__sm__max-width) {
+        .navpro .gutters .navpro-col.push-left-sm,
+        .navpro .push-left-sm   { margin-left: 0; }
+
+        .navpro .gutters .navpro-col.push-center-sm,
+        .navpro .push-center-sm { margin-left: auto; margin-right: auto;}
+
+        .navpro .push-top-sm    { margin-top: 0;  }
+    }
+
+    // Flex Alignment
+    .navpro .align-middle {
+        align-items: center;
+    }
+    .navpro .align-right {
+        justify-content: flex-end;
+    }
+    .navpro .align-center {
+        justify-content: center;
+    }
+
+    @media (max-width: @navpro__sm__max-width) {
+        .navpro .align-left-sm { justify-content: flex-start; }
+    }
+}
+}

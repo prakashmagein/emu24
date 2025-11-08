@@ -1,0 +1,118 @@
+$askit-question-avatar__width: 60px !default;
+$askit-question-avatar__height: $askit-question-avatar__width !default;
+$askit-answer-avatar__width: 50px !default;
+$askit-answer-avatar__height: $askit-answer-avatar__width !default;
+
+.askit-question-form {
+    margin: 20px 0;
+}
+
+.askit {
+    &-questions {
+        .block-title {
+            display: none;
+        }
+
+        .toolbar {
+            display: none;
+
+            ~ .toolbar {
+                display: block;
+            }
+
+            &-amount,
+            .limiter {
+                display: none;
+            }
+        }
+
+        .product.info.detailed & {
+            .askit-items {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .askit-item-answers {
+                list-style: none;
+            }
+        }
+    }
+
+    &-item {
+        min-height: $askit-question-avatar__height + 5px;
+        position: relative;
+        padding-left: $askit-question-avatar__width + 10px;
+
+        .no-avatar & {
+            padding-left: 0;
+        }
+
+        &-avatar {
+            left: 0;
+            position: absolute;
+            top: 5px;
+
+            amp-img {
+                max-height: $askit-question-avatar__height;
+                max-width: $askit-question-avatar__width;
+            }
+        }
+
+        &-answer {
+            min-height: $askit-answer-avatar__height + 5px;
+            padding-left: $askit-answer-avatar__width + 10px;
+
+            &s {
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                font-size: 90%;
+                list-style: none;
+                margin: 1rem 0 1rem 1rem;
+            }
+
+            &-avatar amp-img {
+                max-height: $askit-answer-avatar__height;
+                max-width: $askit-answer-avatar__width;
+            }
+        }
+
+        &-title,
+        &-answer .askit-item-author {
+            margin-bottom: .5rem;
+        }
+
+        &-timestamp {
+            &::before {
+                content: '(';
+            }
+
+            &::after {
+                content: '):';
+            }
+        }
+
+        &-actions {
+            margin-left: -$askit-question-avatar__width - 10px;
+
+            .no-avatar & {
+                margin-left: 0;
+            }
+        }
+
+
+        &-trigger {
+            @extend a;
+
+            + [type=checkbox] {
+                display: none;
+
+                &:checked ~ .askit-item-answers {
+                    opacity: 1;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

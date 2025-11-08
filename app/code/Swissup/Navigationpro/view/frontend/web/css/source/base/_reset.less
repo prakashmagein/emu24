@@ -1,0 +1,105 @@
+& when (@media-common = true) {
+& when not (@breeze) {
+    .column.main {
+        .navpro {
+            ul {
+                padding: 0 !important;
+            }
+            li {
+                margin: 0 !important;
+                &::before {
+                    display: none;
+                }
+            }
+            .li-item {
+                padding: 0 !important;
+                text-indent: 0 !important;
+            }
+        }
+    }
+
+    .navpro {
+        ul {
+            margin: 0;
+            padding: 0;
+            ul {
+                padding: 0;
+            }
+        }
+        li {
+            margin: 0;
+            &.level0 {
+                &::after,
+                &:hover::after {
+                    display: none;
+                    position: static;
+                    height: auto;
+                    width: auto;
+                }
+            }
+        }
+
+        //
+        //  Reset default styles
+        //
+        //  position: static is used to make possible to use fullwidth
+        //  and fullscreen dropdowns
+        //  _________________________________________
+        &.navpro {
+            position: static;
+            ul {
+                position: static;
+                ul {
+                    padding: 0;
+                }
+            }
+            li.li-item {
+                position: static;
+            }
+            .level0.active > a:not(.ui-state-active) span:not(.ui-menu-icon),
+            .level0.has-active > a:not(.ui-state-active) span:not(.ui-menu-icon) {
+                margin: 0;
+            }
+
+            .li-item {
+                > a {
+                    position: relative;
+                }
+            }
+
+            .parent {
+                > a {
+                    position: relative;
+                    &::after {
+                        content: '' !important;
+                    }
+                }
+            }
+
+            .level0 {
+                > .level-top {
+                    .padding(@navpro-link-level0__padding);
+                    border: none;
+                    display: inline-block;
+                    line-height: normal;
+                }
+
+                &.parent {
+                    > .level-top {
+                        .padding-right(@navpro-link-level0-caret__padding);
+                    }
+                }
+            }
+            .level0 {
+                &.active,
+                &.has-active {
+                    > .level-top {
+                        border: none;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+}

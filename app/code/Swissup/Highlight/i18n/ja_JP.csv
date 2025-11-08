@@ -1,0 +1,39 @@
+Popularity,人気
+"1 Month",1ヶ月
+"1 Year",1年
+"6 Months",6ヵ月
+"1 Week",1週間
+"1 Day",1日
+"1 Hour",1時間
+"Product ID",製品番号
+Random,ランダム
+"Add to Wish List",ほしい物リストに追加する
+"Highlight Pages",ページをハイライト
+"Featured Products",おすすめ商品
+"On Sale Products",セール商品
+"Popular Products",人気商品
+"Calculation Period",計算期間
+"Minimum Popularity",最小人気
+"Highlight: All Products",ハイライト：すべての製品
+"Sort Direction",ソート方向
+"Grid Template",グリッドテンプレート
+"List Template",リストテンプレート
+"Sidebar: Images and Names Template",サイドバー：画像と名前のテンプレート
+"Sidebar: Names Only Template",サイドバー：名前のみのテンプレート
+"Sidebar: Images Only Template",サイドバー：画像のみのテンプレート
+"Custom Template",カスタムテンプレート
+"Used, when template value is set to 'Custom'",テンプレート値が「カスタム」に設定されている場合に使用
+"Highlight: Attribute Yes/No",ハイライト：属性はい/いいえ
+"Highlight: Attribute Date",ハイライト：属性日付
+"Highlight: Featured Products",ハイライト：注目の製品
+"Show link to Highlight Page",ハイライトページへのリンクを表示
+"Link Title",リンクのタイトル
+"Highlight: New Products",ハイライト：新製品
+"Highlight: Onsale Products (Special Price)",ハイライト：オンセール製品（特別価格）
+"Highlight: Popular Products",ハイライト：人気商品
+"Minimum views count to show products",製品を表示するための最小視聴回数
+"Highlight: Bestsellers",ハイライト：ベストセラー
+"Minimum purchase count to show products",製品を表示するための最小購入数
+"Hidden, when filter or pagination is used",非表示、フィルターまたはページネーションが使用されている場合
+"CSS Class",CSSクラス
+"Class names for customization purposes. You can view ready to use css class helpers at http://docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/",カスタマイズのためのクラス名。すぐに使えるcssクラスヘルパーは、http：//docs.swissuplabs.com/m2/extensions/highlight/widgets/css-helpers/で確認できます。

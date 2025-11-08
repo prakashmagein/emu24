@@ -1,0 +1,92 @@
+.easybanner {
+    &-lightbox {
+        &-el {
+            border-radius: 2px;
+            box-sizing: border-box;
+            padding: @easybanner-lightbox__padding;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            background: @easybanner-lightbox__background;
+            box-shadow: @easybanner-lightbox__shadow;
+            max-width: 750px;
+            text-align: left;
+
+            --easybanner-translate-x: 0;
+            --easybanner-translate-y: 0;
+            --easybanner-scale-x: 1;
+            --easybanner-scale-y: 1;
+            --easybanner-transform:
+                translateX(var(--easybanner-translate-x))
+                translateY(var(--easybanner-translate-y))
+                scaleX(var(--easybanner-scale-x))
+                scaleY(var(--easybanner-scale-y));
+
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: 200ms, 200ms;
+            transition-timing-function: ease-in-out;
+            transform: var(--easybanner-transform);
+
+            &.zoom-in {
+                --easybanner-scale-x: 0.95;
+                --easybanner-scale-y: 0.95;
+            }
+            &.zoom-out {
+                --easybanner-scale-x: 1.02;
+                --easybanner-scale-y: 1.02;
+            }
+            &.slide-up {
+                --easybanner-translate-y: 10px;
+                &.full {
+                    --easybanner-translate-y: 100%;
+                }
+            }
+            &.slide-down {
+                --easybanner-translate-y: -10px;
+                &.full {
+                    --easybanner-translate-y: -100%;
+                }
+            }
+            &.slide-left {
+                --easybanner-translate-x: 10px;
+                &.full {
+                    --easybanner-translate-x: 100%;
+                }
+            }
+            &.slide-right {
+                --easybanner-translate-x: -10px;
+                &.full {
+                    --easybanner-translate-x: -100%;
+                }
+            }
+            &.shown,
+            &.shown.full {
+                opacity: 1;
+                --easybanner-translate-x: 0;
+                --easybanner-translate-y: 0;
+                --easybanner-scale-x: 1;
+                --easybanner-scale-y: 1;
+            }
+        }
+        &-content {
+            .easybanner-tiny-scrollbar();
+        }
+    }
+    &-overlay-el {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-color: @easybanner-lightbox-overlay__background;
+        opacity: 0;
+        transition: 200ms opacity ease-in-out;
+
+        &.shown {
+            opacity: 1;
+        }
+    }
+}

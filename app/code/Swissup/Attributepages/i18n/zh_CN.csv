@@ -1,0 +1,48 @@
+Duplicate,重复
+"Select Attribute",选择属性
+"Attributes with available options are not found.",找不到具有可用选项的属性。
+"Description and children",说明和孩子
+"Description only",仅描述
+"Children only",仅限儿童
+"Columns Count",列数
+"1 — 8 columns are supported","1 —支持8列"
+"Group Options by First Letter",按首字母分组的选项
+"Listing Mode",上市模式
+"Image Width",影像宽度
+"Image Height",影像高度
+"Used to identify page in backend grid",用于识别后端网格中的页面
+"Relative to Website Base URL",相对于网站基本URL
+"Option Information",选项信息
+"Exclude from Display",从显示中排除
+"Unable to find a page to delete.",找不到要删除的页面。
+"The page has been duplicated.",页面已重复。
+"Unable to find a page to duplicate.",找不到要复制的页面。
+"Attribute Pages",属性页
+"Manage Options",管理选项
+"This option no longer exists.",该选项不再存在。
+"Invalid link received.",收到无效的链接。
+"Edit Option",编辑选项
+"Attribute Options",属性选项
+"The following urls where automatically changed because of duplicates.",以下网址由于重复而自动更改。
+"There are no options matching the selection.",没有与选择匹配的选项。
+"View other %1 products",查看其他％1产品
+"Attributepages: List of attribute based pages",Attributepages：基于属性的页面列表
+"Pages to exclude",要排除的页面
+"Pages to include",要包含的页面
+"Remove Block Wrapper and Title",删除块包装和标题
+"Attributepages: Option List",属性页：选项列表
+"Attribute Page",属性页
+"Show as Slider",显示为滑块
+"Unique Slider Id",唯一的滑块ID
+"Number of visible slides",可见幻灯片数
+"Number of slides to scroll",要滚动的幻灯片数
+"Automatically play slider",自动播放滑块
+"Items limit",物品限制
+"Attributepages: Product Option",属性页：产品选件
+"Additional css classes",其他CSS类
+"Render as link",渲染为链接
+"Show Image",显示图片
+"Image type",图像类型
+"Label for 'View All' link",“查看全部”链接的标签
+"Delete items",删除项目
+"

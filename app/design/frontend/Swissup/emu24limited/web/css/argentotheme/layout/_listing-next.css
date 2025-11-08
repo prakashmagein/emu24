@@ -1,0 +1,5 @@
+@container listing-grid-item (max-width: 200px) {
+    .price-label {
+        display: none;
+    }
+}

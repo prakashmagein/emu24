@@ -1,0 +1,79 @@
+Handles,Handgrepen
+"Save Banner","Banner opslaan"
+"Delete Banner","Banner verwijderen"
+"Edit Banner - '%1'","Banner bewerken - '%1'"
+"New Banner","Nieuwe banner"
+"Css Class",CSS-klasse
+"Image Options",Afbeeldingsopties
+"Use image resizer","Gebruik afbeelding resizer"
+"Retina support",Retina-ondersteuning
+"Actual image size should be twice larger then entered width and height","Het werkelijke beeldformaat moet tweemaal groter zijn dan de ingevoerde breedte en hoogte"
+"Background Color","Achtergrond kleur"
+"Html Content",HTML-inhoud
+Banner,Banner
+Lightbox,Lichtbak
+Awesomebar,Awesomebar
+"Hide Url","Url verbergen"
+Target,Doelwit
+Popup,Pop-up
+Blank,Blank
+Self,Zelf
+"Sort Order",sorteervolgorde
+"Store View",Winkelweergave
+Placeholder,"Tijdelijke aanduiding"
+Statistics,Statistieken
+"New Placeholder","Nieuwe tijdelijke aanduiding"
+"Banners Display Count","Aantal banners weergeven"
+"Sort mode",Sorteermodus
+"By Banners Sort Order","Op banners Sorteervolgorde"
+Random,Willekeurig
+"Banner was deleted.","Banner is verwijderd."
+"Banner was disabled.","Banner is uitgeschakeld."
+EasyBanner,EasyBanner
+Banners,Banners
+"This banner no longer exists.","Deze banner bestaat niet meer."
+"Edit Banner","Banner bewerken"
+"Banner was enabled.","Banner is ingeschakeld."
+"Manage Banners","Banners beheren"
+"Banner has been saved.","Banner is opgeslagen."
+"Something went wrong while saving the banner.","Er is iets misgegaan bij het opslaan van de banner."
+"Placeholder was deleted.","Tijdelijke aanduiding is verwijderd."
+"Placeholder was disabled.","Tijdelijke aanduiding is uitgeschakeld."
+Placeholders,"Tijdelijke aanduidingen"
+"This placeholder no longer exists.","Deze tijdelijke aanduiding bestaat niet meer."
+"Placeholder was enabled.","Tijdelijke aanduiding is ingeschakeld."
+"Manage Placeholders","Beheer tijdelijke aanduidingen"
+"Placeholder has been saved.","Tijdelijke aanduiding is opgeslagen."
+"Something went wrong while saving the placeholder.","Er is iets misgegaan bij het opslaan van de tijdelijke aanduiding."
+"Subtotal (Excl.Tax)","Subtotaal (excl. Btw)"
+"Subtotal (Incl.Tax)","Subtotaal (incl. Btw)"
+"Clicks Count","Aantal klikken"
+"Display Count","Aantal weergaven"
+"Display Count per Customer","Aantal per klant weergeven"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: browsertijd van de klant (seconden)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: tijd van inactiviteit van de klant (seconden)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Lightbox / Awesomebar: tijd van klantactiviteit (seconden)"
+"Lightbox/Awesomebar: Scroll offset","Lightbox / Awesomebar: verschuiving verschuiven"
+"Open Chooser","Open Kiezer"
+%1%1"Last 7 days","Laatste 7 dagen"
+"Last 30 days","Laatste 30 dagen"
+"Last 6 Month","Afgelopen 6 maanden"
+"Last 12 Month","Afgelopen 12 maanden"
+"All Time",Altijd
+"Banner Statistics",Bannerstatistieken
+"EasyBanner Banner",EasyBanner-banner
+"Select Banner...","Selecteer Banner ..."
+"EasyBanner Placeholder","EasyBanner Placeholder"
+"Select Placeholder...","Selecteer tijdelijke aanduiding ..."
+"Add Banner","Banner toevoegen"
+"Image Title","Titel afbeelding"
+"Is Active","Is actief"
+"Add Placeholder","Tijdelijke aanduiding toevoegen"
+"Additional CSS Class","Extra CSS-klasse"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Als je deze tijdelijke aanduiding in een zijbalk gaat weergeven, is het raadzaam om de volgende waarde in te stellen: block block-easybanner-placeholder"
+"Parent Container","Bovenliggende container"
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Kent u de containernaam niet? Laat het leeg en wijs via de interface 'Content> Widgets' een tijdelijke aanduiding toe aan de gewenste container. U kunt de lijst met veelvoorkomende tijdelijke aanduidingen ook bekijken op http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Positie
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","Syntaxis van XML-kenmerken is vereist. Voorbeelden: before = ""-"", after = ""-"", before = ""block.name"""
+"Don't show anymore","Niet meer laten zien"
+"Exit intent time (seconds)","Intentietijd verlaten (seconden)"

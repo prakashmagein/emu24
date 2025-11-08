@@ -1,0 +1,60 @@
+<!-- ko foreach: getRegion('askit-messages') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<!-- ko ifnot: askedSuccessfully  -->
+<form class="form"
+      method="post"
+      data-bind="event: {submit: save }, visible: isFormVisible"
+      data-mage-init='{"validation":{}}'
+      afterRender="function (element) {jQuery(element).trigger('contentUpdated')}" >
+    <input type="hidden" name="parent_id" data-bind="value: parentMessageId" ></input>
+    <div class="fieldset" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+        <!-- ko if: gravatar  -->
+        <div class="askit-item-avatar askit-item-answer-hero-avatar" bindHtml="gravatar">
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoggedIn -->
+        <div class="field name required">
+            <label class="label" data-bind="attr: {'for': 'answer_customer_name_' + parentMessageId}"><span data-bind="i18n: 'Name'"></span></label>
+            <div class="control">
+                <input name="customer_name"
+                       type="text"
+                       class="input-text"
+                       data-bind="attr: {autocomplete: autocomplete, 'id': 'answer_customer_name_' + parentMessageId}"
+                       data-validate="{required:true}" >
+                </input>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" data-bind="attr: {'for': 'answer_email_' + parentMessageId}"><span data-bind="i18n: 'Email'"></span></label>
+            <div class="control">
+                <input name="email"
+                       type="email"
+                       class="input-text"
+                       data-bind="attr: {autocomplete: autocomplete, 'id': 'answer_email_' + parentMessageId}"
+                       data-validate="{required:true, 'validate-email':true}" >
+                </input>
+            </div>
+        </div>
+        <!-- /ko -->
+        <div class="field text required">
+            <label class="label"data-bind="attr: {'for': 'question_text_' + parentMessageId}"><span data-bind="i18n: 'Your Answer'"></span></label>
+            <div class="control">
+                <textarea name="text"
+                       class="input-text" cols="5" rows="3"
+                       data-bind="attr: {'id': 'question_text_' + parentMessageId}"
+                       data-validate="{required:true}"></textarea>
+                <small data-bind="i18n: 'Plain text only. HTML is not allowed.'"></small>
+            </div>
+        </div>
+        <!-- ko foreach: getRegion('additional-form-fields') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+    <div class="actions-toolbar askit-answer-form__actions">
+        <button type="submit" class="action button button--confirm" data-bind="{attr: {title: $t('Leave a Reply')}}">
+            <span data-bind="i18n: 'Leave a Reply'"></span>
+        </button>
+    </div>
+</form>
+<!--/ko-->

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_ChatGptAssistant::css/field-select.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="store_switcher" template="Magento_Backend::store/switcher.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magento\Catalog\Block\Adminhtml\Product\Edit\Action\Attribute\Tabs" name="attributes_tabs">
+                <block class="Swissup\ChatGptAssistant\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\Attributes" name="tab_attributes"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">attributes</argument>
+                    <argument name="block" xsi:type="string">tab_attributes</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Swissup\ChatGptAssistant\Block\Adminhtml\Product\Edit\Action\Attribute" name="attribute" template="Magento_Catalog::catalog/product/edit/action/attribute.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

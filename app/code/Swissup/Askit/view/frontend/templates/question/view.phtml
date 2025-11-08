@@ -1,0 +1,68 @@
+<?php
+    /** @var \Swissup\Askit\Block\Question\View $block */
+    $isLoggedIn   = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+    $urlHelper    = $block->getUrlHelper();
+
+    $isAllowHint             = $configHelper->isAllowedHint();
+    $isShareCustomerName     = $configHelper->isAllowedShareCustomerName();
+    $isShowItem              = $configHelper->isAllowedShareItem();
+    $isEnabledGravatar       = $configHelper->isEnabledGravatar();
+
+    $question = $block->getQuestion();
+    /** @var \Magento\Framework\Data\Helper\PostHelper $postDataHelper */
+    $postDataHelper = $block->getPostDataHelper();
+    $allowedStatuses = $question->getQuestionStatuses();
+    $status = $question->getStatus();
+    $statusText = isset($allowedStatuses[$status]) ? $allowedStatuses[$status] : '';
+    $questionUrl = $urlHelper->getQuestionUrl($question->getId());
+?>
+
+<?php if ($isEnabledGravatar): ?>
+<div class="askit-item-avatar">
+    <?= /* @noEscape */ $isEnabledGravatar ? $urlHelper->getGravatar($question->getEmail(), 100) : '' ?>
+</div>
+<?php endif; ?>
+<?php if ($isShareCustomerName):?>
+<p class="askit-item-title">
+    <a href="<?= $block->escapeUrl($questionUrl) ?>" title="<?= $block->escapeHtml(__('Link to this question')) ?>">
+        #<?= $block->escapeHtmlAttr($question->getId()) ?>
+    </a>
+    <?php if (!in_array($status, $block->getPublicStatuses())): ?>
+    <span class="askit-item-status" data-status="<?= $block->escapeHtmlAttr($status) ?>" title="<?=  $block->escapeHtml(__('Question has status %1', $statusText)) ?>">
+        <?= /* @noEscape */  $statusText; ?>
+    </span>
+    <?php endif; ?>
+    <strong class="askit-item-author">
+        <?= /* @escapeNotVerified */ $block->escapeHtml($question->getCustomerName());?>
+    </strong>
+    <span><?= $block->escapeHtml(__('asks')) ?></span>
+    <?php if ($isShowItem):
+        $a = $urlHelper->get($question['item_type_id'], $question['item_id'], false);
+        if ($block->getItemId() < 0):?>
+        <span><?= $block->escapeHtml(__('about')) ?></span>
+        <a class="askit-item-parent" href="<?= $block->escapeUrl($a['href']) ?>"><?= /* @noEscape */ $a['label']?></a>
+        <?php endif;?>
+    <?php endif;?>
+    <span class="askit-item-timestamp">
+        <?= /* @noEscape */ $block->formatDate($question->getCreatedTime(), \IntlDateFormatter::MEDIUM);?>
+    </span>
+</p>
+<?php endif;?>
+<p class="askit-item-body">
+    <?= /* @noEscape */ nl2br($block->stripTags($question->getText())) ?>
+</p>
+<?php if ($isAllowHint && $isLoggedIn && $block->canVoted($question->getId()) || $question->getHint()) : ?>
+<p class="askit-item-same">
+    <span class="askit-item-vote" data-number="<?= $block->escapeHtmlAttr($question->getHint()) ?>">
+        <small>
+            <?php if ($isAllowHint && $isLoggedIn && $block->canVoted($question->getId())):?>
+                <a href="#" data-vote='<?= /* @noEscape */ $postDataHelper->getPostData($block->getUrl('askit/vote/inc'), ['id' => $question->getId()]);?>' class="action">
+                    <?= $block->escapeHtml(__('Vote for It')) ?>
+                </a>
+            <?php endif;?>
+            <span><?= $question->getHint() ? $block->escapeHtml(__('%1 people already voted for this question.', $question->getHint())) : '' ?></span>
+        </small>
+    </span>
+</p>
+<?php endif;?>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch_askit_question_save">
+        <observer name="captcha_swissup_askit_new_question_form" instance="Swissup\Askit\Observer\Captcha\NewQuestionFormObserver" />
+    </event>
+    <event name="controller_action_predispatch_askit_answer_save">
+        <observer name="captcha_swissup_askit_new_answer_form" instance="Swissup\Askit\Observer\Captcha\NewAnswerFormObserver" />
+    </event>
+</config>

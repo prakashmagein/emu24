@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="highlight_view_index"/>
+    <head>
+        <title>Bestsellers</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Swissup\Highlight\Block\ProductList\Bestsellers" name="category.products.list" template="Magento_Catalog::product/list.phtml" before="-">
+                <action method="setDisableWrapper">
+                    <argument name="name" xsi:type="boolean">true</argument>
+                </action>
+                <action method="setToolbarBlockName">
+                    <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

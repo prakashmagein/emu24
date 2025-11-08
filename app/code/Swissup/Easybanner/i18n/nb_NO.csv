@@ -1,0 +1,79 @@
+Handles,håndtak
+"Save Banner","Lagre banneret"
+"Delete Banner","Slett banneret"
+"Edit Banner - '%1'","Rediger banner - '%1'"
+"New Banner","Ny banner"
+"Css Class",Css-klasse
+"Image Options",Bildealternativer
+"Use image resizer","Bruk bildebehandler"
+"Retina support","Retina støtte"
+"Actual image size should be twice larger then entered width and height","Den faktiske bildestørrelsen skal være to ganger større og deretter angi bredde og høyde"
+"Background Color",Bakgrunnsfarge
+"Html Content",Html-innhold
+Banner,banner
+Lightbox,Lysboks
+Awesomebar,Awesomebar
+"Hide Url","Skjul URL"
+Target,Mål
+Popup,popup
+Blank,Blank
+Self,Selv
+"Sort Order",Sorteringsrekkefølge
+"Store View",Butikkvisning
+Placeholder,Plassholder
+Statistics,Statistikk
+"New Placeholder","Ny plassholder"
+"Banners Display Count","Bannere Display Count"
+"Sort mode",Sorteringsmodus
+"By Banners Sort Order","Etter bannere sortering rekkefølge"
+Random,Tilfeldig
+"Banner was deleted.","Banneren ble slettet."
+"Banner was disabled.","Banneren ble deaktivert."
+EasyBanner,EasyBanner
+Banners,bannere
+"This banner no longer exists.","Dette banneret eksisterer ikke lenger."
+"Edit Banner","Rediger banner"
+"Banner was enabled.","Banner var aktivert."
+"Manage Banners","Administrer bannere"
+"Banner has been saved.","Banneren er lagret."
+"Something went wrong while saving the banner.","Noe gikk galt mens du lagret banneret."
+"Placeholder was deleted.","Stedholder ble slettet."
+"Placeholder was disabled.","Stedholder var deaktivert."
+Placeholders,Plassholdere
+"This placeholder no longer exists.","Denne plassholderen eksisterer ikke lenger."
+"Placeholder was enabled.","Plassholder var aktivert."
+"Manage Placeholders","Administrer plassholdere"
+"Placeholder has been saved.","Plassholder er lagret."
+"Something went wrong while saving the placeholder.","Noe gikk galt mens du reddet plassholderen."
+"Subtotal (Excl.Tax)","Subtotal (ekskl. Takst)"
+"Subtotal (Incl.Tax)","Subtotal (inkl. Avgift)"
+"Clicks Count","Klikk teller"
+"Display Count","Vis antall"
+"Display Count per Customer","Vis antall per kunde"
+"Lightbox/Awesomebar: Customer browsing time (seconds)","Lightbox / Awesomebar: Kundens surfetid (sekunder)"
+"Lightbox/Awesomebar: Customer inactivity time (seconds)","Lightbox / Awesomebar: Kundens inaktivitetstid (sekunder)"
+"Lightbox/Awesomebar: Customer activity time (seconds)","Lightbox / Awesomebar: Kundeaktivitetstid (sekunder)"
+"Lightbox/Awesomebar: Scroll offset","Lightbox / Awesomebar: Rulleforskyvning"
+"Open Chooser","Åpen velger"
+%1%1"Last 7 days","Siste 7 dager"
+"Last 30 days","Siste 30 dager"
+"Last 6 Month","Siste 6 måned"
+"Last 12 Month","Siste 12 måned"
+"All Time","Hele tiden"
+"Banner Statistics",Bannerstatistikk
+"EasyBanner Banner","EasyBanner Banner"
+"Select Banner...","Velg banner ..."
+"EasyBanner Placeholder","EasyBanner plassholder"
+"Select Placeholder...","Velg plassholder ..."
+"Add Banner","Legg til banner"
+"Image Title","Bilde tittel"
+"Is Active","Er aktiv"
+"Add Placeholder","Legg til plassholder"
+"Additional CSS Class","Tilleggs CSS-klasse"
+"If you are going to show this placeholder in a sidebar it's recommended to set the following value: block block-easybanner-placeholder","Hvis du skal vise denne plassholderen i en sidefelt anbefales det å angi følgende verdi: block block-easybanner-placeholder"
+"Parent Container",Foreldrebeholder
+"Don't know container name? Leave it empty and assign placeholder to the required container via 'Content > Widgets' interface. You can also view the list of common placeholder positions at http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/","Vet du ikke containernavnet? La den være tom og tilordne plassholderen til den nødvendige beholderen via ""Innhold> Widgets"" -grensesnittet. Du kan også se listen over vanlige plassholderposisjoner på http://docs.swissuplabs.com/m2/extensions/easybanners/common-placeholder-positions/"
+Position,Posisjon
+"XML attribute syntax is required. Examples: before=""-"", after=""-"", before=""block.name""","XML attributt syntaks er påkrevd. Eksempler: før = ""-"", etter = ""-"", før = ""blokk.navn"""
+"Don't show anymore","Ikke vis lenger"
+"Exit intent time (seconds)","Avslutt intensjonstid (sekunder)"

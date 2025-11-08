@@ -1,0 +1,8 @@
+<?php
+    $helper = $this->helper('Swissup\Fblike\Helper\Like');
+
+    if (!$appId = $helper->getAppId()) {
+        return;
+    }
+?>
+<meta property="fb:app_id" content="<?= $appId ?>" />

@@ -1,0 +1,44 @@
+"Save Slider","Зберегти слайдер"
+"Delete Slider","Видалити слайдер"
+"Edit Slider - '%1'","Редагувати слайдер - ""%1"""
+"New Slider","Новий слайдер"
+Parameters,Параметри
+Direction,Напрямок
+Horizontal,Горизонтальний
+Vertical,Вертикальний
+Effect,Ефект
+Slide,Слайд
+Fade,В’януть
+Cube,Куб
+Coverflow,"Покривний потік"
+Flip,Фліп
+Speed,Швидкість
+Autoplay,"Автоматичне відтворення"
+Pagination,Пагинація
+"Navigation Buttons","Кнопки навігації"
+Scrollbar,Прокрутки
+"Scrollbar Hide","Панель прокрутки Сховати"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,ДивитисяSlidesVisibility
+Slides,Слайди
+"Add New Slide","Додати новий слайд"
+"Slider was deleted.","Слайдер видалено."
+"Can't find a slider to delete.","Не вдалося знайти слайдер для видалення."
+EasySlide,EasySlide
+"Manage Sliders","Керуйте повзунками"
+"This slider no longer exists.","Цей слайдер більше не існує."
+"Edit Slider","Редагувати слайдер"
+Sliders,Слайдери
+"Slider has been saved.","Слайдер збережено."
+"Something went wrong while saving the slider.","Щось пішло не так, зберігаючи слайдер."
+Link,Посилання
+"Open link in","Відкрити посилання в"
+Description,Опис
+"Description Position","Опис Позиція"
+"Description Background","Опис фону"
+"Slide Detail","Деталь слайда"
+"Select Slider","Виберіть Слайдер"
+"Add New Slider","Додати новий слайдер"
+Black,Чорний
+White,Білий
+"%1 image resize - %2","%1 зміна розмірів малюнку - %2"

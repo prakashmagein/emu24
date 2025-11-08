@@ -1,0 +1,15 @@
+$hamburger-icon-width: 40px !default;
+$hamburger-icon-height: 40px !default;
+$hamburger-mask-image: $icon-hamburger;
+$hamburger-mask-size: 30px 24px !default;
+$hamburger-background-color: null !default;
+
+.hamburger {
+    @include icon-mask(
+        $icon: $hamburger-mask-image,
+        $size: $hamburger-mask-size,
+        $color: $hamburger-background-color,
+        $width: $hamburger-icon-width,
+        $height: $hamburger-icon-height
+    );
+}

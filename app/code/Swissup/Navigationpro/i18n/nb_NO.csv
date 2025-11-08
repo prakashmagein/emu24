@@ -1,0 +1,70 @@
+"Delete Item","Slett element"
+"Are you sure you want to do this?","Er du sikker på at du vil gjøre dette?"
+"Menu Settings",Menyinnstillinger
+"You deleted the item.","Du slettet elementet."
+"We can't find a item to delete.","Vi finner ikke et element å slette."
+"Import completed.","Import fullført."
+"Something went wrong while importing item.","Noe gikk galt under import av element."
+"This item no longer exists.","Dette elementet finnes ikke lenger."
+"Something went wrong while saving item.","Noe gikk galt mens du lagrer element."
+"You saved item.","Du lagret elementet."
+"Something went wrong while saving menu.","Noe gikk galt mens du lagrer menyen."
+"You deleted the menu.","Du har slettet menyen."
+"We can't find a menu to delete.","Vi finner ikke en meny å slette."
+"A total of %1 record(s) have been deleted.","Totalt %1 post(er) er slettet."
+"A total of %1 record(s) have been updated.","Totalt %1 post(er) er oppdatert."
+"New Menu","Ny meny"
+"This menu no longer exists.","Denne menyen finnes ikke lenger."
+"You saved menu.","Du lagret menyen."
+"Stick to Left","Hold deg til venstre"
+"Stick to Right","Hold deg til høyre"
+Standard,"Standard (Standard)"
+Left,Venstre
+Top,Topp
+Fullscreen,Fullskjerm
+Full-Width,"Full bredde"
+Boxed,Eske
+Small,Liten
+Medium,Medium
+Large,Store
+"Extra Large","Ekstra stor"
+"Item was not registered","Varen ble ikke registrert"
+Horizontal,Vannrett
+Vertical,Loddrett
+Blank,Tom
+Dark,Mørk
+"Dark Bar","Mørk Bar"
+"Dark Dropdown","Mørk dropdown"
+Flat,Flat
+Compact,Kompakt
+"Menu was not registered","Menyen ble ikke registrert"
+"An item cannot be parent for itself","Et element kan ikke være overordnet for seg selv"
+"This name is already in use.","Dette navnet er allerede i bruk."
+"Top Menu",Toppmeny
+Menu,Menyen
+Navigationpro,Navigasjonpro
+"Show Active Branch Only","Vis bare aktiv gren"
+"Show Parent Category","Vis overordnet kategori"
+"Initially Shown Levels Count","Antall viste nivåer i utgangspunktet"
+Orientation,Retning
+"Dropdown Positioning","Plassering av rullegardinstilling"
+"Additional CSS Class","Ekstra CSS-klasse"
+"Wrap into Block Template","Pakk inn i blokkmal"
+"Block CSS Class","Blokk CSS-klasse"
+"Select item in the tree on the left sidebar, or create a new one","Velg element i treet i venstre sidefelt, eller opprett en ny"
+"Sync Name and URL with Category Data","Synkroniser navn og URL-adresse med kategoridata"
+"CSS Class",CSS-klasse
+"Use Menu Settings","Bruke menyinnstillinger"
+"New Item","Nytt element"
+"Import Item","Importere element"
+"Columns Direction","Kolonner Retning"
+"Nested Levels per Dropdown","Nestede nivåer per rullegardin"
+"Add New Menu","Legg til ny meny"
+"Are you sure you want to delete selected menu's?","Er du sikker på at du vil slette valgte menyens?"
+"Replace Top Menu at","Erstatt toppmenyen på"
+"Leave empty if you don't want to replace Top Menu","La stå tomt hvis du ikke vil erstatte Toppmenyen"
+Direction,Retning
+"Maximal Depth","Maksimal dybde"
+"Dropdown Position","Dropdown Posisjon"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Vær oppmerksom på at rullegardinposisjonen i tillegg justeres innenfor navbar-begrensningen når rullegardinmenyen vil bli gjengitt ved fronten"
+"Dropdown Settings","Innstillinger for rullegardinmenyen"

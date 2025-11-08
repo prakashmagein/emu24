@@ -1,0 +1,99 @@
+& when (@media-common = true) {
+    .easycatalogimg {
+        &-listing {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .link-more {
+            font-weight: bold;
+        }
+
+        .image {
+            display: block;
+            text-align: center;
+            width: auto;
+            margin: 0;
+        }
+
+        .image + .parent-category,
+        .list-subcategories {
+            margin: 10px;
+        }
+
+        .parent-category {
+            font-weight: bold;
+
+            &-wrapper {
+                position: relative;
+            }
+
+            &-top {
+                margin: 10px;
+                text-align: center;
+                font-weight: normal;
+                font-size: 1.2em;
+            }
+            &-over {
+                position: absolute;
+                bottom: ~"clamp(10px, 2vw, 40px)";
+                left: ~"clamp(10px, 2vw, 40px)";
+                z-index: 10;
+                .name {
+                    color: #fff;
+                    text-shadow: ~"0 2px 10px rgb(0 0 0 / 50%)";
+                }
+                .primary {
+                    &:extend(.pagebuilder-button-primary all);
+                }
+            }
+        }
+
+        .list-subcategories {
+            padding: 0;
+            list-style: none;
+            li {
+                margin: 5px 0;
+            }
+        }
+    }
+
+    .easycatalogimg-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+
+        .item {
+            width: 50%;
+            margin: 0;
+            padding: 10px 10px 30px;
+
+            [data-content-type="easycatalogimg"].gap-0 & {
+                padding: 0;
+            }
+        }
+
+        .desktop-viewport & {
+            .generate-columns(6);
+            .generate-columns(@n, @i: 2) when (@i =< @n) {
+                &.easycatalogimg-cols-@{i} .item {
+                    width: 100% / @i;
+                }
+                .generate-columns(@n, (@i + 1));
+            }
+        }
+    }
+}

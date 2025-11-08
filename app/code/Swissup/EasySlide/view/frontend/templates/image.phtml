@@ -1,0 +1,28 @@
+<?php
+    $src = $block->getImageUrl($slide['image']);
+    $width = $block->getImageWidth($slide['image']);
+    $height = $block->getImageHeight($slide['image']);
+    $title = $slide['title'];
+    $srcset = $attributes['srcset'] ?? '';
+    $sizes = $attributes['sizes'] ?? '';
+?>
+
+<img alt="<?= $block->escapeHtmlAttr($title) ?>"
+    src="<?= $block->escapeUrl($src) ?>"
+    <?php if ($srcset) : ?>
+        srcset="<?= $block->escapeHtmlAttr($srcset) ?>"
+    <?php endif ?>
+    <?php if ($isLazy) : ?>
+        class="swiper-lazy"
+        loading="lazy"
+    <?php endif ?>
+    <?php if ($width) : ?>
+        width="<?= $block->escapeHtmlAttr($width) ?>"
+    <?php endif ?>
+    <?php if ($height) : ?>
+        height="<?= $block->escapeHtmlAttr($height) ?>"
+    <?php endif ?>
+    <?php if ($sizes) : ?>
+        sizes="<?= $block->escapeHtmlAttr($sizes) ?>"
+    <?php endif ?>
+/>

@@ -1,0 +1,16 @@
+<?php
+    $livePreviewUrl = $block->getUrl("reviewreminder/*/preview");
+    $entityId = $block->getCurrentEntityId();
+?>
+<iframe id="reminder-iframe" style="background-color: #FFF; width:100%; height:700px;" frameBorder="0"></iframe>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'reminderEmailPreview'
+    ], function ($, reminderEmailPreview) {
+        reminderEmailPreview.init("<?php echo $livePreviewUrl ?>",
+            '<?php echo $entityId ?>',
+            'reminder-iframe'
+        );
+    });
+</script>

@@ -1,0 +1,109 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro-menu {
+        a:hover > .tip {
+            text-decoration: none;
+        }
+        .tip {
+            display: inline-block;
+            top: -3px;
+            position: relative;
+            padding: 2px 3px;
+            font-family: @navpro-tip__font-family;
+            font-weight: @navpro-tip__font-weight;
+            font-size: @navpro-tip__font-size;
+            line-height: normal;
+
+            &.text-small {
+                font-size: .65em;
+            }
+            &.text-big {
+                font-size: .8em;
+                &.top {
+                    top: -8px;
+                }
+            }
+
+            &.top {
+                position: absolute;
+                top: -6px;
+                right: 21px;
+
+                .rtl & {
+                    right: auto;
+                    left: 21px;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    right: 6px;
+                    top: 100%;
+                    width: 0;
+                    height: 0;
+                    border: 4px solid transparent;
+                    border-top-color: @navpro-tip__background-color;
+
+                    .rtl & {
+                        right: auto;
+                        left: 6px;
+                    }
+                }
+            }
+
+            color: @navpro-tip__color;
+            background: @navpro-tip__background-color;
+            &.inverted {
+                color: @navpro-tip__background-color;
+                background: @navpro-tip__color;
+                &::before {
+                    border-top-color: @navpro-tip__color;
+                }
+            }
+
+            &.accent {
+                background: @navpro-tip__accent__background-color;
+                &::before {
+                    border-top-color: @navpro-tip__accent__background-color;
+                }
+                &.inverted {
+                    color: @navpro-tip__accent__background-color;
+                    background: @navpro-tip__color;
+                    &::before {
+                        border-top-color: @navpro-tip__color;
+                    }
+                }
+            }
+
+            &.muted {
+                background: @navpro-tip__muted__background-color;
+                &::before {
+                    border-top-color: @navpro-tip__muted__background-color;
+                }
+                &.inverted {
+                    color: @navpro-tip__muted__background-color;
+                    background: @navpro-tip__color;
+                    &::before {
+                        border-top-color: @navpro-tip__color;
+                    }
+                }
+            }
+
+            &.black {
+                color: @navpro-tip__black__color;
+                background: @navpro-tip__black__background-color;
+                &::before {
+                    border-top-color: @navpro-tip__black__background-color;
+                }
+                &.inverted {
+                    color: @navpro-tip__black__background-color;
+                    background: @navpro-tip__black__color;
+                    &::before {
+                        border-top-color: @navpro-tip__black__color;
+                    }
+                }
+            }
+        }
+    }
+}
+}

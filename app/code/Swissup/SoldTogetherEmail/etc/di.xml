@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="SoldtogetherEmailFrequantlyBoughtConfigProvider" type="Swissup\SoldTogetherEmail\Model\Config\Provider">
+        <arguments>
+            <argument name="linkType" xsi:type="string">order</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SoldtogetherEmailAlsoBuyConfigProvider" type="Swissup\SoldTogetherEmail\Model\Config\Provider">
+        <arguments>
+            <argument name="linkType" xsi:type="string">customer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SoldtogetherEmailBlockContext" type="Swissup\SoldTogether\Block\Context">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Swissup\SoldTogetherEmail\Model\Resolver\DataProvider\Products</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\SoldTogetherEmail\Block\Order">
+        <arguments>
+            <argument name="configProvider" xsi:type="object">SoldtogetherEmailFrequantlyBoughtConfigProvider</argument>
+            <argument name="context" xsi:type="object">SoldtogetherEmailBlockContext</argument>
+        </arguments>
+    </type>
+
+    <type name="Swissup\SoldTogetherEmail\Block\Customer">
+        <arguments>
+            <argument name="configProvider" xsi:type="object">SoldtogetherEmailAlsoBuyConfigProvider</argument>
+            <argument name="context" xsi:type="object">SoldtogetherEmailBlockContext</argument>
+        </arguments>
+    </type>
+</config>

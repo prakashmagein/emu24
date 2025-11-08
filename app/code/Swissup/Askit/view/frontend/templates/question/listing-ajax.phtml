@@ -1,0 +1,10 @@
+<?php
+    /**
+     * @var \Swissup\Askit\Block\Question\Listing $block
+     */
+
+    if ($block->getCollectionSize() < 1) {
+        return;
+    }
+?>
+<div data-role="questions-list"  data-mage-init='{"Swissup_Askit/js/process-questions": <?= /* @noEscape */ $block->getAjaxJsLayout() ?>}'></div>

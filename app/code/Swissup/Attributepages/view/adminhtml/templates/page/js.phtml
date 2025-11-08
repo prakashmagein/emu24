@@ -1,0 +1,25 @@
+<script>
+require([
+    'jquery',
+    'mage/template',
+    'prototype'
+], function(jQuery, mageTemplate) {
+
+    setAttributeToUse = function(urlTemplate, attributeFieldId) {
+        var url;
+
+        if (!jQuery('#edit_form').valid()) {
+            return false;
+        }
+        attributeField = $F(attributeFieldId);
+
+        url = mageTemplate(urlTemplate, {
+            data: {
+                'attribute_id': attributeField
+            }
+        });
+
+        setLocation(url);
+    };
+});
+</script>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_catalog_category_tabs">
+        <observer name="add_questions_tab" instance="Swissup\Askit\Observer\Adminhtml\Catalog\Category\Tab\Questions" />
+    </event>
+</config>

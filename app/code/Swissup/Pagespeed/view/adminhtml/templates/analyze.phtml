@@ -1,0 +1,33 @@
+<div class="swissup-pagespeed-analyze-container">
+    <input class="swissup-pagespeed-btn"
+           value="<?= $block->escapeHtml(__('ANALYZE')) ?>"
+           type="button"
+           id="analyze" />
+
+    <div data-bind="scope: 'analyze'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#analyze": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "analyze": {
+                            "component": "Swissup_Pagespeed/js/analyze",
+                            "baseUrl": "<?= $block->escapeHtml($block->getStoreBaseUrl()); ?>",
+                            "locale": "<?= $block->escapeHtml($block->getLocale()); ?>"
+                        },
+                        "desktop_tab": {
+                            "component": "Swissup_Pagespeed/js/analyze/tab",
+                            "strategy": "desktop"
+                        },
+                        "mobile_tab": {
+                            "component": "Swissup_Pagespeed/js/analyze/tab",
+                            "strategy": "mobile"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>

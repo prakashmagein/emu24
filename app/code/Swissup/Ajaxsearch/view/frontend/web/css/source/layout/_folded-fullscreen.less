@@ -1,0 +1,111 @@
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @ajaxsearch__breakpoint-desktop) {
+    & when (@critical = unsure), (@critical = false) {
+        .block-search.block-swissup-ajaxsearch.fullscreen {
+            .field.search {
+                .input-text,
+                .select2-selection--single {
+                    .lib-css(font-size, @ajaxsearch-fullscreen__font-size);
+                    .lib-css(font-weight, @ajaxsearch-fullscreen__font-weight);
+                }
+
+                .control,
+                .input-text,
+                .input-wrapper,
+                .twitter-typeahead {
+                    height: 100%;
+                }
+
+                .input-text {
+                    border: @ajaxsearch-fullscreen-input__border;
+                    box-shadow: @ajaxsearch-fullscreen-input__box-shadow;
+                    background: @ajaxsearch-fullscreen-input__background;
+                    padding-left: @ajaxsearch-fullscreen-input__padding-left;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    &::placeholder {
+                        color: #cacaca;
+                    }
+                }
+            }
+
+            .swissup-ajaxsearch-filter-category-wrapper {
+                border: 0;
+                background: @ajaxsearch-fullscreen-input__background;
+                .border-right(@ajaxsearch-fullscreen-category__border-right);
+                min-width: 140px;
+                max-width: 200px;
+            }
+
+            .input-inner-wrapper .action.close {
+                display: flex;
+            }
+
+            &.shown {
+                z-index: @ajaxsearch-fullscreen-mask__z-index;
+                & when (@ajaxsearch-fullscreen-form__initial-positioning = 'relative') {
+                    position: static; // make form relative to header
+                }
+                & when (@ajaxsearch-fullscreen-form__initial-positioning = 'absolute') {
+                    left: 0;
+                    right: 0;
+                    top: @ajaxsearch-fullscreen-form__top;
+                    bottom: auto;
+                    width: auto;
+                    margin: 0;
+                }
+                .field.search {
+                    z-index: @ajaxsearch-mask__z-index + 1;
+                    left: 0;
+                    right: 0;
+                    & when (@ajaxsearch-fullscreen-form__initial-positioning = 'absolute') {
+                        top: 0;
+                    }
+                    & when not (@ajaxsearch-fullscreen-form__initial-positioning = 'absolute') {
+                        top: @ajaxsearch-fullscreen-form__top;
+                    }
+                    height: @ajaxsearch-fullscreen__height;
+                    .lib-css(padding-left, @ajaxsearch-fullscreen__padding-left);
+                    .lib-css(padding-right, @ajaxsearch-fullscreen__padding-right);
+                    transition: @ajaxsearch-fullscreen__transition;
+                }
+                .actions .action.close {
+                    display: none !important;
+                }
+            }
+
+            .block-swissup-ajaxsearch-results {
+                margin-top: 10px;
+                padding-top: 10px;
+                border: @ajaxsearch-fullscreen-results__border;
+                border-top: @ajaxsearch-fullscreen-results__border-top;
+                box-shadow: none;
+                filter: none;
+                max-width: none;
+                &::before,
+                &::after {
+                    display: none;
+                }
+                .tt-dataset {
+                    max-height: @ajaxsearch-fullscreen-results__max-height;
+                }
+                .list {
+                    .lib-css(font-size, @ajaxsearch-fullscreen-results__list__font-size);
+                }
+            }
+
+            .ajaxsearch-mask {
+                background: @ajaxsearch-fullscreen-mask__background;
+                &.shown {
+                    transition: @ajaxsearch-fullscreen__transition;
+                }
+            }
+
+            .select2-container--default .select2-selection--single .select2-selection__arrow {
+                .right(7px);
+            }
+            .select2-container--default .select2-results > .select2-results__options {
+                max-height: 400px;
+            }
+        }
+    }
+}

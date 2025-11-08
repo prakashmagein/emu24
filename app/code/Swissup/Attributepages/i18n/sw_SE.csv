@@ -1,0 +1,48 @@
+Duplicate,Duplicera
+"Select Attribute","Välj attribut"
+"Attributes with available options are not found.","Attribut med tillgängliga alternativ hittas inte."
+"Description and children","Beskrivning och barn"
+"Description only","Endast beskrivning"
+"Children only","Bara barn"
+"Columns Count","Kolumner räknar"
+"1 — 8 columns are supported","1 - 8 kolumner stöds"
+"Group Options by First Letter","Gruppalternativ efter första bokstaven"
+"Listing Mode",Listningsläge
+"Image Width",Bildbredd
+"Image Height",Bildhöjd
+"Used to identify page in backend grid","Används för att identifiera sidan i backend-rutnätet"
+"Relative to Website Base URL","Relativt till webbadressen till webbplatsbas"
+"Option Information",Alternativinformation
+"Exclude from Display","Uteslut från displayen"
+"Unable to find a page to delete.","Det gick inte att hitta en sida att radera."
+"The page has been duplicated.","Sidan har kopierats."
+"Unable to find a page to duplicate.","Det gick inte att hitta en sida att kopiera."
+"Attribute Pages",Attributsidor
+"Manage Options","Hantera alternativ"
+"This option no longer exists.","Det här alternativet finns inte längre."
+"Invalid link received.","Ogiltig länk mottagen."
+"Edit Option","Redigera alternativ"
+"Attribute Options",Attributalternativ
+"The following urls where automatically changed because of duplicates.","Följande webbadresser ändrades automatiskt på grund av dubbletter."
+"There are no options matching the selection.","Det finns inga alternativ som matchar valet."
+"View other %1 products","Se andra %1 - produkter"
+"Attributepages: List of attribute based pages","Attributspages: Lista med attributbaserade sidor"
+"Pages to exclude","Sidor att utesluta"
+"Pages to include","Sidor att inkludera"
+"Remove Block Wrapper and Title","Ta bort blockomslaget och titeln"
+"Attributepages: Option List","Attributspages: Alternativlista"
+"Attribute Page",Attributssida
+"Show as Slider","Visa som skjutreglage"
+"Unique Slider Id","Unik reglage-id"
+"Number of visible slides","Antal synliga bilder"
+"Number of slides to scroll","Antal objektglas att bläddra"
+"Automatically play slider","Spela reglaget automatiskt"
+"Items limit",Objektgräns
+"Attributepages: Product Option","Attributspages: Produktalternativ"
+"Additional css classes","Ytterligare css-klasser"
+"Render as link","Render som länk"
+"Show Image","Visa bild"
+"Image type",Bildtyp
+"Label for 'View All' link","Etikett för länken Visa alla"
+"Delete items","Ta bort objekt"
+"

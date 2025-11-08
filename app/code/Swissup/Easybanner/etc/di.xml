@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\Easybanner\Api\Data\BannerInterface" type="Swissup\Easybanner\Model\Banner" />
+    <preference for="Swissup\Easybanner\Api\Data\PlaceholderInterface" type="Swissup\Easybanner\Model\Placeholder" />
+
+    <virtualType name="Swissup\Easybanner\BannerImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">easybanner/tmp</argument>
+            <argument name="basePath" xsi:type="string">easybanner</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Easybanner\Controller\Adminhtml\Banner\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Swissup\Easybanner\BannerImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Easybanner\Controller\Adminhtml\Banner\Save">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Swissup\Easybanner\BannerImageUpload</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pagebuilder_easybanner_select_grid_data_source" xsi:type="string">Swissup\Easybanner\Model\ResourceModel\Banner\Grid\Collection</item>
+                <item name="pagebuilder_easybannerplaceholder_select_grid_data_source" xsi:type="string">Swissup\Easybanner\Model\ResourceModel\Placeholder\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Easybanner\Model\ResourceModel\Banner\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_easybanner_banner</argument>
+            <argument name="eventPrefix" xsi:type="string">easybanner_banner_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">easybanner_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\Easybanner\Model\ResourceModel\Banner</argument>
+        </arguments>
+    </type>
+
+    <type name="Swissup\Easybanner\Model\ResourceModel\Placeholder\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_easybanner_placeholder</argument>
+            <argument name="eventPrefix" xsi:type="string">easybanner_placeholder_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">easybanner_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\Easybanner\Model\ResourceModel\Placeholder</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\PageBuilder\Model\Stage\RendererPool">
+        <arguments>
+            <argument name="renderers" xsi:type="array">
+                <item name="easybanner" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="easybannerplaceholder" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,18 @@
+<?php
+    $_banners = $this->getBanners();
+    if (!$_banners || !count($_banners)):
+        return;
+    endif;
+?>
+
+<div class="<?= $this->getPlaceholderClassName() ?>" data-content-type="easybannerplaceholder">
+    <div class="easybanner-placeholder-wrapper">
+    <?php foreach ($_banners as $_banner): ?>
+        <?php
+            $bannerBlock = $this->getLayout()->createBlock(\Swissup\Easybanner\Block\Banner::class);
+            $bannerBlock->setBannerObject($_banner);
+            echo $bannerBlock->toHtml();
+        ?>
+    <?php endforeach ?>
+    </div>
+</div>

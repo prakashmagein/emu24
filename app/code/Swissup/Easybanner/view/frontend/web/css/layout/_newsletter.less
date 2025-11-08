@@ -1,0 +1,81 @@
+.easybanner-banner {
+    .block.newsletter {
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    .easybanner-newsletter {
+        max-width: 330px;
+        margin: 20px auto 35px;
+
+        .block.newsletter {
+            > .title,
+            .field.newsletter label > span.label {
+                display: none;
+            }
+            .form.subscribe {
+                display: block;
+                text-align: left;
+
+                > .field,
+                > .actions {
+                    float: none;
+                }
+            }
+            .field .control {
+                position: relative;
+                &:before {
+                    display: none;
+                }
+                input {
+                    height: auto;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 2px;
+                    padding: 12px;
+                    &:focus {
+                        background-color: #f4f4f4;
+                    }
+                }
+            }
+            .actions {
+                width: auto;
+                display: block;
+                margin-top: 10px;
+            }
+            .action.subscribe {
+                position: relative;
+                border: 0;
+                width: 100%;
+                display: block;
+
+                color: #fff;
+
+                font-size: 18px;
+                text-shadow: 0 0 2px rgba(0,0,0,0.15);
+                text-transform: none;
+                background: #f54336;
+                padding: 16px;
+                border-radius: 3px;
+                box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+
+                transition: transform 100ms ease-in-out,
+                            box-shadow 100ms ease-in-out;
+
+                &:active {
+                    transform: scale(0.97);
+                    box-shadow: 0 0 1px rgba(0,0,0,0.15);
+                }
+
+                span {
+                    text-transform: none;
+                    text-shadow: none;
+                    color: inherit;
+                    padding: 0;
+                    background: transparent;
+                }
+            }
+        }
+    }
+}

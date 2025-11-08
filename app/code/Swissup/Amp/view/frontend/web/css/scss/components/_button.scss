@@ -1,0 +1,41 @@
+$button-padding: 5px 10px !default;
+$button-border-radius: 2px !default;
+$button-background-color: tint(saturate($brand-color, 35%), 20%) !default;
+$button-hover-background-color: shade($button-background-color, 5%) !default;
+
+$button-text-color: #fff !default;
+$button-text-shadow: 1px 1px 0 rgba(0,0,0,0.1) !default;
+
+%button-static {
+    border: 0;
+    text-decoration: none;
+    font-size: .9em;
+    line-height: inherit;
+    display: inline-block;
+    border-radius: $button-border-radius;
+    padding: $button-padding;
+    background-color: $button-background-color;
+    color: $button-text-color;
+    text-shadow: $button-text-shadow;
+    user-select: none;
+    .cms-page-view .column.main & {
+        text-decoration: none;
+    }
+}
+
+.button {
+    @extend %button-static;
+
+    @include on-event {
+        color: $button-text-color;
+        text-decoration: none;
+        background-color: $button-hover-background-color;
+    }
+    &:active {
+        transform: translateY(1px);
+    }
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}

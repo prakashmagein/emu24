@@ -1,0 +1,70 @@
+"Delete Item","Elimina elemento"
+"Are you sure you want to do this?","Sei sicuro di volerlo fare?"
+"Menu Settings","Impostazioni del menu"
+"You deleted the item.","L'elemento è stato eliminato."
+"We can't find a item to delete.","Impossibile trovare un elemento da eliminare."
+"Import completed.","Importazione completata."
+"Something went wrong while importing item.","Si è verificato un problema durante l'importazione dell'elemento."
+"This item no longer exists.","Questo elemento non esiste più."
+"Something went wrong while saving item.","Si è verificato un problema durante il salvataggio dell'elemento."
+"You saved item.","L'elemento è stato salvato."
+"Something went wrong while saving menu.","Si è verificato un problema durante il salvataggio del menu."
+"You deleted the menu.","Il menu è stato eliminato."
+"We can't find a menu to delete.","Non è possibile trovare un menu da eliminare."
+"A total of %1 record(s) have been deleted.","Un totale di %1 record sono stati eliminati."
+"A total of %1 record(s) have been updated.","Un totale di %1 record è stato aggiornato."
+"New Menu","Nuovo menu"
+"This menu no longer exists.","Questo menu non esiste più."
+"You saved menu.","Hai salvato il menu."
+"Stick to Left","Attaccati a sinistra"
+"Stick to Right","Attaccati a destra"
+Standard,Standard
+Left,Sinistra
+Top,"In alto"
+Fullscreen,Fullscreen
+Full-Width,"Larghezza intera"
+Boxed,Boxed
+Small,Piccolo
+Medium,Medio
+Large,Grande
+"Extra Large","Extra Large"
+"Item was not registered","L'articolo non è stato registrato"
+Horizontal,Orizzontale
+Vertical,Verticale
+Blank,Vuoto
+Dark,Scuro
+"Dark Bar","Barra scura"
+"Dark Dropdown","Menu a discesa scuro"
+Flat,Piatto
+Compact,Compact
+"Menu was not registered","Menu non registrato"
+"An item cannot be parent for itself","Un elemento non può essere padre per se stesso"
+"This name is already in use.","Questo nome è già in uso."
+"Top Menu","Menu superiore"
+Menu,Menu
+Navigationpro,Navigationpro
+"Show Active Branch Only","Mostra solo ramo attivo"
+"Show Parent Category","Mostra categoria padre"
+"Initially Shown Levels Count","Conteggio livelli visualizzati inizialmente"
+Orientation,Orientamento
+"Dropdown Positioning","Posizionamento a discesa"
+"Additional CSS Class","Classe CSS aggiuntiva"
+"Wrap into Block Template","A capo nel modello di blocco"
+"Block CSS Class","Classe CSS blocco"
+"Select item in the tree on the left sidebar, or create a new one","Seleziona l'elemento nell'albero sulla barra laterale sinistra o creane uno nuovo"
+"Sync Name and URL with Category Data","Sincronizza nome e URL con i dati della categoria"
+"CSS Class","Classe CSS"
+"Use Menu Settings","Usa impostazioni menu"
+"New Item","Nuovo elemento"
+"Import Item","Importa elemento"
+"Columns Direction","Direzione colonne"
+"Nested Levels per Dropdown","Livelli nidificati per elenco a discesaNested Levels per Dropdown"
+"Add New Menu","Aggiungi nuovo menu"
+"Are you sure you want to delete selected menu's?","Sei sicuro di voler eliminare i menu selezionati?"
+"Replace Top Menu at","Sostituisci menu superiore in"
+"Leave empty if you don't want to replace Top Menu","Lasciare vuoto se non si desidera sostituire il menu superiore"
+Direction,Direzione
+"Maximal Depth","Profondità massima"
+"Dropdown Position","Posizione a discesa"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Si prega di notare che la posizione del menu a discesa sarà ulteriormente regolata all'interno del vincolo navbar quando il menu a discesa sarà renderizzato al frontend"
+"Dropdown Settings","Impostazioni elenco a discesa"

@@ -1,0 +1,76 @@
+<script>
+require([
+    'Magento_Ui/js/lib/view/utils/async',
+    'mage/utils/wrapper',
+    'Magento_Rule/rules',
+    'domReady!'
+], function ($, wrapper, rules) {
+    'use strict';
+
+    var conditions = $('.rule-param-new-child').find('select[name="rule[conditions][1][new_child]"]');
+
+    /**
+     * @param {String} code
+     * @return {String}
+     */
+    function normalizeCode(code) {
+        if (code.indexOf('|') !== -1) {
+            code = code.split('|')[1];
+        }
+
+        return code;
+    }
+
+    /**
+     * @param {String} attributeCode
+     */
+    function showAttribute(attributeCode) {
+        if (!attributeCode) {
+            return;
+        }
+
+        conditions
+            .find('option[value*="' + normalizeCode(attributeCode) + '"]')
+            .prop('disabled', false)
+            .show();
+    }
+
+    /**
+     * @param {String} attributeCode
+     */
+    function hideAttribute(attributeCode) {
+        if (!attributeCode) {
+            return;
+        }
+
+        conditions
+            .find('option[value*="' + normalizeCode(attributeCode) + '"]')
+            .prop('disabled', true)
+            .hide();
+    }
+
+    rules.prototype.addRuleNewChild = wrapper.wrap(
+        rules.prototype.addRuleNewChild,
+        function (o, elem) {
+            hideAttribute(elem.value);
+            o(elem);
+        }
+    );
+
+    rules.prototype.removeRuleEntry = wrapper.wrap(
+        rules.prototype.removeRuleEntry,
+        function (o, container, event) {
+            showAttribute($(container).closest('li').find('[name*="[attribute]"]').val());
+            o(container, event);
+        }
+    );
+
+    $.async('.rule-param-new-child select[name="rule[conditions][1][new_child]"]', (el) => {
+        conditions = $(el);
+
+        $('[name*="[attribute]"]').each(function () {
+            hideAttribute($(this).val());
+        });
+    });
+});
+</script>

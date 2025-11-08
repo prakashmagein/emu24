@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_CustomerApproval
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_login">
+        <observer name="mp_validate_customer_pending" instance="Mageplaza\CustomerApproval\Observer\CustomerLogin"/>
+    </event>
+    <event name="customer_register_success">
+        <observer name="mp_validate_customer_create_pending" instance="Mageplaza\CustomerApproval\Observer\CustomerCreate"/>
+    </event>
+    <event name="customer_save_after_data_object">
+        <observer name="mp_validate_customer_save_after" instance="Mageplaza\CustomerApproval\Observer\CustomerSaveAfterDataObject"/>
+    </event>
+    <event name="social_manager_get_login_redirect">
+        <observer name="mp_social_login_redirect" instance="Mageplaza\CustomerApproval\Observer\LoginPostRedirect"/>
+    </event>
+</config>

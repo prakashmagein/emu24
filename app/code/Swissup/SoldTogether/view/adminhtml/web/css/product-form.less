@@ -1,0 +1,277 @@
+.soldtogether-section {
+    .filter-applied {
+        position: relative;
+
+        &::before {
+            content: '\e605';
+            font-family: 'Admin Icons';
+            margin-right: .5rem;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: #eb5202;
+            position: absolute;
+            top: -.2rem;
+            right: -.2rem;
+            box-shadow: 0 0 .1rem .1rem #eb5202;
+        }
+    }
+
+    .section-header {
+        border: 1px solid #e3e3e3;
+        background: #f8f8f8;
+        padding: 2rem 2rem 1rem;
+        margin-bottom: 1rem;
+
+        ~ .section-header {
+            margin-top: 5rem;
+        }
+    }
+
+    .admin__data-grid-toolbar {
+        padding: 0 1rem;
+    }
+
+    .admin__data-grid-wrap {
+        padding: 0;
+    }
+
+    .data-grid {
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        thead {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            transform: translateY(-100%);
+            transition: transform .2s ease-out;
+            z-index: 3;
+
+            &.show-filters {
+                transform: translateY(0);
+            }
+
+            tr {
+                display: none;
+            }
+
+            .data-grid-filters {
+                display: flex;
+                align-items: center;
+                background: #fff;
+                box-shadow: 0 0 .25rem #ccc;
+                padding: .5rem 0;
+                margin: 0 0 .25rem;
+
+                .action-reset {
+                    display: none;
+                }
+            }
+
+            td[data-column] {
+                border: 0;
+                background: none;
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+
+                input[type="text"],
+                select {
+                    width: 12rem;
+                }
+            }
+
+            .col-thumbnail {
+                display: none !important;
+            }
+        }
+
+        tbody {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            width: 100%;
+
+            td {
+                display: block;
+                width: 100%;
+                padding: 0;
+                border: 0 !important;
+                background: transparent !important;
+            }
+
+            .col-thumbnail {
+                border: 1px solid #e3e3e3 !important;
+                padding: 1rem;
+            }
+
+            .col-is_linked {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1;
+                width: auto;
+
+                .data-grid-checkbox-cell-inner {
+                    margin: 0;
+                }
+
+                input {
+                    /* Make input bigger then its label.
+                    Click on label can toggle wrong input with same ID. */
+                    height: 2.3rem;
+                    width: 2rem;
+                }
+            }
+
+            .col-thumbnail {
+                filter: grayscale(1);
+                opacity: .8;
+            }
+
+            .col-sku,
+            .col-name,
+            .col-status,
+            .col-visibility {
+                display: none;
+            }
+
+            tr {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 150px;
+                background: #fff;
+
+                &:hover {
+                    box-shadow: 0 0 .3rem #ddd;
+                }
+
+                &.selected {
+                    .col-thumbnail {
+                        filter: none;
+                        opacity: 1;
+                    }
+
+                    .actions-wrapper {
+                        display: block;
+                    }
+
+                    .handle {
+                        cursor: move;
+                        position: absolute;
+                        right: 1rem;
+
+                        &::after {
+                            content: '\e617';
+                            color: #9e9e9e;
+                            font-family: 'Admin Icons';
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+
+                &.promoted.selected {
+                    .price-wrapper {
+                        /* box-shadow: inset 0px -3px 0px 0px #eb5202; */
+                        &::after {
+                            content: 'Promoted';
+                            bottom: .5rem;
+                            color: white;
+                            display: inline-block;
+                            padding: 2px 5px;
+                            background: #eb5202;
+                            border-radius: 3px;
+                            font-size: .8em;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            .data-grid-tr-no-data {
+                justify-content: center;
+                min-height: 5rem;
+                width: 100%;
+
+                &:hover {
+                    box-shadow: none;
+                }
+
+                button {
+                    margin-top: 2rem;
+                }
+            }
+        }
+
+        .col-entity_id,
+        .col-st_weight,
+        .col-promo_value,
+        .col-promo_rule {
+            display: none !important;
+        }
+    }
+}
+
+.col-thumbnail {
+    border: 1px solid #e3e3e3;
+    max-width: 150px;
+    padding: 1rem;
+
+    .thumbnail-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 .5rem;
+    }
+
+    .product-name-wrapper {
+        font-weight: 600;
+    }
+
+    .price-wrapper {
+        margin-top: .5rem;
+    }
+
+    .price {
+        font-style: italic;
+        margin-right: .5rem;
+    }
+}
+
+#soldtogether_customer_grid_table {
+    tr {
+        td {
+            cursor: default;
+        }
+    }
+}
+
+.soldtogether-promote {
+    .col-thumbnail {
+        margin-left: 22rem;
+        background-color: #f8f8f8;
+    }
+
+    .col-promo > div {
+        margin: 1.5rem 0;
+
+        > span {
+            margin: 0 1rem;
+            display: inline-block;
+            min-width: 20rem;
+            font-weight: 600;
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ajaxsearch>
+            <main>
+                <enable>1</enable>
+                <!-- <placeholder>Search entire store here...</placeholder> -->
+                <limit>100</limit>
+                <highlight>1</highlight>
+                <hint>1</hint>
+                <minLength>0</minLength>
+                <graphql>0</graphql>
+                <classNames>
+                    <input>tt-input</input>
+                    <hint>tt-hint</hint>
+                    <menu>tt-menu block-swissup-ajaxsearch-results</menu>
+                    <dataset>tt-dataset wrapper</dataset>
+                    <!-- <dataset>tt-dataset wrapper grid</dataset> -->
+                    <!-- <dataset>tt-dataset wrapper list</dataset> -->
+                    <suggestion>tt-suggestion</suggestion>
+                    <empty>tt-empty</empty>
+                    <open>tt-open</open>
+                    <cursor>tt-cursor</cursor>
+                    <highlight>tt-highlight</highlight>
+                </classNames>
+            </main>
+            <design>
+                <layout>grid</layout>
+            </design>
+            <folded>
+                <enable>0</enable>
+            </folded>
+            <product>
+                <enable>1</enable>
+                <limit>12</limit>
+                <viewall>0</viewall>
+            </product>
+            <category>
+                <filter>0</filter>
+                <enable>1</enable>
+                <limit>10</limit>
+                <depth>3</depth>
+                <graphql>1</graphql>
+            </category>
+            <page>
+                <enable>1</enable>
+                <limit>10</limit>
+            </page>
+            <autocomplete>
+                <enable>1</enable>
+                <show_on_focus>0</show_on_focus>
+                <limit>10</limit>
+            </autocomplete>
+        </ajaxsearch>
+    </default>
+</config>

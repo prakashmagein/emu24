@@ -1,0 +1,19 @@
+<?php
+
+$scriptString = <<<JS
+swissupProlabels = {
+    helper: "{$block->getViewFileUrl('Swissup_ProLabels/js/viewModel/helper.js', ['_secure' => $block->getRequest()->isSecure()])}",
+    render: async (settings, element) => {
+        const { Renderer } = await import("{$block->getViewFileUrl('Swissup_ProLabels/js/renderer.js', ['_secure' => $block->getRequest()->isSecure()])}");
+        var renderer;
+        renderer = new Renderer(settings.labelsData, settings.predefinedVars);
+        renderer.render(settings, element);
+        element.swissupProlabelsRenderer = renderer;
+    },
+    destroy: (element) => element.swissupProlabelsRenderer?.destroy?.()
+}
+JS;
+
+echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+
+?>

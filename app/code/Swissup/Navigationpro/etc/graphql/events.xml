@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="swissup_navigationpro_menu_prepare">
+        <observer name="swissup_navigationpro" instance="Swissup\Navigationpro\Observer\PrepareMenuItems" />
+    </event>
+    <event name="swissup_navigationpro_menu_prepare_collection_load_before">
+        <observer name="swissup_navigationpro_amazon" instance="Swissup\Navigationpro\Observer\TransformToActiveBranch" />
+    </event>
+</config>

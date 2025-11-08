@@ -1,0 +1,9 @@
+<?php
+    $helper = $this->helper('Swissup\Amp\Helper\Message');
+    $messages = $helper->getPageMessages();
+?>
+<?php foreach ($messages as $message): ?>
+<div class="message <?= $message['type'] ?>">
+    <?= $message['text'] ?>
+</div>
+<?php endforeach; ?>

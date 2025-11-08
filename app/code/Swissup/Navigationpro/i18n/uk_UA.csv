@@ -1,0 +1,70 @@
+"Delete Item","Видалити елемент"
+"Are you sure you want to do this?","Ви дійсно бажаєте зробити це?"
+"Menu Settings","Налаштування меню"
+"You deleted the item.","Елемент видалено."
+"We can't find a item to delete.","Ми не можемо знайти елемент, який потрібно видалити."
+"Import completed.","Імпорт завершено."
+"Something went wrong while importing item.","Щось пішло не так під час імпорту елемента."
+"This item no longer exists.","Цей елемент більше не існує."
+"Something went wrong while saving item.","Щось пішло не так під час збереження елемента."
+"You saved item.","Елемент збережено."
+"Something went wrong while saving menu.","Щось пішло не так під час збереження меню."
+"You deleted the menu.","Ви видалили меню."
+"We can't find a menu to delete.","Ми не можемо знайти меню для видалення."
+"A total of %1 record(s) have been deleted.","Загалом було видалено %1 записів."
+"A total of %1 record(s) have been updated.","Загалом було оновлено %1 записів."
+"New Menu","Нове меню"
+"This menu no longer exists.","Це меню більше не існує."
+"You saved menu.","Меню збережено."
+"Stick to Left","Триматися ліворуч"
+"Stick to Right","Триматися праворуч"
+Standard,Стандартний
+Left,Ліво
+Top,Верх
+Fullscreen,"На весь екран"
+Full-Width,"На всю ширину"
+Boxed,"По ширині контейнера"
+Small,Невелика
+Medium,Середня
+Large,Велика
+"Extra Large","Дуже велика"
+"Item was not registered","Елемент не зареєстровано"
+Horizontal,Горизонтальний
+Vertical,Вертикальний
+Blank,Пуста
+Dark,Темна
+"Dark Bar","Темна панель"
+"Dark Dropdown","Темне випадаюче меню"
+Flat,Плоска
+Compact,Компактна
+"Menu was not registered","Меню не зареєстровано"
+"An item cannot be parent for itself","Елемент не може бути батьківським для себе"
+"This name is already in use.","Це ім'я вже використовується."
+"Top Menu","Верхнє меню"
+Menu,Меню
+Navigationpro,"Навігація"
+"Show Active Branch Only","Відображати лише активну гілку"
+"Show Parent Category","Показати батьківську категорію"
+"Initially Shown Levels Count","Кількість рівнів, показана за замовчуванням"
+Orientation,Орієнтація
+"Dropdown Positioning","Позиціонування випадаючих меню"
+"Additional CSS Class","Додатковий клас CSS"
+"Wrap into Block Template","Обгорнути в шаблон блоку"
+"Block CSS Class","CSS-клас для блока"
+"Select item in the tree on the left sidebar, or create a new one","Виберіть елемент у дереві на лівій бічній панелі або створіть новий"
+"Sync Name and URL with Category Data","Синхронізація імені та URL-адреси з даними категорії"
+"CSS Class","CSS клас"
+"Use Menu Settings","Використовувати налаштування меню"
+"New Item","Новий елемент"
+"Import Item","Імпортувати елемент"
+"Columns Direction","Напрямок колонок"
+"Nested Levels per Dropdown","Кількість вкладених рівнів на одне випадаючому меню"
+"Add New Menu","Додати нове меню"
+"Are you sure you want to delete selected menu's?","Ви дійсно бажаєте видалити вибране меню?"
+"Replace Top Menu at","Замінити верхнє меню на"
+"Leave empty if you don't want to replace Top Menu","Залиште порожнім, якщо ви не бажаєте замінювати верхнє меню"
+Direction,Напрямок
+"Maximal Depth","Максимальна Глибина"
+"Dropdown Position","Позиція випадаючого меню"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","Зверніть увагу, що позиція випадаючого меню буде додатково скоригована всередині контейнера, коли розкривний список буде відображатися на фронтенді"
+"Dropdown Settings","Параметри випадаючого меню"

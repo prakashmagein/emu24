@@ -1,0 +1,21 @@
+{
+    "name": "swissup/module-gdpr-testimonials",
+    "description": "GDPR compliance for testimonials module",
+    "keywords": [
+        "gdpr",
+        "testimonials"
+    ],
+    "type": "magento2-module",
+    "version": "1.1.1",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/module-gdpr": "^1.2.0",
+        "swissup/module-testimonials": "^1.2.5"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\GdprTestimonials\\": ""
+        }
+    }
+}

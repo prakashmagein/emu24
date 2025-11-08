@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\Attributepages\Api\Data\EntityInterface" type="Swissup\Attributepages\Model\Entity" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="attributepages_page_listing_data_source" xsi:type="string">Swissup\Attributepages\Model\ResourceModel\Entity\Grid\PageCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="attributepages_option_listing_data_source" xsi:type="string">Swissup\Attributepages\Model\ResourceModel\Entity\Grid\OptionCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Attributepages\Model\ResourceModel\Entity\Grid\PageCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_attributepages_entity</argument>
+            <argument name="eventPrefix" xsi:type="string">attributepages_page_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">attributepages_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\Attributepages\Model\ResourceModel\Entity</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Attributepages\Model\ResourceModel\Entity\Grid\OptionCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_attributepages_entity</argument>
+            <argument name="eventPrefix" xsi:type="string">attributepages_option_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">attributepages_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\Attributepages\Model\ResourceModel\Entity</argument>
+        </arguments>
+    </type>
+    <virtualType name="AttributepagesGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AttributepagesGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Swissup\Attributepages\Model\ResourceModel\Entity\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AttributepagesGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Attributepages\Model\ImageUploader" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">swissup/attributepages/tmp</argument>
+            <argument name="basePath" xsi:type="string">swissup/attributepages</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Attributepages\Controller\Adminhtml\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Swissup\Attributepages\Model\ImageUploader</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Attributepages\Controller\Adminhtml\AbstractSave">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Swissup\Attributepages\Model\ImageUploader</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sitemap\Model\ItemProvider\Composite">
+        <arguments>
+            <argument name="itemProviders" xsi:type="array">
+                <item name="attributepagesProvider" xsi:type="object">Swissup\Attributepages\Model\Sitemap\ItemProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product\Url">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\ProductUrl" />
+    </type>
+    <type name="Magento\Catalog\Model\Layer">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\Layer" />
+    </type>
+    <type name="Magento\Catalog\Model\Layer\Category\FilterableAttributeList">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\FilterableAttributeList" />
+    </type>
+    <type name="Magento\Catalog\Model\Layer\FilterList">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\FilterList" />
+    </type>
+    <type name="Amasty\Shopby\Helper\Data">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\AmastyShopbyHelper" />
+    </type>
+    <type name="Mirasvit\LayeredNavigation\Model\Config">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\MirasvitLayeredNavigationConfigModel" />
+    </type>
+    <type name="Mirasvit\Scroll\Model\ConfigProvider">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\MirasvitScrollConfigModel" />
+    </type>
+    <type name="Swissup\Ajaxlayerednavigation\Model\ResourceModel\Layer\Filter\Attribute">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\SwissupAjaxlayerednavigationFilterAttribute" />
+    </type>
+    <type name="Swissup\Ajaxlayerednavigation\Model\Layer\Filter\Attribute\StateFilterApplier">
+        <plugin name="swissup_attributepages" type="Swissup\Attributepages\Plugin\SwissupAlnStateFilterApplier" />
+    </type>
+</config>

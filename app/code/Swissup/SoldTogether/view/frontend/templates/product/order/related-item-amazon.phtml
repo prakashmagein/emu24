@@ -1,0 +1,31 @@
+<?php
+    $isSalable = $item->isSaleable();
+    $id = (int)$item->getId();
+    $url = $block->escapeUrl($block->getProductUrl($item));
+    $name = $block->escapeHtml($item->getName());
+    $itemNameHtmlId = uniqid('item-name-');
+    $detailsHtmlId = uniqid('details-');
+?>
+<input type="checkbox"
+       class="checkbox relatedorderamazon-checkbox"
+       <?php if (!$isSalable) : ?>onclick="return false;" disabled="disabled"<?php endif; ?>
+       id="relatedorderamazon-checkbox<?= $id ?>"
+       name="bought_related_products[]"
+       value="<?= $id ?>" <?php if ($isSalable) : ?>checked="checked" <?php endif; ?>
+       aria-labelledby="<?= $itemNameHtmlId ?>"
+/>
+<span id="<?= $itemNameHtmlId ?>" class="product name product-item-name">
+    <a class="product-item-link" title="<?= $name ?>" href="<?= $url ?>"><?= $name ?></a>
+</span>
+<?= /* @noEscape */ $block->getProductPrice($item); ?>
+<?php if ($detailsHtml = $block->renderDetailsHtml($item)): ?>
+<a class="details-toggler"
+    href="#"
+    data-show="<?= __('Show details') ?>"
+    data-hide="<?= __('Hide details') ?>"
+    data-target="<?= $detailsHtmlId ?>"
+><?= __('Show details') ?></a>
+<div id="<?= $detailsHtmlId ?>" class="details-wrapper" hidden>
+    <?= $detailsHtml ?>
+</div>
+<?php endif; ?>

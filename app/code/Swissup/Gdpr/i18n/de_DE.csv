@@ -1,0 +1,75 @@
+"Accepted Consents","Akzeptierte Zustimmungen"
+"Client's Requests",Kundenanfragen
+"A total of %1 record(s) have been canceled.","Insgesamt wurden %1-Datensätze storniert."
+"A total of %1 record(s) have been skipped","Insgesamt wurden %1-Datensätze übersprungen"
+"A total of %1 record(s) have been processed.","Insgesamt wurden %1 Datensätze verarbeitet."
+"This item no longer exists.","Dieser Artikel existiert nicht mehr."
+"Requested item was skipped.","Der angeforderte Artikel wurde übersprungen."
+"Request was successfully processed.","Anfrage wurde erfolgreich bearbeitet."
+"Request processing was failed.","Die Anforderungsverarbeitung ist fehlgeschlagen."
+"Privacy Tools",Datenschutz-Tools
+"Please accept all required checkboxes","Bitte akzeptieren Sie alle erforderlichen Kontrollkästchen"
+Goodbye!,"Auf Wiedersehen!"
+"Export Data","Export von Daten"
+"Delete Data","Daten löschen"
+"View Privacy Tools","Datenschutz-Tools anzeigen"
+Running,Laufen
+Failed,Gescheitert
+"Unsupported request type: '%1'","Nicht unterstützter Anforderungstyp: '%1'"
+"Can't remove data. Incompleted orders found: %1","Daten können nicht entfernt werden. Unvollständige Bestellungen gefunden:%1"
+"Please accept all consents.","Bitte akzeptieren Sie alle Einwilligungen."
+"Open Customer Page","Kundenseite öffnen"
+"Here you can view the consents you have given.","Hier können Sie die von Ihnen erteilten Einwilligungen anzeigen."
+"To use this website, you accepted our Privacy Policy.","Um diese Website zu nutzen, haben Sie unsere Datenschutzbestimmungen akzeptiert."
+"If you wish to withdraw your acceptance, please use the ""Delete My Data"" button below.","Wenn Sie Ihre Annahme widerrufen möchten, klicken Sie unten auf ""Meine Daten löschen""."
+"Delete Account","Konto löschen"
+"Once you delete your data, there is no going back. Please be certain.","Sobald Sie Ihre Daten gelöscht haben, gibt es kein Zurück mehr. Bitte seien Sie sicher."
+"Delete My Data","Meine Daten löschen"
+"Are you absolutely sure?","Bist du dir absolut sicher?"
+"Unexpected bad things will happen if you don’t read this!","Unerwartete schlimme Dinge passieren, wenn Sie dies nicht lesen!"
+"This will permanently delete your orders, comments, questions, reviews, and other associations with your account.","Dadurch werden Ihre Bestellungen, Kommentare, Fragen, Bewertungen und andere Verknüpfungen mit Ihrem Konto dauerhaft gelöscht."
+"Once you press ""Delete My Data"" button, <strong>you will be logged out, and will never be able to login into this account.</strong>","Sobald Sie auf die Schaltfläche ""Meine Daten löschen"" klicken, <strong> werden Sie abgemeldet und können sich nie mehr bei diesem Konto anmelden. </ Strong>"
+"I have read the text above and want to erase all of my data","Ich habe den obigen Text gelesen und möchte alle meine Daten löschen"
+"Your data is queued for automatic deletion and nobody can stop this.","Ihre Daten werden zum automatischen Löschen in die Warteschlange gestellt, und niemand kann dies stoppen."
+"It was a great time, though.","Es war jedoch eine großartige Zeit."
+"Yes, Delete My Data","Ja, meine Daten löschen"
+"Personal Data Consents","Einwilligung in personenbezogene Daten"
+"Deletion Requests",Löschanfragen
+"Anonymized data placeholder","Platzhalter für anonymisierte Daten"
+"Automate request processing","Automatisieren Sie die Anforderungsverarbeitung"
+"Days to wait","Tage zu warten"
+"Show in Forms","In Formularen anzeigen"
+"Custom Consent 1","Benutzerdefinierte Zustimmung 1"
+"Custom Consent 2","Benutzerdefinierte Zustimmung 2"
+"Custom Consent 3","Benutzerdefinierte Zustimmung 3"
+"Personal Data","Persönliche Daten"
+"Privacy Policy",Datenschutz-Bestimmungen
+"Client's Identity","Identität des Kunden"
+"Form ID",Formular-ID
+Consent,Zustimmung
+"Process requests","Anfragen bearbeiten"
+"Cancel requests","Anfrage abbrechen"
+"Cancel requests?","Anfrage abbrechen?"
+"Are you sure you want to cancel selected requests?","Möchten Sie ausgewählte Anfragen wirklich stornieren?"
+"Delete requests","Anfragen löschen"
+"Delete requests?","Anfragen löschen?"
+"Are you sure you want to delete selected requests?","Möchten Sie ausgewählte Anforderungen wirklich löschen?"
+"Request Type",Anfragetyp
+"Executed At","Ausgeführt bei"
+"Cookie Consents",Cookie-Einwilligungen
+"Cookie Bar",Keks-Bar
+"Cookie Settings Page","Seite mit den Cookie-Einstellungen"
+"To override built-in page, use an URL of existing CMS page","Verwenden Sie zum Überschreiben der integrierten Seite eine URL der vorhandenen CMS-Seite"
+"Cookie Settings",Cookie-Einstellungen
+"This group is required.","Diese Gruppe ist erforderlich."
+Saved,Gerettet
+Saving..,"Sparen .."
+"Show Cookies","Cookies anzeigen"
+"Hide Cookies","Cookies ausblenden"
+"View Built-In Cookies","Integrierte Cookies anzeigen"
+"View Cookie Groups","Cookie-Gruppen anzeigen"
+"Register New Cookie","Neues Cookie registrieren"
+"Cookie Groups",Cookie-Gruppen
+"Built-in Cookies","Eingebaute Cookies"
+"Allow All & Save","Alles erlauben & speichern"
+"Accept & Save","Akzeptiere & speichern"

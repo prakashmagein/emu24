@@ -1,0 +1,43 @@
+"Save Slider","Sla schuifregelaar op"
+"Delete Slider","Schuifregelaar verwijderen"
+"Edit Slider - '%1'","Schuifregelaar bewerken - '%1'"
+"New Slider","Nieuwe schuifregelaar"
+Parameters,Parameters
+Direction,Richting
+Horizontal,Horizontaal
+Vertical,Verticaal
+Effect,Effect
+Slide,Schuif
+Fade,Vervagen
+Cube,Kubus
+Coverflow,Coverflow
+Flip,Omdraaien
+Speed,Snelheid
+Autoplay,"Automatisch afspelen"
+Pagination,Paginering
+"Navigation Buttons","Navigatie knoppen"
+Scrollbar,Schuifbalk
+"Scrollbar Hide","Schuifbalk verbergen"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Dia's
+"Add New Slide","Nieuwe dia toevoegen"
+"Slider was deleted.","Schuifregelaar is verwijderd."
+"Can't find a slider to delete.","Kan geen schuifregelaar vinden om te verwijderen."
+EasySlide,EasySlide
+"Manage Sliders","Schuifregelaars beheren"
+"This slider no longer exists.","Deze schuifregelaar bestaat niet meer."
+"Edit Slider","Schuifregelaar bewerken"
+Sliders,Schuifregelaars
+"Slider has been saved.","Slider is opgeslagen."
+"Something went wrong while saving the slider.","Er is iets misgegaan bij het opslaan van de schuifregelaar."
+Link,Koppeling
+"Open link in","Link openen in"
+Description,Omschrijving
+"Description Position","Beschrijving Positie"
+"Description Background","Beschrijving Achtergrond"
+"Slide Detail","Dia Detail"
+"Select Slider","Selecteer Slider"
+"Add New Slider","Nieuwe schuifregelaar toevoegen"
+Black,Zwart
+White,Wit

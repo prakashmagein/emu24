@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="js" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>JavaScript Settings</label>
+        <field id="enable_js_bundling" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable JavaScript Bundling</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>dev/js/enable_js_bundling</config_path>
+            <comment><![CDATA[<p class="message note"><span>Warning! Please notice that the option can slow down rendering at slow connections, large connection thresholds, limited networks. <br/>We recommend using 'Advanced JavaScript Bundling'. </span></p>
+<p class="note"><span>This option reflects the system setting found under Advanced -> Developer -> JavaScript Settings -> Enable JavaScript Bundling (dev/js/enable_js_bundling)</p>]]></comment>
+        </field>
+        <field id="enable_advanced_js_bundling" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Advanced JavaScript Bundling (RequireJs)</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/js/enable_advanced_js_bundling</config_path>
+            <include path="Swissup_Pagespeed::system/bundling_comment.xml" />
+            <depends>
+                <field id="enable_js_bundling">0</field>
+            </depends>
+        </field>
+        <field id="rjs_build_config" translate="label" type="textarea" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>RequireJS Bundle Generator Build Config</label>
+            <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Json</frontend_model>
+            <config_path>pagespeed/js/rjs_build_config</config_path>
+            <backend_model>Swissup\Pagespeed\Model\Config\Backend\File\Rjs</backend_model>
+            <comment><![CDATA[<a href="https://github.com/magento/m2-devtools#setup" target="_blank">Setup M2 Chrome DevTools</a><br/><a href="https://github.com/magento/m2-devtools/blob/master/docs/panels/RequireJS.md#bundle-generator" target="_blank">RequireJS bundle config generating</a>.
+            ]]></comment>
+            <depends>
+                <field id="enable_js_bundling">0</field>
+                <field id="enable_advanced_js_bundling">1</field>
+            </depends>
+        </field>
+        <field id="minify_files" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minify JavaScript Files</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[<p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> JavaScript Settings -> Minify JavaScript Files (dev/js/minify_files)]]></comment>
+            <config_path>dev/js/minify_files</config_path>
+        </field>
+
+        <field id="merge_files" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Merge JavaScript Files</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>dev/js/merge_files</config_path>
+            <comment><![CDATA[<p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> JavaScript Settings -> Merge JavaScript Files (dev/js/merge_files)]]></comment>
+        </field>
+
+        <field id="move_script_to_bottom" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Move JS code to the bottom of the page</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>dev/js/move_script_to_bottom</config_path>
+            <comment><![CDATA[<p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> JavaScript Settings -> Move JS code to the bottom of the page (dev/js/move_script_to_bottom)]]></comment>
+        </field>
+
+    </group>
+    <group id="defer" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Deferring Javascript Settings</label>
+        <comment>Eliminate render-blocking JavaScript in the above-the-fold content.
+            The loading and execution of scripts that are not necessary for the initial page render may be deferred until after the initial render or other critical parts of the page have finished loading. Doing so can help reduce resource contention and improve performance.</comment>
+
+        <field id="enable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/js/defer_enable</config_path>
+        </field>
+
+        <field id="ignore" translate="label" type="textarea" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Ignore</label>
+            <config_path>pagespeed/js/defer_ignore</config_path>
+            <comment>Signatures</comment>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+
+        <field id="unpack" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Add Unpack</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/js/defer_unpack</config_path>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+
+        <field id="interactive" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable on interaction mode</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/js/defer_unpack_interactive</config_path>
+            <comment><![CDATA[<strong style="color:red">Experimental option</strong>. Changing the above settings will require re-deploying static view files when the application is in production mode.]]></comment>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+    </group>
+</include>

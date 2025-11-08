@@ -1,0 +1,108 @@
+.navpro-content-cols {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: flex-start;
+
+    &.vertical {
+        display: block;
+        > div {
+            break-inside: avoid-column;
+        }
+    }
+
+    > div {
+        padding: 3px;
+        overflow: hidden;
+        span {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 1px;
+            padding: 0 2px;
+            height: 14px;
+            font-size: 11px;
+        }
+        > span {
+            height: 15px;
+            background: transparent;
+            .expanded& {
+                font-weight: bold;
+                background: #dadada;
+            }
+            &:not(.navpro-all)::after {
+                .with-dropdown& {
+                    content: '🢒';
+                    display: inline-block;
+                    margin-left: 2px;
+                }
+            }
+        }
+        div {
+            > span {
+                background: #e4e4e4;
+            }
+            div {
+                margin-left: 5px;
+                > span {
+                    background: #eaeaea;
+                }
+            }
+        }
+    }
+}
+
+.navpro-loop-content-columns(@cols) when (@cols > 0) {
+    .navpro-content-cols-@{cols}:not(.vertical) > div {
+        width: 100% / @cols;
+    }
+    .navpro-loop-content-columns(@cols - 1);
+}
+.navpro-loop-content-columns(8);
+
+.navpro-columns-vertical(@cols: 8) when (@cols > 0) {
+    .vertical.navpro-content-cols-@{cols} {
+        column-count: @cols;
+    }
+    .navpro-columns-vertical(@cols - 1);
+}
+.navpro-columns-vertical(8);
+
+// html
+.navpro-content-html {
+    max-height: 300px;
+    overflow: hidden;
+}
+.navpro-content-html-entity {
+    background: #e4e4e4;
+    height: 15px;
+    margin: 0 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #384348;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.navpro-content-block,
+.navpro-content-image,
+.navpro-content-video,
+.navpro-content-audio,
+.navpro-content-widget,
+.navpro-content-iframe {
+    height: 60px;
+}
+.navpro-content-paragraph {
+    background: #dadada;
+}
+.navpro-content-span,
+.navpro-content-link,
+.navpro-content-button {
+    width: 33%;
+    margin-right: 3px;
+    display: inline-block;
+}

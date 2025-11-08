@@ -1,0 +1,21 @@
+<?php
+    /** @var \Swissup\Ajaxpro\Block\Cart\Sidebar $block */
+?>
+<div data-block="ajaxpro-minicart" class="minicart-wrapper">
+    <div class="block block-minicart">
+        <div data-bind="scope: 'ajaxpro_minicart_content'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+        <?= $block->getChildHtml('ajaxpro.minicart.addons') ?>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='ajaxpro-minicart']": {
+            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>
+        },
+        "*": {
+            "Magento_Ui/js/block-loader": "<?= /* @noEscape */ $block->getViewFileUrl('images/loader-1.gif') ?>"
+        }
+    }
+    </script>
+</div>

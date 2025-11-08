@@ -1,0 +1,19 @@
+& when (@media-common = true) {
+    .pagebuilder-content-type .pagebuilder-block {
+        .rendered-content {
+            .swiper-wrapper {
+                display: flex;
+                .swiper-slide ~ .swiper-slide {
+                    display: none;
+                }
+                .swiper-slide {
+                    position: relative;
+                    .easyslide-description {
+                        position: absolute;
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

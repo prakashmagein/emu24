@@ -1,0 +1,44 @@
+<div class="block block-accepted-consents">
+    <div class="block-title">
+        <strong><?php echo __('Accepted Consents') ?></strong>
+    </div>
+    <div class="block-content">
+        <?php $groupedConsents = $this->getGroupedConsents() ?>
+        <?php if ($groupedConsents) : ?>
+            <p><?php echo __('Here you can view the consents you have given.') ?></p>
+
+            <ul class="grouped-consents">
+                <?php foreach ($groupedConsents as $title => $records) : ?>
+                <li>
+                    <strong class="consent-form-title">
+                        <span><?php echo $this->escapeHtml(__($title)) ?></span>
+                    </strong>
+                    <ul class="list-consents">
+                        <?php foreach ($records as $record) : ?>
+                            <li>
+                                <?php if ($record->awaitingConfirmation()): ?>
+                                    <span title="<?= $block->escapeHtml(__('Awaiting confirmation.')) ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    </span>
+                                <?php else: ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <?php endif ?>
+                                <?php echo $record->getConsentTitle() ?>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </li>
+                <?php endforeach ?>
+            </ul>
+        <?php endif; ?>
+
+        <div class="privacy-note">
+            <p>
+                <?php echo __('To use this website, you accepted our Privacy Policy.') ?>
+            </p>
+            <p>
+                <?php echo __('If you wish to withdraw your acceptance, please use the "Delete My Data" button below.') ?>
+            </p>
+        </div>
+    </div>
+</div>

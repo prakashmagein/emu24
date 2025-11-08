@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="image" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Image Processing Settings</label>
+
+        <group id="optimize" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Optimize Catalog images</label>
+            <comment><![CDATA[
+            Usage:
+            <code>php bin/magento catalog:images:resize</code>
+            ]]></comment>
+
+            <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>pagespeed/image/optimize_enable</config_path>
+            </field>
+
+
+            <field id="webp_enable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable WebP Support</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>pagespeed/image/optimize_webp_enable</config_path>
+                <comment><![CDATA[<a href="https://developers.google.com/speed/webp/">A new image format for the Web</a></br>
+                Enable only after run
+                <code>
+                    <pre>
+                    sudo apt-get install webp
+                    bin/magento catalog:images:resize
+                    </pre>
+                </code>]]></comment>
+            </field>
+
+            <field id="webp_picture_add" translate="label comment" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Add picture tag</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>pagespeed/image/optimize_webp_picture_add</config_path>
+                <comment><![CDATA[<a href="https://www.w3schools.com/tags/tag_picture.asp">HTML picture Tag</a><br/>
+                When Webp support enabled
+                ]]></comment>
+                <depends>
+                    <field id="webp_enable">1</field>
+                </depends>
+            </field>
+
+            <field id="responsive" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Responsive Support</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>pagespeed/image/responsive</config_path>
+                <comment><![CDATA[<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">Responsive images</a></br>
+                Work only after run
+                <code>
+                    <pre>
+                    bin/magento swissup:pagespeed:images:resize
+                    </pre>
+                </code>]]></comment>
+            </field>
+
+            <field id="default_responsive_sizes" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Default Responsive Images Sizes</label>
+                <config_path>pagespeed/image/default_responsive_sizes</config_path>
+                <depends>
+                    <field id="responsive">1</field>
+                </depends>
+            </field>
+        </group>
+
+        <group id="lazyload" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Lazy loader for images</label>
+            <comment><![CDATA[Lazy loading images means loading images on websites asynchronously — that is, after the above-the-fold content is fully loaded, or even conditionally, only when they appear in the browser's viewport. This means that if users don't scroll all the way down, images placed at the bottom of the page won't even be loaded]]></comment>
+            <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>pagespeed/image/lazyload_enable</config_path>
+            </field>
+
+            <field id="ignore" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Ignore</label>
+                <config_path>pagespeed/image/lazyload_ignore</config_path>
+                <depends>
+                    <field id="enable">1</field>
+                </depends>
+            </field>
+
+            <field id="offset" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Offset</label>
+                <config_path>pagespeed/image/lazyload_offset</config_path>
+                <comment><![CDATA[Extension skip first n+1 images]]></comment>
+                <depends>
+                    <field id="enable">1</field>
+                </depends>
+            </field>
+            <field id="mobile_offset" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Offset for mobile devices</label>
+                <config_path>pagespeed/image/lazyload_mobile_offset</config_path>
+                <depends>
+                    <field id="enable">1</field>
+                </depends>
+            </field>
+        </group>
+        <field id="dimension" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Auto Specify image dimensions</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <!-- <config_path>pagespeed/image/lazyload_enable</config_path> -->
+            <comment><![CDATA[<p class="message note"><span>Warning! Please notice that the option could cause CPU and memory resources used to increase and slightly affect your store response rate on slow servers. We recommend using this option only with Full Page Cache enabled.</span></p>Specifying a width and height for all images allows for faster rendering by eliminating the need for unnecessary reflows and repaints.]]></comment>
+        </field>
+    </group>
+</include>

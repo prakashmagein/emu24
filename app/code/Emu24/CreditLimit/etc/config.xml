@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/config.xsd">
+    <default>
+        <creditlimit>
+            <general>
+                <enable>1</enable>
+                <mode>sandbox</mode>
+            </general>
+        </creditlimit>
+    </default>
+</config>

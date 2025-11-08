@@ -1,0 +1,56 @@
+<?php
+    $sections = [
+        'order' => [
+            'title' => __('Frequently Bought Products'),
+            'description' => __('Products commonly purchased together with current product.')
+        ],
+        'customer' => [
+            'title' => __('Customers Who Bought This Item Also Bought Products'),
+            'description' => __('Products customer also likes to buy when interested in current one.')
+        ]
+    ]
+?>
+
+
+<?php foreach ($sections as $linkType => $section ): ?>
+    <div class="section-header">
+        <h3><?= $section['title'] ?></h3>
+        <p><?= $section['description'] ?></p>
+    </div>
+
+    <?php
+    /** @var \Swissup\SoldTogether\Block\Adminhtml\Order\Products $block */
+    /** @var \Swissup\SoldTogether\Block\Adminhtml\Order\Grid $blockGrid */
+    /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+
+    $blockGrid = $block->getBlockGrid($linkType);
+    $gridJsObjectName = $blockGrid->getJsObjectName();
+    ?>
+    <?= $blockGrid->toHtml() ?>
+    <input type="hidden" name="soldtogether[<?= $linkType ?>]" id="<?= $blockGrid->getId() ?>_products" data-form-part="product_form" value="" />
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Swissup_SoldTogether/js/product/assign-products": {
+                    "selectedProducts": <?= /* @noEscape */ $block->getProductsJson($linkType) ?>,
+                    "gridJsObjectName": <?= /* @noEscape */ '"' . $blockGrid->getJsObjectName() . '"' ?: '{}' ?>,
+                    "inputId": "<?= $blockGrid->getId() ?>_products"
+                }
+            }
+        }
+    </script>
+<?php endforeach; ?>
+
+<!-- @todo remove when "UI components" will support such initialization -->
+<?php
+    $tagName = 'script';
+    $tagContent = "require('mage/apply/main').apply();";
+    if (isset($secureRenderer)) {
+        echo /* @noEscape */ $secureRenderer->renderTag($tagName, [], $tagContent, false) . "\n";
+    } else {
+        /* Compatibility with old version. Where class \Magento\Framework\View\Helper\SecureHtmlRenderer does not exist. */
+        echo /* @noEscape */ $block->fallbackSecureRenderTag($tagName, $tagContent) . "\n";
+    }
+?>
+
+<div data-role="popup" data-mage-init='{"Magento_Ui/js/modal/modal":{"title":"<?= $block->escapeJs(__('Promote product')) ?>"}}' class="no-display soldtogether-promote"></div>

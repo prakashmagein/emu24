@@ -1,0 +1,35 @@
+.bundle-options-container {
+    .catalog-product-view .page-main & .box-tocart {
+        margin: 0;
+        padding: 0;
+    }
+
+    .field.option > .label {
+        font-weight: bold;
+    }
+
+    .fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .action.back.customization {
+        @extend a;
+        font-size: 1em;
+        background: 0;
+        border: 0;
+        padding: 0;
+        margin: 20px 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.bundle-actions .action.customize {
+    @extend .button;
+}
+.page-product-bundle .page-main .stock span::before {
+    display: none;
+}

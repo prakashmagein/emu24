@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\EasySlide\Installer\Command\Slider" module="Swissup_EasySlide">
+        <data>
+            <item>
+                <item name="title">Swissup AMP</item>
+                <item name="identifier">swissupamp</item>
+                <item name="speed">500</item>
+                <item name="pagination">0</item>
+                <item name="autoplay">4000</item>
+                <item name="sizes">
+                    <item name="sizes">
+                        <item>
+                            <item name="media_query">(max-width: 480px) 93vw</item>
+                            <item name="image_width">445</item>
+                        </item>
+                        <item>
+                            <item name="media_query">(max-width: 768px) 95vw</item>
+                            <item name="image_width">733</item>
+                        </item>
+                        <item>
+                            <item name="media_query">(max-width: 1080px) 97vw</item>
+                            <item name="image_width">990</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="slides">
+                    <item>
+                        <item name="image">swissup/amp/default_slider1.jpg</item>
+                        <item name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</item>
+                        <item name="desc_position">top</item>
+                        <item name="desc_background">dark</item>
+                        <item name="sort_order">10</item>
+                    </item>
+                    <item>
+                        <item name="image">swissup/amp/default_slider2.jpg</item>
+                        <item name="description">Sale 20% off</item>
+                        <item name="desc_position">top</item>
+                        <item name="desc_background">dark</item>
+                        <item name="sort_order">20</item>
+                    </item>
+                    <item>
+                        <item name="image">swissup/amp/default_slider3.jpg</item>
+                        <item name="description">Free shipping</item>
+                        <item name="desc_position">bottom</item>
+                        <item name="desc_background">dark</item>
+                        <item name="sort_order">30</item>
+                    </item>
+                </item>
+            </item>
+        </data>
+    </command>
+</config>

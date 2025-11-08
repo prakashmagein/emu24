@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="breeze.js">
+            <arguments>
+                <argument name="bundles" xsi:type="array">
+                    <item name="swiper" xsi:type="array">
+                        <item name="items" xsi:type="array">
+                            <item name="Swissup_Swiper/lib/swiper" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Swiper/lib/swiper</item>
+                                <item name="load" xsi:type="array">
+                                    <item name="onRequire" xsi:type="boolean">true</item>
+                                </item>
+                            </item>
+                            <item name="Swissup_Swiper/js/swiper" xsi:type="array">
+                                <item name="path" xsi:type="string">Swissup_Swiper/js/breeze/swiper</item>
+                                <item name="export" xsi:type="array">
+                                    <item name="swiper" xsi:type="string">swiper</item>
+                                </item>
+                                <item name="load" xsi:type="array">
+                                    <item name="onReveal" xsi:type="array">
+                                        <item name="0" xsi:type="string">[data-mage-init*="Swissup_Swiper/js/swiper"]</item>
+                                        <item name="1" xsi:type="string">.swiper-container</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

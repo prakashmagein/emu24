@@ -1,0 +1,17 @@
+<?php
+/** @var $block \Magento\Swatches\Block\LayeredNavigation\RenderLayered */
+?>
+<?php $swatchData = $block->getSwatchData(); ?>
+<div class="swatch-attribute swatch-layered <?= /* @escapeNotVerified */ $swatchData['attribute_code'] ?>">
+    <div class="swatch-attribute-options clearfix">
+        <?php foreach ($swatchData['options'] as $option => $label): ?>
+            <a href="<?= /* @escapeNotVerified */ $label['link'] ?>"
+               aria-label="<?= /* @escapeNotVerified */ $label['label'] ?>"
+               class="swatch-option-link-layered">
+                <div class="swatch-option text <?= /* @escapeNotVerified */ $label['custom_style'] ?>"
+                     tabindex="-1"
+                ><?= /* @escapeNotVerified */ $label['label'] ?></div>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.message,
+.messages > li {
+    position: relative;
+    padding: 10px 10px 10px 15px;
+    margin: 10px 0;
+    @include border-left(5px solid #fff);
+
+    &::before {
+        top: 50%;
+        @include left(0);
+        margin-top: -6px;
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        display: block;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        @include border-left(6px solid #fff);
+        @include border-right(none);
+    }
+
+    &.error,
+    &.error-msg {
+        background-color: #faebe7;
+        @include border-left-color(#df280a);
+        &::before {
+            @include border-left-color(#df280a);
+        }
+    }
+    &.notice,
+    &.notice-msg {
+        background-color: #f9ebe6;
+        @include border-left-color(#e26703);
+        &::before {
+            @include border-left-color(#e26703);
+        }
+    }
+    &.success,
+    &.success-msg {
+        background-color: #eff5ea;
+        @include border-left-color(#11b400);
+        &::before {
+            @include border-left-color(#11b400);
+        }
+    }
+}

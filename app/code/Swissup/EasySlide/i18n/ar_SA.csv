@@ -1,0 +1,43 @@
+"Save Slider","حفظ شريط التمرير"
+"Delete Slider","حذف شريط التمرير"
+"Edit Slider - '%1'","تحرير شريط التمرير - ' %1'"
+"New Slider","المنزلق الجديد"
+Parameters,المعلمات
+Direction,اتجاه
+Horizontal,عرضي
+Vertical,عمودي
+Effect,تأثير
+Slide,الانزلاق
+Fade,تتلاشى
+Cube,مكعب
+Coverflow,Coverflow
+Flip,يواجه
+Speed,سرعة
+Autoplay,"تشغيل تلقائي"
+Pagination,"ترقيم الصفحات"
+"Navigation Buttons","أزرار التنقل"
+Scrollbar,"شريط التمرير"
+"Scrollbar Hide","إخفاء شريط التمرير"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,"WatchSlides مرئي"
+Slides,شرائح
+"Add New Slide","أضف شريحة جديدة"
+"Slider was deleted.","تم حذف شريط التمرير."
+"Can't find a slider to delete.","لا يمكن العثور على شريط تمرير لحذفه."
+EasySlide,EasySlide
+"Manage Sliders","إدارة المتزلجون"
+"This slider no longer exists.","لم يعد هذا المنزلق موجودًا."
+"Edit Slider","تحرير شريط التمرير"
+Sliders,سلايدر
+"Slider has been saved.","تم حفظ شريط التمرير."
+"Something went wrong while saving the slider.","حدث خطأ ما أثناء حفظ شريط التمرير."
+Link,"حلقة الوصل"
+"Open link in","افتح الرابط في"
+Description,وصف
+"Description Position","موقف الوصف"
+"Description Background","وصف الخلفية"
+"Slide Detail","تفاصيل الشريحة"
+"Select Slider","حدد شريط التمرير"
+"Add New Slider","إضافة منزلق جديد"
+Black,أسود
+White,أبيض

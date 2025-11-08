@@ -1,0 +1,14 @@
+<?php
+    /** @var \Swissup\Pagespeed\ViewModel\Config $viewModel */
+    $viewModel = $block->getData('viewModel');
+    $libs = $viewModel->getJsLibsInit();
+?>
+<?php if (!empty($libs)):?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        <?= /* @noEscape */ $libs ?>
+    }
+}
+</script>
+<?php endif;?>

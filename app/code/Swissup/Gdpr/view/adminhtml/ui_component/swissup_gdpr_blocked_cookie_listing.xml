@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">swissup_gdpr_blocked_cookie_listing.swissup_gdpr_blocked_cookie_listing_data_source</item>
+            <item name="deps" xsi:type="string">swissup_gdpr_blocked_cookie_listing.swissup_gdpr_blocked_cookie_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">swissup_gdpr_blocked_cookie_columns</item>
+    </argument>
+    <dataSource name="swissup_gdpr_blocked_cookie_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\Gdpr\Ui\DataProvider\BlockedCookieProvider</argument>
+            <argument name="name" xsi:type="string">swissup_gdpr_blocked_cookie_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">cookie_id</argument>
+            <argument name="requestFieldName" xsi:type="string">cookie_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">cookie_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                </item>
+            </argument>
+            <action name="register">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">register</item>
+                        <item name="label" xsi:type="string" translate="true">Register cookies</item>
+                    </item>
+                </argument>
+                <argument name="actions" xsi:type="configurableObject">
+                    <argument name="class" xsi:type="string">Swissup\Gdpr\Ui\Component\Listing\MassAction\SelectGroup</argument>
+                    <argument name="data" xsi:type="array">
+                        <item name="urlPath" xsi:type="string">swissup_gdpr/blockedcookie/massRegister</item>
+                        <item name="paramName" xsi:type="string">group</item>
+                    </argument>
+                </argument>
+            </action>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete records</item>
+                        <item name="url" xsi:type="url" path="swissup_gdpr/blockedcookie/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete records?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected records?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="swissup_gdpr_blocked_cookie_columns">
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">cookie_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="cookie_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

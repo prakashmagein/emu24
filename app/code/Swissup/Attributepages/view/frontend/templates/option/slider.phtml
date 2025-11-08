@@ -1,0 +1,42 @@
+<?php
+    $_optionCollection = $block->getLoadedOptionCollection();
+?>
+
+<div class="attributepages-slider-content">
+<?php if (!$_optionCollection || !$_optionCollection->count()) : ?>
+    <div class="message info empty"><div><?= $block->escapeHtml(__('There are no options matching the selection.')) ?></div></div>
+<?php else: ?>
+    <?php
+        $_isImageMode = ($block->getListingMode() == \Swissup\Attributepages\Model\Entity::LISTING_MODE_IMAGE);
+        $_imageHelper = $block->getImageHelper();
+        $_width = $block->getImageWidth();
+        $_height = $block->getImageHeight();
+    ?>
+    <div class="swiper-container attributepages-slider-<?= $block->getSliderId() ?> <?= $_isImageMode ? 'mode-image' : 'mode-link' ?>"
+        data-mage-init='{"Swissup_Swiper/js/swiper": <?= $block->getSliderConfig() ?>}'>
+        <div class="swiper-wrapper">
+            <?php foreach ($_optionCollection as $_option):
+                $_optionTitle = $block->escapeHtml($_option->getTitle());
+            ?>
+            <div class="swiper-slide">
+                <?php if ($_isImageMode): ?>
+                    <a href="<?= $_option->getUrl() ?>" title="<?= $_optionTitle ?>" class="option-image">
+                        <img src="<?= $_imageHelper->init($_option, 'image')->resize($_width, $_height); ?>"
+                            alt="<?= $_optionTitle ?>"
+                            width="<?= $_width ?>"
+                            height="<?= $_height ?>"
+                        />
+                    </a>
+                <?php else: ?>
+                    <a href="<?= $_option->getUrl() ?>" title="<?= $_optionTitle ?>" class="option-title">
+                        <?= $_optionTitle ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+    </div>
+<?php endif; ?>
+</div>

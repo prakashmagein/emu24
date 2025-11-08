@@ -1,0 +1,94 @@
+.easycatalogimg .image + .parent-category {
+    &::before {
+        .breeze-icon(@icon-arrow-sharp, @4);
+    }
+}
+
+& when (@critical) {
+    .easycatalogimg {
+        &-grid {
+            --item-gap: @6;
+            --item-padding: 0px;
+            --item-margin: 0px;
+
+            .item {
+                @media @media-sm-down {
+                    width: 100%;
+                }
+            }
+        }
+
+        .image {
+            background: @pastel__color;
+            img {
+                width: 100% !important;
+            }
+            + .parent-category {
+                position: relative;
+                margin-top: -17px !important;
+                .margin-left(~"0 !important");
+                padding-left: 15px;
+            }
+        }
+
+        .category-name,
+        .list-subcategories {
+            color: @gray-900;
+        }
+
+        .parent-category {
+            display: flex;
+            gap: @0-5;
+            align-items: center;
+            font-weight: 600;
+            font-size: @font-size__lg;
+        }
+
+        &:has(.image + .parent-category) {
+            .list-subcategories {
+                .margin-left(~"34px !important");
+            }
+        }
+    }
+
+    // category page
+    .category-view ~ .easycatalogimg {
+        margin-bottom: @8;
+    }
+
+    // departments page
+    .easycatalogimg-departments .easycatalogimg .list-subcategories {
+        font-size: 1em;
+    }
+    .easycatalogimg-masonry {
+        @media @media-sm-down {
+            column-count: 1;
+        }
+        .item {
+            margin: 0;
+            padding: 0;
+            background: none;
+        }
+    }
+}
+
+& when not (@critical) {
+    .easycatalogimg {
+        .image {
+            &:extend(.business-stripe-bottom-left all);
+            &::after {
+                width: 42%;
+            }
+        }
+        .image {
+            &:extend(.business-image-blend all);
+            border-radius: @1;
+            img {
+                border-radius: @1;
+            }
+        }
+        .parent-category::before {
+            color: @brand__color;
+        }
+    }
+}

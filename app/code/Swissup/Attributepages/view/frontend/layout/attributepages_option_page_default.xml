@@ -1,0 +1,16 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_category_view"/>
+
+    <referenceContainer name="category.view.container" remove="true"/>
+    <referenceBlock name="category.image" remove="true"/>
+    <referenceBlock name="category.description" remove="true"/>
+    <referenceBlock name="category.cms" remove="true"/>
+    <referenceBlock name="category.products" remove="true"/>
+
+    <body>
+        <attribute name="class" value="page-products"/>
+        <attribute name="class" value="page-with-filter"/>
+        <move element="category.products.list" destination="attributepage.attribute.view"/>
+    </body>
+</page>

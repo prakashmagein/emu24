@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="checkout/cart/add">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/delete">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/updatePost">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/updateItemOptions">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/couponPost">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/estimatePost">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/cart/estimateUpdatePost">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <!-- <action name="checkout/onepage/saveOrder">
+        <section name="ajaxpro-cart"/>
+    </action> -->
+    <!-- <action name="checkout/sidebar/removeItem">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="checkout/sidebar/updateItemQty">
+        <section name="ajaxpro-cart"/>
+    </action> -->
+    <!-- <action name="rest/*/V1/carts/*/payment-information">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="rest/*/V1/guest-carts/*/payment-information">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="rest/*/V1/guest-carts/*/selected-payment-method">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="rest/*/V1/carts/*/selected-payment-method">
+        <section name="ajaxpro-cart"/>
+    </action> -->
+
+    <action name="wishlist/index/add">
+        <section name="ajaxpro-reinit"/>
+    </action>
+    <action name="wishlist/index/remove">
+        <section name="ajaxpro-reinit"/>
+    </action>
+    <!--
+    <action name="wishlist/index/updateItemOptions">
+        <section name="wishlist"/>
+    </action>
+    <action name="wishlist/index/update">
+        <section name="wishlist"/>
+    </action> -->
+
+    <action name="wishlist/index/cart">
+        <section name="ajaxpro-cart"/>
+    </action>
+    <action name="wishlist/index/fromcart">
+        <section name="ajaxpro-cart"/>
+    </action>
+
+    <action name="catalog/product_compare/add">
+        <section name="ajaxpro-reinit"/>
+    </action>
+    <action name="catalog/product_compare/remove">
+        <section name="ajaxpro-reinit"/>
+    </action>
+    <action name="catalog/product_compare/clear">
+        <section name="ajaxpro-reinit"/>
+    </action>
+</config>

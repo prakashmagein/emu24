@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Swissup\Gdpr\Ui\DataProvider\ClientConsentProvider">
+        <arguments>
+            <argument name="addFieldStrategies" xsi:type="array">
+                <item name="customer_name" xsi:type="object">Swissup\Gdpr\Ui\DataProvider\AddCustomerNameToCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Gdpr\Ui\DataProvider\ClientRequestProvider">
+        <arguments>
+            <argument name="addFieldStrategies" xsi:type="array">
+                <item name="customer_name" xsi:type="object">Swissup\Gdpr\Ui\DataProvider\AddCustomerNameToCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Gdpr\Ui\DataProvider\Cookie\CustomProvider">
+        <arguments>
+            <argument name="addFieldStrategies" xsi:type="array">
+                <item name="description" xsi:type="object">Swissup\Gdpr\Ui\DataProvider\Cookie\AddDescriptionToCollection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

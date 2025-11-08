@@ -1,0 +1,99 @@
+$product-name-color: $dark-grey !default;
+$product-price-color: $dark-grey !default;
+$product-special-price-color: $mango-tango !default;
+
+$product-availability-in-stock-background-color: #eff5ea !default;
+$product-availability-in-stock-color: darken($product-availability-in-stock-background-color, 60%) !default;
+$product-availability-out-of-stock-background-color: $light-grey !default;
+$product-availability-out-of-stock-color: $dark-grey !default;
+
+.product-name {
+    color: $product-name-color;
+}
+
+[data-role="priceBox"] {
+    color: $product-price-color;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin: .2em 0;
+
+    .minimal-price-link {
+        font-size: .6em;
+        display: table; // move element to the new line
+    }
+    > p,
+    > span {
+        margin: 0;
+        .price-label {
+            font-weight: 300;
+            font-size: 0.8em;
+        }
+        &.old-price,
+        &.special-price {
+            display: inline-block;
+            .price-label {
+                display: none;
+            }
+        }
+    }
+    .old-price {
+        .price {
+            text-decoration: line-through;
+        }
+    }
+    .special-price {
+        .price {
+            color: $product-special-price-color;
+        }
+    }
+}
+
+[data-role="add-to-links"] {
+    display: inline-block;
+    li {
+        display: inline-block;
+    }
+    .action.towishlist {
+        @include icon-mask(
+            $icon: $icon-heart-outline,
+            $size: 23px 23px
+        );
+    }
+    .action.tocompare {
+        @include icon-mask(
+            $icon: $icon-shuffle,
+            $size: 23px 23px
+        );
+    }
+}
+
+.separator {
+    .product-addto-links &,
+    .reviews-actions & {
+        display: inline-block;
+        text-indent: -9999px;
+        @include border-right(1px solid $light-grey);
+        @include margin(0, 5px, 0, 6px);
+    }
+}
+
+.stock {
+    &.unavailable,
+    &.available {
+        @extend %button-static;
+    }
+    &.unavailable {
+        background-color: $product-availability-out-of-stock-background-color;
+        color: $product-availability-out-of-stock-color;
+        span {
+            color: $product-availability-out-of-stock-color;
+        }
+    }
+    &.available {
+        background-color: $product-availability-in-stock-background-color;
+        color: $product-availability-in-stock-color;
+        .label {
+            color: $product-availability-in-stock-color;
+        }
+    }
+}

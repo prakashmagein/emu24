@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+    <packages>
+        <package>swissup/pagespeed</package>
+        <package>swissup/module-pagespeed</package>
+    </packages>
+
+    <commands>
+        <command class="Swissup\Marketplace\Installer\Command\Config">
+            <data>
+                <item name="pagespeed/main/enable">1</item>
+                <item name="pagespeed/main/devmode">1</item>
+                <item name="pagespeed/main/gzip">1</item>
+                <item name="pagespeed/main/link_preload">1</item>
+
+                <item name="pagespeed/content/enable">1</item>
+                <item name="pagespeed/content/js">1</item>
+                <item name="pagespeed/content/css">1</item>
+                <item name="dev/template/minify_html">1</item>
+
+                <item name="dev/js/enable_js_bundling">0</item>
+                <item name="pagespeed/js/enable_advanced_js_bundling">1</item>
+                <item name="dev/js/minify_files">1</item>
+                <item name="dev/js/merge_files">1</item>
+                <item name="dev/js/move_script_to_bottom">1</item>
+
+                <item name="pagespeed/js/defer_enable">1</item>
+                <item name="pagespeed/js/defer_unpack">1</item>
+
+                <item name="dev/css/merge_css_files">1</item>
+                <item name="dev/css/minify_files">1</item>
+                <item name="pagespeed/css/critical_enable">0</item>
+                <item name="dev/css/use_css_critical_path">1</item>
+                <item name="pagespeed/css/critical_layout">1</item>
+
+                <item name="pagespeed/image/optimize_enable" helper="Swissup\Pagespeed\Installer\Helper\ImageOptimizerChain::execute">1</item>
+                <item name="pagespeed/image/optimize_webp_enable">1</item>
+                <item name="pagespeed/image/responsive">1</item>
+                <item name="pagespeed/image/lazyload_enable">1</item>
+<!--                <item name="pagespeed/image/dimension">1</item>-->
+
+                <item name="pagespeed/expire/enable">1</item>
+                <item name="pagespeed/dnsprefetch/enable">1</item>
+                <item name="pagespeed/preconnect/enable">1</item>
+            </data>
+        </command>
+<!--        <command class="Swissup\Pagespeed\Installer\Command\CriticalCss" />-->
+        <command class="Swissup\Pagespeed\Installer\Command\CheckImageOptimizers" />
+        <command class="Swissup\Pagespeed\Installer\Command\Cleanup" />
+    </commands>
+</config>

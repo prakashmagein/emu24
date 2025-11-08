@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Swissup_Core::swissup">
+                    <resource id="Swissup_Gdpr::main" title="GDPR" sortOrder="717">
+                        <resource id="Swissup_Gdpr::cookieregistry" title="Cookie Registry" sortOrder="5"/>
+                        <resource id="Swissup_Gdpr::clientconsent" title="Accepted Consents" sortOrder="10"/>
+                        <resource id="Swissup_Gdpr::clientrequest" title="Client Requests" sortOrder="20">
+                            <resource id="Swissup_Gdpr::clientrequest_process" title="Process requests " sortOrder="10"/>
+                            <resource id="Swissup_Gdpr::clientrequest_cancel" title="Cancel requests" sortOrder="20"/>
+                            <resource id="Swissup_Gdpr::clientrequest_delete" title="Delete requests" sortOrder="30"/>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Swissup_Core::swissup_config">
+                                <resource id="Swissup_Gdpr::config_gdpr" title="GDPR" sortOrder="717"/>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

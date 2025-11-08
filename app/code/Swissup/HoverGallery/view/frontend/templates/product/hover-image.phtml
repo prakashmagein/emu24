@@ -1,0 +1,22 @@
+<?php
+    $customAttributes = $block->getCustomAttributes();
+    $attrHtml = '';
+    if (is_array($customAttributes)) {
+        foreach ($customAttributes as $name => $value) {
+            $attrHtml .= "{$escaper->escapeHtmlAttr($name)}=\"{$escaper->escapeHtmlAttr($value)}\" ";
+        }
+    } else {
+        $attrHtml = (string)$customAttributes;
+    }
+?>
+<span class="hover-image-container product-image-container product-image-container-<?= /* @noEscape */ $block->getProductId() ?>"
+    style="--image-container-width: <?= $block->getWidth() ?>px; --image-container-aspect-ratio: <?= $block->getWidth() ?>/<?= $block->getHeight() ?>;">
+    <span class="product-image-wrapper">
+        <img class="hover-image product-image-photo" <?= $attrHtml ?>
+            src="<?= /* @escapeNotVerified */ $block->escapeUrl($block->getImageUrl()) ?>"
+            loading="lazy"
+            width="<?= /* @escapeNotVerified */ $block->getWidth() ?>"
+            height="<?= /* @escapeNotVerified */ $block->getHeight() ?>"
+            alt="<?= /* @escapeNotVerified */ $block->stripTags($block->getLabel(), null, true) ?>"/>
+    </span>
+</span>

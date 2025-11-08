@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\Ajaxsearch\Pagebuilder\Settings"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Config">
+        <arguments>
+            <argument name="fields" xsi:type="array">
+                <item name="enabled" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Enable Ajaxsearch</item>
+                    <item name="path" xsi:type="string">ajaxsearch/main/enable</item>
+                    <item name="type" xsi:type="string">checkbox</item>
+                </item>
+                <item name="form" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Form Layout</item>
+                    <item name="path" xsi:type="string">ajaxsearch/folded/enable</item>
+                    <item name="source_model" xsi:type="string">Swissup\Ajaxsearch\Model\Config\Source\Design\FormLayout</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="enabled" xsi:type="string">1</item>
+                    </item>
+                </item>
+                <item name="layout" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Results Layout</item>
+                    <item name="path" xsi:type="string">ajaxsearch/design/layout</item>
+                    <item name="source_model" xsi:type="string">Swissup\Ajaxsearch\Model\Config\Source\Design\ResultsLayout</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="enabled" xsi:type="string">1</item>
+                    </item>
+                </item>
+                <item name="category_filter" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Show Filter by Category</item>
+                    <item name="path" xsi:type="string">ajaxsearch/category/filter</item>
+                    <item name="type" xsi:type="string">checkbox</item>
+                    <item name="depends" xsi:type="array">
+                        <item name="enabled" xsi:type="string">1</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Pagebuilder\Model\Section\SourceModelProvider\Configurable">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="top.search" xsi:type="array">
+                    <item name="ajaxsearch" xsi:type="string">Swissup\Ajaxsearch\Pagebuilder\Settings</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

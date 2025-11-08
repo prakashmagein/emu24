@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/export.xsd">
+    <entity name="soldtogether_customer"
+            label="Sold Together - Customers Also Buy"
+            model="Swissup\SoldTogetherImportExport\Model\Export\CustomerLink"
+            entityAttributeFilterType="soldtogether_customer" />
+    <entity name="soldtogether_order"
+            label="Sold Together - Frequently Bought Togther"
+            model="Swissup\SoldTogetherImportExport\Model\Export\OrderLink"
+            entityAttributeFilterType="soldtogether_order" />
+    <fileFormat name="csv" label="CSV" model="Magento\ImportExport\Model\Export\Adapter\Csv" />
+</config>

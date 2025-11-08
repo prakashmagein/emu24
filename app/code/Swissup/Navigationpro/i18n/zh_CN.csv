@@ -1,0 +1,70 @@
+"Delete Item",删除项目
+"Are you sure you want to do this?",是否确实要执行此操作？
+"Menu Settings",菜单设置
+"You deleted the item.",您删除了该项目。
+"We can't find a item to delete.",找不到要删除的项目。
+"Import completed.",导入已完成。
+"Something went wrong while importing item.",导入物料时出现问题。
+"This item no longer exists.",此项目不再存在。
+"Something went wrong while saving item.",保存项目时出现问题。
+"You saved item.",您保存了项目。
+"Something went wrong while saving menu.",保存菜单时出现问题。
+"You deleted the menu.",您删除了菜单。
+"We can't find a menu to delete.",找不到要删除的菜单。
+"A total of %1 record(s) have been deleted.","总共已删除 %1 记录。"
+"A total of %1 record(s) have been updated.","共更新了 %1 记录。"
+"New Menu",新菜单
+"This menu no longer exists.",此菜单不再存在。
+"You saved menu.",您保存了菜单。
+"Stick to Left",向左粘
+"Stick to Right",坚持正确
+Standard,标准
+Left,离开
+Top,返回页首
+Fullscreen,全屏
+Full-Width,全宽
+Boxed,盒装
+Small,小
+Medium,中
+Large,大
+"Extra Large",超大
+"Item was not registered",项目未注册
+Horizontal,水平
+Vertical,垂直
+Blank,空白
+Dark,黑暗
+"Dark Bar",暗条
+"Dark Dropdown",深色下拉
+Flat,平
+Compact,紧凑
+"Menu was not registered",菜单未注册
+"An item cannot be parent for itself",项不能是本身的父项
+"This name is already in use.",此名称已在使用中。
+"Top Menu",顶部菜单
+Menu,菜单
+Navigationpro,导航专业
+"Show Active Branch Only",仅显示活动分支
+"Show Parent Category",显示父类别
+"Initially Shown Levels Count",最初显示的级别计数
+Orientation,取向
+"Dropdown Positioning",下拉定位
+"Additional CSS Class","其他 CSS 类"
+"Wrap into Block Template",包装到块模板
+"Block CSS Class","块 CSS 类"
+"Select item in the tree on the left sidebar, or create a new one",在左侧边栏的树中选择项，或创建新项
+"Sync Name and URL with Category Data","将名称和 URL 与类别数据同步"
+"CSS Class","CSS 类"
+"Use Menu Settings",使用菜单设置
+"New Item",新项目
+"Import Item",导入项目
+"Columns Direction",列方向
+"Nested Levels per Dropdown",每个下拉的嵌套级别
+"Add New Menu",添加新菜单
+"Are you sure you want to delete selected menu's?",是否确实要删除所选菜单？
+"Replace Top Menu at",替换顶部菜单，
+"Leave empty if you don't want to replace Top Menu","如果不想替换""顶部菜单""，请留空"
+Direction,方向
+"Maximal Depth",最大深度
+"Dropdown Position",下拉位置
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend",请注意，当在前端呈现下拉时，下拉位置将在导航栏约束内额外调整
+"Dropdown Settings",下拉设置

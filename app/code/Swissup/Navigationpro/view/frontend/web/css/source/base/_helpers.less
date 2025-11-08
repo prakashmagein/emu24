@@ -1,0 +1,122 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    .navpro > .navpro-menu {
+        .panel {
+            padding: 10px 5px;
+            background-color: #fafafa;
+        }
+
+        .links li {
+            padding: 0 5px;
+            a {
+                padding: 0;
+            }
+        }
+
+        .transparent {
+            background-color: transparent;
+        }
+
+        li.text-small > a {
+            font-size: .8em
+        }
+        li.text-big > a {
+            font-size: 1.1em
+        }
+
+        a, span, p, div {
+            .text-small {
+                font-size: .8em
+            }
+            .text-big {
+                font-size: 1.1em
+            }
+        }
+
+        img {
+            &.row {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media @navpro-breakpoint-xs-only {
+        .navpro > .navpro-menu {
+            .xs-hide-dropdown {
+                > a > .navpro-icon-caret::before {
+                    display: none !important;
+                }
+                > .navpro-dropdown {
+                    display: none !important;
+                }
+                a.level-top {
+                    &::before,
+                    &::after {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+    @media @navpro-breakpoint-sm-only {
+        .navpro > .navpro-menu {
+            .sm-hide-dropdown {
+                > a > .navpro-icon-caret::before {
+                    display: none !important;
+                }
+                > .navpro-dropdown {
+                    display: none !important;
+                }
+                a.level-top {
+                    &::before,
+                    &::after {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md-only {
+        .navpro > .navpro-menu {
+            .md-hide-dropdown {
+                > a > .navpro-icon-caret::before {
+                    display: none !important;
+                }
+                > .navpro-dropdown {
+                    display: none !important;
+                }
+                a.level-top {
+                    &::before,
+                    &::after {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+    @media @navpro-breakpoint-lg-only {
+        .navpro > .navpro-menu {
+            .lg-hide-dropdown {
+                > a > .navpro-icon-caret::before {
+                    display: none !important;
+                }
+                > .navpro-dropdown {
+                    display: none !important;
+                }
+                a.level-top {
+                    &::before,
+                    &::after {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+}

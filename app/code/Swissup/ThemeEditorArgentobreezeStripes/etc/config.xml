@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_argentobreeze_stripes>
+            <layout>
+                <body_backgroundColor>#ffffff</body_backgroundColor>
+                <body_backgroundImage></body_backgroundImage>
+                <body_backgroundRepeat>no-repeat</body_backgroundRepeat>
+                <body_backgroundPosition>0,0</body_backgroundPosition>
+            </layout>
+            <header>
+                <sticky_menu>0</sticky_menu>
+                <pageHeader_backgroundColor>#101824</pageHeader_backgroundColor>
+                <pageHeader_backgroundImage></pageHeader_backgroundImage>
+                <pageHeader_backgroundRepeat>no-repeat</pageHeader_backgroundRepeat>
+                <pageHeader_backgroundPosition>0,0</pageHeader_backgroundPosition>
+                <pageHeaderPanel_color>#a9a9a9</pageHeaderPanel_color>
+                <pageHeaderPanel_borderBottomWidth>1px</pageHeaderPanel_borderBottomWidth>
+                <pageHeaderPanel_borderBottomStyle>solid</pageHeaderPanel_borderBottomStyle>
+                <pageHeaderPanel_borderBottomColor>rgba(216, 216, 216, 0.3)</pageHeaderPanel_borderBottomColor>
+                <navigation>
+                    <navigation_backgroundColor>#101824</navigation_backgroundColor>
+                    <navigation_backgroundImage></navigation_backgroundImage>
+                    <navigation_backgroundRepeat>no-repeat</navigation_backgroundRepeat>
+                    <navigation_backgroundPosition>0,0</navigation_backgroundPosition>
+                    <topLevelLink_fontFamily>'Open Sans', sans-serif</topLevelLink_fontFamily>
+                    <topLevelLink_fontSize>18px</topLevelLink_fontSize>
+                    <topLevelLink_textTransform>none</topLevelLink_textTransform>
+                    <topLevelLink_color>#fff</topLevelLink_color>
+                    <topLevelArrow_color>#878b91</topLevelArrow_color>
+                    <topLevelLinkHover_color>#f54336</topLevelLinkHover_color>
+                    <topLevelLinkActive_color>#f54336</topLevelLinkActive_color>
+                    <topLevelLinkDepartments_color>#fff</topLevelLinkDepartments_color>
+                    <topLevelLinkDepartments_backgroundColor>#f54336</topLevelLinkDepartments_backgroundColor>
+                    <topLevelLinkDepartments_backgroundImage></topLevelLinkDepartments_backgroundImage>
+                    <topLevelLinkDepartments_backgroundRepeat>no-repeat</topLevelLinkDepartments_backgroundRepeat>
+                    <topLevelLinkDepartments_backgroundPosition>0,0</topLevelLinkDepartments_backgroundPosition>
+                    <topLevelArrowDepartments_color>#fff</topLevelArrowDepartments_color>
+                    <topLevelLinkDepartmentsHover_color>#f54336</topLevelLinkDepartmentsHover_color>
+                    <topLevelArrowDepartmentsHover_color>#2e2e2e</topLevelArrowDepartmentsHover_color>
+                    <topLevelLinkDepartmentsActive_color>#fff</topLevelLinkDepartmentsActive_color>
+                    <topLevelArrowDepartmentsActive_color>#2e2e2e</topLevelArrowDepartmentsActive_color>
+                    <departmentsChildren_color>#000c12</departmentsChildren_color>
+                    <departmentsChildrenArrow_color>#d8d8d8</departmentsChildrenArrow_color>
+                    <departmentsChildrenHover_color>#f54336</departmentsChildrenHover_color>
+                    <departmentsChildrenHoverArrow_color>#f54336</departmentsChildrenHoverArrow_color>
+                    <lowLevelLink_fontFamily>'Open Sans', sans-serif</lowLevelLink_fontFamily>
+                    <lowLevelLink_fontSize>16px</lowLevelLink_fontSize>
+                    <lowLevelLink_textTransform>none</lowLevelLink_textTransform>
+                    <lowLevelLink_color>#2e2e2e</lowLevelLink_color>
+                    <lowLevelArrow_color>#d8d8d8</lowLevelArrow_color>
+                </navigation>
+                <buttons>
+                    <headerButtonSearch_background>#f54336</headerButtonSearch_background>
+                    <headerButtonSearchHover_background>#d4180b</headerButtonSearchHover_background>
+                    <headerButtonCart_background>#42ca49</headerButtonCart_background>
+                    <headerButtonCartHover_background>#30a936</headerButtonCartHover_background>
+                    <headerButtonMyAccount_borderColor>rgba(216, 216, 216, 0.3)</headerButtonMyAccount_borderColor>
+                    <headerButtonMyAccountHover_borderColor>#f54336</headerButtonMyAccountHover_borderColor>
+                </buttons>
+            </header>
+            <!--
+            <header_config>
+                <layout>[{"children":[{"name":"store_language"},{"name":"currency"}],"config":{"align":"left","grow":"","classes":"md-flex"},"name":"header.top.left"},{"children":[],"config":{"align":"center","grow":"","classes":""},"name":"header.top.middle"},{"children":[{"name":"header.links"}],"config":{"align":"right","grow":"","classes":""},"name":"header.top.right"},{"children":[{"name":"logo"}],"config":{"align":"left","grow":"none","classes":""},"name":"header.main.left"},{"children":[{"name":"top.search"}],"config":{"align":"center","grow":"1","classes":""},"name":"header.main.middle"},{"children":[{"name":"header_account"},{"name":"minicart"}],"config":{"align":"right","grow":"","classes":"md-flex"},"name":"header.main.right"},{"children":[{"name":"navigation.sections"}],"config":{"align":"left","grow":"1","classes":""},"name":"header.bottom.left"},{"children":[],"config":{"align":"center","grow":"","classes":""},"name":"header.bottom.middle"},{"children":[],"config":{"align":"right","grow":"","classes":""},"name":"header.bottom.right"}]</layout>
+                <exclude>checkout_index_index
+firecheckout_index_index</exclude>
+            </header_config>
+            -->
+            <footer>
+                <footer>
+                    <footer_backgroundColor>#262c34</footer_backgroundColor>
+                    <footer_backgroundImage></footer_backgroundImage>
+                    <footer_backgroundRepeat>no-repeat</footer_backgroundRepeat>
+                    <footer_backgroundPosition>0,0</footer_backgroundPosition>
+                    <footerTitle_color>#fff</footerTitle_color>
+                    <footerText_color>#6e7178</footerText_color>
+                    <footerLinks_color>#6e7178</footerLinks_color>
+                </footer>
+                <bottomToolbarContainer>
+                    <footerBottomToolbar_backgroundColor>#fff</footerBottomToolbar_backgroundColor>
+                    <footerBottomToolbar_backgroundImage></footerBottomToolbar_backgroundImage>
+                    <footerBottomToolbar_backgroundRepeat>no-repeat</footerBottomToolbar_backgroundRepeat>
+                    <footerBottomToolbar_backgroundPosition>0,0</footerBottomToolbar_backgroundPosition>
+                    <footerBottomToolbarText_color>#232337</footerBottomToolbarText_color>
+                    <footerBottomLinksSeparator_borderColor>#d9dbdf</footerBottomLinksSeparator_borderColor>
+                </bottomToolbarContainer>
+            </footer>
+            <buttons>
+                <button_background>#42ca49</button_background>
+                <button_borderColor>#42ca49</button_borderColor>
+                <button_color>#fff</button_color>
+                <buttonHover_background>#30a936</buttonHover_background>
+                <buttonHover_borderColor>#30a936</buttonHover_borderColor>
+                <buttonHover_color>#fff</buttonHover_color>
+                <buttonSecondary_background>#fff</buttonSecondary_background>
+                <buttonSecondary_borderColor>#f54336</buttonSecondary_borderColor>
+                <buttonSecondary_color>#f54336</buttonSecondary_color>
+                <buttonSecondaryHover_background>#f54336</buttonSecondaryHover_background>
+                <buttonSecondaryHover_borderColor>#f54336</buttonSecondaryHover_borderColor>
+                <buttonSecondaryHover_color>#fff</buttonSecondaryHover_color>
+                <addToLinks_backgroundColor>#f8f8f8</addToLinks_backgroundColor>
+                <addToLinks_color>#2e2e2e</addToLinks_color>
+                <addToLinksHover_backgroundColor>#efefef</addToLinksHover_backgroundColor>
+                <addToLinksHover_color>#2e2e2e</addToLinksHover_color>
+            </buttons>
+            <fonts>
+                <pageTitle_fontFamily>'Open Sans', sans-serif</pageTitle_fontFamily>
+                <pageTitle_fontSize>3rem</pageTitle_fontSize>
+                <pageTitle_fontWeight>bold</pageTitle_fontWeight>
+                <pageTitle_color>#2e2e2e</pageTitle_color>
+                <blockTitle_fontFamily>'Open Sans', sans-serif</blockTitle_fontFamily>
+                <blockTitle_fontSize>1.6rem</blockTitle_fontSize>
+                <blockTitle_fontWeight>700</blockTitle_fontWeight>
+                <blockTitle_color>#2e2e2e</blockTitle_color>
+                <productNameLink_fontFamily>'Open Sans', sans-serif</productNameLink_fontFamily>
+                <productNameLink_fontSize>1.5rem</productNameLink_fontSize>
+                <productNameLink_fontWeight>600</productNameLink_fontWeight>
+                <productNameLink_color>#2e2e2e</productNameLink_color>
+            </fonts>
+            <category>
+                <max_width>1200</max_width>
+                <grid>
+                    <columns_count>{"640":{"columns":"3","spacing":"-1"},"1024":{"columns":"4","spacing":"-1"}}</columns_count>
+                </grid>
+            </category>
+            <product>
+                <max_width>1200</max_width>
+                <media_width>50</media_width>
+                <infomain_width>47</infomain_width>
+            </product>
+            <css_selector>
+<!--            Swissup_ThemeEditorArgentobreezeStripes::system/layout.xml-->
+                <body>body</body>
+                <page>.page-wrapper</page>
+                <content-container><![CDATA[.navigation, .breadcrumbs, .catalog-category-view .page-main .breadcrumbs, .catalog-category-view .page-main .columns, .page-header .header.panel, .header.content, .footer-middle, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main, .page-container > .content, .jumbotron > .container]]></content-container>
+<!--            Swissup_ThemeEditorArgentobreezeStripes::system/header.xml-->
+                <page-header><![CDATA[.page-header]]></page-header>
+                <page-header-panel><![CDATA[.page-header .panel.wrapper]]></page-header-panel>
+
+                <header-button-search>.page-header .header.content .block-search .action.search</header-button-search>
+                <header-button-search-hover>.page-header .header.content .block-search .action.search:hover</header-button-search-hover>
+                <header-button-cart>.minicart-wrapper .action.showcart</header-button-cart>
+                <header-button-cart-hover>.minicart-wrapper .action.showcart:hover</header-button-cart-hover>
+                <header-button-my-account>.page-header .account-dropdown .action</header-button-my-account>
+                <header-button-my-account-hover>.page-header .account-dropdown .action:hover</header-button-my-account-hover>
+
+                <navigation>.navigation-section</navigation>
+                <top-level-arrow><![CDATA[.navigation-section .navigation a.level-top > .navpro-icon-caret:before, .navigation-section .navigation .parent > a.level-top:before]]></top-level-arrow>
+                <top-level-link>.navigation-section .navigation a.level-top</top-level-link>
+                <top-level-link-hover><![CDATA[.navigation .level0 > .level-top:hover,.navigation .level0 > .level-top.ui-state-focus]]></top-level-link-hover>
+                <top-level-link-active><![CDATA[.navigation .level0.active > .level-top,.navigation .level0.has-active > .level-top]]></top-level-link-active>
+                <top-level-link-departments>.navigation-section .navigation #navpro-topnav .navpro-departments a.level-top</top-level-link-departments>
+                <top-level-arrow-departments><![CDATA[.navigation-section .navigation #navpro-topnav .navpro-departments a.level-top > .navpro-icon-caret:before, .navigation-section .navigation #navpro-topnav .navpro-departments a.level-top:before]]></top-level-arrow-departments>
+                <top-level-link-departments-hover><![CDATA[.navigation-section .navigation .navpro-departments.level0 > .level-top:hover, .navigation-section .navigation .navpro-departments.level0 > .level-top.ui-state-active, .navigation-section .navigation .navpro-departments.level0 > .level-top.ui-state-focus, .navigation-section .navigation .navpro-departments.level0.active > .level-top:hover, .navigation-section .navigation .navpro-departments.level0.active > .level-top.ui-state-active, .navigation-section .navigation .navpro-departments.level0.active > .level-top.ui-state-focus]]></top-level-link-departments-hover>
+                <top-level-arrow-departments-hover><![CDATA[.navigation-section .navigation .navpro-departments.level0 > .level-top:hover > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0 > .level-top.ui-state-active > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0 > .level-top.ui-state-focus > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0.active > .level-top:hover > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0.active > .level-top.ui-state-active > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0.active > .level-top.ui-state-focus > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0:hover > .level-top:before]]></top-level-arrow-departments-hover>
+                <top-level-link-departments-active><![CDATA[.navigation-section .navigation .navpro-departments.level0.active > .level-top, .navigation-section .navigation .navpro-departments.level0.has-active > .level-top]]></top-level-link-departments-active>
+                <departments-children><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children .level1 > a]]></departments-children>
+                <departments-children-arrow><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children .level1 > a > .navpro-icon-caret:before]]></departments-children-arrow>
+                <departments-children-hover><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children .level1:hover > a]]></departments-children-hover>
+                <departments-children-hover-arrow><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children .level1:hover > a > .navpro-icon-caret:before]]></departments-children-hover-arrow>
+                <top-level-arrow-departments-active><![CDATA[.navigation-section .navigation .navpro-departments.level0.active > .level-top > .navpro-icon-caret:before, .navigation-section .navigation .navpro-departments.level0.has-active > .level-top > .navpro-icon-caret:before]]></top-level-arrow-departments-active>
+                <low-level-link><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children a]]></low-level-link>
+                <low-level-arrow><![CDATA[.navigation-section .navigation .navpro-departments .navpro-dropdown-level1 .children a > .navpro-icon-caret:before]]></low-level-arrow>
+
+<!--            Swissup_ThemeEditorArgentobreezeStripes::system/footer.xml-->
+                <footer>.page-footer</footer>
+<!--                <footer-middle>.page-footer .footer-middle</footer-middle>-->
+<!--                <footer-bottom>.page-footer .footer-bottom</footer-bottom>-->
+                <footer-title>.page-footer div[data-role="title"], .page-footer .h4, .page-footer .block .block-title strong, .page-footer .block .title strong</footer-title>
+                <footer-text>.page-footer .footer.content, .page-footer .footer-toolbar-top .content</footer-text>
+                <footer-links>.footer.content a, .footer.content a:hover, .footer.content a:visited, .footer.content .links a, .footer.content .links a:hover, .footer.content .links a:visited, .page-footer .footer.content .footer.links a, .page-footer .footer.content .footer.links a:visited</footer-links>
+                <footer-bottom-toolbar>.page-footer .footer-bottom</footer-bottom-toolbar>
+                <footer-bottom-toolbar-text>.page-footer .footer-bottom .copyright, .page-footer .footer-bottom, .page-footer .footer-bottom a, .page-footer .footer-bottom .alink, .page-footer .footer-bottom a:hover, .page-footer .footer-bottom .alink:hover, .page-footer .footer-bottom a:visited, .page-footer .footer-bottom .alink:visited</footer-bottom-toolbar-text>
+                <footer-bottom-links-separator>.page-footer .footer-bottom .footer.links li:after</footer-bottom-links-separator>
+<!--            Swissup_ThemeEditorArgentobreezeStripes::system/buttons.xml-->
+                <button>.action.primary</button>
+                <button-hover>.action.primary:hover, .action.primary:focus, .action.primary:active</button-hover>
+                <button-secondary><![CDATA[button, .abs-revert-to-action-secondary, .paypal-review .block .actions-toolbar .action.primary, .abs-discount-block .actions-toolbar .action.primary, .abs-discount-block .actions-toolbar .action.cancel, .block-compare .action.primary, .cart-summary .block .actions-toolbar > .primary .action.primary, .cart-summary .form.giftregistry .fieldset .action.primary, .paypal-review-discount .actions-toolbar .action.primary, .paypal-review-discount .actions-toolbar .action.cancel, .cart-discount .actions-toolbar .action.primary, .cart-discount .actions-toolbar .action.cancel, .product.data.items .review-add .review-form .action.submit.primary]]></button-secondary>
+                <button-secondary-hover><![CDATA[button:hover, .abs-revert-secondary-color:hover, .abs-revert-to-action-secondary:hover, .paypal-review .block .actions-toolbar .action.primary:hover,.abs-discount-block .actions-toolbar .action.primary:hover, .abs-discount-block .actions-toolbar .action.cancel:hover, .block-compare .action.primary:hover, .cart-summary .block .actions-toolbar > .primary .action.primary:hover, .cart-summary .form.giftregistry .fieldset .action.primary:hover, .paypal-review-discount .actions-toolbar .action.primary:hover, .paypal-review-discount .actions-toolbar .action.cancel:hover, .cart-discount .actions-toolbar .action.primary:hover, .cart-discount .actions-toolbar .action.cancel:hover, .product.data.items .review-add .review-form .action.submit.primary:hover, /*ACTIVE STATE*/ button:active, .abs-revert-secondary-color:active, .abs-revert-to-action-secondary:active, .paypal-review .block .actions-toolbar .action.primary:active,.abs-discount-block .actions-toolbar .action.primary:active, .abs-discount-block .actions-toolbar .action.cancel:active, .block-compare .action.primary:active, .cart-summary .block .actions-toolbar > .primary .action.primary:active, .cart-summary .form.giftregistry .fieldset .action.primary:active, .paypal-review-discount .actions-toolbar .action.primary:active, .paypal-review-discount .actions-toolbar .action.cancel:active, .cart-discount .actions-toolbar .action.primary:active, .cart-discount .actions-toolbar .action.cancel:active, .product.data.items .review-add .review-form .action.submit.primary:active, /*FOCUS STATE*/ button:focus, .abs-revert-secondary-color:focus, .abs-revert-to-action-secondary:focus, .paypal-review .block .actions-toolbar .action.primary:focus,.abs-discount-block .actions-toolbar .action.primary:focus, .abs-discount-block .actions-toolbar .action.cancel:focus, .block-compare .action.primary:focus, .cart-summary .block .actions-toolbar > .primary .action.primary:focus, .cart-summary .form.giftregistry .fieldset .action.primary:focus, .paypal-review-discount .actions-toolbar .action.primary:focus, .paypal-review-discount .actions-toolbar .action.cancel:focus, .cart-discount .actions-toolbar .action.primary:focus, .cart-discount .actions-toolbar .action.cancel:focus, .product.data.items .review-add .review-form .action.submit.primary:focus]]></button-secondary-hover>
+                <add-to-links>.product-addto-links a.action, .bundle-actions-container .product-addto-links a, .products-grid .product-item-actions .action.towishlist, .products-list .product-item-actions .action.towishlist, .products-grid .product-item-actions .action.tocompare, .products-list .product-item-actions .action.tocompare</add-to-links>
+                <add-to-links-hover>.product-addto-links a.action:hover, .bundle-actions-container .product-addto-links a:hover, .product-addto-links a.action:focus, .bundle-actions-container .product-addto-links a:focus, .product-addto-links a.action:active, .bundle-actions-container .product-addto-links a:active, .products-grid .product-item-actions .action.towishlist:hover, .products-list .product-item-actions .action.towishlist:hover, .products-grid .product-item-actions .action.tocompare:hover, .products-list .product-item-actions .action.tocompare:hover</add-to-links-hover>
+<!--            Swissup_ThemeEditorArgentobreezeStripes::system/fonts.xml-->
+                <page-title><![CDATA[.page-title-wrapper .page-title, .catalog-product-view .column.main > .block .block-title [role="heading"]]]></page-title>
+                <block-title><![CDATA[.sidebar .block .block-title span strong, .sidebar .block .block-title span span, .sidebar .block .block-title strong, .sidebar .block .block-title span, div.block .block-title strong, .filter .block-subtitle, .product.data.items.expanded > .item.title]]></block-title>
+                <product-name-link>
+                    .products-grid .item .product.name a,
+                    .products-grid .product-item .product.name a,
+                    .products-list .item .product.name a
+                </product-name-link>
+                <final-price><![CDATA[
+                    .product-info-main .product-info-price .price-box .price-container [data-price-type=finalPrice] .price,
+                    .product-info-main .product-info-price .price-box .price-container [data-price-type=minPrice] .price,
+                    .product-info-main .product-info-price .price-box .price-container [data-price-type=maxPrice] .price,
+                    .bundle-options-container .block-bundle-summary .price-box [data-price-type=finalPrice] .price,
+                    .product-item-info .price-box .price-container [data-price-type=finalPrice] .price
+                ]]></final-price>
+            </css_selector>
+        </swissup_argentobreeze_stripes>
+    </default>
+</config>

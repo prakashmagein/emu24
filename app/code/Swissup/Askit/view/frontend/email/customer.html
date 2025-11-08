@@ -1,0 +1,29 @@
+<!--@subject {{trans "Your question was answered on"}} {{var store.getFrontendName()}} @-->
+<!--@vars {
+"var store.getFrontendName()":"Store Front Name",
+"var user_name":"User name",
+"var item_name":"Item name",
+"var item_url":"Item url",
+"var question":"Question",
+"var answer":"Answer"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr class="email-information">
+        <td>
+            <table class="message-info">
+                <tr>
+                    <td>
+                        <p class="greeting">{{trans "Dear"}} {{var user_name}},</p>
+                        <p>{{trans "New answer was just posted to your question regarding"}} {{if item_url}}<a href="{{var item_url}}">{{var item_name}}</a>{{/if}}.</p>
+                        <p>{{trans "Your question:"}} {{var question}}</p>
+                        <p>{{trans "Answer:"}} {{var answer}}</p>
+                        <p>{{trans "Thank you again"}}, <strong>{{var store.getFrontendName()}}</strong></p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

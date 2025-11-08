@@ -1,0 +1,20 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ajaxpro>
+            <main>
+                <enabled>1</enabled>
+                <cart>1</cart>
+                <cartHandle>ajaxpro_popup_suggestpage_view</cartHandle>
+                <overrideMinicart>0</overrideMinicart>
+                <cartType>popup</cartType>
+                <modalCloseTimeout>50</modalCloseTimeout>
+                <floatingCart>0</floatingCart>
+                <product>1</product>
+                <validation>0</validation>
+                <quickView>0</quickView>
+                <animation>0</animation>
+                <overrideGetAddToCartUrl>0</overrideGetAddToCartUrl>
+            </main>
+        </ajaxpro>
+    </default>
+</config>

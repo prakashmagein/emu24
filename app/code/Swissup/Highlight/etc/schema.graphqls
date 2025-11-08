@@ -1,0 +1,21 @@
+type Query {
+    getHighlightProducts (
+        #categoryIds: String = "",
+        collectionType: String = "default" @doc(description: "Specifies collection type 'default', 'bestsellers' or 'popular'."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        order: String = "position" @doc(description: "Recource type order or customer."),
+        dir: String = "ASC" @doc(description: "Specifies sort .")
+        conditions: String = "" @doc(description: "Encoded conditions")
+        period: String = "P1M" @doc(description: "Time period filter")
+    ): HighLightProducts
+    @resolver(class: "Swissup\\Highlight\\Model\\Resolver\\Products")
+    @cache(cacheIdentity: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\Identity")
+}
+
+type HighLightProducts @doc(description: "The Products object is the top-level object returned in a product search.") {
+    items: [ProductInterface] @doc(description: "An array of products that match the specified search criteria.")
+    page_info: SearchResultPageInfo @doc(description: "An object that includes the page_info and currentPage values specified in the query.")
+    total_count: Int @doc(description: "The number of products returned.")
+#    debug: String @doc(description: "debugging info.")
+}

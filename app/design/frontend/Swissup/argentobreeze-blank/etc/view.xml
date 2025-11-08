@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <vars module="Argento_Theme">
+        <var name="listing">
+            <var name="grid">
+                <var name="actions">
+                    <var name="position">default</var> <!-- default/bottom -->
+                </var>
+            </var>
+            <var name="list">
+                <var name="actions">
+                    <var name="position">default</var>
+                </var>
+            </var>
+        </var>
+        <var name="photo_in_description">
+            <var name="image_class">argento-float-photo</var>
+            <var name="add_classes">hide md:show</var>
+            <!-- <var name="target"><![CDATA[#product\\.info\\.description[data-role=content]]]></var> -->
+        </var>
+    </vars>
+</view>

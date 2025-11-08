@@ -1,0 +1,16 @@
+<button class="action-additional action-promote"
+        data-bind="
+            click: function () { require(['uiRegistry'], (registry) => {
+                const modalName = `${$parent.parentName}.modal_promote`;
+
+                registry.get(modalName).updateFields($record).openModal() });
+            },
+            attr: {
+                title: $parent.promoteButtonLabel,
+                'data-rule': $record().data().promo_rule
+            }
+        ">
+    <span text="$parent.promoteButtonLabel"></span>
+</button>
+
+<render args="'ui/dynamic-rows/cells/action-delete'"></render>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_reviewreminder_entity" resource="default" engine="innodb" comment="Swissup Review Reminder Entity Table">
+    <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+    <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Order id"/>
+    <column xsi:type="timestamp" name="order_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Order Date"/>
+    <column xsi:type="varchar" name="customer_email" nullable="false" length="255" comment="Customer Email"/>
+    <column xsi:type="smallint" name="status" padding="6" unsigned="false" nullable="false" identity="false" comment="Reminder status"/>
+    <column xsi:type="varchar" name="hash" nullable="false" length="16" default="1" comment="Hash"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="entity_id"/>
+    </constraint>
+    <index referenceId="SWISSUP_REVIEWREMINDER_ENTITY_CUSTOMER_EMAIL" indexType="fulltext">
+      <column name="customer_email"/>
+    </index>
+  </table>
+  <table name="swissup_reviewreminder_unsubscribe" resource="default" engine="innodb" comment="Swissup Review Reminder Unsubscribers Table">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+    <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Unsubscribed Email"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="SWISSUP_REVIEWREMINDER_UNSUBSCRIBE_EMAIL">
+      <column name="email"/>
+    </constraint>
+  </table>
+</schema>

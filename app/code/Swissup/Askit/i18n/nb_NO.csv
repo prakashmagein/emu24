@@ -1,0 +1,100 @@
+"Edit '%1'","Rediger '%1'"
+"Answer Information",Svarinformasjon
+Hint,Hint
+Questions,spørsmål
+"Edit Question '%1'","Rediger spørsmål '%1'"
+"No Found","Ikke funnet"
+"Created date","Opprettet dato"
+"Update date","Oppdater dato"
+"Are you sure?","Er du sikker?"
+Unknown,Ukjent
+Private,Privat
+"Add New Answer","Legg til nytt svar"
+"Questions %1","Spørsmål %1"
+"Please select item(s).","Velg vare (r)."
+"The answer has been deleted.","Svaret er slettet."
+"We can't find a answer to delete.","Vi finner ikke svar å slette."
+Askit,Askit
+Answers,svar
+"This item no longer exists.","Denne varen eksisterer ikke lenger."
+"Askit Items",Askit-varer
+"Askit Recent Answers","Askit Nylige svar"
+"Manage Recent Askit Answers","Administrer nylige svar"
+"You saved.","Du reddet."
+"Something went wrong while saving the question.","Noe gikk galt mens du lagret spørsmålet."
+"A total of %1 record(s) have been deleted.","Totalt %1 post (er) er slettet."
+"A total of %1 record(s) have been changed.","Totalt %1 post (er) er endret."
+"The question has been deleted.","Spørsmålet er slettet."
+"We can't find a question to delete.","Vi finner ikke et spørsmål å slette."
+"New Askit Question","Nytt Askit spørsmål"
+"Askit Questions","Askit spørsmål"
+"Manage Askit Questions","Administrer Askit-spørsmål"
+"You question saved.","Spørsmålet ditt er lagret."
+"You answer was added.","Svaret ditt ble lagt til."
+"We can't process your request right now. Sorry, that's all we know.","Vi kan ikke behandle forespørselen din akkurat nå. Beklager, det er alt vi vet."
+"My Questions","Mine spørsmål"
+"Your must login","Du må logge inn"
+"Sorry, only logged in customer can hint.","Beklager, bare innlogget kunde kan hint."
+"Sorry, already voted","Beklager, allerede stemt"
+Pending,Avventer
+Approved,godkjent
+Disapproved,"Ikke godkjent"
+"Askit Question","Askit spørsmål"
+"Askit Answer","Askit svar"
+"Edit Question","Rediger spørsmål"
+"New Answer","Nytt svar"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Bare registrerte brukere kan skrive kommentarer. <a href=""%1""> Logg på </a> eller <a href=""%2""> Opprett en konto </a>"
+"Your Answer","Ditt svar"
+"Leave a Reply","Legg igjen et svar"
+"%1 people found this answer helpful.","%1 personer syntes dette svaret var nyttig."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Bare registrerte brukere kan skrive spørsmål. <a href=""%1""> Logg på </a> eller <a href=""%2""> Opprett en konto </a>"
+"Ask Your Question","Still spørsmålet ditt"
+"Jot us a note and we’ll get back to you as quickly as possible.","Skriv oss en lapp og vi kommer tilbake til deg så raskt som mulig."
+Question,Spørsmål
+"Post a private question","Legg ut et privat spørsmål"
+Submit,"Sende inn"
+"You have submitted no questions.","Du har ikke sendt noen spørsmål."
+"answer' 'answers","svar '' svar"
+"%1 people already voted for this question.","%1 personer stemte allerede for dette spørsmålet."
+"Vote for It","Stem på det"
+"New products question was just posted or updated. Please see details below","Spørsmålet om nye produkter ble nettopp lagt ut eller oppdatert. Se detaljene nedenfor"
+E-mail,E-post
+"You can follow the question at Swissup -> Askit Questions","Du kan følge spørsmålet på Swissup -> Askit Questions"
+Dear,Kjære
+"New answer was just posted to your question regarding","Nytt svar ble nettopp lagt ut på spørsmålet ditt angående"
+"Your question:","Ditt spørsmål:"
+Answer:,Svar:
+"Thank you again","Takk igjen"
+"Default question status","Standard spørsmålstatus"
+"Default answer status","Standard svarstatus"
+"Allow guest to ask questions","La gjestene stille spørsmål"
+"Allow customers comment","Tillat kunder å kommentere"
+"Allow guest comment","Tillat gjestekommentar"
+"Allow customer vote","Tillat kunden stemme"
+"Show customer name on frontend","Vis kundenavn på frontend"
+"Show link to related item (Product, Category or Page)","Vis lenke til tilhørende vare (produkt, kategori eller side)"
+"Enable Gravatar integration","Aktiver Gravatar-integrasjon"
+"Add questions block to all category pages","Legg til spørsmål-blokkering på alle kategorisider"
+"Add questions block to all CMS pages","Legg til spørsmålblokkering på alle CMS-sider"
+"Enable 'no questions' message","Aktiver meldingen ""ingen spørsmål"""
+Sender,avsender
+"Customer Notification Template",Kundemeldingsmal
+"Email template chosen based on theme fallback when ""Default"" option is selected.","E-postmal som er valgt basert på tilbakefall av tema når alternativet ""Standard"" er valgt."
+"Send admin notification to","Send administratorvarsel til"
+"Admin Notification Template","Administrasjonsvarsel Mal"
+"Askit: Questions + New Question Form","Askit: Spørsmål + Nytt spørsmål"
+"Hide listing block","Skjul oppføringsblokk"
+"Hide form block","Skjul skjemablokk"
+"Assigned Products","Tildelte produkter"
+"Assigned Pages","Tildelte sider"
+"Assigned Categories","Tildelte kategorier"
+"Delete items","Slett elementer"
+"Answer,Svar
+"Entity Type",Enhetstype
+Entity,Entity
+Votes,stemmer
+"Your question was answered on","Spørsmålet ditt ble besvart på"
+"It is helpful","Det er nyttig"
+"Not much help","Ikke mye hjelp"
+asks,spør
+about,Om

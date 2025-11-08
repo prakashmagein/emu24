@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\ConfigurableProduct\Model\Product\Type\Configurable">
+        <plugin name="swissup_soldtogether" type="Swissup\SoldTogether\Plugin\Model\Product\Type\Configurable" sortOrder="1" />
+    </type>
+    <type name="Magento\ConfigurableProduct\Pricing\Price\LowestPriceOptionsProvider">
+        <plugin name="swissup_soldtogether" type="Swissup\SoldTogether\Plugin\Pricing\Price\LowestPriceOptionsProvider" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Model\Cart\RequestInfoFilter">
+        <arguments>
+            <argument name="filterList" xsi:type="array">
+                <!-- unset param in info_buyRequest -->
+                <item name="soldtogether_promoted" xsi:type="string">soldtogether_promoted</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Swissup\SoldTogether\Model\CompositeJsConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="widget" xsi:type="object">Swissup\SoldTogether\Model\JsConfigProvider\Widget</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="SoldtogetherFrequantlyBoughtConfigProvider" type="Swissup\SoldTogether\Model\Config\Provider">
+        <arguments>
+            <argument name="linkType" xsi:type="string">order</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SoldtogetherAlsoBoughtConfigProvider" type="Swissup\SoldTogether\Model\Config\Provider">
+        <arguments>
+            <argument name="linkType" xsi:type="string">customer</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\SoldTogether\Block\Order">
+        <arguments>
+            <argument name="configProvider" xsi:type="object">SoldtogetherFrequantlyBoughtConfigProvider</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\SoldTogether\Block\Customer">
+        <arguments>
+            <argument name="configProvider" xsi:type="object">SoldtogetherAlsoBoughtConfigProvider</argument>
+        </arguments>
+    </type>
+</config>

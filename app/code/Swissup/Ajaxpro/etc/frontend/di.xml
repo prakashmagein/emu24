@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Framework\Data\Helper\PostHelper" type="Swissup\Ajaxpro\Helper\PostHelper" />
+
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="ajaxpro-reinit" xsi:type="string">Swissup\Ajaxpro\CustomerData\Init</item>
+                <item name="ajaxpro-cart" xsi:type="string">Swissup\Ajaxpro\CustomerData\Cart</item>
+                <item name="ajaxpro-product" xsi:type="string">Swissup\Ajaxpro\CustomerData\Product</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <plugin name="swissup_ajaxpro_section_pool_plugin" type="Swissup\Ajaxpro\Plugin\Customer\CustomerData\SectionPoolPlugin" sortOrder="1" disabled="false"/>
+    </type>
+
+    <type name="Magento\Customer\Block\CustomerData">
+        <arguments>
+            <argument name="expirableSectionNames" xsi:type="array">
+                <item name="ajaxpro-reinit" xsi:type="string">ajaxpro-reinit</item>
+                <item name="ajaxpro-cart" xsi:type="string">ajaxpro-cart</item>
+                <item name="ajaxpro-product" xsi:type="string">ajaxpro-product</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- do not work correctly -->
+    <!--
+    <type name="Magento\Customer\Block\SectionConfig">
+        <arguments>
+            <argument name="clientSideSections" xsi:type="array">
+                <item name="ajaxpro-reinit" xsi:type="string">ajaxpro-reinit</item>
+                <item name="ajaxpro-cart" xsi:type="string">ajaxpro-cart</item>
+                <item name="ajaxpro-product" xsi:type="string">ajaxpro-product</item>
+            </argument>
+        </arguments>
+    </type>
+    -->
+
+    <type name="Magento\Framework\View\Layout\BuilderFactory">
+        <arguments>
+            <argument name="typeMap" xsi:type="array">
+                <item name="ajaxpro_page" xsi:type="array">
+                    <item name="type" xsi:type="const">Swissup\Ajaxpro\Model\View\Layout\Builder::TYPE_PAGE</item>
+                    <item name="class" xsi:type="string">Swissup\Ajaxpro\Model\View\Layout\Builder</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\Action\Action">
+        <plugin name="pluginAfterActionExecute" type="Swissup\Ajaxpro\Plugin\Controller\AfterActionExecutePlugin" sortOrder="1000" />
+    </type>
+
+    <type name="Magento\Customer\CustomerData\JsLayoutDataProviderPoolInterface">
+        <arguments>
+            <argument name="jsLayoutDataProviders" xsi:type="array">
+                <item name="ajaxpro_checkout_totals" xsi:type="object">Swissup\Ajaxpro\CustomerData\JsLayoutDataProvider\CheckoutTotals</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="pluginAfterGetJsonConfig" type="Swissup\Ajaxpro\Plugin\Block\Product\View\Type\ConfigurablePlugin" sortOrder="10" disabled="false" />
+    </type>
+
+    <type name="Magento\Catalog\Block\Product\AbstractProduct">
+        <plugin name="beforeGetAddToCartUrl" type="Swissup\Ajaxpro\Plugin\Block\Product\AbstractProductPlugin" sortOrder="10" disabled="false" />
+    </type>
+
+    <virtualType name="swissupAjaxproActionContext" type="Magento\Framework\App\Action\Context">
+        <arguments>
+            <argument name="messageManager" xsi:type="object">Swissup\Ajaxpro\Model\Message\Manager</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Catalog\Controller\Product\View">
+        <arguments>
+            <argument name="context" xsi:type="object">swissupAjaxproActionContext</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <arguments>
+            <argument name="context" xsi:type="object">swissupAjaxproActionContext</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Url\Helper\Data">
+        <plugin name="beforeGetEncodedUrl" type="Swissup\Ajaxpro\Plugin\Helper\Url\DataPlugin" sortOrder="10" />
+    </type>
+
+    <type name="Amasty\Xnotif\Helper\Data">
+        <plugin name="beforeGetEncodedUrl" type="Swissup\Ajaxpro\Plugin\Helper\Url\AmastyXnotifDataPlugin" sortOrder="10" />
+    </type>
+
+    <virtualType name="Swissup\Ajaxpro\Model\View\Layout\ScheduledStructure\Helper" type="Magento\Framework\View\Layout\ScheduledStructure\Helper">
+        <arguments>
+            <argument name="logger" xsi:type="object">Psr\Log\NullLogger</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Ajaxpro\Model\View\Layout\Data\Structure" type="Magento\Framework\View\Layout\Data\Structure">
+        <arguments>
+            <argument name="logger" xsi:type="object">Psr\Log\NullLogger</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Ajaxpro\Model\View\Layout\GeneratorPool" type="Magento\Framework\View\Layout\GeneratorPool">
+        <arguments>
+            <argument name="helper" xsi:type="object">Swissup\Ajaxpro\Model\View\Layout\ScheduledStructure\Helper</argument>
+            <argument name="logger" xsi:type="object">Psr\Log\NullLogger</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Swissup\Ajaxpro\Model\View\Layout" type="Magento\Framework\View\Layout">
+        <arguments>
+            <argument name="structure" xsi:type="object">Swissup\Ajaxpro\Model\View\Layout\Data\Structure</argument>
+            <argument name="generatorPool" xsi:type="object">Swissup\Ajaxpro\Model\View\Layout\GeneratorPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\Ajaxpro\Model\View\LayoutFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Swissup\Ajaxpro\Model\View\Layout</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,20 @@
+<?php $config = $block->getLikeButtonConfig(); ?>
+<?php if ($config["enabled"]) : ?>
+    <p class="fbl fbl-<?= $config["layout"];?>" data-mage-init='{"Swissup_Fblike/js/fblike": {}}' >
+        <?php if ($config["layout"] === "custom") : ?>
+                <a class="like"
+                    data-url="<?php echo $block->getProductUrl();?>"
+                    title="<?php echo __('Like product on Facebook')?>">
+                </a>
+        <?php else : ?>
+            <fb:like class="fb-like"
+                href="<?php echo $block->getProductUrl() ?>"
+                layout="<?php echo $config['layout'] ?>"
+                action="<?php echo $config['action'] ?>"
+                colorscheme="<?php echo $config['colorscheme'] ?>"
+                share="<?php echo $config['share'] ?>"
+                show_faces="<?php echo $config['show_faces'] ?>" >
+            </fb:like>
+        <?php endif; ?>
+    </p>
+<?php endif ?>

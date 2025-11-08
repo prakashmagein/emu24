@@ -1,0 +1,56 @@
+<script>
+/* @url https://alanstorm.com/refresh-shipping-rates-for-the-magento-2-checkout/ */
+require([
+    'jquery',
+    'Magento_Checkout/js/model/quote',
+    'Magento_Checkout/js/model/shipping-rate-registry'
+], function ($, quote, rateRegistry) {
+    'use strict';
+
+    /**
+     *
+     */
+    function fixDisabledRadio() {
+        var selector;
+
+        selector = '.ajaxpro-popup-checkout-cart-index #co-shipping-method-form input[type=radio][disabled]';
+        // console.log('patch for disabled radio');
+        // console.log($(selector).length);
+        $(selector).prop('disabled', false);
+        // console.log($(selector).length);
+    }
+
+    /**
+     *
+     */
+    function reloadShippingRates() {
+        //get address from quote observable
+        var address = quote.shippingAddress();
+
+        if (!address) {
+            setTimeout(reloadShippingRates, 2000);
+
+            return;
+        }
+
+
+        //changes the object so observable sees it as changed
+        address['trigger_reload'] = new Date().getTime();
+
+        //create rate registry cache
+        //the two calls are required
+        //because Magento caches things
+        //differently for new and existing
+        //customers (a FFS moment)
+        rateRegistry.set(address.getKey(), null);
+        rateRegistry.set(address.getCacheKey(), null);
+
+        //with rates cleared, the observable listeners should
+        //update everything when the rates are updated
+        quote.shippingAddress(address);
+
+        setTimeout(fixDisabledRadio, 2000);
+    }
+    reloadShippingRates();
+});
+</script>

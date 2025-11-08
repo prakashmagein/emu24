@@ -1,0 +1,221 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = true) {
+    .navpro {
+        &-dropdown {
+            position: absolute;
+            opacity: 0;
+            display: none;
+
+            &-inner {
+                box-sizing: border-box;
+                padding: @navpro-dropdown__padding;
+            }
+            &-expanded {
+                > .navpro-dropdown-inner {
+                    padding-top: 0;
+                }
+            }
+            .navpro-dropdown-expanded {
+                > .navpro-dropdown-inner {
+                    padding-left: 0;
+                    padding-right: 0;
+
+                    > .navpro-row > .navpro-col > .children > .parent-expanded {
+                        > .navpro-dropdown-expanded {
+                            > .navpro-dropdown-inner {
+                                padding: @navpro-dropdown__padding;
+                                padding-top: 0;
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical = false) {
+    .navpro {
+        &-dropdown {
+            .navpro-dropdown();
+
+            font-weight: normal;
+            z-index: @navpro-dropdown__z-index;
+
+            &.shown {
+                right: auto;
+                opacity: 1;
+                display: block;
+                z-index: @navpro-dropdown__z-index + 1;
+            }
+
+            li:hover > & {
+                z-index: @navpro-dropdown__z-index + 2;
+            }
+
+            > .navpro-close {
+                .navpro-close-icon(auto, 10px, 0);
+                z-index: 10;
+                position: absolute;
+                right: 12px;
+                top: 12px;
+            }
+        }
+
+        &.orientation-horizontal {
+            li {
+                &.size-boxed,
+                &.size-fullwidth,
+                &.size-fullscreen {
+                    position: static;
+                }
+            }
+        }
+    }
+}
+
+& when (@critical = unsure), (@critical) {
+    .dropdown-left {
+        .ui-menu-item {
+            text-align: right;
+
+            .rtl & {
+                text-align: left;
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    & when (@navpro-dropdown__use-animation = true) {
+        @starting-style {
+            .navpro-dropdown {
+                opacity: 0;
+                .orientation-vertical & {
+                    transform: rotateY(20deg);
+                }
+                .navpro.navpro-effect-slidein.orientation-vertical &,
+                .navpro.navpro-effect-slideout.orientation-vertical.dropdown-left & {
+                    .modrtl(transform, ~"translateX(20px)", ~"translateX(-20px)");
+                }
+                .navpro.navpro-effect-slideout.orientation-vertical &,
+                .navpro.navpro-effect-slidein.orientation-vertical.dropdown-left & {
+                    .modrtl(transform, ~"translateX(-20px)", ~"translateX(20px)");
+                }
+                .navpro.navpro-effect-slidein &,
+                .navpro.navpro-effect-slidein.navpro-accordion.orientation-vertical &,
+                .navpro.navpro-effect-slideout.dropdown-left & {
+                    transform: translateY(20px);
+                }
+                .navpro.navpro-effect-slideout &,
+                .navpro-accordion.orientation-vertical &,
+                .navpro.navpro-effect-slideout.navpro-accordion.orientation-vertical &,
+                .navpro.navpro-effect-slidein.dropdown-left & {
+                    transform: translateY(-20px);
+                }
+            }
+        }
+    }
+    .navpro {
+        &-dropdown {
+            & when (@navpro-dropdown__use-animation = true) {
+                @media (min-width: 1025px) {
+                    // will-change: transform, opacity; // commented to fix blurry slideout menu
+                    transform: rotateX(20deg);
+                    transform-origin: 0 0;
+                    transition-property: transform, opacity, display;
+                    transition-behavior: allow-discrete;
+                    transition-duration: .25s;
+                    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+                    &.shown {
+                        transform: none !important;
+                    }
+
+                    .navpro.navpro-effect-none & {
+                        transition: none;
+                        transform: none;
+                        transition-duration: 0s;
+                    }
+                    .navpro.navpro-effect-fade & {
+                        transform: none;
+                    }
+                    .orientation-vertical & {
+                        transform: rotateY(20deg);
+                    }
+                    .navpro.navpro-effect-slidein.orientation-vertical &,
+                    .navpro.navpro-effect-slideout.orientation-vertical.dropdown-left & {
+                        .modrtl(transform, ~"translateX(20px)", ~"translateX(-20px)");
+                    }
+                    .navpro.navpro-effect-slideout.orientation-vertical &,
+                    .navpro.navpro-effect-slidein.orientation-vertical.dropdown-left & {
+                        .modrtl(transform, ~"translateX(-20px)", ~"translateX(20px)");
+                    }
+                    .navpro.navpro-effect-slidein &,
+                    .navpro.navpro-effect-slidein.navpro-accordion.orientation-vertical &,
+                    .navpro.navpro-effect-slideout.dropdown-left & {
+                        transform: translateY(20px);
+                    }
+                    .navpro.navpro-effect-slideout &,
+                    .navpro-accordion.orientation-vertical &,
+                    .navpro.navpro-effect-slideout.navpro-accordion.orientation-vertical &,
+                    .navpro.navpro-effect-slidein.dropdown-left & {
+                        transform: translateY(-20px);
+                    }
+                }
+            }
+
+            @media @navpro-breakpoint-md {
+                &.size {
+                    &-small {
+                        width: 230px;
+                    }
+                    &-medium {
+                        width: 400px;
+                    }
+                    &-large {
+                        width: 650px;
+                    }
+                    &-boxed > .navpro-dropdown-inner,
+                    &-fullwidth > .navpro-dropdown-inner,
+                    &-fullscreen,
+                    &-xlarge {
+                        width: 850px;
+                    }
+                }
+            }
+        }
+
+        &.orientation-horizontal {
+            .navpro-dropdown-level1 {
+                @media @navpro-breakpoint-md {
+                    &.size {
+                        &-boxed {
+                            .navpro-dropdown-reset();
+                            > .navpro-dropdown-inner {
+                                .navpro-container();
+                                .navpro-dropdown();
+                            }
+                        }
+                        &-boxed,
+                        &-fullwidth,
+                        &-fullscreen {
+                            max-width: none;
+                            width: 100%;
+                            left: 0 !important;
+                        }
+                        &-fullwidth {
+                            > .navpro-dropdown-inner {
+                                .navpro-container();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

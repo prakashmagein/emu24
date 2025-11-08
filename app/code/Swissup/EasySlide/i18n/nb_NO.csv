@@ -1,0 +1,43 @@
+"Save Slider","Lagre glidebryteren"
+"Delete Slider","Slett glidebryteren"
+"Edit Slider - '%1'","Rediger skyveknappen - '%1'"
+"New Slider","Ny glidebryter"
+Parameters,parametere
+Direction,Retning
+Horizontal,Horisontal
+Vertical,vertikal
+Effect,Effekt
+Slide,Lysbilde
+Fade,Falme
+Cube,Cube
+Coverflow,Coverflow
+Flip,flip
+Speed,Hastighet
+Autoplay,"Auto spill"
+Pagination,paginering
+"Navigation Buttons",Navigasjonsknapper
+Scrollbar,scrollbar
+"Scrollbar Hide","Skjul på rullefeltet"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,lysbilder
+"Add New Slide","Legg til ny lysbilde"
+"Slider was deleted.","Glidebryteren ble slettet."
+"Can't find a slider to delete.","Finner ikke en glidebryter å slette."
+EasySlide,Easyslide
+"Manage Sliders","Administrer glidebrytere"
+"This slider no longer exists.","Denne glidebryteren eksisterer ikke lenger."
+"Edit Slider","Rediger glidebryteren"
+Sliders,Sliders
+"Slider has been saved.","Glidebryteren er lagret."
+"Something went wrong while saving the slider.","Noe gikk galt mens du lagret glidebryteren."
+Link,link
+"Open link in","Åpen lenke i"
+Description,Beskrivelse
+"Description Position","Beskrivelse Posisjon"
+"Description Background","Beskrivelse Bakgrunn"
+"Slide Detail","Lysbilde detalj"
+"Select Slider","Velg skyveknappen"
+"Add New Slider","Legg til ny glidebryter"
+Black,Svart
+White,Hvit

@@ -1,0 +1,63 @@
+{
+    "swissup_navigationpro_menu": {
+        "column": {
+            "menu_id": true,
+            "identifier": true,
+            "is_active": true,
+            "direction": true,
+            "max_depth": true,
+            "css_class": true,
+            "dropdown_settings": true,
+            "item_settings": true,
+            "styles": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swissup_navigationpro_item": {
+        "column": {
+            "item_id": true,
+            "parent_id": true,
+            "menu_id": true,
+            "path": true,
+            "position": true,
+            "level": true,
+            "is_active": true,
+            "remote_entity_type": true,
+            "remote_entity_id": true,
+            "use_remote_data": true
+        },
+        "index": {
+            "SWISSUP_NAVIGATIONPRO_ITEM_PARENT_ID": true,
+            "SWISSUP_NAVIGATIONPRO_ITEM_MENU_ID": true,
+            "SWISSUP_NAVIGATIONPRO_ITEM_LEVEL": true,
+            "SWISSUP_NAVIGATIONPRO_ITEM_REMOTE_ENTITY_TYPE": true,
+            "SWISSUP_NAVIGATIONPRO_ITEM_REMOTE_ENTITY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_547679C58114028088F4E0219ECB99A3": true,
+            "FK_9280C8DDEFCA020A7997E88D086CDAEE": true
+        }
+    },
+    "swissup_navigationpro_item_content": {
+        "column": {
+            "item_id": true,
+            "store_id": true,
+            "name": true,
+            "url_path": true,
+            "html": true,
+            "css_class": true,
+            "dropdown_settings": true
+        },
+        "index": {
+            "SWISSUP_NAVIGATIONPRO_ITEM_CONTENT_STORE_ID": true
+        },
+        "constraint": {
+            "FK_D624E1BDE2C8E59DEE58B89278B5F4F8": true,
+            "SWISSUP_NAVIGATIONPRO_ITEM_CONTENT_STORE_ID_STORE_STORE_ID": true,
+            "PRIMARY": true
+        }
+    }
+}

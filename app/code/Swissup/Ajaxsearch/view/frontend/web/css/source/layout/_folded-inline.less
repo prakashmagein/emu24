@@ -1,0 +1,54 @@
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @ajaxsearch__breakpoint-desktop) {
+    & when (@critical = unsure), (@critical) {
+        .block-search.block-swissup-ajaxsearch.inline {
+            .field.search {
+                background-color: @ajaxsearch-folded__background;
+                .input-text {
+                    .lib-css(box-shadow, @ajaxsearch-folded-input__box-shadow);
+                }
+            }
+
+            .swissup-ajaxsearch-filter-category-wrapper {
+                flex-shrink: 0;
+                min-width: @ajaxsearch-folded-category__width;
+                width: @ajaxsearch-folded-category__width;
+                .margin-right(-@ajaxsearch-folded-category__width);
+
+                + .origin {
+                    .input-text {
+                        .padding-left(@ajaxsearch-folded-category__width + 5);
+                        .lib-css(border-radius, @ajaxsearch-input__border-radius);
+                    }
+                }
+            }
+        }
+    }
+
+    & when (@critical = unsure), (@critical = false) {
+        .block-search.block-swissup-ajaxsearch.inline {
+            &.shown {
+                .field.search {
+                    & when (@ajaxsearch-folded__alignment = 'right') {
+                        .left(auto);
+                        .right(-@ajaxsearch-folded__padding-x + @ajaxsearch-folded__offset-x);
+                    }
+
+                    & when (@ajaxsearch-folded__alignment = 'left') {
+                        .left(-@ajaxsearch-folded__padding-x + @ajaxsearch-folded__offset-x);
+                        .right(auto);
+                    }
+                }
+
+                & when (@ajaxsearch-folded__alignment = 'left') {
+                    .actions .action.close {
+                        .left(@ajaxsearch-folded__min-width - max(@ajaxsearch-icon__width, 25px));
+                    }
+
+                    .loading-mask {
+                        .left(@ajaxsearch-folded__min-width - max(@ajaxsearch-icon__width, 25px) - 25px);
+                    }
+                }
+            }
+        }
+    }
+}

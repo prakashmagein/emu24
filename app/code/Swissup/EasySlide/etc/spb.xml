@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\EasySlide\Pagebuilder\SourceModel\Slider"
+                 type="Swissup\Pagebuilder\Model\Section\SourceModel\Entity">
+        <arguments>
+            <argument name="class" xsi:type="string">Swissup\EasySlide\Model\Slider</argument>
+            <argument name="fieldsetLabel" xsi:type="string"></argument>
+            <argument name="globallyHiddenFieldNames" xsi:type="array">
+                <item name="identifier" xsi:type="string">identifier</item>
+            </argument>
+            <argument name="fields" xsi:type="array">
+                <item name="id" xsi:type="array">
+                    <item name="path" xsi:type="string">getSlider().getSliderId()</item>
+                </item>
+                <item name="tabs" xsi:type="array">
+                    <item name="mode" xsi:type="string">tabs</item>
+                    <item name="children" xsi:type="array">
+                        <item name="slider" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Slider</item>
+                            <item name="expanded" xsi:type="boolean">true</item>
+                            <item name="children" xsi:type="array">
+                                <item name="design" xsi:type="array">
+                                    <item name="label" xsi:type="string">Design</item>
+                                    <item name="expanded" xsi:type="boolean">true</item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="theme" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Theme</item>
+                                            <item name="source_model" xsi:type="string">Swissup\EasySlide\Model\Slider\Source\Theme</item>
+                                        </item>
+                                        <item name="space" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Space Between Slides, px</item>
+                                        </item>
+                                        <item name="scrollbar" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Show Scrollbar</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="behavior" xsi:type="array">
+                                    <item name="label" xsi:type="string">Behavior</item>
+                                    <item name="expanded" xsi:type="boolean">true</item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="effect" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Effect</item>
+                                            <item name="source_model" xsi:type="string">Swissup\EasySlide\Model\Slider\Source\Effect</item>
+                                        </item>
+                                        <item name="speed" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Effect transition speed, ms</item>
+                                        </item>
+                                        <item name="autoplay" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Autoplay, ms</item>
+                                        </item>
+                                        <item name="loop" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Infinite slider</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                        <item name="startRandomSlide" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Start with random slide</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="navigation" xsi:type="array">
+                                    <item name="label" xsi:type="string">Navigation</item>
+                                    <item name="expanded" xsi:type="boolean">true</item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="pagination" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Show Pagination</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                        <item name="navigation" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Show Prev/Next Arrows</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                        <item name="thumbs" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Show Thumbnails</item>
+                                            <item name="type" xsi:type="string">checkbox</item>
+                                        </item>
+                                        <item name="thumbs_position" xsi:type="array">
+                                            <item name="label" xsi:type="string" translate="true">Thumbnails position</item>
+                                            <item name="source_model" xsi:type="string">Swissup\EasySlide\Model\Slider\Source\ThumbsPosition</item>
+                                            <item name="depends" xsi:type="array">
+                                                <item name="thumbs" xsi:type="string">1</item>
+                                            </item>
+                                        </item>
+                                        <item name="size" xsi:type="array">
+                                            <item name="mode" xsi:type="string">grid</item>
+                                            <item name="css" xsi:type="string">grid-cols-2</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="thumb_width" xsi:type="array">
+                                                    <item name="label" xsi:type="string" translate="true">Thumbnail width, px</item>
+                                                    <item name="depends" xsi:type="array">
+                                                        <item name="thumbs" xsi:type="string">1</item>
+                                                    </item>
+                                                </item>
+                                                <item name="thumb_height" xsi:type="array">
+                                                    <item name="label" xsi:type="string" translate="true">Thumbnail height, px</item>
+                                                    <item name="depends" xsi:type="array">
+                                                        <item name="thumbs" xsi:type="string">1</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="slides" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Slides</item>
+                            <item name="expanded" xsi:type="boolean">true</item>
+                            <item name="children" xsi:type="array">
+                                <item name="lazy" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Use lazy loading</item>
+                                    <item name="type" xsi:type="string">checkbox</item>
+                                </item>
+                                <item name="loadPrevNext" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Preload nearest slides</item>
+                                    <item name="type" xsi:type="string">checkbox</item>
+                                    <item name="depends" xsi:type="array">
+                                        <item name="lazy" xsi:type="string">1</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Pagebuilder\Model\Section\SourceModelProvider\Configurable">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="Swissup\EasySlide\Block\Slider" xsi:type="array">
+                    <item name="entity" xsi:type="string">Swissup\EasySlide\Pagebuilder\SourceModel\Slider</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

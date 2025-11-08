@@ -1,0 +1,39 @@
+<style>
+    .admin__fieldset .directives-description { margin-left: calc( (100%) * 0.25 ); margin-bottom: 3rem; width: calc( (100%) * 0.5 );}
+    .admin__fieldset .directives-description summary { position: relative; padding: 0 20px 10px 0; }
+    .admin__fieldset .directives-description summary::before { content: '\e616'; font-size: 1.6rem; position: absolute; right: 0; font-family: 'Admin Icons'; }
+    .admin__fieldset .directives-description[open] summary::before { content: '\e615'; }
+    .admin__fieldset .directives-description > ul > li { margin-bottom: 1.5em; list-style: none; }
+    .admin__fieldset .directives-description > ul > li pre { display: inline; font-style: italic; background-color: #eee; }
+    .admin__fieldset .directives-description > ul > li strong pre { font-style: normal; background-color: transparent; }
+    .admin__fieldset .directives-description > ul > li.comment { font-size: .8em; padding: 0 0 0 10px; margin-bottom: 0; }
+    .admin__fieldset .directives-description > ul > li.comment::before { content: '* '; color: red; }
+    .admin__fieldset .directives-description > ul > li.comment.two-stars::before { content: '** '; }
+</style>
+<details class="directives-description">
+    <summary>Check the list of available directives.</summary>
+    <ul>
+        <li>
+            <strong><pre>{{attribute code="..." [html="1"] [store="5"] [prefix="..."] [sufix="..."] [exclude="..."]}}</pre></strong> - value of attribute by its code. You can set multiple codes separated with comma or use "*" for all attributes.
+            With configurable product this directive can return values of attribute from child products.
+            <pre>exclude</pre> option allows you to exclude some values from output. It can contain multiple values separated with comma.
+            <pre>html</pre> option enables HTML in the attribute value.
+            <pre>store</pre> option enables to get the attribute value from the specified store view.
+        </li>
+        <li>
+            <strong><pre>{{categories [depth="N"] [prefix="..."] [sufix="..."]}}</pre></strong> - category product is assigned for. When product assigned to multiple categories all of them outputed. You can set how deep of category tree goes: if depth=1 then directive returns only direct parents, if depth=2 - direct parents and parents of those parents, and so on. You can use options prefix, suffix, and exclude also.
+        </li>
+        <li>
+            <strong><pre>{{langCode}}</pre></strong> - language code on the current scope. Use it to instruct the model on which language to use in content generation.
+        </li>
+        <li>
+            <strong><pre>{{subcats [prefix="..."] [sufix="..."] [exclude="..."] [limit="..."] [separator="..."]}}</pre></strong> - get subcategories for category. You can set max number of subcategories to output (<pre>limit</pre>) and separator (<pre>separator</pre>). With <pre>exclude</pre> option you can exclude some subcategories from output by their names.
+        </li>
+        <li class="comment">
+            With <pre>sufix</pre> and <pre>prefix</pre> options you can add some text before or after output. Works only when output is not empty.
+        </li>
+        <li class="comment two-stars">
+            Directive options in square brackets (<pre>[...]</pre>) are optional. If you want to use option please do not wrap it in square brackets.
+        </li>
+    </ul>
+</details>

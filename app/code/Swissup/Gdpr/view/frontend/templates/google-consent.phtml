@@ -1,0 +1,52 @@
+<?php
+// Do not use require! This script must be executed before gtag.js/gtm.js is loaded
+// https://developers.google.com/tag-platform/security/guides/consent?consentmode=advanced#tag-manager_3
+?>
+
+<?php
+
+$defaults = [];
+foreach ($block->getDefaultValues() as $config) {
+    $defaults[] = "gdpr_gtag('consent', 'default', {$config});";
+}
+
+$defaults = implode("\n", $defaults);
+$scriptString = <<<script
+
+window.dataLayer = window.dataLayer || [];
+function gdpr_gtag() { dataLayer.push(arguments) }
+{$defaults}
+gdpr_gtag('set', 'url_passthrough', false);
+gdpr_gtag('set', 'ads_data_redaction', true);
+
+function gdpr_updateGoogleConsent(groups) {
+    gdpr_gtag('consent', 'update', {
+        ad_storage: groups.includes('marketing') ? 'granted' : 'denied',
+        ad_user_data: groups.includes('marketing') ? 'granted' : 'denied',
+        ad_personalization: groups.includes('marketing') ? 'granted' : 'denied',
+        analytics_storage: groups.includes('analytics') ? 'granted' : 'denied',
+        functionality_storage: groups.includes('preferences') ? 'granted' : 'denied',
+        personalization_storage: groups.includes('preferences') ? 'granted' : 'denied',
+        security_storage: 'granted'
+    });
+    gdpr_gtag('set', 'ads_data_redaction', !groups.includes('marketing'));
+}
+
+var value = (document.cookie.match(`(^|; )\${window.swissupGdprCookieSettings.cookieName}=([^;]*)`)||0)[2] || '';
+if (value) {
+    try {
+        gdpr_updateGoogleConsent(JSON.parse(decodeURIComponent(value))?.groups);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+script;
+
+if (isset($secureRenderer)) {
+    echo /* @noEscape */ $secureRenderer->renderTag('script', ['data-defer-js-ignore' => true], $scriptString, false);
+} else {
+    echo "<script data-defer-js-ignore>{$scriptString}</script>";
+}
+
+?>

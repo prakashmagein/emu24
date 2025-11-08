@@ -1,0 +1,9 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Swissup\Attributepages\Block\Attribute\View" name="attributepage.attribute.view" template="attribute/view.phtml">
+                <block class="Swissup\Attributepages\Block\Option\OptionList" name="children_list" template="option/list.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

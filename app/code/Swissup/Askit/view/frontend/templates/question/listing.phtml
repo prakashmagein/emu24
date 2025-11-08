@@ -1,0 +1,83 @@
+<?php
+    /** @var \Swissup\Askit\Block\Question\Listing $block */
+    $isLoggedIn   = $block->isCustomerLoggedIn();
+    $configHelper = $block->getConfigHelper();
+
+    $isAllowedCustomerAnswer = $configHelper->isAllowedCustomerQuestion();
+    $isAllowedGuestAnswer    = $configHelper->isAllowedGuestAnswer();
+    $isEnabledGravatar       = $configHelper->isEnabledGravatar();
+    $isEnabledNoQuestions    = $configHelper->isEnabledNoQuestions();
+
+    $showNewAnswerForm = ($isAllowedCustomerAnswer && $isLoggedIn) || $isAllowedGuestAnswer;
+    $collection = $block->getCollection();
+    $isEmptyCollection = $collection->getSize() == 0;
+if ($isEmptyCollection && $isEnabledNoQuestions): ?>
+        <div class="message info empty">
+            <span><?= $block->escapeHtml(__('You have no approved questions.'));?></span>
+        </div>
+    <?php
+    endif;
+if ($isEmptyCollection) {
+    return;
+}
+    $initiallyExpanded = explode(',', $block->getRequest()->getParam('expanded', ''));
+?>
+<div class="block askit-questions" data-mage-init='{"Swissup_Askit/js/view/data-vote": {}}'>
+    <div class="title block-title">
+        <strong><?= $block->escapeHtml(__('Questions')); ?></strong>
+    </div>
+    <div class="block-content">
+
+        <div class="toolbar">
+            <?= /* @escapeNotVerified */ $block->getChildHtml('pager')?>
+        </div>
+
+        <ol class="items askit-items<?= /* @escapeNotVerified */ $isEnabledGravatar ? '' : ' no-avatar' ?>">
+        <?php
+        $blockQuestionView = $block->getChildBlock('askit_question_view');
+        $blockAnswerView = $block->getChildBlock('askit_answer_view');
+        $blockAnswerNew = $block->getChildBlock('askit_answer_form');
+        foreach ($collection as $question): ?>
+            <li id="askit-question-<?= $block->escapeHtmlAttr($question->getId()) ?>" class="item askit-item">
+                <?= /* @escapeNotVerified */ $blockQuestionView
+                    ->setQuestion($question)
+                    ->toHtml()
+                ?>
+
+                <div class="askit-item-actions">
+                    <?php $answerCollecion = $question->getApprovedAnswerCollection()->addPrivateFilter();?>
+                    <?php $triggerId = "askit-item-trigger-{$question->getId()}"; ?>
+                    <?php if ($answerCollecion->getSize() > 0 || $showNewAnswerForm):?>
+                    <label class="askit-item-trigger" for="askit-item-trigger-<?= $block->escapeHtmlAttr($question->getId()) ?>">
+                        <?= $block->escapeHtml($answerCollecion->getSize());?>
+                        <span><?= $block->escapeHtml(' ' . __($answerCollecion->getSize() == 1 ? 'answer' : 'answers'))?></span>
+                    </label>
+                    <input type="checkbox" id="<?= $block->escapeHtmlAttr($triggerId) ?>" <?=  /* @escapeNotVerified */ in_array($triggerId, $initiallyExpanded) ? 'checked' : '' ?> >
+
+                    <ol class="items askit-item-answers">
+                        <?php foreach ($answerCollecion as $answer):?>
+                        <li id="askit-answer-<?= $block->escapeHtmlAttr($answer->getId()) ?>" class="item askit-item askit-item-answer">
+                            <?= /* @escapeNotVerified */ $blockAnswerView
+                                ->setAnswer($answer)
+                                ->toHtml()
+                            ?>
+                        </li>
+                        <?php endforeach;?>
+
+                        <?php if ($showNewAnswerForm || ($isAllowedCustomerAnswer && !$isLoggedIn)):?>
+                        <li>
+                            <?= /* @escapeNotVerified */ $blockAnswerNew->setQuestion($question)->toHtml()?>
+                        </li>
+                        <?php endif?>
+                    </ol>
+                    <?php endif?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ol>
+
+        <div class="toolbar">
+            <?= /* @escapeNotVerified */ $block->getChildHtml('pager')?>
+        </div>
+    </div>
+</div>

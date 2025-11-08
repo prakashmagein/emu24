@@ -1,0 +1,29 @@
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical) {
+    @media @navpro-breakpoint-initially-expanded {
+        .cms-index-index .navpro li.home-expanded {
+            position: relative;
+        }
+    }
+}
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-initially-expanded {
+        .cms-index-index:not('.theme-editor-sticky') .navpro li.home-expanded {
+            > .navpro-dropdown {
+                opacity: 1;
+                transform: none;
+                visibility: visible;
+                pointer-events: all;
+                .left(0);
+                top: 100%;
+
+                &:not(.shown) {
+                    > .navpro-shevron {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+}

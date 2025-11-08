@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\EasySlide\Api\Data\SliderInterface" type="Swissup\EasySlide\Model\Slider" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="easyslide_slider_listing_data_source" xsi:type="string">Swissup\EasySlide\Model\ResourceModel\Slider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\EasySlide\Model\ResourceModel\Slider\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_easyslide_slider</argument>
+            <argument name="eventPrefix" xsi:type="string">easyslide_slider_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">easyslide_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\EasySlide\Model\ResourceModel\Slider</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\EasySlide\Model\Slider">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="jsModifiers" xsi:type="array">
+                    <item name="base" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Base</item>
+                    <item name="autoplay" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Autoplay</item>
+                    <item name="scrollbar" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Scrollbar</item>
+                    <item name="pagination" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Pagination</item>
+                    <item name="navigation" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Navigation</item>
+                    <item name="lazy" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Lazy</item>
+                    <item name="thumbs" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Thumbs</item>
+                    <item name="breakpoints" xsi:type="object">Swissup\EasySlide\Model\JsModifier\Breakpoints</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="EasySlideGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="EasySlideGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Swissup\EasySlide\Model\ResourceModel\Slider\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">EasySlideGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Swissup\Pagebuilder\Model\Section\SourceModel\Entity">
+        <plugin name="swissup_easyslide" type="Swissup\EasySlide\Pagebuilder\Plugin\Slider" />
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pagebuilder_easyslider_select_grid_data_source" xsi:type="string">Swissup\EasySlide\Model\ResourceModel\Slider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\PageBuilder\Model\Stage\RendererPool">
+        <arguments>
+            <argument name="renderers" xsi:type="array">
+                <item name="easyslider" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- fix empty formIds on backend -->
+    <type name="Magento\Captcha\Model\Checkout\ConfigProvider">
+        <arguments>
+            <argument name="formIds" xsi:type="array">
+                <item name="user_login" xsi:type="string">user_login</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

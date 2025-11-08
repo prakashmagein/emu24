@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="css" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>CSS Settings</label>
+
+        <field id="merge_css_files" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Merge CSS Files</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>dev/css/merge_css_files</config_path>
+            <comment><![CDATA[<p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> CSS Settings -> Merge CSS Files (dev/css/merge_css_files)]]></comment>
+        </field>
+
+        <field id="minify_files" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minify CSS Files</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[<p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> CSS Settings -> Minify CSS Files (dev/css/minify_files)]]></comment>
+            <config_path>dev/css/minify_files</config_path>
+        </field>
+    </group>
+    <group id="critical" translate="label" type="text" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Critical CSS Settings</label>
+        <comment><![CDATA[You should minify the critical CSS, then inline it on your page (wrapped in style tags). It should be placed in the header, replacing the full CSS link(s).]]></comment>
+
+        <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/css/critical_enable</config_path>
+            <include path="Swissup_Pagespeed::system/critical_comment.xml" />
+        </field>
+
+        <field id="critical_handles" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Critical Css for Pages</label>
+            <source_model>Swissup\Pagespeed\Model\Config\Frontend\Pages</source_model>
+            <config_path>pagespeed/css/critical_handles</config_path>
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+
+        <field id="use_css_critical_path" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Use built-in critical CSS feature</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>dev/css/use_css_critical_path</config_path>
+            <comment>
+                <![CDATA[<strong style="color:red">Warning!</strong> Be sure that you have critical.css file for your theme. Other CSS files will be loaded asynchronously.
+                <p class="note"><span>This option mirrors the system setting found under Advanced -> Developer -> CSS Settings -> Use CSS critical path (dev/css/use_css_critical_path)]]>
+            </comment>
+        </field>
+
+        <field id="layout" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Merge custom critical css files from your theme</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>pagespeed/css/critical_layout</config_path>
+            <comment>
+                <![CDATA[<strong style="color:red">Warning!</strong>Use only your theme support them. Typical file location - [theme vendor dir]/css/critical/cms_index_index.css and [pub/media/critical-css/frontend/]. If the option causes some problems on your site, just turn it off ]]>
+            </comment>
+            <depends>
+                <field id="use_css_critical_path">1</field>
+            </depends>
+        </field>
+
+        <field id="generate_themes_criticals_css" translate="label comment" type="button" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\CriticalCss\GenerateForThemes</frontend_model>
+            <comment>Use button for used to generate custom ctitical css for your themes. In most cases, you will not need to disable pagespeed module, merge css and minify css config option and make sure thear no layout shifts on your pages.</comment>
+        </field>
+
+        <field id="default" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Default Critical CSS</label>
+            <frontend_model>Swissup\Pagespeed\Block\Adminhtml\System\Config\Form\Field\CriticalCss\GenerateDefault</frontend_model>
+            <backend_model>Swissup\Pagespeed\Model\Config\Backend\File\LargeText</backend_model>
+            <config_path>pagespeed/css/critical_default</config_path>
+<!--            <comment><![CDATA[<a href="http://pagespeed.swissuplabs.com/" target="_blank" rel="noopener">Critical css generator</a>.]]></comment>-->
+            <depends>
+                <field id="enable">1</field>
+            </depends>
+        </field>
+    </group>
+</include>

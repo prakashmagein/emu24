@@ -1,0 +1,54 @@
+"Manage Reminders","Verwalten von Erinnerungen"
+Send,Senden
+"Edit Reminder '%1'","Erinnerung bearbeiten '%1'"
+"Reminder Information",Erinnerungsinformationen
+"Customer Name",Kundenname
+"Customer Email",Kunden-E-Mail
+"Review Status",Überprüfungsstatus
+"Order Products","Bestellen Produkte"
+Run,Ausführen
+"Reminder was deleted.","Die Erinnerung wurde gelöscht."
+"Can't find a reminder to delete.","Es kann keine zum Löschen zu löschende Erinnerung gefunden werden."
+"Review Reminders","Überprüfen von Erinnerungen"
+"This reminder no longer exists.","Diese Erinnerung ist nicht mehr vorhanden."
+"Edit Reminder","Erinnerung bearbeiten"
+"Please select store view(s)","Bitte wählen Sie Store-Ansicht(en)"
+"Please enter correct date in YYYY-MM-DD format","Bitte geben Sie das richtige Datum im YYYY-MM-DD-Format ein"
+"Please select item(s).","Bitte wählen Sie Artikel(e) aus."
+"Something went wrong while sending the reminder.","Beim Senden der Erinnerung ist etwas schief gelaufen."
+"A total of %1 reminders have been sent.","Insgesamt wurden %1 Erinnerungen gesendet."
+"A total of %1 record(s) have been changed.","Insgesamt wurden %1-Datensatz(e) geändert."
+"Reminder has been saved.","Die Erinnerung wurde gespeichert."
+"Something went wrong while saving the reminder.","Beim Speichern der Erinnerung ist etwas schief gelaufen."
+"Reminder has been sent.","Die Erinnerung wurde gesendet."
+"Unable to find a reminder to send.","Es konnte keine zu sendende Erinnerung gefunden werden."
+"Last year","Letztes Jahr"
+"Last month","Letzter Monat"
+"Last week","Letzte Woche"
+"From custom date","Vom benutzerdefinierten Datum"
+"Not reviewed","Nicht überprüft"
+Reviewed,Überprüft
+"Customer not found","Kunde nicht gefunden"
+"Write review","Schreiben Sie die Bewertung"
+Hello,Hallo
+"You\'ve recently bought %products_list what do you think about it?","Sie haben %products_list vor kurzem gekauft, was denken Sie darüber?"
+"An error occured:","Fehler aufgetreten:"
+"Completed. {count} items were processed","Abgeschlossen. Die Elemente ""Anzahl"" wurden verarbeitet."
+Success,Erfolg
+"Review Reminder",Überprüfungserinnerung
+"Number of emails to send per cron iteration","Anzahl der zu sendenden E-Mails pro Cron-Iteration"
+"Default reminder status",Standard-Erinnerungsstatus
+"Email Settings",E-Mail-Einstellungen
+"Send email from","Senden Sie E-Mails von"
+"Email subject",E-Mail-Betreff
+"Send email after, days","Senden Sie E-Mail nach, Tage"
+"Process orders",Prozessaufträge
+"Consider orders with status","Berücksichtigen von Aufträgen mit Status"
+"Manual orders indexing","Manuelle Auftragsindizierung"
+"Index orders created","Indexaufträge erstellt"
+"Custom date","Benutzerdefiniertes Datum"
+"Index orders made in store(s)","Indexbestellungen im Lager(e)"
+"Delete items","Löschen von Elementen"
+"Send items","Senden von Artikeln"
+"Are you sure you want to send selected reminders?","Möchten Sie wirklich ausgewählte Erinnerungen senden?"
+"Are you sure you want to change selected reminders status?","Möchten Sie den ausgewählten Erinnerungsstatus wirklich ändern?"

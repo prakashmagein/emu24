@@ -1,0 +1,125 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .navpro {
+        .li-item {
+            &.navpro-shop-all {
+                font-weight: bold;
+            }
+        }
+        .navpro-a-with-thumbnail {
+            @media @navpro-breakpoint-md {
+                .lib-css(margin-bottom, @navpro-category-thumbnail__margin-bottom);
+            }
+            .lib-css(max-height, @navpro-category-thumbnail__max-height);
+            overflow: hidden;
+            img {
+                .lib-css(margin-top, @navpro-category-thumbnail-image__margin-top);
+                .lib-css(filter, @navpro-category-thumbnail__filter);
+            }
+        }
+        .level0 {
+            .children > li > a,
+            .children .parent > a {
+                text-decoration: none;
+                &:hover {
+                    .lib-css(text-decoration, @navpro-link__hover__text-decoration);
+                }
+            }
+        }
+        &-dropdown {
+            .children {
+                > li > a,
+                .parent > a {
+                    display: block;
+                    line-height: inherit;
+                    .lib-css(color, @navpro-link__color);
+                    padding: @navpro-link__padding;
+                    text-decoration: none;
+                    &:hover {
+                        .lib-css(text-decoration, @navpro-link__hover__text-decoration);
+                    }
+                }
+                .parent > a {
+                    padding-right: @navpro-link-caret__padding;
+
+                    .rtl & {
+                        padding: @navpro-link__padding;
+                        padding-left: @navpro-link-caret__padding;
+                    }
+                }
+            }
+
+            > .navpro-dropdown-inner > .navpro-row > .navpro-col > .children > .parent-expanded {
+                > a:has(+ .navpro-dropdown-expanded, img) {
+                    .lib-css(font-family, @navpro-link-parent-expanded__font-family);
+                    .lib-css(font-size, @navpro-link-parent-expanded__font-size);
+                    .lib-css(font-weight, @navpro-link-parent-expanded__font-weight);
+                    .lib-css(color, @navpro-link-parent-expanded__color);
+                    .lib-css(padding-bottom, @navpro-link-parent-expanded__padding-bottom);
+                    .lib-css(text-transform, @navpro-link-parent-expanded__text-transform);
+                }
+            }
+            &-expanded > .navpro-dropdown-inner > .navpro-row > .navpro-col > .children > li {
+                > a:has(+ .navpro-dropdown-expanded) {
+                    padding-top: @navpro-link-expanded__padding-top;
+                    padding-bottom: @navpro-link-expanded__padding-bottom;
+                }
+                &.navpro-shop-all > a {
+                    padding-top: @navpro-shop-all__padding-top;
+                    padding-bottom: @navpro-shop-all__padding-bottom;
+                    .lib-css(font-size, @navpro-shop-all__font-size);
+                    .lib-css(text-decoration, @navpro-shop-all__text-decoration);
+                    span {
+                        line-height: normal;
+                        .lib-css(border-bottom, @navpro-shop-all__border-bottom);
+                    }
+                    &:hover {
+                        .lib-css(text-decoration, @navpro-shop-all__hover__text-decoration);
+                        span {
+                            .lib-css(border-bottom, @navpro-shop-all__hover__border-bottom);
+                        }
+                    }
+                }
+            }
+
+            .multicolumn {
+                display: flex;
+                align-content: flex-start;
+                flex-wrap: wrap;
+                flex-direction: row;
+
+                > li {
+                    width: 100%;
+                }
+            }
+            .vertical.multicolumn {
+                flex-direction: column;
+                display: block;
+
+                @media @navpro-breakpoint-md {
+                    .navpro-columns-vertical(8);
+                }
+                > li {
+                    display: block;
+                    width: 100%;
+                    break-inside: avoid-column;
+                }
+            }
+        }
+    }
+}
+}
+
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    @media @navpro-breakpoint-md {
+        .navpro {
+            &-dropdown {
+                .multicolumn {
+                    .navpro-columns(8);
+                }
+            }
+        }
+    }
+}
+}

@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var \Magento\Paypal\Block\Express\Shortcut $block
+ */
+?>
+<?php
+$labelPosition = '';
+if ($block->isOrPositionBefore()) {
+    $labelPosition = ' before';
+} elseif ($block->isOrPositionAfter()) {
+    $labelPosition = ' after';
+}
+$isInCatalogProduct = false;
+if ($block->getIsInCatalogProduct()) {
+    $isInCatalogProduct = $block->getIsInCatalogProduct();
+}
+?>
+<div data-label="<?= $block->escapeHtml(__('or')) ?>"
+     class="paypal checkout <?= /* @noEscape */ $labelPosition ?> paypal-logo">
+    <a href="<?= $block->escapeUrl($block->getCheckoutUrl()) ?>"
+        title="<?= $block->escapeHtml(__('Checkout with PayPal')) ?>">
+        <img src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
+            alt="<?= $block->escapeHtml(__('Checkout with PayPal')) ?>" />
+    </a>
+    <?php if ($block->getAdditionalLinkImage()): ?>
+        <?php $linkImage = $block->getAdditionalLinkImage(); ?>
+        <a href="<?= $block->escapeUrl($linkImage['href']) ?>">
+            <img src="<?= $block->escapeHtml($linkImage['src']) ?>" />
+        </a>
+    <?php endif; ?>
+</div>

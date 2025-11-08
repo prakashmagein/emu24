@@ -1,0 +1,89 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .block-accepted-consents {
+        .consent-form-title {
+            font-weight: bold;
+            display: block;
+            margin: 12px 0 6px;
+        }
+        .grouped-consents {
+            margin-bottom: 20px;
+        }
+        .list-consents {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 0;
+                + li {
+                    margin-top: 3px;
+                }
+            }
+
+            svg {
+                width: 12px;
+                height: 12px;
+                vertical-align: middle;
+                margin-top: -3px;
+                margin-inline-end: 1px;
+            }
+        }
+
+        .privacy-note {
+            padding: 5px 12px;
+            opacity: .7;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            p {
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    .gdpr-warning-button() {
+        box-shadow: none;
+        background: #ec4236;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 15px;
+        text-transform: none;
+
+        &:hover {
+            box-shadow: none;
+            color: #fff;
+            background: shade(#ec4236, 10%);
+        }
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(225, 66, 66, 0.5);
+        }
+    }
+
+    .block-delete-data {
+        p {
+            margin-bottom: 10px;
+        }
+        button.delete-data {
+            .gdpr-warning-button();
+        }
+    }
+
+    .delete-data-modal {
+        .modal-inner-wrap {
+            max-width: 600px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+        .form.delete-data {
+            margin-top: 35px;
+        }
+        button.delete-data {
+            .gdpr-warning-button();
+        }
+    }
+}
+}

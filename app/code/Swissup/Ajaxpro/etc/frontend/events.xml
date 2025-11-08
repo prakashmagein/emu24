@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="controller_action_postdispatch_checkout_cart_add">
+       <observer name="fix_checkout_cart_add_is_ajax" instance="Swissup\Ajaxpro\Observer\AddProductUrlToAjaxResponseObserver" />
+    </event>
+
+    <event name="controller_action_postdispatch_catalog_product_view">
+       <observer name="fix_catalog_product_view_is_ajax" instance="Swissup\Ajaxpro\Observer\AddProductUrlToAjaxResponseObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_checkout_cart_delete">
+        <observer name="fix_checkout_cart_delete_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_catalog_product_compare_add">
+        <observer name="fix_catalog_product_compare_add_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_catalog_product_compare_clear">
+        <observer name="fix_catalog_product_compare_add_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_catalog_product_compare_remove">
+        <observer name="fix_catalog_product_compare_remove_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_wishlist_index_add">
+        <observer name="fix_wishlist_index_add_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_wishlist_index_cart">
+        <observer name="fix_wishlist_index_cart_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_wishlist_index_fromcart">
+        <observer name="fix_wishlist_index_fromcart_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <event name="swissup_ajaxpro_controller_action_after_execute_wishlist_index_remove">
+        <observer name="fix_wishlist_index_remove_is_ajax" instance="Swissup\Ajaxpro\Observer\RedirectResultToJsonResultObserver" />
+    </event>
+
+    <!-- <event name="controller_front_send_response_before">
+        <observer name="fix_MEQP1_exit_usage" instance="Swissup\Ajaxpro\Observer\FixMEQP1ExitUsageObserver" />
+    </event> -->
+</config>

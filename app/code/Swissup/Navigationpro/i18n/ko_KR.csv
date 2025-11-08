@@ -1,0 +1,70 @@
+"Delete Item","항목 삭제"
+"Are you sure you want to do this?","이 작업을 수행하시겠습니까?"
+"Menu Settings","메뉴 설정"
+"You deleted the item.","항목을 삭제했습니다."
+"We can't find a item to delete.","삭제할 항목을 찾을 수 없습니다."
+"Import completed.","가져오기가 완료되었습니다."
+"Something went wrong while importing item.","항목을 가져오는 동안 문제가 되었습니다."
+"This item no longer exists.","이 항목은 더 이상 존재하지 않습니다."
+"Something went wrong while saving item.","항목을 저장하는 동안 문제가 되었습니다."
+"You saved item.","항목을 저장했습니다."
+"Something went wrong while saving menu.","메뉴를 저장하는 동안 문제가 되었습니다."
+"You deleted the menu.","메뉴를 삭제했습니다."
+"We can't find a menu to delete.","삭제할 메뉴를 찾을 수 없습니다."
+"A total of %1 record(s) have been deleted.","총 %1 레코드가 삭제되었습니다."
+"A total of %1 record(s) have been updated.","총 %1 레코드가 업데이트되었습니다."
+"New Menu","새 메뉴"
+"This menu no longer exists.","이 메뉴는 더 이상 존재하지 않습니다."
+"You saved menu.","메뉴를 저장했습니다."
+"Stick to Left","왼쪽에 붙이기"
+"Stick to Right","오른쪽으로 붙이기"
+Standard,표준
+Left,왼쪽
+Top,"맨 위로"
+Fullscreen,"전체 화면"
+Full-Width,"전체 너비"
+Boxed,박스형
+Small,작은
+Medium,매체
+Large,큰
+"Extra Large","엑스트라 라지"
+"Item was not registered","항목이 등록되지 않았습니다."
+Horizontal,수평
+Vertical,수직
+Blank,빈
+Dark,어두운
+"Dark Bar","다크 바"
+"Dark Dropdown","다크 드롭다운"
+Flat,플랫
+Compact,컴팩트
+"Menu was not registered","메뉴가 등록되지 않았습니다."
+"An item cannot be parent for itself","항목 자체에 대한 부모가 될 수 없습니다."
+"This name is already in use.","이 이름은 이미 사용 중입니다."
+"Top Menu","상단 메뉴"
+Menu,메뉴
+Navigationpro,"내비게이션 프로"
+"Show Active Branch Only","활성 분기만 표시"
+"Show Parent Category","상위 범주 표시"
+"Initially Shown Levels Count","처음에 표시된 레벨 카운트"
+Orientation,방향
+"Dropdown Positioning","드롭다운 포지셔닝"
+"Additional CSS Class","추가 CSS 클래스"
+"Wrap into Block Template","블록 템플릿으로 줄 바꿈"
+"Block CSS Class","블록 CSS 클래스"
+"Select item in the tree on the left sidebar, or create a new one","왼쪽 사이드바에 있는 트리에서 항목을 선택하거나 새 항목을 만듭니다."
+"Sync Name and URL with Category Data","범주 데이터와 이름 및 URL 동기화"
+"CSS Class","CSS 클래스"
+"Use Menu Settings","메뉴 설정 사용"
+"New Item","새 항목"
+"Import Item","항목 가져오기"
+"Columns Direction","기둥 방향"
+"Nested Levels per Dropdown","드롭다운당 중첩 수준"
+"Add New Menu","새 메뉴 추가"
+"Are you sure you want to delete selected menu's?","선택한 메뉴의 메뉴를 삭제하시겠습니까?"
+"Replace Top Menu at","에서 상단 메뉴 바꾸기"
+"Leave empty if you don't want to replace Top Menu","상단 메뉴를 대체하지 않으려면 비워 둡니다."
+Direction,방향
+"Maximal Depth","최대 깊이"
+"Dropdown Position","드롭다운 위치"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","드롭다운이 프론트 엔드에서 렌더링될 때 내비게이션 구속조건 내부에서 드롭다운 위치가 추가로 조정됩니다."
+"Dropdown Settings","드롭다운 설정"

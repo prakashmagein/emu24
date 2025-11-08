@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Privacy Tools</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Swissup\Gdpr\Block\Privacy\AcceptedConsents" name="swissup_gdpr_accepted_consents" cacheable="false"/>
+            <block class="Magento\Framework\View\Element\Template" template="Swissup_Gdpr::privacy/cookie-settings.phtml" ifconfig="swissup_gdpr/cookie_consents/enabled">
+                <block class="Swissup\Gdpr\Block\CookieSettings" name="swissup_gdpr_cookie_settings">
+                    <arguments>
+                        <argument name="columns_count" xsi:type="number">2</argument>
+                    </arguments>
+                </block>
+            </block>
+            <!-- <block class="Swissup\Gdpr\Block\Privacy\ExportData" name="swissup_gdpr_export_data" cacheable="false"/> -->
+            <block class="Swissup\Gdpr\Block\Privacy\DeleteData" name="swissup_gdpr_delete_data" cacheable="false"/>
+        </referenceContainer>
+        <referenceBlock name="swissup_gdpr_cookie_bar" remove="true"/>
+    </body>
+</page>

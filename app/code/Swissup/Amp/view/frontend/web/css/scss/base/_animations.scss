@@ -1,0 +1,72 @@
+@keyframes amp-shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+%animation-shake {
+    animation: amp-shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes amp-blink {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+%animation-blink {
+    animation: amp-blink 1s infinite;
+    opacity: 0.6;
+}
+
+@keyframes amp-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+%animation-rotate {
+    animation: amp-rotate 1s linear infinite;
+}
+
+@keyframes amp-appear {
+    100% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+%animation-appear {
+    animation: amp-appear 300ms both;
+    transform: scale(0);
+    opacity: 0;
+}
+
+@keyframes amp-slide-in {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+%animation-slide-in {
+    animation: amp-slide-in 300ms ease-in-out both;
+    transform: translateY(100%);
+    opacity: 0;
+}

@@ -1,0 +1,72 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+@media (min-width: (@navpro__accordion__max-width + .02)) {
+    .navpro {
+        &-nowrap {
+            flex-wrap: nowrap !important;
+            &:not(.navpro-nowrap-ready) {
+                overflow: hidden !important;
+                opacity: 0;
+                pointer-events: none;
+            }
+            &-justify-start {
+                justify-content: start !important;
+            }
+            > li {
+                flex-shrink: 0;
+            }
+
+            // overflow-y: hidden;
+            // overflow: auto;
+            // &::-webkit-scrollbar {
+            //     width: 4px;
+            //     height: 4px;
+            // }
+            // &::-webkit-scrollbar-thumb {
+            //     background-color: #eaeaea;
+            // }
+
+            .navpro-item-more {
+                align-self: center;
+                > .nav-a-icon-more {
+                    & when (@navpro-link-level0__padding) {
+                        .padding(@navpro-link-level0__padding);
+                    }
+                    & when not (@navpro-link-level0__padding) {
+                        .padding(@navpro-link__padding);
+                    }
+                    display: flex !important;
+                    align-items: center;
+                    svg {
+                        width: @navpro-nowrap-icon__width;
+                        height: @navpro-nowrap-icon__height;
+                        fill: currentColor;
+                    }
+                    &::after {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .navigation-wrapper:has(.navpro-nowrap) {
+        flex-grow: 1;
+    }
+    .navigation-wrapper:has(.navpro-nowrap:not(.navpro-nowrap-ready)) {
+        flex-shrink: 1;
+        overflow: hidden;
+        opacity: 0;
+    }
+    .header.content:has(.navpro-nowrap:not(.navpro-nowrap-ready)) {
+        .logo {
+            flex-shrink: 0;
+        }
+    }
+
+    .header .nav-sections:has(.navpro-nowrap:not(.navpro-nowrap-ready)) {
+        width: 0;
+    }
+}
+}
+}

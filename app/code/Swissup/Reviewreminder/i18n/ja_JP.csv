@@ -1,0 +1,54 @@
+"Manage Reminders",リマインダーの管理
+Send,送信
+"Edit Reminder '%1'","アラーム '%1' の編集"
+"Reminder Information",リマインダー情報
+"Customer Name",顧客名
+"Customer Email",顧客の電子メール
+"Review Status",ステータスの確認
+"Order Products",製品の注文
+Run,実行
+"Reminder was deleted.",アラームが削除されました。
+"Can't find a reminder to delete.",削除するリマインダーが見つかりません。
+"Review Reminders",リマインダーの確認
+"This reminder no longer exists.",このアラームは存在しません。
+"Edit Reminder",リマインダーの編集
+"Please select store view(s)","ストア ビューを選択してください"
+"Please enter correct date in YYYY-MM-DD format","YYYY-MM-DD 形式で正しい日付を入力してください"
+"Please select item(s).",項目を選択してください。
+"Something went wrong while sending the reminder.",リマインダーを送信中に何かがうまくいかなかった。
+"A total of %1 reminders have been sent.","合計 %1 件のアラームが送信されました。"
+"A total of %1 record(s) have been changed.","合計 %1 件のレコードが変更されました。"
+"Reminder has been saved.",アラームが保存されました。
+"Something went wrong while saving the reminder.",リマインダーを保存中に何かがうまくいかなかった。
+"Reminder has been sent.",アラームが送信されました。
+"Unable to find a reminder to send.",送信するアラームが見つかりません。
+"Last year",昨年
+"Last month",先月
+"Last week",先週です
+"From custom date",開始日
+"Not reviewed",未確認
+Reviewed,見直し
+"Customer not found",顧客が見つかりません
+"Write review",レビューを書く
+Hello,こんにちは
+"You\'ve recently bought %products_list what do you think about it?","あなたは最近 %products_list 購入しましたか?"
+"An error occured:",エラーが発生しました:
+"Completed. {count} items were processed","完了。{カウント} アイテムが処理されました"
+Success,成功
+"Review Reminder",リマインダーを確認する
+"Number of emails to send per cron iteration","cron 反復ごとに送信する電子メールの数"
+"Default reminder status",既定のアラームの状態
+"Email Settings",電子メールの設定
+"Send email from",から電子メールを送信
+"Email subject",電子メールの件名
+"Send email after, days",電子メールを送信した後、日数
+"Process orders",注文の処理
+"Consider orders with status",ステータスを持つ注文を検討する
+"Manual orders indexing",手動注文のインデックス作成
+"Index orders created",インデックスオーダーの作成
+"Custom date",カスタム日付
+"Index orders made in store(s)",店舗でのインデックス注文
+"Delete items",アイテムの削除
+"Send items",アイテムの送信
+"Are you sure you want to send selected reminders?",選択したアラームを送信しますか?
+"Are you sure you want to change selected reminders status?",選択したアラームの状態を変更しますか?

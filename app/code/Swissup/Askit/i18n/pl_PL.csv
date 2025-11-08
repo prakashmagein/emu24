@@ -1,0 +1,100 @@
+"Edit '%1'","Edytuj „%1”"
+"Answer Information","Informacje o odpowiedzi"
+Hint,Wskazówka
+Questions,pytania
+"Edit Question '%1'","Edytuj pytanie „%1”"
+"No Found","Nie znaleziono"
+"Created date","Stworz Date"
+"Update date","Data aktualizacji"
+"Are you sure?","Jesteś pewny?"
+Unknown,Nieznany
+Private,Prywatny
+"Add New Answer","Dodaj nową odpowiedź"
+"Questions %1","Pytania %1"
+"Please select item(s).","Wybierz produkty."
+"The answer has been deleted.","Odpowiedź została usunięta."
+"We can't find a answer to delete.","Nie możemy znaleźć odpowiedzi do usunięcia."
+Askit,"Zapytaj to"
+Answers,Odpowiedzi
+"This item no longer exists.","Ten przedmiot już nie istnieje."
+"Askit Items","Przedmioty Askit"
+"Askit Recent Answers","Zapytaj o ostatnie odpowiedzi"
+"Manage Recent Askit Answers","Zarządzaj ostatnimi odpowiedziami na pytania"
+"You saved.",Uratowałeś.
+"Something went wrong while saving the question.","Coś poszło nie tak podczas zapisywania pytania."
+"A total of %1 record(s) have been deleted.","W sumie %1 rekordów zostało usuniętych."
+"A total of %1 record(s) have been changed.","Łącznie zmieniono %1 rekordów."
+"The question has been deleted.","Pytanie zostało usunięte."
+"We can't find a question to delete.","Nie możemy znaleźć pytania do usunięcia."
+"New Askit Question","Nowe pytanie Askit"
+"Askit Questions","Zadawaj pytania"
+"Manage Askit Questions","Zarządzaj pytaniami"
+"You question saved.","Twoje pytanie zostało zapisane."
+"You answer was added.","Twoja odpowiedź została dodana."
+"We can't process your request right now. Sorry, that's all we know.","Nie możemy teraz przetworzyć Twojego żądania. Przepraszam, to wszystko co wiemy."
+"My Questions","Moje pytania"
+"Your must login","Musisz się zalogować"
+"Sorry, only logged in customer can hint.","Przepraszamy, tylko zalogowany klient może podpowiedzieć."
+"Sorry, already voted","Przepraszam, już głosowałem"
+Pending,"W oczekiwaniu"
+Approved,Zatwierdzony
+Disapproved,Odrzucona
+"Askit Question","Zadaj pytanie"
+"Askit Answer","Zapytaj odpowiedź"
+"Edit Question","Edytuj pytanie"
+"New Answer","Nowa odpowiedź"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Tylko zarejestrowani użytkownicy mogą pisać komentarze. <a href=""%1""> Zaloguj się </a> lub <a href=""%2""> Utwórz konto </a>"
+"Your Answer","Twoja odpowiedź"
+"Leave a Reply","Zostaw odpowiedź"
+"%1 people found this answer helpful.","%1 osób uznało tę odpowiedź za pomocną."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Tylko zarejestrowani użytkownicy mogą pisać pytania. <a href=""%1""> Zaloguj się </a> lub <a href=""%2""> Utwórz konto </a>"
+"Ask Your Question","Zadaj pytanie"
+"Jot us a note and we’ll get back to you as quickly as possible.","Zapisz nam notatkę, a my skontaktujemy się z Tobą tak szybko, jak to możliwe."
+Question,Pytanie
+"Post a private question","Opublikuj prywatne pytanie"
+Submit,Zatwierdź
+"You have submitted no questions.","Nie przesłałeś żadnych pytań."
+"answer' 'answers","odpowiedz „”"
+"%1 people already voted for this question.","%1 osób już głosowało na to pytanie."
+"Vote for It","Głosuj na to"
+"New products question was just posted or updated. Please see details below","Pytanie o nowe produkty zostało właśnie opublikowane lub zaktualizowane. Zobacz szczegóły poniżej"
+E-mail,E-mail
+"You can follow the question at Swissup -> Askit Questions","Możesz śledzić pytanie w Swissup -> Zadaj pytania"
+Dear,Drogi
+"New answer was just posted to your question regarding","Nowa odpowiedź została właśnie wysłana na twoje pytanie dotyczące"
+"Your question:","Twoje pytanie:"
+Answer:,Odpowiedź:
+"Thank you again","Jeszcze raz dziękuję"
+"Default question status","Domyślny status pytania"
+"Default answer status","Domyślny status odpowiedzi"
+"Allow guest to ask questions","Pozwól gościowi zadawać pytania"
+"Allow customers comment","Pozwól klientom komentować"
+"Allow guest comment","Zezwalaj na komentarze gości"
+"Allow customer vote","Pozwól głosować klientom"
+"Show customer name on frontend","Pokaż nazwę klienta na interfejsie"
+"Show link to related item (Product, Category or Page)","Pokaż link do powiązanego produktu (produktu, kategorii lub strony)"
+"Enable Gravatar integration","Włącz integrację z Gravatar"
+"Add questions block to all category pages","Dodaj blok pytań do wszystkich stron kategorii"
+"Add questions block to all CMS pages","Dodaj blok pytań do wszystkich stron CMS"
+"Enable 'no questions' message","Włącz komunikat „bez pytań”"
+Sender,Nadawca
+"Customer Notification Template","Szablon powiadomienia klienta"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Szablon wiadomości e-mail wybrany na podstawie kreacji zastępczej po wybraniu opcji „Domyślne”."
+"Send admin notification to","Wyślij powiadomienie administratora na adres"
+"Admin Notification Template","Szablon powiadomienia administratora"
+"Askit: Questions + New Question Form","Askit: pytania + nowy formularz zapytania"
+"Hide listing block","Ukryj blok listy"
+"Hide form block","Ukryj blok formularza"
+"Assigned Products","Przypisane produkty"
+"Assigned Pages","Przypisane strony"
+"Assigned Categories","Przypisane kategorie"
+"Delete items","Usuń elementy"
+"Answer,Odpowiedź
+"Entity Type","Typ encji"
+Entity,Jednostka
+Votes,Głosy
+"Your question was answered on","Odpowiedzi na twoje pytanie"
+"It is helpful","To jest pomocne"
+"Not much help","Niewiele pomocy"
+asks,pyta
+about,o

@@ -1,0 +1,69 @@
+<?php if ($block->getCollection()->count() && ($block->getHasMorePages() || !$block->isFirstPage())) :?>
+    <?php if ($block->getUseContainer()): ?>
+    <div class="pager">
+    <?php endif ?>
+
+    <div class="pages">
+        <ul class="items pages-items">
+            <?php if (!$block->isFirstPage()): ?>
+                <li class="item pages-item-previous">
+                    <?php $text = $block->getAnchorTextForPrevious() ? $block->getAnchorTextForPrevious() : '';?>
+                    <a class="<?= $block->escapeHtmlAttr($text ? 'link ' : 'action ') ?> previous"
+                       href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>"
+                       title="<?= $block->escapeHtmlAttr($text ? $text : __('Previous')) ?>">
+                        <span class="label"><?= $block->escapeHtml(__('Page')) ?></span>
+                        <span><?= $block->escapeHtml($text ? $text : __('Previous')) ?></span>
+                    </a>
+                </li>
+            <?php endif;?>
+
+            <?php if ($block->getCurrentPage() > 5): ?>
+                <li class="item">
+                    <a class="page previous jump"
+                       title=""
+                       aria-label="<?= $escaper->escapeHtmlAttr(__(
+                           'Skip to page %1',
+                           $localeFormatter->formatNumber(1)
+                       )) ?>"
+                       href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>">
+                        <span>...</span>
+                    </a>
+                </li>
+            <?php endif;?>
+
+            <?php foreach ($block->getFramePagesOptimized() as $_page): ?>
+                <?php if ($block->isPageCurrent($_page)): ?>
+                    <li class="item current">
+                        <strong class="page">
+                            <span class="label"><?= $block->escapeHtml(__('You\'re currently reading page')) ?></span>
+                            <span><?= $block->escapeHtml($localeFormatter->formatNumber($_page)) ?></span>
+                        </strong>
+                    </li>
+                <?php else: ?>
+                    <li class="item">
+                        <a href="<?= $block->escapeUrl($block->getPageUrl($_page)) ?>" class="page">
+                            <span class="label"><?= $block->escapeHtml(__('Page')) ?></span>
+                            <span><?= $block->escapeHtml($localeFormatter->formatNumber($_page)) ?></span>
+                        </a>
+                    </li>
+                <?php endif;?>
+            <?php endforeach;?>
+
+            <?php if ($block->getHasMorePages()): ?>
+                <li class="item pages-item-next">
+                    <?php $text = $block->getAnchorTextForNext() ? $block->getAnchorTextForNext() : '';?>
+                    <a class="<?= /* @noEscape */ $text ? 'link ' : 'action ' ?> next"
+                       href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>"
+                       title="<?= $block->escapeHtmlAttr($text ? $text : __('Next')) ?>">
+                        <span class="label"><?= $block->escapeHtml(__('Page')) ?></span>
+                        <span><?= $block->escapeHtml($text ? $text : __('Next')) ?></span>
+                    </a>
+                </li>
+            <?php endif;?>
+        </ul>
+    </div>
+
+    <?php if ($block->getUseContainer()): ?>
+    </div>
+    <?php endif ?>
+<?php endif ?>

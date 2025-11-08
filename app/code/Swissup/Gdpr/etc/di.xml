@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Stdlib\CookieManagerInterface">
+        <plugin name="swissup_gdpr" type="Swissup\Gdpr\Plugin\CookieBlocker" />
+    </type>
+    <!-- Do not send emails to anonymized addresses -->
+    <type name="Magento\Framework\Mail\TransportInterface">
+        <plugin name="swissup_gdpr" type="Swissup\Gdpr\Plugin\MailTransport" />
+    </type>
+
+    <!-- Update/remove consent on subscribe and unsubscribe -->
+    <type name="Magento\Newsletter\Model\Subscriber">
+        <plugin name="swissup_gdpr" type="Swissup\Gdpr\Plugin\UpdateNewsletterConsent" />
+    </type>
+</config>

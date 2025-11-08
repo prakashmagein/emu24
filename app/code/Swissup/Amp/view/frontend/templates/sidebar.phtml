@@ -1,0 +1,32 @@
+<?php
+    $side = $this->helper('Swissup\Rtl\Helper\Data')->isRtl() ? 'left' : 'right';
+?>
+<amp-sidebar id="sidebar" side="<?= $side ?>" layout="nodisplay">
+    <div class="nav-toolbar">
+        <div class="nav-left">
+            <?= $block->getChildHtml('store_language') ?>
+        </div>
+        <div class="nav-right">
+            <button class="hamburger" id="menu-button" on="tap:sidebar.toggle"></button>
+        </div>
+    </div>
+    <nav>
+        <amp-accordion>
+            <?php $links = trim($this->getLayout()->getBlock('top.links')->setCssClass('links')->toHtml()); ?>
+            <?php if ($links) : ?>
+                <section class="links" expanded>
+                    <h4 class="heading"><?= $block->getChildHtml('welcome') ?></h4>
+                    <div class="content"><?= $links ?></div>
+                </section>
+            <?php endif ?>
+
+            <?php $navigation = trim($block->getChildHtml('catalog.topnav')); ?>
+            <?php if ($navigation) : ?>
+                <section class="navigation" expanded>
+                    <h4 class="heading"><?= __('Browse By') ?></h4>
+                    <div class="content"><?= $navigation ?></div>
+                </section>
+            <?php endif ?>
+        </amp-accordion>
+    </nav>
+</amp-sidebar>

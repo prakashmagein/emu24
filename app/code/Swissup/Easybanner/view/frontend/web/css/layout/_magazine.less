@@ -1,0 +1,30 @@
+.easybanner-layout-magazine {
+    position: relative;
+    .easybanner-title {
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+        left: 10px;
+        top: 10px;
+
+        color: #fafafa;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            font-size: 18px;
+        }
+
+        &.bottom {
+            top: auto;
+            bottom: 10px;
+        }
+        &.right {
+            text-align: right;
+            left: auto;
+            right: 10px;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .askit-questions {
+        .toolbar {
+            & when (@askit-toolbar-top-show = false) {
+                &:first-child {
+                    display: none;
+                }
+            }
+
+            & when (@critical = unsure) {
+                .pager {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            .pages {
+                display: none;
+            }
+
+            ~ .toolbar {
+                .toolbar-amount,
+                .limiter {
+                    display: none;
+                }
+
+                .pages {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                [role=tabpanel] & {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+}

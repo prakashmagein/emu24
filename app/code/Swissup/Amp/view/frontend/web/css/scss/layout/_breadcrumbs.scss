@@ -1,0 +1,23 @@
+$breadcrumbs-enabled: false !default;
+
+$breadcrumbs-padding: 10px 0 0 !default;
+$breadcrumbs-font-size: 0.9em !default;
+$breadcrumbs-item-margin: 0 2px 6px 0 !default;
+$breadcrumbs-divider-color: $mid-grey !default;
+
+.breadcrumbs {
+    padding: $breadcrumbs-padding;
+    font-size: $breadcrumbs-font-size;
+    li {
+        display: inline-block;
+        margin: $breadcrumbs-item-margin;
+        a::after {
+            content: '/';
+            @include margin(0, 0, 0, 6px);
+            color: $breadcrumbs-divider-color;
+        }
+    }
+    @if not ($breadcrumbs-enabled == true) {
+        display: none;
+    }
+}

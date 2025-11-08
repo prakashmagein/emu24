@@ -1,0 +1,51 @@
+.swissup-gdpr-toggler-background() {
+    & when not (@swissup-gdpr-cookie-toggler__active__background = false) {
+        background: @swissup-gdpr-cookie-toggler__active__background;
+    }
+
+    & when (@swissup-gdpr-cookie-toggler__active__background = false) {
+        & when not (@button-primary__background = transparent) {
+            & when (iscolor(@button-primary__background)) {
+                background: shade(@button-primary__background, 7%);
+            }
+        }
+        & when (@button-primary__background = transparent) {
+            background: @swissup-gdpr-cookie-toggler__active__fallback-background;
+        }
+        & when not (iscolor(@button-primary__background)) {
+            background: @swissup-gdpr-cookie-toggler__active__fallback-background;
+        }
+    }
+}
+
+.swissup-gdpr-toggler-shadow() {
+    & when not (@swissup-gdpr-cookie-toggler__outline-shadow = false)  {
+        box-shadow: @swissup-gdpr-cookie-toggler__outline-shadow;
+    }
+
+    & when (@swissup-gdpr-cookie-toggler__outline-shadow = false) {
+        & when not (@swissup-gdpr-cookie-toggler__active__background = false) {
+            box-shadow: 0 0 0 2px @swissup-gdpr-cookie-toggler__offset-color,
+                        0 0 0 4px @swissup-gdpr-cookie-toggler__active__background;
+        }
+
+        & when (@swissup-gdpr-cookie-toggler__active__background = false) {
+            & when not (@button-primary__background = transparent) {
+                & when (iscolor(@button-primary__background)) {
+                    box-shadow: 0 0 0 2px @swissup-gdpr-cookie-toggler__offset-color,
+                                0 0 0 4px @button-primary__background;
+                }
+            }
+            & when (iscolor(@swissup-gdpr-cookie-toggler__active__fallback-background)) {
+                & when (@button-primary__background = transparent) {
+                    box-shadow: 0 0 0 2px @swissup-gdpr-cookie-toggler__offset-color,
+                                0 0 0 4px @swissup-gdpr-cookie-toggler__active__fallback-background;
+                }
+                & when not (iscolor(@button-primary__background)) {
+                    box-shadow: 0 0 0 2px @swissup-gdpr-cookie-toggler__offset-color,
+                                0 0 0 4px @swissup-gdpr-cookie-toggler__active__fallback-background;
+                }
+            }
+        }
+    }
+}

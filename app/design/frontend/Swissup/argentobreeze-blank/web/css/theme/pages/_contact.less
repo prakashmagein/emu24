@@ -1,0 +1,79 @@
+& when (@critical) {
+    .contact-wrapper {
+        --contact-wrapper-gap: @4;
+        display: flex;
+        flex-direction: column;
+        gap: var(--contact-wrapper-gap);
+        margin-bottom: @4;
+
+        .form.contact {
+            .legend {
+                &:extend(.h2);
+                border: 0;
+            }
+        }
+    }
+
+    // sync padding-y, margin-y of cms block with contact form
+    & when (@boxed-page-contact) {
+        .contact-content-wrapper {
+            &:extend(.breeze-block-boxed);
+            background: transparent;
+            padding-left: 0;
+            padding-right: 0;
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+
+    @media @media-md {
+        .contact-wrapper {
+            flex-direction: row;
+        }
+        .contact-form-wrapper,
+        .contact-content-wrapper {
+            width: ~"calc((100% - var(--contact-wrapper-gap)) / 2)";
+        }
+        .contact-content-wrapper {
+            .lib-css(max-width, @contact-content__max-width);
+        }
+    }
+
+    .contact-content-wrapper {
+        @media @media-md-down {
+            order: 999;
+        }
+        .heading {
+            margin: @3 0 @2;
+            strong {
+                font-weight: 700;
+            }
+        }
+        .social {
+            margin-top: @6;
+            .heading {
+                margin-bottom: @3;
+            }
+            .icon {
+                &:extend(.transition all);
+
+                &:hover {
+                    color: @white;
+                }
+
+                &[href*="facebook.com"]:hover {
+                    background: @blue-500;
+                }
+                &[href*="youtube.com"]:hover {
+                    background: @red-600;
+                }
+                &[href*="twitter.com"]:hover {
+                    background: @blue-400;
+                }
+                &[href*="instagram.com"]:hover {
+                    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+                }
+            }
+        }
+    }
+}

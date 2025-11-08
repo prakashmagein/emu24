@@ -1,0 +1,40 @@
+& when (@critical) {
+    .pagebuilder-collage-content {
+        padding: @5-5 @7;
+        background: #fff;
+        border-radius: @1;
+        height: 100%;
+        .content-transparent & {
+            background: transparent;
+        }
+        .content-padding-small & {
+            padding: @3 @3-5;
+        }
+    }
+
+    .overlay-skew .pagebuilder-overlay {
+        [data-appearance="collage-right"]& {
+            padding-left: @24;
+            max-width: 630px;
+            clip-path: ~"polygon(100px 0, 100% 0, 100% 100%, 0 100%)";
+        }
+    }
+
+    .content-flex .pagebuilder-collage-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: @2;
+        align-items: center;
+        justify-content: space-between;
+
+        > *, h2, h3, h4 {
+            margin: 0;
+        }
+    }
+}
+
+& when not (@critical) {
+    .overlay-rounded .pagebuilder-overlay {
+        border-radius: 4px;
+    }
+}

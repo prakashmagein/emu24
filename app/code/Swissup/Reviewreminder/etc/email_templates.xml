@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="reviewreminder_email_email_template" label="Review reminder email template" file="reminder.html" type="html" module="Swissup_Reviewreminder" area="frontend"/>
+</config>

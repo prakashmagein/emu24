@@ -1,0 +1,28 @@
+<p class="toolbar-amount" id="toolbar-amount">
+    <?php if ($block->hasMorePages() || $block->getCurrentPage() > 1):?>
+        <?= $block->escapeHtml(
+            __(
+                'Items %1-%2',
+                '<span class="toolbar-number">' . $localeFormatter->formatNumber($block->getFirstNum()) . '</span>',
+                '<span class="toolbar-number">' . $localeFormatter->formatNumber($block->getLastNum()) . '</span>',
+            ),
+            ['span']
+        ) ?>
+    <?php elseif ($block->getTotalNum() == 1):?>
+        <?= $block->escapeHtml(
+            __(
+                '%1 Item',
+                '<span class="toolbar-number">' . $localeFormatter->formatNumber($block->getTotalNum()) . '</span>'
+            ),
+            ['span']
+        ) ?>
+    <?php else:?>
+        <?= $block->escapeHtml(
+            __(
+                '%1 Items',
+                '<span class="toolbar-number">' . $localeFormatter->formatNumber($block->getTotalNum()) . '</span>'
+            ),
+            ['span']
+        ) ?>
+    <?php endif; ?>
+</p>

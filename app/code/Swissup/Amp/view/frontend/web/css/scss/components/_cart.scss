@@ -1,0 +1,27 @@
+$cart-icon-width: 40px !default;
+$cart-icon-height: 40px !default;
+$cart-icon-mask-image: $icon-cart;
+$cart-icon-mask-size: null !default;
+$cart-icon-background-color: null !default;
+
+.cart-icon {
+    @include icon-mask(
+        $icon: $cart-icon-mask-image,
+        $size: $cart-icon-mask-size,
+        $color: $cart-icon-background-color,
+        $width: $cart-icon-width,
+        $height: $cart-icon-height
+    );
+
+    display: inline-block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.minicart {
+    align-self: center;
+    .cart-icon {
+        display: block;
+    }
+}

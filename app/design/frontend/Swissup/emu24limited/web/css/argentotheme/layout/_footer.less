@@ -1,0 +1,61 @@
+.block.newsletter .primary::after {
+    .breeze-icon(@icon-chevron, @4);
+}
+
+& when (@critical) {
+    .page-footer {
+        --link-color: var(--base-color);
+
+        @media @media-md-down {
+            --container-padding: @3 @8;
+        }
+
+        .block.newsletter {
+            .control {
+                input {
+                    border: 0;
+                    border-radius: 0;
+                    border-bottom: 2px solid @base__color;
+                    box-shadow: none;
+                    min-width: 100px;
+                    .padding-left(0);
+                    .padding-right(@12);
+                    &:focus {
+                        background: none;
+                    }
+                }
+            }
+            .primary {
+                position: absolute;
+                top: 0;
+                .right(0);
+                width: @11;
+                height: @11;
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                background: none;
+                outline-offset: -2px;
+
+                span {
+                    &:extend(.breeze-sr-only all);
+                }
+
+                &::before {
+                    position: absolute;
+                    .left(0);
+                    top: 50%;
+                    content: '';
+                    width: 2px;
+                    height: 60%;
+                    transform: translateY(-50%);
+                    background: @base__color;
+                }
+                &::after {
+                    color: @brand__color;
+                }
+            }
+        }
+    }
+}

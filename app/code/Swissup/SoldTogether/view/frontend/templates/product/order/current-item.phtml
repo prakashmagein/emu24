@@ -1,0 +1,30 @@
+<?php
+    $id = (int)$item->getId();
+    $isStripe = $block->isLayoutStyleStripe();
+    $isAmazon = $block->isLayoutStyleDefault();
+    $itemNameHtmlId = uniqid('item-name-');
+?>
+<span class="product photo product-item-photo">
+<?php if ($isStripe): ?>
+    <input type="checkbox"
+       class="checkbox main-product"
+       id="relatedorderstripe-checkbox<?= $id ?>"
+       onclick="return false;"
+       disabled="disabled"
+       name="bought_related_products[]"
+       value="<?= $id ?>" checked="checked"
+       aria-labelledby="<?= $itemNameHtmlId ?>"
+    />
+<?php endif; ?>
+<?php if ($isAmazon): ?>
+    <?= $block->getImageHtml($item, $block->getData('image_id') ?: 'upsell_products_list') ?>
+<?php endif ?>
+</span>
+<?php if ($isStripe): ?>
+<div class="product details product-item-details">
+    <span id="<?= $itemNameHtmlId ?>" class="product name product-item-name">
+        <span class="product-item-link" title="<?= $block->escapeHtml($block->getProduct()->getName()) ?>"><?= $block->escapeHtml($item->getName()) ?></span>
+    </span>
+    <?= $block->getCurrentProductPriceHtml(); ?>
+</div>
+<?php endif; ?>

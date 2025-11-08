@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\Askit\Observer\Captcha\NewQuestionFormObserver" type="Swissup\Askit\Observer\Captcha">
+        <arguments>
+            <argument name="formId" xsi:type="string">swissup_askit_new_question_form</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Swissup\Askit\Observer\Captcha\NewAnswerFormObserver" type="Swissup\Askit\Observer\Captcha">
+        <arguments>
+            <argument name="formId" xsi:type="string">swissup_askit_new_answer_form</argument>
+        </arguments>
+    </virtualType>
+</config>

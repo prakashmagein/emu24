@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\SoldTogether\Api\Data\OrderInterface"
+                type="Swissup\SoldTogether\Model\Order" />
+    <preference for="Swissup\SoldTogether\Api\Data\OrderSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Swissup\SoldTogether\Api\OrderRepositoryInterface"
+                type="Swissup\SoldTogether\Model\OrderRepository" />
+    <preference for="Swissup\SoldTogether\Api\Data\CustomerInterface"
+                type="Swissup\SoldTogether\Model\Customer" />
+    <preference for="Swissup\SoldTogether\Api\Data\CustomerSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Swissup\SoldTogether\Api\CustomerRepositoryInterface"
+                type="Swissup\SoldTogether\Model\CustomerRepository" />
+    <preference for="Swissup\SoldTogether\Api\LinkedItemsProcessor"
+                type="Swissup\SoldTogether\Model\LinkedItemsProcessor\Composite" />
+    <type name="Swissup\SoldTogether\Block\Order">
+        <arguments>
+            <argument name="resource" xsi:type="object">Swissup\SoldTogether\Model\ResourceModel\Order</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\SoldTogether\Block\Customer">
+        <arguments>
+            <argument name="resource" xsi:type="object">Swissup\SoldTogether\Model\ResourceModel\Customer</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="soldtogether_customer_reindex" xsi:type="object">Swissup\SoldTogether\Console\Command\CustomerReindexCommand</item>
+                <item name="soldtogether_order_reindex" xsi:type="object">Swissup\SoldTogether\Console\Command\OrderReindexCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="soldtogether_price" xsi:type="string">Swissup\SoldTogether\Pricing\Price\SoldTogetherPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\SoldTogether\Model\Resolver\ResourceModels">
+        <arguments>
+            <argument name="resourceModel" xsi:type="array">
+                <item name="order" xsi:type="object">Swissup\SoldTogether\Model\ResourceModel\Order</item>
+                <item name="customer" xsi:type="object">Swissup\SoldTogether\Model\ResourceModel\Customer</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\SoldTogether\Model\LinkedItemsProcessor\Composite">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="_unserialize" xsi:type="object">Swissup\SoldTogether\Model\LinkedItemsProcessor\UnserializeData</item>
+                <item name="preloadConfigurableAttributes" xsi:type="object">Swissup\SoldTogether\Model\LinkedItemsProcessor\ConfigurableAttributes</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

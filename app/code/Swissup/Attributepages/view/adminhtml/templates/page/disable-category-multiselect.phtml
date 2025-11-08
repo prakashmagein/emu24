@@ -1,0 +1,38 @@
+<script>
+require([
+    'jquery',
+    'mage/utils/wrapper',
+    'extjs/ext-tree-checkbox'
+], function ($, wrapper) {
+    'use strict';
+
+    Ext.tree.CheckboxNodeUI.prototype.check = wrapper.wrap(
+        Ext.tree.CheckboxNodeUI.prototype.check,
+        function (o, state, descend, bulk) {
+            var originalExpand,
+                tree = this.node.getOwnerTree(),
+                id = this.node.id,
+                nextState = state;
+
+            if (typeof state === 'undefined' || state === null) {
+                nextState = this.checkbox.checked;
+            }
+
+            if (nextState) {
+                $.each(tree.nodeHash, function (i, node) {
+                    if (node.id === id || !node.getUI().check || !node.getUI().checkbox) {
+                        return;
+                    }
+
+                    originalExpand = node.expand;
+                    node.expand = $.noop;
+                    node.getUI().check(false, false, true);
+                    node.expand = originalExpand;
+                });
+            }
+
+            return o(state, descend, bulk);
+        }
+    );
+});
+</script>

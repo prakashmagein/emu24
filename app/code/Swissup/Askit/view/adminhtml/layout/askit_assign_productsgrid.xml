@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <update handle="styles"/>
+    <update handle="formkey"/>
+    <container name="root" label="Root">
+        <block class="Swissup\Askit\Block\Adminhtml\Question\Assign\Product\Grid" name="askit_question_assign_product_listing"/>
+        <!-- <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="askit_question_assign_product_listing_serializer">
+            <arguments>
+                <argument name="input_names" xsi:type="string">position</argument>
+                <argument name="grid_block" xsi:type="string">askit_question_assign_product_listing</argument>
+                <argument name="callback" xsi:type="string">getAssignProducts</argument>
+                <argument name="input_element_name" xsi:type="string">assign[products]</argument>
+                <argument name="reload_param_name" xsi:type="string">assign_products</argument>
+            </arguments>
+        </block> -->
+    </container>
+</layout>

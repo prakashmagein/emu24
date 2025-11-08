@@ -1,0 +1,17 @@
+{
+    "swissup_chatgptassistant_prompt": {
+        "column": {
+            "entity_id": true,
+            "status": true,
+            "name": true,
+            "text": true,
+            "field_ids": true,
+            "default_field_id": true,
+            "added_at": true,
+            "modified_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

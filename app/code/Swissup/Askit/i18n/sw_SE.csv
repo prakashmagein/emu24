@@ -1,0 +1,100 @@
+"Edit '%1'","Redigera '%1'"
+"Answer Information",Svarinformation
+Hint,Antydan
+Questions,frågor
+"Edit Question '%1'","Redigera fråga '%1'"
+"No Found","Ingen hittad"
+"Created date","Skapat Datum"
+"Update date","Uppdatera datum"
+"Are you sure?","Är du säker?"
+Unknown,Okänd
+Private,Privat
+"Add New Answer","Lägg till nytt svar"
+"Questions %1","Frågor %1"
+"Please select item(s).","Välj objekt (er)."
+"The answer has been deleted.","Svaret har tagits bort."
+"We can't find a answer to delete.","Vi kan inte hitta ett svar att ta bort."
+Askit,"Fråga det"
+Answers,svar
+"This item no longer exists.","Den här artikeln finns inte längre."
+"Askit Items",Askit-artiklar
+"Askit Recent Answers","Askit senaste svar"
+"Manage Recent Askit Answers","Hantera senaste Askit-svar"
+"You saved.","Du räddade."
+"Something went wrong while saving the question.","Något gick fel när jag sparat frågan."
+"A total of %1 record(s) have been deleted.","Totalt %1 post (er) har tagits bort."
+"A total of %1 record(s) have been changed.","Totalt har %1 post (ar) ändrats."
+"The question has been deleted.","Frågan har tagits bort."
+"We can't find a question to delete.","Vi kan inte hitta en fråga att ta bort."
+"New Askit Question","Ny Askit-fråga"
+"Askit Questions","Askit frågor"
+"Manage Askit Questions","Hantera Askit-frågor"
+"You question saved.","Din fråga sparad."
+"You answer was added.","Ditt svar lades till."
+"We can't process your request right now. Sorry, that's all we know.","Vi kan inte behandla din begäran just nu. Det är allt vi vet."
+"My Questions","Mina frågor"
+"Your must login","Ditt måste logga in"
+"Sorry, only logged in customer can hint.","Tyvärr, bara inloggad kund kan antyda."
+"Sorry, already voted","Tyvärr, redan röstat"
+Pending,"I väntan på"
+Approved,Godkänd
+Disapproved,godkänd
+"Askit Question","Askit fråga"
+"Askit Answer","Askit svar"
+"Edit Question","Redigera fråga"
+"New Answer","Nytt svar"
+"Only registered users can write comments. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Endast registrerade användare kan skriva kommentarer. <a href=""%1""> Logga in </a> eller <a href=""%2""> Skapa ett konto </a>"
+"Your Answer","Ditt svar"
+"Leave a Reply","Lämna ett svar"
+"%1 people found this answer helpful.","%1 personer tyckte att detta svar var till hjälp."
+"Only registered users can write questions. Please <a href=""%1"">Sign in</a> or <a href=""%2"">Create an account</a>","Endast registrerade användare kan skriva frågor. <a href=""%1""> Logga in </a> eller <a href=""%2""> Skapa ett konto </a>"
+"Ask Your Question","Ställ din fråga"
+"Jot us a note and we’ll get back to you as quickly as possible.","Skriv en anteckning så kommer vi tillbaka så snabbt som möjligt."
+Question,Fråga
+"Post a private question","Lägg upp en privat fråga"
+Submit,"Skicka in"
+"You have submitted no questions.","Du har inte skickat några frågor."
+"answer' 'answers","svara svar"
+"%1 people already voted for this question.","%1 personer har redan röstat för den här frågan."
+"Vote for It","Rösta på det"
+"New products question was just posted or updated. Please see details below","Frågan om nya produkter publicerades eller uppdaterades just. Se detaljerna nedan"
+E-mail,E-post
+"You can follow the question at Swissup -> Askit Questions","Du kan följa frågan på Swissup -> Askit Questions"
+Dear,Kära
+"New answer was just posted to your question regarding","Nytt svar publicerades just på din fråga angående"
+"Your question:","Din fråga:"
+Answer:,Svar:
+"Thank you again","Tack igen"
+"Default question status",Standardfrågestatus
+"Default answer status","Standard svarsstatus"
+"Allow guest to ask questions","Låt gästen ställa frågor"
+"Allow customers comment","Låt kunder kommentera"
+"Allow guest comment","Tillåt gästkommentarer"
+"Allow customer vote","Låt kunden rösta"
+"Show customer name on frontend","Visa kundnamn på frontend"
+"Show link to related item (Product, Category or Page)","Visa länk till relaterat objekt (produkt, kategori eller sida)"
+"Enable Gravatar integration","Aktivera Gravatar-integration"
+"Add questions block to all category pages","Lägg till frågor block till alla kategorisidor"
+"Add questions block to all CMS pages","Lägg till frågor blockera till alla CMS-sidor"
+"Enable 'no questions' message","Aktivera meddelandet ""inga frågor"""
+Sender,Avsändare
+"Customer Notification Template","Kundmeddelande mall"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","E-postmall vald baserad på temafallback när alternativet ""Standard"" är valt."
+"Send admin notification to","Skicka administratörsmeddelande till"
+"Admin Notification Template","Administratörsmeddelande mall"
+"Askit: Questions + New Question Form","Askit: Frågor + Nytt frågeformulär"
+"Hide listing block","Dölj listan"
+"Hide form block","Dölj formulärblock"
+"Assigned Products","Tilldelade produkter"
+"Assigned Pages","Tilldelade sidor"
+"Assigned Categories","Tilldelade kategorier"
+"Delete items","Ta bort objekt"
+"Answer,Svar
+"Entity Type",Entitetstyp
+Entity,Entitet
+Votes,röster
+"Your question was answered on","Din fråga besvarades den"
+"It is helpful","Det är bra"
+"Not much help","Inte mycket hjälp"
+asks,frågar
+about,"handla om"

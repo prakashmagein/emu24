@@ -1,0 +1,92 @@
+& when (@critical) {
+    .nav-toggle {
+        order: 999;
+        z-index: 1; // put icon behind layered navigation overlay
+    }
+}
+& when not (@critical) {
+    .navigation ul a {
+        .lib-rgb(--base-color, @theme__dark-color);
+        color: ~"rgba(var(--base-color), var(--base-alpha, .8))";
+    }
+
+    @media @navigation__media-mobile {
+        .nav-toggle {
+            span {
+                .breeze-sr-only-reset();
+                .text-indent(-9999px);
+                font-size: 0;
+                &::after {
+                    --base-bg: var(--brand-color);
+                    position: absolute;
+                    top: auto;
+                    left: auto;
+                    right: @3;
+                }
+            }
+            &::before {
+                --z-overlay-bg: 255, 255, 255;
+                --z-overlay-bg-alpha: 0.2;
+                color: @brand__color;
+                backdrop-filter: blur(1px);
+                @cursor: replace(@icon-x, 'stroke="currentColor"', 'stroke="white" width="24" height="24"');
+                cursor: url('data:image/svg+xml;utf8,@{cursor}') 12 12, pointer;
+            }
+            &::after {
+                .nav-open & {
+                    opacity: 0;
+                }
+            }
+        }
+
+        .header.content {
+            position: static;
+        }
+
+        .navigation-wrapper {
+            opacity: 0;
+            transform: translate(0, 20px);
+            position: absolute;
+            top: 100%;
+            bottom: auto;
+            width: 100%;
+            max-width: none;
+            height: ~"calc(100dvh - 100%)";
+
+            .navigation {
+                padding: @header-mobile-panel__padding;
+            }
+        }
+
+        .navigation {
+            ul {
+                .margin(@1);
+            }
+            .parent {
+                > a {
+                    .ui-icon {
+                        -webkit-mask-size: @3 @3;
+                    }
+                }
+            }
+        }
+
+        .mobile-header-panel {
+            margin-top: auto;
+            // height: calc-size(max-content, size);
+            // transition-property: height;//, opacity;
+            // transition-duration: var(--transition-duration);
+            // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+            // .navigation-section:has(.navigation .level-top.opened) & {
+            //     height: 0;
+            //     opacity: 0;
+            //     pointer-events: none;
+            // }
+
+            .header-panel-info {
+                margin: 0;
+            }
+        }
+    }
+}

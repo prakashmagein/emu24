@@ -1,0 +1,48 @@
+Duplicate,複製
+"Select Attribute",属性を選択
+"Attributes with available options are not found.",使用可能なオプションを持つ属性が見つかりません。
+"Description and children",説明と子供
+"Description only",説明のみ
+"Children only",子供のみ
+"Columns Count",列数
+"1 — 8 columns are supported","1 — 8列がサポートされます"
+"Group Options by First Letter",オプションを最初の文字でグループ化
+"Listing Mode",リストモード
+"Image Width",画像の幅
+"Image Height",画像の高さ
+"Used to identify page in backend grid",バックエンドグリッドでページを識別するために使用されます
+"Relative to Website Base URL",ウェブサイトのベースURLを基準
+"Option Information",オプション情報
+"Exclude from Display",ディスプレイから除外
+"Unable to find a page to delete.",削除するページが見つかりません。
+"The page has been duplicated.",ページが複製されました。
+"Unable to find a page to duplicate.",複製するページが見つかりません。
+"Attribute Pages",属性ページ
+"Manage Options",オプションの管理
+"This option no longer exists.",このオプションはなくなりました。
+"Invalid link received.",無効なリンクを受け取りました。
+"Edit Option",オプションの編集
+"Attribute Options",属性オプション
+"The following urls where automatically changed because of duplicates.",次のURLは重複のために自動的に変更されました。
+"There are no options matching the selection.",選択に一致するオプションはありません。
+"View other %1 products",他の％1製品を表示
+"Attributepages: List of attribute based pages",属性ページ：属性ベースのページのリスト
+"Pages to exclude",除外するページ
+"Pages to include",含めるページ
+"Remove Block Wrapper and Title",ブロックラッパーとタイトルを削除
+"Attributepages: Option List",属性ページ：オプションリスト
+"Attribute Page",属性ページ
+"Show as Slider",スライダーとして表示
+"Unique Slider Id",一意のスライダーID
+"Number of visible slides",表示されているスライドの数
+"Number of slides to scroll",スクロールするスライドの数
+"Automatically play slider",スライダーを自動再生
+"Items limit",アイテム制限
+"Attributepages: Product Option",属性ページ：製品オプション
+"Additional css classes",追加のCSSクラス
+"Render as link",リンクとしてレンダリング
+"Show Image",画像を表示
+"Image type",画像タイプ
+"Label for 'View All' link",「すべて表示」リンクのラベル
+"Delete items",アイテムを削除する
+"

@@ -1,0 +1,30 @@
+$accordion-heading-background-color: null !default;
+$accordion-heading-border-bottom: 1px solid #fff !default;
+$accordion-heading-padding: 12px 10px !default;
+$accordion-heading-font-size: 1.2em !default;
+
+$accordion-content-padding: 0px 10px !default;
+
+%accordion-title {
+    background-color: $accordion-heading-background-color;
+    padding: $accordion-heading-padding;
+    font-size: $accordion-heading-font-size;
+    border: none;
+    border-bottom: $accordion-heading-border-bottom;
+}
+%accordion-content {
+    padding: $accordion-content-padding;
+}
+
+amp-accordion {
+    section {
+        > {
+            :first-child {
+                @extend %accordion-title;
+            }
+            :last-child {
+                @extend %accordion-content;
+            }
+        }
+    }
+}

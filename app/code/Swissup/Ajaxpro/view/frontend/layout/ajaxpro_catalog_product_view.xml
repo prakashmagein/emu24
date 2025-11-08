@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="swissup.askit.product.info.additional" remove="true" />
+        <referenceBlock name="product.info.details" remove="true" />
+        <move element="page.messages" destination="content" before="-"/>
+        <referenceBlock name="messages" template="Swissup_Ajaxpro::messages.phtml"/>
+        <referenceBlock name="ajaxpro.checkout.cart" remove="true" />
+        <referenceBlock name="ajaxpro.catalog.product.view" remove="true" />
+        <referenceBlock name="customer.section.config" remove="true" />
+        <referenceBlock name="customer.customer.data" remove="true" />
+        <referenceBlock name="product.info.tabs" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true"/>
+        <referenceBlock name="ajaxpro.init.floating.cart" remove="true"/>
+    </body>
+</page>

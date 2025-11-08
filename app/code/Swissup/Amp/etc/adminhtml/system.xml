@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_amp" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Accelerated Mobile Pages</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Amp::config_amp</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="persistent_browsing" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Persistent browsing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Set "No", and all links on AMP site will direct to normal site.</comment>
+                </field>
+                <field id="all_pages" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use AMP for all supported pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pages" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use AMP at</label>
+                    <source_model>Swissup\Amp\Model\System\Config\Source\Pages</source_model>
+                    <frontend_class>required-entry</frontend_class>
+                    <depends>
+                        <field id="all_pages">0</field>
+                    </depends>
+                </field>
+                <field id="exclude" translate="label" type="textarea" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Exclude URLs from AMP</label>
+                    <comment><![CDATA[URLs which should not be displayed as AMP, e.g. clamber-watch.html, gear/watches.html.<br/>One URL per line.]]></comment>
+                </field>
+                <field id="heading_force" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Force AMP activation on</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="persistent_browsing">1</field>
+                    </depends>
+                </field>
+                <field id="force_mobile" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mobile devices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Mobile users will see the AMP, when browsing your store from google search results only.<br/>Set to "Yes" to force AMP activation.]]></comment>
+                    <depends>
+                        <field id="persistent_browsing">1</field>
+                    </depends>
+                </field>
+                <field id="force_tablet" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Tablet devices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Tablet users will see the AMP, when browsing your store from google search results only.<br/>Set to "Yes" to force AMP activation.]]></comment>
+                    <depends>
+                        <field id="persistent_browsing">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="web" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Web</label>
+                <field id="cookie_restriction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cookie Restriction Mode</label>
+                    <comment><![CDATA[This config depends on <strong>Stores > Configuration > General > Web > Default Cookie Settings > Cookie Restriction Mode</strong>. You must enable that setting in order to use AMP Cookie Restriction Mode.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="product_page" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Page</label>
+                <field id="full_mode" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use full "Add to Cart" mode for all supported products</label>
+                    <tooltip><![CDATA[Following products does not support full mode:<br/> - Products with file option]]></tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_types" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use full "Add to Cart" mode for</label>
+                    <source_model>Swissup\Amp\Model\System\Config\Source\Producttypes</source_model>
+                    <depends>
+                        <field id="full_mode">0</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="category_page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Page</label>
+                <field id="disable_layered_navigation" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Disable Layered Navigation</label>
+                    <comment>Disable if your navigation is not working without javascript</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="customization" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customization</label>
+                <field id="custom_css" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom Styles</label>
+                    <comment>These styles will be included in AMP. CSS and SCSS syntax supported.</comment>
+                    <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Scss</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

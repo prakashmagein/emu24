@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <packages>
+        <package>swissup/navigationpro</package>
+        <package>swissup/module-navigationpro</package>
+    </packages>
+
+    <fields>
+        <field name="menu_type" title="Select Menu Type">
+            <source_model>Swissup\Navigationpro\Installer\SourceModel\BuilderType</source_model>
+        </field>
+        <field name="menu_name" title="Enter Menu Name"/>
+    </fields>
+
+    <commands>
+        <command class="Swissup\Navigationpro\Installer\Command\Menu">
+            <data>
+                <item>
+                    <item name="activate">1</item>
+                    <item name="type" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                        <param name="key">menu_type</param>
+                    </item>
+                    <item name="settings">
+                        <item name="max_depth">0</item>
+                        <item name="identifier" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                            <param name="key">menu_name</param>
+                        </item>
+                    </item>
+                </item>
+            </data>
+        </command>
+    </commands>
+</config>

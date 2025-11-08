@@ -1,0 +1,12 @@
+<?php
+
+$scriptString = <<<JS
+swissupSoldTogether = {
+    helper: "{$block->getViewFileUrl('Swissup_SoldTogether/js/helper.js', ['_secure' => $block->getRequest()->isSecure()])}",
+    validator: "{$block->getViewFileUrl('Swissup_SoldTogether/js/validator.js', ['_secure' => $block->getRequest()->isSecure()])}"
+}
+JS;
+
+echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+
+?>

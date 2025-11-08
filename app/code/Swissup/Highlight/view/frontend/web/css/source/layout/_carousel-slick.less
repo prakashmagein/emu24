@@ -1,0 +1,23 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    // carousel when breeze module is used
+    .block-highlight {
+        [data-appearance='carousel'] {
+            .slick-list {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                scroll-snap-type: x mandatory;
+                gap: var(--listing-grid-gap);
+                row-gap: var(--listing-grid-row-gap);
+            }
+        }
+
+        .slick-list .slide {
+            scroll-snap-align: center;
+            .product-items {
+                flex-wrap: wrap !important;
+            }
+        }
+    }
+}
+}

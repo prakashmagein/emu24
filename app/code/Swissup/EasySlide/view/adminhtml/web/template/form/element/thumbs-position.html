@@ -1,0 +1,6 @@
+<div class="thumbs-position-wrapper" data-bind="foreach: options, click: function (koSelect, event) { koSelect.value(jQuery(event.target).closest('.thumbs-position').data('position')) }">
+    <div class="thumbs-position" data-bind="attr: { 'data-position': value, title: label }, css: { selected: $parent.value() === value }">
+        <div class="preview">
+        </div>
+    </div>
+</div>

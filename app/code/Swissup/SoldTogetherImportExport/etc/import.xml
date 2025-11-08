@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/import.xsd">
+    <entity name="soldtogether_order"
+            label="Sold Together - Frequently Bought Togther"
+            model="Swissup\SoldTogetherImportExport\Model\Import\OrderLink"
+            behaviorModel="Magento\ImportExport\Model\Source\Import\Behavior\Basic" />
+    <entity name="soldtogether_customer"
+            label="Sold Together - Customer Also Bought"
+            model="Swissup\SoldTogetherImportExport\Model\Import\CustomerLink"
+            behaviorModel="Magento\ImportExport\Model\Source\Import\Behavior\Basic" />
+</config>

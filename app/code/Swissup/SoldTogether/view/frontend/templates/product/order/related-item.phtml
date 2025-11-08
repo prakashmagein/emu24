@@ -1,0 +1,43 @@
+<?php
+    $isSalable = $item->isSaleable();
+    $id = (int)$item->getId();
+    $url = $block->escapeUrl($block->getProductUrl($item));
+    $isStripe = $block->isLayoutStyleStripe();
+    $name = $block->escapeHtml($item->getName());
+    $itemNameHtmlId = uniqid('item-name-');
+    $detailsHtmlId = uniqid('details-');
+?>
+<span class="product-photo-wrapper">
+    <?php if ($isStripe): ?>
+        <input type="checkbox"
+           class="checkbox relatedorderamazon-checkbox"
+           <?php if (!$isSalable) : ?>onclick="return false;" disabled="disabled"<?php endif; ?>
+           id="relatedorderstripe-checkbox<?= $id ?>"
+           name="bought_related_products[]"
+           value="<?= $id ?>" <?php if ($isSalable) : ?>checked="checked" <?php endif; ?>
+           aria-labelledby="<?= $itemNameHtmlId ?>"
+        />
+    <?php endif; ?>
+    <a href="<?= $url ?>" class="product photo product-item-photo" tabindex="-1">
+        <?= $block->getImageHtml($item, $block->getData('image_id') ?: 'upsell_products_list'); ?>
+    </a>
+</span>
+<?php if ($isStripe): ?>
+<div class="product details product-item-details">
+    <span id="<?= $itemNameHtmlId ?>" class="product name product-item-name">
+        <a class="product-item-link" title="<?= $name ?>" href="<?= $url ?>"><?= $name ?></a>
+    </span>
+    <?= /* @noEscape */ $block->getProductPrice($item); ?>
+    <?php if ($detailsHtml = $block->renderDetailsHtml($item)): ?>
+    <a class="details-toggler"
+        href="#"
+        data-show="<?= __('Show details') ?>"
+        data-hide="<?= __('Hide details') ?>"
+        data-target="<?= $detailsHtmlId ?>"
+    ><?= __('Show details') ?></a>
+    <div id="<?= $detailsHtmlId ?>" class="details-wrapper" hidden>
+        <?= $detailsHtml ?>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>

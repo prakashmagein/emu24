@@ -1,0 +1,14 @@
+<?php
+
+$settings = $block->getCookieSettingsJson();
+$scriptString = "window.swissupGdprCookieSettings = {$settings}";
+
+if ($settings) {
+    if (isset($secureRenderer)) {
+        echo /* @noEscape */ $secureRenderer->renderTag('script', ['data-defer-js-ignore' => true], $scriptString, false);
+    } else {
+        echo "<script data-defer-js-ignore>{$scriptString}</script>";
+    }
+}
+
+?>

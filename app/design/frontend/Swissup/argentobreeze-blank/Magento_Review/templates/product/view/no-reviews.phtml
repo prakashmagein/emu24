@@ -1,0 +1,24 @@
+<?php
+    $list = $block->getLayout()->getBlock('product.info.product_additional_data');
+    if (!$list) {
+        return;
+    }
+
+    $items = $list->getReviewsCollection()->getItems();
+    if (count($items) > 0) {
+        return;
+    }
+?>
+
+<div class="block review-list">
+    <?php if (!$list->getHideTitle()): ?>
+        <div class="block-title">
+            <strong><?= $escaper->escapeHtml(__('Customer Reviews')) ?></strong>
+        </div>
+    <?php endif ?>
+    <div class="block-content">
+        <div class="no-reviews">
+            <?= __('Be the first person to review this product. Share with others whether you like it or not.') ?>
+        </div>
+    </div>
+</div>

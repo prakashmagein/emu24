@@ -1,0 +1,67 @@
+<?php
+    /* @var $block \Swissup\Easybanner\Block\Banner */
+    if ($banner = $block->getBannerData()) : ?>
+    <?php $_id = $banner->getHtmlId(); ?>
+    <div class="<?php echo $banner->isPopupType() ? $block->getSystemClassName() : $block->getClassName() ?>"
+        data-class="<?= $block->getClassName() ?>"
+        id="<?= $_id ?>"
+        data-content-type="easybanner"
+        data-mode="<?= $banner->getMode() ?>"
+        data-target="<?= $banner->getTarget() ?>"
+    >
+    <?php if ('image' === $banner->getMode()) :
+        $onclick = '';
+        if ($banner->getTarget() != 'self') {
+            $options = "''";
+            if ($banner->getTarget() == 'popup') {
+                $options = '\'width=600,height=400\'';
+            }
+            $onclick = 'onclick="return !window.open(this.href, \'easybanners'
+                . $banner->getBannerId()
+                . '\', '
+                . $options
+                . ')"';
+        }
+        $href = $block->escapeUrl($block->getUrl($block->getBannerUrl()));
+        $height = (int) $banner->getHeight() ?: $block->calculateHeight();
+        $width  = (int) $banner->getWidth() ?: $block->calculateWidth();
+        $title = $block->escapeHtmlAttr($banner->getTitle());
+        $src = $block->getBannerImage();
+        if ($banner->getResizeImage() && $_src = $block->resizeImage($width, $height)) {
+            $src = $_src;
+        }
+    ?>
+        <a class="easybanner-image-link"
+            rel="nofollow"
+            href="<?= $href ?>"
+            title="<?= $title ?>"
+            <?= $onclick ?>
+        >
+            <img src="<?= $src ?>"
+                 alt="<?= $title ?>"
+                 loading="lazy"
+                <?php if ($banner->getResizeImage() && $banner->getIsResponsive()) : ?>
+                    srcset="<?= $block->getImageSrcset() ?>"
+                    sizes="<?= $block->getImageSizes() ?>"
+                <?php endif; ?>
+                <?php if (!empty($width)): ?>
+                    width="<?= $width ?>"
+                <?php endif ?>
+                <?php if (!empty($height)): ?>
+                    height="<?= $height ?>"
+                <?php endif ?>
+            />
+        </a>
+    <?php else : ?>
+        <?php echo $block->getBannerHtml() ?>
+    <?php endif; ?>
+
+    <?php if ($banner->isPopupType()) : ?>
+        <a href="#"
+            class="easybanner-close-permanent easybanner-close-permanent-core"
+            title="<?php echo __("Don't show this popup anymore") ?>">
+            <?php echo __("Don't show anymore") ?>
+        </a>
+    <?php endif ?>
+    </div>
+<?php endif; ?>

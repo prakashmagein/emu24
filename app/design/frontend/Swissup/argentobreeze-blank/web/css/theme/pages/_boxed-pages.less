@@ -1,0 +1,20 @@
+& when (@critical) and (@boxed-page = true) {
+    .page-layout-1column .form.testimonial {
+        &:extend(.breeze-block-boxed all);
+
+        legend {
+            display: none;
+        }
+
+        .actions-toolbar {
+            flex-wrap: wrap;
+        }
+        .action.primary {
+            &:extend(.breeze-button-lg all);
+            width: 100%;
+            ~ .button {
+                width: 100%;
+            }
+        }
+    }
+}

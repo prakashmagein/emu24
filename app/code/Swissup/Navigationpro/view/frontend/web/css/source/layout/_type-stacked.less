@@ -1,0 +1,113 @@
+& when (@media-target = 'desktop'), (@breeze) {
+& when (@critical = unsure), (@critical = false) {
+    .navpro-stacked {
+        ul {
+            li.li-item {
+                position: static;
+                > .navpro-dropdown {
+                    top: -1px !important;
+                    left: 100% !important;
+
+                    .rtl & {
+                        left: auto !important;
+                        right: 100% !important;
+                    }
+                }
+            }
+
+            .navpro-dropdown {
+                & when (@navpro-dropdown__use-animation = true) {
+                    transition-delay: .3s;
+                }
+                &.shown {
+                    transition-delay: 0s;
+                }
+            }
+        }
+
+        .dropdown-left & {
+            ul {
+                li.li-item {
+                    > .navpro-dropdown {
+                        left: auto !important;
+                        right: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // @todo: try to implement something like this (onion layers):
+        // https://tympanus.net/Development/MultiLevelPushMenu/index3.html
+        .navpro-slideout.orientation-vertical & {
+            height: 100%;
+            width: @navpro-slideout__width;
+            overflow: hidden;
+            position: fixed;
+            justify-content: flex-start;
+
+            .navpro-dropdown {
+                width: @navpro-slideout__width !important;
+                transition-delay: 0s !important;
+                box-shadow: none !important;
+                top: 0 !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                border: 0 !important;
+
+                .rtl & {
+                    left: auto !important;
+                    right: 0 !important;
+                }
+
+                > .navpro-close {
+                    top: 18px;
+                    .right(auto);
+                    .left(26px);
+                    width: 10px;
+                    height: 10px;
+
+                    color: #333;
+                    border: 2px solid currentColor;
+                    border-top-width: 0;
+                    border-right-width: 0;
+                    transform: rotate(45deg);
+
+                    &:before {
+                        display: none;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        height: 19px;
+                        width: 2px;
+                        .right(auto);
+                        .left(-1px);
+                        bottom: 0;
+                        top: auto;
+                        background: currentColor;
+                        transform: rotate(45deg);
+                        transform-origin: 50% 100%;
+                    }
+
+                    + .navpro-dropdown-inner {
+                        margin-top: 32px;
+                    }
+                }
+            }
+        }
+        .navpro-slideout.dropdown-left.orientation-vertical & {
+            .li-item > a {
+                .text-align(right);
+            }
+            .navpro-dropdown {
+                left: auto !important;
+                right: 0 !important;
+                .rtl & {
+                    right: auto !important;
+                    left: 0 !important;
+                }
+            }
+        }
+    }
+}
+}

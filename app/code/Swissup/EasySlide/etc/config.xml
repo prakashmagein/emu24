@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_amp>
+            <whitelist>
+                <block_types>
+                    <easyslide>
+                        <slider>
+                            <class>Swissup\EasySlide\Block\Slider</class>
+                            <template>swissupamp/slider.phtml</template>
+                        </slider>
+                        <image>
+                            <class>Swissup\EasySlide\Block\Image</class>
+                        </image>
+                    </easyslide>
+                </block_types>
+            </whitelist>
+            <includes>
+                <blocks>
+                    <easyslide_slider>
+                        <class>Swissup\EasySlide\Block\Slider</class>
+                        <styles>
+                            <easyslide>Swissup_EasySlide::swiper.scss</easyslide>
+                        </styles>
+                        <scripts>
+                            <carousel>
+                                <custom-element>amp-carousel</custom-element>
+                                <src>https://cdn.ampproject.org/v0/amp-carousel-0.1.js</src>
+                            </carousel>
+                        </scripts>
+                    </easyslide_slider>
+                </blocks>
+            </includes>
+        </swissup_amp>
+    </default>
+</config>

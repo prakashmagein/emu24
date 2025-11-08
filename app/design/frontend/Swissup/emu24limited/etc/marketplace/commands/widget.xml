@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Marketplace\Installer\Command\Widget">
+        <data>
+            <item>
+                <item name="title">Sizing Chart</item>
+                <item name="type">Magento\Cms\Block\Widget\Block</item>
+                <item name="template">widget/static_block/default.phtml</item>
+                <item name="theme_id" helper="Swissup\Marketplace\Installer\Helper\Theme::getId">
+                    <item name="theme">frontend/Swissup/argentobreeze-business</item>
+                </item>
+                <item name="params">
+                    <item name="block_id" helper="Swissup\Marketplace\Installer\Helper\Collection::getId">
+                        <item name="class">Magento\Cms\Model\ResourceModel\Block\Collection</item>
+                        <item name="filters">
+                            <item>
+                                <item name="field">identifier</item>
+                                <item name="value">sizing_chart</item>
+                            </item>
+                            <item>
+                                <item name="field">is_active</item>
+                                <item name="value">1</item>
+                            </item>
+                            <item>
+                                <item name="field">store_id</item>
+                                <item name="value" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                                    <item name="key">store_id</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="pages">
+                    <item>
+                        <item name="reference">before.body.end</item>
+                        <item name="handle">catalog_product_view_type_configurable</item>
+                    </item>
+                </item>
+            </item>
+            <item>
+                <item name="title">Product additional info</item>
+                <item name="type">Magento\Cms\Block\Widget\Block</item>
+                <item name="template">widget/static_block/default.phtml</item>
+                <item name="theme_id" helper="Swissup\Marketplace\Installer\Helper\Theme::getId">
+                    <item name="theme">frontend/Swissup/argentobreeze-business</item>
+                </item>
+                <item name="params">
+                    <item name="block_id" helper="Swissup\Marketplace\Installer\Helper\Collection::getId">
+                        <item name="class">Magento\Cms\Model\ResourceModel\Block\Collection</item>
+                        <item name="filters">
+                            <item>
+                                <item name="field">identifier</item>
+                                <item name="value">product_additional_info</item>
+                            </item>
+                            <item>
+                                <item name="field">is_active</item>
+                                <item name="value">1</item>
+                            </item>
+                            <item>
+                                <item name="field">store_id</item>
+                                <item name="value" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                                    <item name="key">store_id</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="pages">
+                    <item>
+                        <item name="reference">product.info.extrahint</item>
+                        <item name="handle">catalog_product_view</item>
+                    </item>
+                </item>
+            </item>
+            <item>
+                <item name="title">Testimonials</item>
+                <item name="type">Magento\Cms\Block\Widget\Block</item>
+                <item name="template">widget/static_block/default.phtml</item>
+                <item name="theme_id" helper="Swissup\Marketplace\Installer\Helper\Theme::getId">
+                    <item name="theme">frontend/Swissup/argentobreeze-business</item>
+                </item>
+                <item name="params">
+                    <item name="block_id" helper="Swissup\Marketplace\Installer\Helper\Collection::getId">
+                        <item name="class">Magento\Cms\Model\ResourceModel\Block\Collection</item>
+                        <item name="filters">
+                            <item>
+                                <item name="field">identifier</item>
+                                <item name="value">testimonials</item>
+                            </item>
+                            <item>
+                                <item name="field">is_active</item>
+                                <item name="value">1</item>
+                            </item>
+                            <item>
+                                <item name="field">store_id</item>
+                                <item name="value" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                                    <item name="key">store_id</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="pages">
+                    <item>
+                        <item name="reference">page.bottom.container</item>
+                        <item name="handle">catalog_product_view</item>
+                    </item>
+                    <item>
+                        <item name="reference">page.bottom.container</item>
+                        <item name="handle">catalog_category_view</item>
+                    </item>
+                </item>
+            </item>
+        </data>
+    </command>
+</config>

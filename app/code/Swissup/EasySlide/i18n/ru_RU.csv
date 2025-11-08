@@ -1,0 +1,43 @@
+"Save Slider","Сохранить слайдер"
+"Delete Slider","Удалить слайдер"
+"Edit Slider - '%1'","Редактировать слайдер - ""%1"""
+"New Slider","Новый слайдер"
+Parameters,параметры
+Direction,направление
+Horizontal,горизонтальный
+Vertical,вертикальный
+Effect,эффект
+Slide,Горка
+Fade,увядать
+Cube,куб
+Coverflow,Coverflow
+Flip,кувырок
+Speed,скорость
+Autoplay,Автовоспроизведение
+Pagination,пагинация
+"Navigation Buttons","Кнопки навигации"
+Scrollbar,"Полоса прокрутки"
+"Scrollbar Hide","Полоса прокрутки Скрыть"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Слайды
+"Add New Slide","Добавить новый слайд"
+"Slider was deleted.","Слайдер был удален."
+"Can't find a slider to delete.","Не могу найти слайдер для удаления."
+EasySlide,EasySlide
+"Manage Sliders","Управление ползунками"
+"This slider no longer exists.","Этот слайдер больше не существует."
+"Edit Slider","Редактировать слайдер"
+Sliders,Слайдеры
+"Slider has been saved.","Слайдер был сохранен."
+"Something went wrong while saving the slider.","Что-то пошло не так при сохранении слайдера."
+Link,Ссылка
+"Open link in","Открыть ссылку в"
+Description,Описание
+"Description Position","Описание Должность"
+"Description Background","Описание фона"
+"Slide Detail","Деталь слайда"
+"Select Slider","Выберите ползунок"
+"Add New Slider","Добавить новый слайдер"
+Black,черный
+White,белый

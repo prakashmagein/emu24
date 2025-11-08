@@ -1,0 +1,44 @@
+"Save Slider","Save Slider"
+"Delete Slider","Delete Slider"
+"Edit Slider - '%1'","Edit Slider - '%1'"
+"New Slider","New Slider"
+Parameters,Parameters
+Direction,Direction
+Horizontal,Horizontal
+Vertical,Vertical
+Effect,Effect
+Slide,Slide
+Fade,Fade
+Cube,Cube
+Coverflow,Coverflow
+Flip,Flip
+Speed,Speed
+Autoplay,Autoplay
+Pagination,Pagination
+"Navigation Buttons","Navigation Buttons"
+Scrollbar,Scrollbar
+"Scrollbar Hide","Scrollbar Hide"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Slides
+"Add New Slide","Add New Slide"
+"Slider was deleted.","Slider was deleted."
+"Can't find a slider to delete.","Can't find a slider to delete."
+EasySlide,EasySlide
+"Manage Sliders","Manage Sliders"
+"This slider no longer exists.","This slider no longer exists."
+"Edit Slider","Edit Slider"
+Sliders,Sliders
+"Slider has been saved.","Slider has been saved."
+"Something went wrong while saving the slider.","Something went wrong while saving the slider."
+Link,Link
+"Open link in","Open link in"
+Description,Description
+"Description Position","Description Position"
+"Description Background","Description Background"
+"Slide Detail","Slide Detail"
+"Select Slider","Select Slider"
+"Add New Slider","Add New Slider"
+Black,Black
+White,White
+"%1 image resize - %2","%1 image resize - %2"

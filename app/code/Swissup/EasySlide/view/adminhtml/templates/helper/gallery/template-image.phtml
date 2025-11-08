@@ -1,0 +1,165 @@
+<?php
+    $elementName = $block->getElement()->getName() . '[images]';
+    $formName = $block->getFormName();
+?>
+<% if (data.media_type && data.media_type === 'html') { %>
+    <div class="image item<% if (data.is_active == 0) { %> hidden-for-front<% } %>" data-role="image">
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][position]"
+               value="<%- data.position %>"
+               data-form-part="<?= $formName ?>"
+               class="position"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][slide_id]"
+               data-form-part="<?=$formName ?>"
+               value="<%- data.slide_id %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][is_active]"
+               data-form-part="<?= $formName ?>"
+               value="<% if (!data.slide_id) { %>1<% } else { %><%- data.is_active %><% } %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][title]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.title %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][description]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.description %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][active_from]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.active_from %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][active_to]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.active_to %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][removed]"
+               data-form-part="<?= $formName ?>"
+               value=""
+               class="is-removed"/>
+        <div class="product-image-wrapper">
+            <div class="product-image">
+                <span style="font-size: 3rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+                    &lt;html/&gt;
+                </span>
+            </div>
+
+            <div class="actions">
+                <button type="button"
+                        class="action-remove"
+                        data-role="delete-button"
+                        title="<?= __('Delete image') ?>">
+                <span>
+                    <?= __('Delete image') ?>
+                </span>
+                </button>
+                <div class="draggable-handle"></div>
+            </div>
+            <div class="image-fade"><span><?= __('Hidden') ?></span></div>
+        </div>
+
+        <div class="item-description">
+            <div class="item-title" data-role="img-title"><%- data.title %></div>
+            <div class="item-active"><%- data.activeLabel %></div>
+        </div>
+    </div>
+<% } else { %>
+    <div class="image item<% if (data.is_active == 0) { %> hidden-for-front<% } %>"
+         data-role="image">
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][position]"
+               value="<%- data.position %>"
+               data-form-part="<?= $formName ?>"
+               class="position"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][file]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.file %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][slide_id]"
+               data-form-part="<?=$formName ?>"
+               value="<%- data.slide_id %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][is_active]"
+               data-form-part="<?= $formName ?>"
+               value="<% if (!data.slide_id) { %>1<% } else { %><%- data.is_active %><% } %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][title]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.title %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][link]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.link %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][target]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.target %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][description]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.description %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][desc_position]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.desc_position %>"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][desc_background]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.desc_background %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][active_from]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.active_from %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][active_to]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.active_to %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][value_id]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.value_id %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][label]"
+               data-form-part="<?= $formName ?>"
+               value="<%- data.label %>"/>
+        <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][media_type]"
+               data-form-part="<?= $formName ?>"
+               value="image"/>
+       <input type="hidden"
+               name="<?= $elementName ?>[<%- data.file_id %>][removed]"
+               data-form-part="<?= $formName ?>"
+               value=""
+               class="is-removed"/>
+
+        <div class="product-image-wrapper">
+            <img class="product-image"
+                 data-role="image-element"
+                 src="<%- data.url %>"
+                 alt="<%- data.label %>"/>
+
+            <div class="actions">
+                <button type="button"
+                        class="action-remove"
+                        data-role="delete-button"
+                        title="<?= __('Delete image') ?>">
+                <span>
+                    <?= __('Delete image') ?>
+                </span>
+                </button>
+                <div class="draggable-handle"></div>
+            </div>
+            <div class="image-fade"><span><?= __('Hidden') ?></span></div>
+        </div>
+
+        <div class="item-description">
+            <div class="item-title" data-role="img-title"><%- data.title %></div>
+            <div class="item-size">
+              <span data-role="image-dimens"></span>, <span data-role="image-size"><%- data.sizeLabel %></span>
+            </div>
+            <div class="item-active"><%- data.activeLabel %></div>
+        </div>
+    </div>
+<% } %>

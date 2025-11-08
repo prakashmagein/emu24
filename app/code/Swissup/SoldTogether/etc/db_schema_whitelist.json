@@ -1,0 +1,55 @@
+{
+    "swissup_soldtogether_order": {
+        "column": {
+            "relation_id": true,
+            "product_id": true,
+            "related_id": true,
+            "store_id": true,
+            "product_name": true,
+            "related_name": true,
+            "weight": true,
+            "is_admin": true,
+            "data_serialized": true
+        },
+        "index": {
+            "SWISSUP_SOLDTOGETHER_ORDER_PRODUCT_ID": true,
+            "SWISSUP_SOLDTOGETHER_ORDER_RELATED_ID": true,
+            "SWISSUP_SOLDTOGETHER_ORDER_PRODUCT_RELATED_STORE": true,
+            "SWISSUP_SOLDTOGETHER_ORDER_WEIGHT": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_SOLDTOGETHER_ORDER_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
+            "SWISSUP_SOLDTOGETHER_ORDER_RELATED_ID_CAT_PRD_ENTT_ENTT_ID": true
+        }
+    },
+    "swissup_soldtogether_customer": {
+        "column": {
+            "relation_id": true,
+            "product_id": true,
+            "related_id": true,
+            "store_id": true,
+            "product_name": true,
+            "related_name": true,
+            "weight": true,
+            "is_admin": true
+        },
+        "index": {
+            "SWISSUP_SOLDTOGETHER_CUSTOMER_PRODUCT_ID": true,
+            "SWISSUP_SOLDTOGETHER_CUSTOMER_RELATED_ID": true,
+            "SWISSUP_SOLDTOGETHER_CUSTOMER_PRODUCT_RELATED_STORE": true,
+            "SWISSUP_SOLDTOGETHER_CUSTOMER_WEIGHT": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_SOLDTOGETHER_CSTR_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
+            "SWISSUP_SOLDTOGETHER_CSTR_RELATED_ID_CAT_PRD_ENTT_ENTT_ID": true
+        }
+    },
+    "swissup_soldtogether_cron_job": {
+        "column": {
+            "id": true,
+            "data": true
+        }
+    }
+}

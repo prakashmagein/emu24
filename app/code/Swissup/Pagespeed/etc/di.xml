@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Framework\View\Asset\Minification" type="Swissup\Pagespeed\Model\View\Asset\Minification"/>
+
+    <!-- <type name="Magento\Framework\View\Asset\Config">
+        <plugin name="swissup_pagespeed_mobile" type="Swissup\Pagespeed\Plugin\View\Asset\Config" />
+    </type> -->
+
+    <type name="Magento\Framework\View\Url\CssResolver">
+        <plugin name="swissup_pagespeed_css_merge_content" type="Swissup\Pagespeed\Plugin\View\Url\CssResolver" />
+    </type>
+
+    <type name="Magento\Framework\View\Asset\NotationResolver\Variable">
+        <plugin name="swissup_pagespeed" type="Swissup\Pagespeed\Plugin\View\Asset\NotationResolver\VariablePlugin" />
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="swissup_pagespeed_configure" xsi:type="object">Swissup\Pagespeed\Console\Command\ConfigureCommand</item>
+                <item name="swissup_pagespeed_enable" xsi:type="object">Swissup\Pagespeed\Console\Command\EnableCommand</item>
+                <item name="swissup_pagespeed_disable" xsi:type="object">Swissup\Pagespeed\Console\Command\DisableCommand</item>
+                <item name="swissup_pagespeed_generate_critical_css" xsi:type="object">Swissup\Pagespeed\Console\Command\CriticalCssGenerateCommand</item>
+                <!-- <item name="swissup_pagespeed_js_bundling" xsi:type="object">Swissup\Pagespeed\Console\Command\AdvancedJsBundlingCommand</item> -->
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Deploy\Config\BundleConfig">
+        <plugin name="swissup_pagespeed_exclude_dirs" type="Swissup\Pagespeed\Plugin\Config\BundleConfigPlugin" />
+    </type>
+
+    <!-- <virtualType name="Swissup\Pagespeed\Model\View\Asset\ImageFactory" type="Magento\Catalog\Model\View\Asset\ImageFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="object">Swissup\Pagespeed\Model\View\Asset\Image</argument>
+        </arguments>
+    </virtualType> -->
+
+    <type name="Magento\Deploy\Service\Bundle">
+        <plugin name="swissup_pagespeed_advanced_js_bundling" type="Swissup\Pagespeed\Plugin\Service\BundlePlugin" />
+    </type>
+
+    <type name="Magento\Framework\View\Asset\GroupedCollection">
+        <plugin name="FixGroupingTamperIntegrity" type="Swissup\Pagespeed\Plugin\View\Asset\GroupedCollectionPlugin" sortOrder="100" />
+    </type>
+    <type name="Magento\Framework\View\Page\Config\Renderer">
+        <plugin name="restoreIntegrity"
+                type="Swissup\Pagespeed\Plugin\View\Page\Config\RendererPlugin"
+                sortOrder="30"
+                disabled="false"/>
+    </type>
+</config>

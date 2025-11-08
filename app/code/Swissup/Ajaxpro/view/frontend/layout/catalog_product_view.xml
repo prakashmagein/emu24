@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="ajaxpro_catalog_category_view"/>
+    <body>
+        <!-- <referenceContainer name="page.wrapper">
+            <block class="Swissup\Ajaxpro\Block\Template" name="ajaxpro.checkout.cart" template="Swissup_Ajaxpro::checkout.cart.phtml" before="product.info.main">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Swissup\Ajaxpro\ViewModel\Config</argument>
+                </arguments>
+            </block>
+        </referenceContainer> -->
+    </body>
+</page>

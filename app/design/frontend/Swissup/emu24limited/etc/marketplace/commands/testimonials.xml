@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Testimonials\Installer\Command\Testimonials" module="Swissup_Testimonials">
+        <data>
+            <item>
+                <item name="name">Brenda Johnson</item>
+                <item name="email">brenda@example.com</item>
+                <item name="image">testimonials-1.jpg</item>
+                <item name="message">I absolutely love using the ArgentoBusiness theme! Its professional design, seamless performance, and robust features have taken my tool store to the next level. Navigating through drills, materials, and equipment is effortless for customers, boosting both engagement and sales. It's my go-to choice for a powerful and reliable eCommerce experience. Highly recommend ArgentoBusiness for any business looking to stand out!</item>
+            </item>
+            <item>
+                <item name="name">Missy Anderson</item>
+                <item name="email">missy@example.com</item>
+                <item name="image">testimonials-2.jpg</item>
+                <item name="message">ArgentoBusiness has completely transformed my online store! The design is sleek, the navigation is smooth, and the performance is outstanding. My customers can easily find the tools and materials they need, leading to increased sales. This theme is a game-changer for any professional eCommerce business!</item>
+            </item>
+            <item>
+                <item name="name">Jack Rain</item>
+                <item name="email">jack@example.com</item>
+                <item name="image">testimonials-3.jpg</item>
+                <item name="message">I'm beyond impressed with the ArgentoBusiness theme! It’s fast, user-friendly, and perfectly suited for selling tools, and construction materials. The built-in features make managing my store effortless, and my customers love the intuitive shopping experience. Highly recommended for any serious business!</item>
+            </item>
+        </data>
+    </command>
+</config>

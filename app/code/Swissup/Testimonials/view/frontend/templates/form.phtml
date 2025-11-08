@@ -1,0 +1,107 @@
+<?php
+    $formHelper = $block->getFormHelper();
+    $configHelper = $block->getConfigHelper();
+?>
+<form class="form testimonial"
+      action="<?= $block->getFormAction(); ?>"
+      id="testimonial-form"
+      method="post"
+      enctype="multipart/form-data"
+      data-hasrequired="<?= __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= __('Submit your testimonial') ?></span></legend><br />
+        <div class="field name required">
+            <label class="label" for="name"><span><?= __('Name') ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?= __('Name') ?>" value="<?= $block->escapeHtml($formHelper->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= __('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= __('Email') ?>" value="<?= $block->escapeHtml($formHelper->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <?php if ($configHelper->isCompanyEnabled()): ?>
+        <div class="field company">
+            <label class="label" for="company"><span><?= __('Company') ?></span></label>
+            <div class="control">
+                <input name="company" id="company" title="<?= __('Company') ?>" value="<?= $block->escapeHtml($formHelper->getCompany()) ?>" class="input-text" type="text" data-validate="{required:false}"/>
+            </div>
+        </div>
+        <?php endif; ?>
+        <?php if ($configHelper->isWebsiteEnabled()): ?>
+        <div class="field website">
+            <label class="label" for="website"><span><?= __('Website') ?></span></label>
+            <div class="control">
+                <input name="website" id="website" title="<?= __('Website') ?>" value="<?= $block->escapeHtml($formHelper->getWebsite()) ?>" class="input-text" type="text" data-validate="{required:false}"/>
+            </div>
+        </div>
+        <?php endif; ?>
+        <?php if ($configHelper->isTwitterEnabled()): ?>
+        <div class="field twitter">
+            <label class="label" for="twitter"><span><?= __('Twitter') ?></span></label>
+            <div class="control">
+                <input name="twitter" id="twitter" title="<?= __('Twitter') ?>" value="<?= $block->escapeHtml($formHelper->getTwitter()) ?>" class="input-text" type="text" data-validate="{required:false}"/>
+            </div>
+        </div>
+        <?php endif; ?>
+        <?php if ($configHelper->isFacebookEnabled()): ?>
+        <div class="field facebook">
+            <label class="label" for="facebook"><span><?= __('Facebook') ?></span></label>
+            <div class="control">
+                <input name="facebook" id="facebook" title="<?= __('Facebook') ?>" value="<?= $block->escapeHtml($formHelper->getFacebook()) ?>" class="input-text" type="text" data-validate="{required:false}"/>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="field image">
+            <label class="label" for="image"><span><?= __('Profile image') ?></span></label>
+            <div class="control">
+                <input name="image" id="image" title="<?= __('Profile image') ?>" value="" class="input-text" type="file" data-validate="{required:false}"/>
+            </div>
+        </div>
+        <div class="field choice review-field-rating<?php if ($configHelper->isRatingRequired()): ?> required<?php endif; ?>">
+            <label class="label" id="rating"><span><?= __('Rating') ?></span></label>
+            <div class="control review-control-vote">
+            <?php for ($i = 1; $i <= 5; ++$i): ?>
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating_<?= $i ?>"
+                    value="<?= $i ?>"
+                    class="radio"
+                    <?php if ($formHelper->getRating() == $i): ?>
+                    checked="checked"
+                    <?php endif; ?>
+                    data-validate="{required:<?= $configHelper->isRatingRequired()?'true':'false'?>}"/>
+                <label
+                    class="rating-<?= $i ?>"
+                    for="rating_<?= $i ?>"
+                    title="<?= __('%1 %2', $i, $i > 1 ? 'stars' : 'star') ?>"
+                    id="rating_<?= $i ?>_label">
+                    <span><?= __('%1 %2', $i, $i > 1 ? 'stars' : 'star') ?></span>
+                </label>
+            <?php endfor; ?>
+            </div>
+        </div>
+        <div class="field testimonial-message required">
+            <label class="label" for="message"><span><?= __('Message') ?></span></label>
+            <div class="control">
+                <textarea name="message" id="message" title="<?= __('Message') ?>" class="input-text" cols="5" rows="5" data-validate="{required:true}"><?= $block->escapeHtml($formHelper->getMessage()) ?></textarea>
+            </div>
+        </div>
+        <?= $block->getChildHtml('captcha'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= __('Submit') ?>" class="action submit primary">
+                <span><?= __('Submit') ?></span>
+            </button>
+            <button type="button" title="<?= __('Back to testimonials') ?>" class="button" onclick="window.location = '<?= $block->getListAction(); ?>';return false;">
+                <span><?= __('Back to testimonials') ?></span>
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,43 @@
+"Save Slider","Schieberegler speichern"
+"Delete Slider","Schieberegler löschen"
+"Edit Slider - '%1'","Schieberegler bearbeiten - '%1'"
+"New Slider","Neuer Slider"
+Parameters,Parameter
+Direction,Richtung
+Horizontal,Horizontal
+Vertical,Vertikale
+Effect,Bewirken
+Slide,Rutschen
+Fade,Verblassen
+Cube,Würfel
+Coverflow,Coverflow
+Flip,Flip
+Speed,Geschwindigkeit
+Autoplay,"Automatisches Abspielen"
+Pagination,Seitennummerierung
+"Navigation Buttons",Navigationstasten
+Scrollbar,Scrollleiste
+"Scrollbar Hide","Bildlaufleiste ausblenden"
+WatchSlidesProgress,WatchSlidesProgress
+WatchSlidesVisibility,WatchSlidesVisibility
+Slides,Folien
+"Add New Slide","Neue Folie hinzufügen"
+"Slider was deleted.","Schieberegler wurde gelöscht."
+"Can't find a slider to delete.","Es kann kein Schieberegler zum Löschen gefunden werden."
+EasySlide,EasySlide
+"Manage Sliders","Schieberegler verwalten"
+"This slider no longer exists.","Dieser Schieberegler existiert nicht mehr."
+"Edit Slider","Schieberegler bearbeiten"
+Sliders,Schieberegler
+"Slider has been saved.","Schieberegler wurde gespeichert."
+"Something went wrong while saving the slider.","Beim Speichern des Schiebereglers ist ein Fehler aufgetreten."
+Link,Verknüpfung
+"Open link in","Link öffnen in"
+Description,Beschreibung
+"Description Position","Beschreibung Position"
+"Description Background","Beschreibung Hintergrund"
+"Slide Detail",Schiebedetail
+"Select Slider","Wählen Sie Schieberegler"
+"Add New Slider","Neuen Schieberegler hinzufügen"
+Black,Schwarz
+White,Weiß

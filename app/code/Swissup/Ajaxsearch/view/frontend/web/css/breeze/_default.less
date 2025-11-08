@@ -1,0 +1,52 @@
+@import '../source/abstracts/_variables.less';
+@import (reference) '../source/abstracts/_abstracts.less';
+
+@import '../source/components/_dropdown.less';
+
+@import '../source/layout/_default.less';
+@import '../source/layout/_folded-base.less';
+@import '../source/layout/_folded-inline.less';
+@import '../source/layout/_folded-fullscreen.less';
+
+@ajaxsearch__breakpoint-desktop: @minisearch__breakpoint-desktop;
+@ajaxsearch-results__font-size: false;
+@ajaxsearch-dropdown__phone__margin: @2 0 0;
+@ajaxsearch-dropdown__border: @dropdown__border;
+@ajaxsearch-dropdown__border-color: @dropdown__border-color;
+@ajaxsearch-dropdown__border-radius: @dropdown__border-radius;
+@ajaxsearch-dropdown__box-shadow: @dropdown__shadow;
+@ajaxsearch-dropdown-title__font-size: @4;
+@ajaxsearch-dropdown-title__font-weight: 500;
+@ajaxsearch-loader__desktop__right: 34px;
+@ajaxsearch-input__border: false;
+@ajaxsearch-input__border-width: false;
+@ajaxsearch-input__focus__border: false;
+@ajaxsearch-icon__width: 24px;
+@ajaxsearch-icon__height: 24px;
+@ajaxsearch-mask__z-index: 800;
+@ajaxsearch-fullscreen-mask__z-index: @ajaxsearch-mask__z-index;
+@ajaxsearch-folded__offset-y: -10px;
+@ajaxsearch-folded__offset-x: -5px;
+@ajaxsearch-folded__padding-x: 0;
+@ajaxsearch-folded__padding-y: 0;
+@ajaxsearch-folded-icon-search__margin: 0;
+
+& when (@critical) {
+    .page-wrapper > #swissup-ajaxsearch-filter-category,
+    .swissup-ajaxsearch-filter-category-wrapper {
+        display: none;
+    }
+}
+& when not (@critical) {
+    & when (@header__dark) {
+        .block-swissup-ajaxsearch-results {
+            &:extend(.breeze-invert-colors-reset);
+        }
+        @media @media-sm {
+            .block-swissup-ajaxsearch.fullscreen .field.search,
+            .block-swissup-ajaxsearch.fullscreen .close {
+                .breeze-invert-colors-reset();
+            }
+        }
+    }
+}

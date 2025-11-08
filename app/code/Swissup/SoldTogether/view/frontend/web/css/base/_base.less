@@ -1,0 +1,132 @@
+.addtocart-checkboxes {
+
+    .products-grid .item {
+        padding-bottom: 50px;
+    }
+
+    .product-image-wrapper {
+        position: relative;
+
+        .checkbox {
+            position: absolute;
+            .right(0);
+            bottom: 0;
+        }
+
+    }
+}
+
+.soldtogether-block {
+
+    clear: both;
+
+    .product-items-list {
+        padding: 0;
+        margin: 0;
+    }
+
+    .price {
+        &-including-tax,
+        &-excluding-tax {
+            display: inline;
+        }
+    }
+
+    .product-item-name {
+        display: inline;
+        .padding-right(5px);
+    }
+
+    .totalprice {
+        .lib-css(font-weight, @amazon-totalprice__font-weight);
+        .text-align(@amazon-totalprice__text-align);
+        display: inline;
+        margin: 5px 10px;
+        vertical-align: middle;
+
+        h5 {
+            display: inline;
+            margin: 5px;
+        }
+
+    }
+
+    .details-toggler {
+        font-size: .9em;
+    }
+
+    .details-wrapper {
+        display: block !important;
+        visibility: visible;
+
+        &[hidden] {
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+        }
+    }
+}
+
+.soldtogether-swiper {
+    clear: both;
+    max-width: 100%;
+
+    .swiper-container {
+        .swiper-slide {
+            width: auto;
+        }
+
+        &:not(.swiper-container-initialized) {
+            .swiper-slide:nth-child(n+2) {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .product {
+        &-item {
+            text-align: center;
+
+            &-info {
+                margin: 0 auto;
+                width: auto;
+            }
+        }
+
+        &-item-name,
+        &.name a {
+            min-height: 40px;
+            overflow: hidden;
+        }
+    }
+}
+
+/* WORKAROUND for rtl (porto_rtl) -- START */
+.soldtogether-block .amazonstyle-images .first {
+    .padding-left(0);
+    .margin-left(0);
+}
+
+html:not([lang="he-IL"]) .soldtogether-block .amazonstyle-images .first {
+    &::before {
+        display: none;
+    }
+}
+
+html[lang="he-IL"] .soldtogether-block .amazonstyle-images li {
+    float: right;
+
+    &:last-child {
+        padding-left: 0;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+/* WORKAROUND for rtl (porto_rtl) -- END */
+
+@media screen and (max-width: 767px) {
+    .amazon-default .amazonstyle-images .product-image-container { width: 100px !important; }
+}

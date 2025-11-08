@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config>
+    <command class="Swissup\Marketplace\Installer\Command\Config">
+        <data>
+            <item name="design/theme/theme_id" helper="Swissup\Marketplace\Installer\Helper\Theme::getId">
+                <param name="theme">frontend/Swissup/argentobreeze-business</param>
+            </item>
+            <item name="design/head/includes">
+                <item name="remove"><![CDATA[<link  rel="stylesheet" type="text/css"  media="all" href="{{MEDIA_URL}}styles.css" />]]></item>
+            </item>
+            <item name="web/default/show_cms_breadcrumbs">1</item>
+            <item name="ajaxpro/main/enabled">1</item>
+            <item name="ajaxpro/main/cart">1</item>
+            <item name="ajaxpro/main/cartHandle">ajaxpro_popup_minicart</item>
+            <item name="ajaxpro/main/cartType">slide</item>
+            <item name="ajaxpro/main/overrideMinicart">0</item>
+            <item name="ajaxpro/main/product">0</item>
+            <item name="ajaxpro/main/quickView">1</item>
+            <item name="ajaxpro/main/floatingCart">0</item>
+            <item name="ajaxpro/main/modalCloseTimeout">0</item>
+            <item name="ajaxsearch/main/enable">1</item>
+            <item name="ajaxsearch/folded/enable">2</item>
+            <item name="ajaxsearch/design/layout">grid</item>
+            <item name="ajaxsearch/product/limit">12</item>
+            <item name="ajaxsearch/product/viewall">1</item>
+            <item name="ajaxsearch/category/filter">0</item>
+            <item name="ajaxsearch/autocomplete/show_on_focus">1</item>
+            <item name="easycatalogimg/category/column_count">3</item>
+            <item name="easycatalogimg/category/image_width">412</item>
+            <item name="easycatalogimg/category/image_height">232</item>
+            <item name="easycatalogimg/departments/mode">masonry</item>
+            <item name="easycatalogimg/departments/column_count">2</item>
+            <item name="easycatalogimg/departments/image_width">598</item>
+            <item name="easycatalogimg/departments/image_height">336</item>
+            <item name="prolabels/on_sale/product/active">1</item>
+            <item name="prolabels/on_sale/product/position">top-left</item>
+            <item name="prolabels/on_sale/product/text"><![CDATA[Save #discount_percent#%
+<b style="height: 0; width: 0; right: -10px; border-top: 0px solid transparent; border-bottom: 35px solid transparent; border-left: 10px solid #E7C178; position: absolute;"></b>
+]]></item>
+            <item name="prolabels/on_sale/product/custom"><![CDATA[background: #E7C178;
+color: #1E1D54;
+font-size: 16px;
+font-weight: 700;
+height: 35px;
+line-height: 35px;
+margin: 15px 25px 10px 15px;
+padding: 0 9px 0 10px;
+white-space: nowrap;
+]]></item>
+            <item name="prolabels/on_sale/product/round_value">1</item>
+            <item name="prolabels/on_sale/category/active">1</item>
+            <item name="prolabels/on_sale/category/position">top-left</item>
+            <item name="prolabels/on_sale/category/text"><![CDATA[Save #discount_percent#%
+<b style="height: 0; width: 0; right: -10px; border-top: 0px solid transparent; border-bottom: 30px solid transparent; border-left: 10px solid #E7C178; position: absolute;"></b>
+]]></item>
+            <item name="prolabels/on_sale/category/custom"><![CDATA[background: #E7C178;
+color: #1E1D54;
+font-size: 14px;
+font-weight: 700;
+height: 30px;
+line-height: 30px;
+margin: 7px 12px 7px 7px;
+padding: 0 5px 0 8px;
+white-space: nowrap;]]></item>
+            <item name="prolabels/on_sale/category/round_value">1</item>
+            <item name="prolabels/is_new/product/active">1</item>
+            <item name="prolabels/is_new/product/position">top-right</item>
+            <item name="prolabels/is_new/product/text"><![CDATA[NEW
+<b style="height: 0; width: 0; right: -10px; border-top: 0px solid transparent; border-bottom: 35px solid transparent; border-left: 10px solid #C5CBE1; position: absolute;"></b>
+]]></item>
+            <item name="prolabels/is_new/product/custom"><![CDATA[background: #C5CBE1;
+color: #1E1D54;
+font-size: 16px;
+font-weight: 700;
+height: 35px;
+line-height: 35px;
+margin: 15px 25px 10px 15px;
+padding: 0 9px 0 10px;
+white-space: nowrap;
+]]></item>
+            <item name="prolabels/is_new/category/active">1</item>
+            <item name="prolabels/is_new/category/position">top-right</item>
+            <item name="prolabels/is_new/category/text"><![CDATA[NEW
+<b style="height: 0; width: 0; right: -10px; border-top: 0px solid transparent; border-bottom: 30px solid transparent; border-left: 10px solid #C5CBE1; position: absolute;"></b>
+]]></item>
+            <item name="prolabels/is_new/category/custom"><![CDATA[background: #C5CBE1;
+color: #1E1D54;
+font-size: 14px;
+font-weight: 700;
+height: 30px;
+line-height: 30px;
+margin: 7px 12px 7px 7px;
+padding: 0 5px 0 8px;
+white-space: nowrap;
+]]></item>
+            <item name="quantityswitcher/general/enabled">1</item>
+            <item name="quantityswitcher/general/switcher_type">arrows</item>
+            <item name="soldtogether/order/enabled">1</item>
+            <item name="soldtogether/order/random">1</item>
+            <item name="soldtogether/order/layout">amazon-stripe</item>
+            <item name="soldtogether/order/count">4</item>
+            <item name="soldtogether/customer/enabled">1</item>
+            <item name="soldtogether/customer/random">1</item>
+            <item name="soldtogether/customer/count">5</item>
+            <item name="swissup_easytabs/product_tabs/layout">collapsed</item>
+            <item name="swissup_fontawesome/general/enabled">0</item>
+        </data>
+    </command>
+</config>

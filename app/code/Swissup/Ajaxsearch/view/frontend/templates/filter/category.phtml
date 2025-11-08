@@ -1,0 +1,43 @@
+<?php
+/** @var \Swissup\Ajaxsearch\Block\Filter\Category $block */
+$category = $block->getCategory();
+
+/** @var \Swissup\Ajaxsearch\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$level = $category->getLevel();
+if (!$viewModel->isCategoryFilterEnabled()) {
+    return;
+}
+$isCategoryFilterLoadOptionsByGraphql = $viewModel->isCategoryFilterLoadOptionsByGraphql();
+$categoryVarName = $viewModel->getCategoryVarName();
+?>
+<select name="<?= $block->escapeHtmlAttr($categoryVarName) ?>"
+        id="swissup-ajaxsearch-filter-category"
+        data-placeholder="<?= $block->escapeHtmlAttr(__('All')) ?>">
+    <option value="0"><?= $block->escapeHtml(__('All')) ?></option>
+    <?php if ($category->isInRootCategoryList()):?>
+        <?php $parentCategory = $category->getParentCategory();
+        if ($parentCategory->isInRootCategoryList()):
+            $level = $parentCategory->getLevel();
+            $name = $block->getOptionName($parentCategory, $level/*, '&lt;'*/);
+            $optionId = $parentCategory->getId();
+            ?>
+            <option value="<?= $block->escapeHtmlAttr($optionId)?>"><?= $block->escapeHtml($name) ?></option>
+        <?php endif;
+            $name = $block->getOptionName($category, $level/*, '|'*/);
+        ?>
+        <option value="<?= $block->escapeHtmlAttr($category->getId()) ?>"><?= $block->escapeHtml($name) ?></option>
+    <?php endif;
+    if (!$isCategoryFilterLoadOptionsByGraphql):
+        $collection = $block->getCategoryCollection();
+        if ($collection->getSize() > 0):
+            foreach ($collection as $_category):
+                $name = $block->getOptionName($_category, $level);
+                $optionId = $_category->getId();
+                ?>
+                <option value="<?= $block->escapeHtmlAttr($optionId) ?>"><?= $block->escapeHtml($name) ?></option>
+            <?php endforeach; ?>
+        <?php endif ?>
+    <?php endif ?>
+</select>

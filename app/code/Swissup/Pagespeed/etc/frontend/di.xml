@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Result\Layout">
+        <plugin name="result-optimizers" type="Swissup\Pagespeed\Plugin\Controller\Result\AfterRenderResultPlugin" sortOrder="-15"/>
+    </type>
+
+    <!-- Magento Cloud Fix. @see https://github.com/magento/magento2/issues/12100#issuecomment-513056966 -->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Css\CriticalCssFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Preload\PreconnectFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Preload\DnsprefetchFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Image\ResponsiveFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Image\WebPFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Image\SpecifyDimensionFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Image\LazyLoadFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Css\DeferCssFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Preload\CustomPreloadFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Js\DeferJsFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\HtmlFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\Preload\AddLinkPreloadFactory" />-->
+<!--    <type name="Swissup\Pagespeed\Model\Optimizer\ExpireFactory" />-->
+
+    <type name="Swissup\Pagespeed\Model\Optimizer\Registry">
+        <arguments>
+            <argument name="optimizers" xsi:type="array">
+                <item name="criticalcss" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Css\CriticalCssFactory</item>
+                <item name="preconnect" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Preload\PreconnectFactory</item>
+                <item name="dnsprefetch" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Preload\DnsprefetchFactory</item>
+                <item name="image_responsive" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Image\ResponsiveFactory</item>
+                <item name="image_webp" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Image\WebPFactory</item>
+                <item name="image_specifydimension" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Image\SpecifyDimensionFactory</item>
+                <item name="image_lazyload" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Image\LazyLoadFactory</item>
+                <item name="image_lcp" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Image\LcpFactory</item>
+                <item name="defercss" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Css\DeferCssFactory</item>
+                <item name="custom_preload" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Preload\CustomPreloadFactory</item>
+                <item name="deferjs" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Js\DeferJsFactory</item>
+                <item name="add_link_preload" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Preload\AddLinkPreloadFactory</item>
+                <item name="html" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Body\HtmlFactory</item>
+                <item name="expire" xsi:type="object">Swissup\Pagespeed\Model\Optimizer\Body\ExpireFactory</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Pagespeed\Model\Optimizer\PatchManager">
+        <arguments>
+            <argument name="patches" xsi:type="array">
+<!--                <item name="PcreBacktrackLimit" xsi:type="object">Swissup\Pagespeed\Model\Patch\PcreBacktrackLimitFactory</item>-->
+                <item name="sriHashes" xsi:type="object">Swissup\Pagespeed\Model\Patch\SriHashesFactory</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--
+    <type name="Magento\Framework\App\CacheInterface">
+        <plugin name="swissup_html_minify_before_block_html_cache_save" type="Swissup\Pagespeed\Plugin\Framework\App\CachePlugin" />
+    </type>
+    -->
+
+    <type name="Magento\Theme\Block\Html\Header\CriticalCss">
+        <plugin name="swissup_pagespeed_critical_css" type="Swissup\Pagespeed\Plugin\Block\Html\Header\CriticalCssPlugin" />
+    </type>
+
+    <!--
+    <virtualType name="cssMinificationAdapter" type="Magento\Framework\Code\Minifier\Adapter\Css\CSSmin" />
+    <virtualType name="jsMinificationAdapter" type="Magento\Framework\Code\Minifier\Adapter\Js\JShrink" />
+    <virtualType name="cssMinificationProcessor" type="Magento\Framework\View\Asset\PreProcessor\Minify">
+        <arguments>
+            <argument name="adapter" xsi:type="object">cssMinificationAdapter</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="jsMinificationProcessor" type="Magento\Framework\View\Asset\PreProcessor\Minify">
+        <arguments>
+            <argument name="adapter" xsi:type="object">jsMinificationAdapter</argument>
+        </arguments>
+    </virtualType>
+    -->
+
+    <!-- AMP Checking -->
+    <type name="Swissup\Pagespeed\Helper\Config">
+        <plugin name="swissup_pagespeed_amp" type="Swissup\Pagespeed\Plugin\Helper\Config" />
+    </type>
+
+    <!-- Prolabels html inside data-attribute fix -->
+    <type name="Swissup\ProLabels\Helper\AbstractLabel">
+        <plugin name="swissup_pagespeed_prolabels_datalabels_fix" type="Swissup\Pagespeed\Plugin\ProLabels\Helper\AbstractLabelPlugin" />
+    </type>
+
+    <!-- Disable default defer css config if !isAllowedCriticalCssOnCurrentPage -->
+    <type name="Magento\Framework\App\Config">
+        <plugin name="swissup-pagespeed-app-config" type="Swissup\Pagespeed\Plugin\Framework\App\ConfigPlugin" />
+    </type>
+
+    <type name="Swissup\Pagespeed\Model\Bundle\Manager">
+        <plugin name="generate_integrity" type="Swissup\Pagespeed\Plugin\Model\Bundle\ManagerPlugin" />
+    </type>
+
+</config>

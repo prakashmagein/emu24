@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">swissup_gdpr_cookiegroup_listing.swissup_gdpr_cookiegroup_listing_data_source</item>
+            <item name="deps" xsi:type="string">swissup_gdpr_cookiegroup_listing.swissup_gdpr_cookiegroup_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">swissup_gdpr_cookiegroup_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add New Group</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                <item name="url" xsi:type="string">swissup_gdpr/cookiegroup/new</item>
+                <item name="on_click" xsi:type="string"></item>
+                <item name="data_attribute" xsi:type="array">
+                    <item name="mage-init" xsi:type="array">
+                        <item name="Swissup_Gdpr/js/form/button-redirector" xsi:type="array">
+                            <item name="url" xsi:type="url" path="swissup_gdpr/cookiegroup/new"/>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="swissup_gdpr_cookiegroup_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Swissup\Gdpr\Ui\DataProvider\CookieGroupProvider</argument>
+            <argument name="name" xsi:type="string">swissup_gdpr_cookiegroup_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">code</argument>
+            <argument name="requestFieldName" xsi:type="string">code</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">code</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <columns name="swissup_gdpr_cookiegroup_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="childDefaults" xsi:type="array">
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">swissup_gdpr_cookiegroup_listing.swissup_gdpr_cookiegroup_listing.swissup_gdpr_cookiegroup_columns.actions</item>
+                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">edit</item>
+                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <column name="code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Code</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <column name="title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <column name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <column name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">number</item>
+                    <item name="label" xsi:type="string" translate="true">Sort Order</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <column name="required">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Required</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <column name="prechecked">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Pre-Checked</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="fieldClass" xsi:type="string">_clickable</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Swissup\Gdpr\Ui\Component\Listing\Column\CookieGroupActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">code</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

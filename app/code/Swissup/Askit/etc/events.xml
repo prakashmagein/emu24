@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="askit_message_after_save">
+        <observer name="admin_notification" instance="Swissup\Askit\Model\Notification\Admin" />
+    </event>
+    <event name="askit_add_new_answer">
+        <observer name="customer_notification" instance="Swissup\Askit\Model\Notification\Customer" />
+    </event>
+    <event name="swissupamp_prepare_pages_config">
+        <observer name="swissup_askit_amp_prepare_config" instance="Swissup\Askit\Observer\SwissupAmpPrepareConfig" />
+    </event>
+    <event name="swissupamp_is_page_supported">
+        <observer name="swissup_askit_is_page_supported" instance="Swissup\Askit\Observer\SwissupAmpPageSupported" />
+    </event>
+</config>

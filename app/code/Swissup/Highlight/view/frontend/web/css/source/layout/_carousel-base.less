@@ -1,0 +1,165 @@
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical) {
+    .block-highlight.highlight-carousel {
+        // do not pager because it's not ajaxed
+        .pager {
+            display: none;
+        }
+
+        .block-content {
+            padding: 0;
+            display: flex; // content will not overlap the next element in dom structure
+            flex-flow: column;
+        }
+
+        .slide {
+            position: relative;
+            width: 100%;
+            flex-shrink: 0;
+            padding: @highlight-carousel-slide-padding; // spacing for next/prev arrows and possible item shadow
+            box-sizing: border-box;
+        }
+    }
+
+    @media (max-width: 640px) {
+        // disable carousel styles. @see Helper\Data::getSwiperData;
+        .block-highlight.highlight-carousel {
+            .slick-list {
+                scroll-snap-type: none !important;
+            }
+
+            .slide {
+                padding: 0;
+                width: auto !important; // redefine inline style
+            }
+
+            .slick-arrow,
+            .swiper-button-prev,
+            .swiper-button-next {
+                display: none !important;
+            }
+
+            .product-item {
+                width: 33vw !important;
+            }
+
+            .product-items {
+                display: flex;
+                flex-wrap: nowrap;
+                margin: 0 !important;
+                .product-item:nth-child(n) {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .block-highlight.highlight-carousel {
+            .product-item {
+                width: 45vw !important;
+            }
+        }
+    }
+}
+}
+
+& when (@media-common = true) {
+& when (@critical = unsure), (@critical = false) {
+    @media (max-width: 640px) {
+        .block-highlight.highlight-carousel {
+            .slide.loading {
+                &.show-button {
+                    &::after {
+                        content: attr(title);
+                        position: absolute;
+                        top: 40%;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        padding: 5px 12px;
+                        background-color: #ddd;
+                        border-radius: 2px;
+                        box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+                        font-size:  19px;
+                        font-weight: 600;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+
+                    > .products {
+                        opacity: 0;
+                    }
+                }
+
+                .product-item {
+                    &:nth-child(n+2) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // animated placeholder
+    .block-highlight {
+        .slide.loading {
+            // hide all third-party contents
+            * {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            // show only the things we know how to render
+            .product-reviews-summary {
+                display: none;
+            }
+            .products.wrapper,
+            .products-grid,
+            .product-items,
+            .product-item,
+            .product-item-info,
+            .prolabels-wrapper,
+            .product-item-photo,
+            .product-item-details,
+            .product-item-name,
+            .product-item-link,
+            .price-box,
+            .price-box * {
+                opacity: 1;
+                visibility: visible;
+            }
+            .product-item-photo,
+            .product-item-link,
+            .price-box span,
+            .price-box span::before {
+                color: transparent !important;
+                background-color: #eaeaea !important;
+            }
+            .product-item-name {
+                text-overflow: initial !important;
+                -webkit-line-clamp: unset !important;
+            }
+
+            // animate some parts
+            .product-item-link,
+            .price-box > span {
+                background: #f6f7f8;
+            }
+            .product-item-photo {
+                display: block;
+                opacity: 0.7;
+                background-color: #d3d3d3 !important;
+                animation: higlight-placeholder-flicker 1.7s infinite 1s;
+            }
+        }
+    }
+
+    @keyframes higlight-placeholder-flicker {
+        0%   { opacity: 0.7; }
+        50%  { opacity: 1; }
+        100% { opacity: 0.7; }
+    }
+}
+}

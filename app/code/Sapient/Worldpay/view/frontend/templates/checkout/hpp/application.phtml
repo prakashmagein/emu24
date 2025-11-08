@@ -1,0 +1,12 @@
+<?php
+$hppConfiguration = $block->getChildHtml('worldpay.checkout.hpp.configuration');
+$scriptString = <<<script
+//<![CDATA[
+var checkoutWorldPayLibraryObject = new WPCL.Library();
+(function(checkoutWorldPayLibraryObject) {
+    checkoutWorldPayLibraryObject.setup($hppConfiguration);
+})(checkoutWorldPayLibraryObject);
+//]]>
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>

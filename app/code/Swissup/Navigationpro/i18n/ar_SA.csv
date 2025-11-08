@@ -1,0 +1,70 @@
+"Delete Item","حذف العنصر"
+"Are you sure you want to do this?","هل أنت متأكد من أنك تريد أن تفعل هذا؟"
+"Menu Settings","إعدادات القائمة"
+"You deleted the item.","لقد حذفت العنصر."
+"We can't find a item to delete.","لا يمكننا العثور على عنصر لحذفه."
+"Import completed.","تم الانتهاء من الاستيراد."
+"Something went wrong while importing item.","حدث خطأ ما أثناء استيراد الصنف."
+"This item no longer exists.","لم يعد هذا العنصر موجوداً."
+"Something went wrong while saving item.","حدث خطأ ما أثناء حفظ العنصر."
+"You saved item.","لقد قمت بحفظ العنصر."
+"Something went wrong while saving menu.","حدث خطأ ما أثناء حفظ القائمة."
+"You deleted the menu.","لقد حذفت القائمة."
+"We can't find a menu to delete.","لا يمكننا العثور على قائمة لحذفها."
+"A total of %1 record(s) have been deleted.","تم حذف إجمالي %1 سجل (سجلات)."
+"A total of %1 record(s) have been updated.","تم تحديث إجمالي %1 سجل (سجلات)."
+"New Menu","قائمة جديدة"
+"This menu no longer exists.","لم تعد هذه القائمة موجودة."
+"You saved menu.","لقد قمت بحفظ القائمة."
+"Stick to Left","التمسك إلى اليسار"
+"Stick to Right","التمسك إلى اليمين"
+Standard,القياسيه
+Left,اليسار
+Top,أعلى
+Fullscreen,ملء
+Full-Width,"العرض الكامل"
+Boxed,محاصر
+Small,الصغيره
+Medium,المتوسطه
+Large,كبيره
+"Extra Large","كبير إضافي"
+"Item was not registered","لم يتم تسجيل العنصر"
+Horizontal,الافقي
+Vertical,عمودي
+Blank,فارغه
+Dark,الظلام
+"Dark Bar","شريط الظلام"
+"Dark Dropdown","منسدلة داكنة"
+Flat,شقه
+Compact,الاتفاق
+"Menu was not registered","لم يتم تسجيل القائمة"
+"An item cannot be parent for itself","لا يمكن أن يكون العنصر أصليًا لنفسه"
+"This name is already in use.","هذا الاسم قيد الاستخدام بالفعل."
+"Top Menu","القائمة العليا"
+Menu,القائمه
+Navigationpro,"الملاحة برو"
+"Show Active Branch Only","إظهار الفرع النشط فقط"
+"Show Parent Category","إظهار الفئة الأصل"
+"Initially Shown Levels Count","عدد المستويات المعروضة في البداية"
+Orientation,التوجه
+"Dropdown Positioning","تحديد المواقع المنسدلة"
+"Additional CSS Class","فئة CSS إضافية"
+"Wrap into Block Template","التفاف في قالب كتلة"
+"Block CSS Class","كتلة فئة CSS"
+"Select item in the tree on the left sidebar, or create a new one","حدد العنصر في الشجرة على الشريط الجانبي الأيسر، أو أنشئ عنصرًا جديدًا"
+"Sync Name and URL with Category Data","مزامنة الاسم وعنوان URL مع بيانات الفئة"
+"CSS Class","فئة CSS"
+"Use Menu Settings","استخدام إعدادات القائمة"
+"New Item","عنصر جديد"
+"Import Item","استيراد الصنف"
+"Columns Direction","اتجاه الأعمدة"
+"Nested Levels per Dropdown","مستويات متداخلة لكل منسدلة"
+"Add New Menu","إضافة قائمة جديدة"
+"Are you sure you want to delete selected menu's?","هل أنت متأكد من أنك تريد حذف القائمة المحددة؟"
+"Replace Top Menu at","استبدال القائمة العليا في"
+"Leave empty if you don't want to replace Top Menu","اترك فارغًا إذا كنت لا تريد استبدال القائمة العلوية"
+Direction,الاتجاه
+"Maximal Depth","أقصى عمق"
+"Dropdown Position","الموضع المنسدل"
+"Please note that dropdown position will be additionally adjusted inside navbar constraint when dropdown will be rendered at frontend","يرجى ملاحظة أنه سيتم تعديل الموضع المنسدل بالإضافة إلى ذلك داخل قيد navbar عندما يتم تقديم القائمة المنسدلة في الواجهة الأمامية"
+"Dropdown Settings","الإعدادات المنسدلة"

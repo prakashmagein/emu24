@@ -1,0 +1,22 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="askit_richsnippet_integration"/>
+    <body>
+        <!-- add questions tab to standard m2 tabs  -->
+        <!-- easytabs block name  product.info.tabs -->
+        <referenceBlock name="product.info.details">
+            <!-- <block class="Swissup\Askit\Block\Question\Widget" name="askit_listing.tab" group="detailed_info" ttl="3600"> -->
+            <block class="Swissup\Askit\Block\Question\Widget" name="askit_listing.tab" group="detailed_info">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">99</argument>
+                    <argument translate="true" name="title" xsi:type="string">Questions</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <!-- <referenceContainer name="content">
+            <container name="swissup.askit.product.info.additional">
+                <block class="Swissup\Askit\Block\Question\Listing" name="askit_listing" template="Swissup_Askit::question/listing.phtml" />
+                <block class="Swissup\Askit\Block\Question\Form" name="askit_form" template="Swissup_Askit::question/form.phtml" />
+            </container>
+        </referenceContainer> -->
+    </body>
+</page>

@@ -1,0 +1,38 @@
+.breeze-breadcrumbs-container {
+    & when (@critical) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: @breadcrumbs__gap;
+
+        @media @media-md-down {
+            & when not (@breadcrumbs__wrap = true) {
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                overflow: auto;
+            }
+        }
+    }
+}
+
+.breeze-breadcrumbs-item {
+    & when (@critical) {
+        display: flex;
+        align-items: center;
+        gap: @breadcrumbs-item__gap;
+        &::after {
+            content: @breadcrumbs-item-separator__content;
+            .lib-css(width, @breadcrumbs-item-separator__width);
+            .lib-css(height, @breadcrumbs-item-separator__height);
+        }
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    & when not (@critical) {
+        &::after {
+            .breeze-icon(@breadcrumbs-item-separator__icon, @breadcrumbs-item-separator__width, @breadcrumbs-item-separator__height);
+            .modrtl(transform, false, scaleX(-1));
+        }
+    }
+}

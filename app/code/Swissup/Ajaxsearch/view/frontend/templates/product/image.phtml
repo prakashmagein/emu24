@@ -1,0 +1,25 @@
+<?php /** @var \Magento\Catalog\Block\Product\Image $block */ ?>
+<?php
+    $customAttributes = $block->getCustomAttributes();
+    $attrHtml = '';
+if (is_array($customAttributes)) {
+    foreach ($customAttributes as $name => $value) {
+        $attrHtml .= "{$escaper->escapeHtmlAttr($name)}=\"{$escaper->escapeHtmlAttr($value)}\" ";
+    }
+} else {
+    $attrHtml = (string) $block->escapeHtml($customAttributes);
+}
+?>
+<span class="product-image-container"
+      style="width:<?= $block->escapeHtmlAttr($block->getWidth())?>px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: <?= ($block->getRatio() * 100); ?>%;">
+        <img class="product-image-photo"
+             <?= /* @noEscape */ $attrHtml ?>
+             src="<?= $block->escapeUrl($block->getImageUrl()); ?>"
+             loading="lazy"
+             width="<?= $block->escapeHtmlAttr($block->getResizedImageWidth()); ?>"
+             height="<?= $block->escapeHtmlAttr($block->getResizedImageHeight()); ?>"
+             alt="<?= $block->escapeHtmlAttr($block->stripTags($block->getLabel(), null, true)); ?>"/>
+    </span>
+</span>

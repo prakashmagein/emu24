@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+$header-fixed: false !default;
+$header-background: #fff !default;
+$header-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !default;
+$header-padding-vertical: 15px !default;
+
+$logo-width: 160px !default;
+$logo-height: 50px !default;
+$logo-tablet-width: 220px !default;
+$logo-tablet-height: 80px !default;
+
+@if ($header-fixed == true) {
+    .page-wrapper {
+        padding-top: $header-padding-vertical * 2 + $logo-height;
+        @include media(">=medium") {
+            padding-top: $header-padding-vertical * 2 + $logo-tablet-height;
+        }
+    }
+}
+
+header.page-header {
+    background: $header-background;
+    box-shadow: $header-shadow;
+
+    @if ($header-fixed == true) {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+
+    .content {
+        @extend .container;
+        padding-top: $header-padding-vertical;
+        padding-bottom: $header-padding-vertical;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        position: relative; // used for layout="fill" in <amp-image> element
+
+        width: $logo-width;
+        height: $logo-height;
+
+        @include media(">=medium") {
+            width: $logo-tablet-width;
+            height: $logo-tablet-height;
+        }
+
+        img {
+            object-fit: scale-down;
+        }
+    }
+
+    .action.nav-toggle {
+        display: none; // hide "Toggle Nav" from logo.phtml
+    }
+}

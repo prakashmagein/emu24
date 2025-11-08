@@ -1,0 +1,63 @@
+<!--@subject New testimonial was added on {{var store.getFrontendName()}} @-->
+<!--@vars {
+"var admin_subject":"Admin email subject",
+"var user_name":"User name",
+"var user_email":"User email",
+"var store_view":"Store view",
+"var message":"User message",
+"var company":"User company",
+"var website":"User website",
+"var facebook":"User facebook",
+"var twitter":"User twitter",
+"var rating":"User rating",
+"var image":"User profile image",
+"var status":"Testimonial status"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{var admin_subject}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>{{trans "Testimonial data:"}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <table class="message-info">
+                <tr>
+                    <td>
+                        <p><strong>{{trans "User Name:"}}</strong>&nbsp;{{var user_name}}</p>
+                        <p><strong>{{trans "User Email:"}}</strong>&nbsp;{{var user_email}}</p>
+                        <p><strong>{{trans "Store View:"}}</strong>&nbsp;{{var store_view}}</p>
+                        <p><strong>{{trans "Message:"}}</strong>&nbsp;{{var message}}</p>
+                        {{depend company}}
+                        <p><strong>{{trans "Company:"}}</strong>&nbsp;{{var company}}</p>
+                        {{/depend}}
+                        {{depend website}}
+                        <p><strong>{{trans "Website:"}}</strong>&nbsp;{{var website}}</p>
+                        {{/depend}}
+                        {{depend facebook}}
+                        <p><strong>{{trans "Facebook:"}}</strong>&nbsp;{{var facebook}}</p>
+                        {{/depend}}
+                        {{depend twitter}}
+                        <p><strong>{{trans "Twitter:"}}</strong>&nbsp;{{var twitter}}</p>
+                        {{/depend}}
+                        {{depend rating}}
+                        <p><strong>{{trans "Rating:"}}</strong>&nbsp;{{var rating}}</p>
+                        {{/depend}}
+                        <p><strong>{{trans "Has image:"}}</strong>&nbsp;{{var image}}</p>
+                        <p><strong>{{trans "Status:"}}</strong>&nbsp;{{var status}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}
