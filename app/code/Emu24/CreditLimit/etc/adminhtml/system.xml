@@ -24,6 +24,10 @@
                 <field id="password" translate="label" type="password" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Password</label>
                 </field>
+                <field id="countries" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Countries (comma separated)</label>
+                    <comment>Defaults to GB when empty.</comment>
+                </field>
             </group>
         </section>
     </system>

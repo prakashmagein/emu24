@@ -7,6 +7,8 @@ use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Emu24\CreditLimit\Model\CreditSafe;
+use Emu24\CreditLimit\Model\CreditReportFactory;
+use Emu24\CreditLimit\Model\CreditReportRepository;
 
 class Check extends Action implements HttpPostActionInterface
 {
@@ -15,17 +17,23 @@ class Check extends Action implements HttpPostActionInterface
     private $jsonFactory;
     private $customerRepository;
     private $creditSafe;
+    private $creditReportFactory;
+    private $creditReportRepository;
 
     public function __construct(
         Context $context,
         JsonFactory $jsonFactory,
         CustomerRepositoryInterface $customerRepository,
-        CreditSafe $creditSafe
+        CreditSafe $creditSafe,
+        CreditReportFactory $creditReportFactory,
+        CreditReportRepository $creditReportRepository
     ) {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
         $this->customerRepository = $customerRepository;
         $this->creditSafe = $creditSafe;
+        $this->creditReportFactory = $creditReportFactory;
+        $this->creditReportRepository = $creditReportRepository;
     }
 
     public function execute()
@@ -49,7 +57,9 @@ class Check extends Action implements HttpPostActionInterface
                 throw new \Exception(__('Registration number is empty'));
             }
 
-            $limit = $this->creditSafe->fetchCreditLimit($regNo);
+            $report = $this->creditSafe->fetchReport($regNo);
+            $creditData = $report['credit']['creditLimit'] ?? [];
+            $limit = $creditData['amount'] ?? null;
             if ($limit === null) {
                 throw new \Exception(__('Credit limit not found'));
             }
@@ -57,10 +67,25 @@ class Check extends Action implements HttpPostActionInterface
             $customer->setCustomAttribute('credit_limit', $limit);
             $this->customerRepository->save($customer);
 
+            $reportModel = $this->creditReportFactory->create();
+            $reportModel->setData([
+                'customer_id'             => $customer->getId(),
+                'regno'                   => $regNo,
+                'company_id'              => $report['company']['companyId'] ?? null,
+                'company_name'            => $report['company']['businessName'] ?? null,
+                'credit_limit_amount'     => $limit,
+                'credit_limit_currency'   => $creditData['currency'] ?? null,
+                'credit_score_value'      => $report['credit']['creditScore']['value'] ?? null,
+                'credit_score_description'=> $report['credit']['creditScore']['description'] ?? null,
+                'payload'                 => json_encode($report),
+            ]);
+            $this->creditReportRepository->save($reportModel);
+
             return $result->setData([
                 'success' => true,
                 'credit_limit' => $limit,
-                'message' => __('Credit limit saved')
+                'message' => __('Credit report saved'),
+                'report'  => $report,
             ]);
         } catch (\Exception $e) {
             return $result->setData(['success' => false, 'message' => $e->getMessage()]);

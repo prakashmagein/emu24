@@ -1,5 +1,5 @@
 <?php /** @var \Emu24\CreditLimit\Block\Adminhtml\Customer\Edit\Tab\LimitCheck $block */ ?>
-<div id="limit-check" class="admin-limit-check-tab">
+<div id="limit-check" class="admin-limit-check-tab" data-last-checked="<?= $block->escapeHtml($block->getLastCheckedAt() ?? '') ?>">
     <div class="limit-check-header">
         <img src="https://www.creditsafe.com/etc.clientlibs/creditsafe/clientlibs/clientlib-base/resources/images/cslogo.svg" alt="Creditsafe" class="limit-check-logo" />
     </div>
@@ -21,19 +21,190 @@
         </button>
     </div>
     <div class="messages" id="limit-check-messages"></div>
+    <div id="limit-check-details"></div>
 </div>
 <style>
-    #limit-check { max-width: 400px; }
+    #limit-check { max-width: 900px; }
     #limit-check .limit-check-header { text-align: center; margin-bottom: 20px; }
     #limit-check .limit-check-logo { max-height: 40px; }
     #limit-check .admin__field { margin-bottom: 15px; }
     #limit-check-messages { margin-top: 20px; }
+    #limit-check-details { margin-top: 25px; }
+    .limit-section { margin-bottom: 20px; border: 1px solid #d6d6d6; border-radius: 4px; padding: 15px; }
+    .limit-section h4 { margin-top: 0; margin-bottom: 10px; font-size: 1.2rem; }
+    .limit-detail-row { display: flex; justify-content: space-between; padding: 4px 0; }
+    .limit-detail-label { font-weight: 600; color: #303030; }
+    .limit-detail-value { text-align: right; word-break: break-word; max-width: 70%; }
+    .limit-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .limit-table th, .limit-table td { border: 1px solid #d6d6d6; padding: 6px; text-align: left; }
+    .limit-empty { color: #6f6f6f; }
 </style>
 <script>
 require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBuilder, alert) {
     urlBuilder.setBaseUrl(BASE_URL);
+    var existingReport = <?= $block->getReportJson(); ?>;
+    var detailsContainer = $('#limit-check-details');
+    var messagesContainer = $('#limit-check-messages');
+
+    function addMessage(type, text) {
+        $('<div/>', {
+            'class': 'message message-' + type + ' ' + type,
+            text: text
+        }).appendTo(messagesContainer);
+    }
+
+    function clearMessages() {
+        messagesContainer.empty();
+    }
+
+    function addRow(list, label, value) {
+        if (value === null || typeof value === 'undefined' || value === '') {
+            return;
+        }
+        var row = $('<div/>', { 'class': 'limit-detail-row' });
+        $('<span/>', { 'class': 'limit-detail-label', text: label }).appendTo(row);
+        $('<span/>', { 'class': 'limit-detail-value', text: value }).appendTo(row);
+        list.append(row);
+    }
+
+    function addTable(container, headers, rows) {
+        if (!rows || !rows.length) {
+            return;
+        }
+        var table = $('<table/>', { 'class': 'limit-table' });
+        var thead = $('<thead/>').appendTo(table);
+        var headRow = $('<tr/>').appendTo(thead);
+        headers.forEach(function (header) {
+            $('<th/>', { text: header }).appendTo(headRow);
+        });
+        var tbody = $('<tbody/>').appendTo(table);
+        rows.forEach(function (row) {
+            var tr = $('<tr/>').appendTo(tbody);
+            row.forEach(function (cell) {
+                $('<td/>', { text: cell || '' }).appendTo(tr);
+            });
+        });
+        container.append(table);
+    }
+
+    function formatCurrency(amount, currency) {
+        if (amount === null || typeof amount === 'undefined' || amount === '') {
+            return '';
+        }
+        var formatted = amount;
+        if (!isNaN(parseFloat(amount))) {
+            formatted = parseFloat(amount).toLocaleString(undefined, { maximumFractionDigits: 2 });
+        }
+        if (currency) {
+            formatted += ' ' + currency;
+        }
+        return formatted;
+    }
+
+    function renderReport(report) {
+        detailsContainer.empty();
+        var lastChecked = $('#limit-check').data('last-checked');
+
+        if (!report) {
+            $('<div/>', { 'class': 'limit-empty', text: 'No credit report has been saved yet.' }).appendTo(detailsContainer);
+            return;
+        }
+
+        if (lastChecked) {
+            $('<div/>', { 'class': 'limit-empty', text: 'Last checked on ' + lastChecked }).appendTo(detailsContainer);
+        }
+
+        var credit = report.credit || {};
+        var creditLimit = credit.creditLimit || {};
+        var creditScore = credit.creditScore || {};
+
+        var creditSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Credit Summary' }).appendTo(creditSection);
+        var creditList = $('<div/>').appendTo(creditSection);
+        addRow(creditList, 'Credit Limit', formatCurrency(creditLimit.amount, creditLimit.currency));
+        addRow(creditList, 'Credit Score', creditScore.value);
+        addRow(creditList, 'Credit Score Description', creditScore.description);
+
+        var company = report.company || {};
+        var companySection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Company' }).appendTo(companySection);
+        var companyList = $('<div/>').appendTo(companySection);
+        addRow(companyList, 'Business Name', company.businessName);
+        addRow(companyList, 'Registered Company Name', company.registeredCompanyName);
+        addRow(companyList, 'Registration Number', company.companyRegistrationNumber);
+        addRow(companyList, 'Country', company.country);
+        addRow(companyList, 'Status', company.status);
+        addRow(companyList, 'Legal Form', company.legalForm);
+        addRow(companyList, 'Principal Activity', company.principalActivity);
+        addRow(companyList, 'Activity Code', company.activityCode);
+
+        var contact = report.contact || {};
+        var contactSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Contact' }).appendTo(contactSection);
+        var contactList = $('<div/>').appendTo(contactSection);
+        addRow(contactList, 'Registered Address', (contact.registeredAddress && contact.registeredAddress.full) || '');
+        addRow(contactList, 'Telephone', contact.telephone);
+        if (contact.websites && contact.websites.length) {
+            addRow(contactList, 'Websites', contact.websites.join(', '));
+        }
+
+        var financials = report.financials || { latestTurnover: {}, latestShareholdersEquity: {} };
+        financials.latestTurnover = financials.latestTurnover || {};
+        financials.latestShareholdersEquity = financials.latestShareholdersEquity || {};
+        var financialSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Financials' }).appendTo(financialSection);
+        var financialList = $('<div/>').appendTo(financialSection);
+        addRow(financialList, 'Latest Turnover', formatCurrency(financials.latestTurnover.value, financials.latestTurnover.currency));
+        addRow(financialList, 'Shareholders Equity', formatCurrency(financials.latestShareholdersEquity.value, financials.latestShareholdersEquity.currency));
+        if (financials.employeesLatest && (financials.employeesLatest.numberOfEmployees || financials.employeesLatest.year)) {
+            addRow(financialList, 'Employees', financials.employeesLatest.numberOfEmployees + ' (' + (financials.employeesLatest.year || 'latest') + ')');
+        }
+
+        var shareholders = report.shareholders || [];
+        var shareholdersSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Shareholders' }).appendTo(shareholdersSection);
+        addTable(shareholdersSection, ['Name', 'Type', '% Shares', 'Total Shares', 'Total Value', 'Currency'],
+            shareholders.map(function (holder) {
+                return [holder.name, holder.type, holder.percentSharesHeld, holder.totalNumberOfShares, holder.totalValueOfShares, holder.currency];
+            })
+        );
+
+        var directors = report.directors || [];
+        var directorsSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Directors (latest 5)' }).appendTo(directorsSection);
+        addTable(directorsSection, ['Name', 'Position', 'Date Appointed', 'Nationality', 'Occupation'],
+            directors.map(function (director) {
+                return [director.name, director.position, director.dateAppointed, director.nationality, director.occupation];
+            })
+        );
+
+        var group = report.group || {};
+        var groupSection = $('<div/>', { 'class': 'limit-section' }).appendTo(detailsContainer);
+        $('<h4/>', { text: 'Group Structure' }).appendTo(groupSection);
+        var groupList = $('<div/>').appendTo(groupSection);
+        addRow(groupList, 'Immediate Parent', group.immediateParent ? group.immediateParent.name || group.immediateParent.companyName : '');
+        addRow(groupList, 'Ultimate Parent', group.ultimateParent ? group.ultimateParent.name || group.ultimateParent.companyName : '');
+    }
+
+    function handleSuccess(resp) {
+        clearMessages();
+        if (resp.success) {
+            if (resp.report) {
+                $('#credit_limit').val(resp.report.credit.creditLimit.amount || '');
+                renderReport(resp.report);
+            }
+            $('#limit-check').data('last-checked', new Date().toLocaleString());
+            addMessage('success', resp.message || 'Saved');
+        } else {
+            addMessage('error', resp.message || 'Unable to fetch credit report');
+        }
+    }
+
+    renderReport(existingReport);
+
     $('#check-credit-limit').on('click', function () {
         var customerId = $('input[name="entity_id"]').val();
+        clearMessages();
         $.ajax({
             url: urlBuilder.build('creditlimit/credit/check'),
             type: 'POST',
@@ -44,22 +215,7 @@ require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBui
                 form_key: window.FORM_KEY
             },
             showLoader: true,
-            success: function (resp) {
-                var container = $('#limit-check-messages');
-                container.empty();
-                if (resp.success) {
-                    $('#credit_limit').val(resp.credit_limit);
-                    $('<div/>', {
-                        'class': 'message message-success success',
-                        text: resp.message
-                    }).appendTo(container);
-                } else {
-                    $('<div/>', {
-                        'class': 'message message-error error',
-                        text: resp.message
-                    }).appendTo(container);
-                }
-            },
+            success: handleSuccess,
             error: function () {
                 alert({content: 'Request failed'});
             }
@@ -67,4 +223,3 @@ require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBui
     });
 });
 </script>
-
