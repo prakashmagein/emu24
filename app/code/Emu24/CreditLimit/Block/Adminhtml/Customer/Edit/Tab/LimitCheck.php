@@ -2,7 +2,10 @@
 namespace Emu24\CreditLimit\Block\Adminhtml\Customer\Edit\Tab;
 
 use Magento\Backend\Block\Template;
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\Registry;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Ui\Component\Layout\Tabs\TabInterface;
 use Emu24\CreditLimit\Model\CreditReport;
 use Emu24\CreditLimit\Model\CreditReportRepository;
@@ -22,6 +25,16 @@ class LimitCheck extends Template implements TabInterface
     private $registry;
 
     /**
+     * @var CustomerRepositoryInterface
+     */
+    private $customerRepository;
+
+    /**
+     * @var CustomerInterface|null
+     */
+    private $customer;
+
+    /**
      * @var CreditReportRepository
      */
     private $creditReportRepository;
@@ -29,10 +42,12 @@ class LimitCheck extends Template implements TabInterface
     public function __construct(
         Template\Context $context,
         Registry $registry,
+        CustomerRepositoryInterface $customerRepository,
         CreditReportRepository $creditReportRepository,
         array $data = []
     ) {
         $this->registry = $registry;
+        $this->customerRepository = $customerRepository;
         $this->creditReportRepository = $creditReportRepository;
         parent::__construct($context, $data);
     }
@@ -93,9 +108,28 @@ class LimitCheck extends Template implements TabInterface
         return false;
     }
 
-    private function getCustomer()
+    private function getCustomer(): ?CustomerInterface
     {
-        return $this->registry->registry('current_customer');
+        if ($this->customer !== null) {
+            return $this->customer;
+        }
+
+        $customer = $this->registry->registry('current_customer');
+
+        if (!$customer || !$customer->getId()) {
+            $customerId = (int)$this->getRequest()->getParam('id');
+            if ($customerId) {
+                try {
+                    $customer = $this->customerRepository->getById($customerId);
+                } catch (NoSuchEntityException $e) {
+                    $customer = null;
+                }
+            }
+        }
+
+        $this->customer = $customer instanceof CustomerInterface ? $customer : null;
+
+        return $this->customer;
     }
 
     public function getCustomerId(): int
