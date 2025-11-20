@@ -4,6 +4,7 @@ namespace Emu24\CreditLimit\Block\Adminhtml\Customer\Edit\Tab;
 use Magento\Backend\Block\Template;
 use Magento\Framework\Registry;
 use Magento\Ui\Component\Layout\Tabs\TabInterface;
+use Emu24\CreditLimit\Model\CreditReport;
 use Emu24\CreditLimit\Model\CreditReportRepository;
 
 class LimitCheck extends Template implements TabInterface
@@ -143,11 +144,16 @@ class LimitCheck extends Template implements TabInterface
     private function getLatestReport(): ?array
     {
         $creditReport = $this->getLatestReportModel();
-        if ($creditReport && $creditReport->getPayload()) {
-            $data = json_decode($creditReport->getPayload(), true);
-            if (json_last_error() === JSON_ERROR_NONE) {
-                return $data;
+        if ($creditReport) {
+            $payload = $creditReport->getPayload();
+            if ($payload) {
+                $data = json_decode($payload, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    return $data;
+                }
             }
+
+            return $this->buildReportFromModel($creditReport);
         }
 
         return null;
@@ -161,5 +167,25 @@ class LimitCheck extends Template implements TabInterface
         }
 
         return $this->creditReportRepository->getLatestByCustomerId((int)$customer->getId());
+    }
+
+    private function buildReportFromModel(CreditReport $creditReport): array
+    {
+        return [
+            'credit' => [
+                'creditLimit' => [
+                    'amount' => $creditReport->getData('credit_limit_amount'),
+                    'currency' => $creditReport->getData('credit_limit_currency'),
+                ],
+                'creditScore' => [
+                    'value' => $creditReport->getData('credit_score_value'),
+                    'description' => $creditReport->getData('credit_score_description'),
+                ],
+            ],
+            'company' => [
+                'businessName' => $creditReport->getData('company_name'),
+                'companyRegistrationNumber' => $creditReport->getData('regno'),
+            ],
+        ];
     }
 }
