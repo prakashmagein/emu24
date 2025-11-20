@@ -5,6 +5,7 @@
             <general>
                 <enable>1</enable>
                 <mode>sandbox</mode>
+                <countries>GB</countries>
             </general>
         </creditlimit>
     </default>
