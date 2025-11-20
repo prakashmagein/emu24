@@ -130,7 +130,7 @@ class LimitCheck extends Template implements TabInterface
 
     public function getCheckUrl(): string
     {
-        return $this->getUrl('creditlimit/credit/check');
+        return $this->getUrl('creditlimit/credit/check', ['_current' => true]);
     }
 
     private function getLatestReport(): ?array
