@@ -6,6 +6,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Emu24\CreditLimit\Model\CreditSafe;
 use Emu24\CreditLimit\Model\CreditReportFactory;
 use Emu24\CreditLimit\Model\CreditReportRepository;
@@ -19,6 +20,7 @@ class Check extends Action implements HttpPostActionInterface
     private $creditSafe;
     private $creditReportFactory;
     private $creditReportRepository;
+    private $jsonSerializer;
 
     public function __construct(
         Context $context,
@@ -26,7 +28,8 @@ class Check extends Action implements HttpPostActionInterface
         CustomerRepositoryInterface $customerRepository,
         CreditSafe $creditSafe,
         CreditReportFactory $creditReportFactory,
-        CreditReportRepository $creditReportRepository
+        CreditReportRepository $creditReportRepository,
+        JsonSerializer $jsonSerializer
     ) {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
@@ -34,6 +37,7 @@ class Check extends Action implements HttpPostActionInterface
         $this->creditSafe = $creditSafe;
         $this->creditReportFactory = $creditReportFactory;
         $this->creditReportRepository = $creditReportRepository;
+        $this->jsonSerializer = $jsonSerializer;
     }
 
     public function execute()
@@ -49,7 +53,10 @@ class Check extends Action implements HttpPostActionInterface
             $customerId = (int)$this->getRequest()->getParam('customer_id');
         }
         if (!$customerId) {
-            return $result->setData(['success' => false, 'message' => __('Customer ID missing')]);
+            return $result->setJsonData($this->jsonSerializer->serialize([
+                'success' => false,
+                'message' => __('Customer ID missing'),
+            ]));
         }
         try {
             $customer = $this->customerRepository->getById($customerId);
@@ -75,28 +82,35 @@ class Check extends Action implements HttpPostActionInterface
             $customer->setCustomAttribute('credit_limit', $limit);
             $this->customerRepository->save($customer);
 
+            $payload = $this->jsonSerializer->serialize($report);
+
             $reportModel = $this->creditReportFactory->create();
             $reportModel->setData([
-                'customer_id'             => $customer->getId(),
-                'regno'                   => $regNo,
-                'company_id'              => $report['company']['companyId'] ?? null,
-                'company_name'            => $report['company']['businessName'] ?? null,
-                'credit_limit_amount'     => $limit,
-                'credit_limit_currency'   => $creditData['currency'] ?? null,
-                'credit_score_value'      => $report['credit']['creditScore']['value'] ?? null,
-                'credit_score_description'=> $report['credit']['creditScore']['description'] ?? null,
-                'payload'                 => json_encode($report),
+                'customer_id'              => $customer->getId(),
+                'regno'                    => $regNo,
+                'company_id'               => $report['company']['companyId'] ?? null,
+                'company_name'             => $report['company']['businessName'] ?? null,
+                'credit_limit_amount'      => $limit,
+                'credit_limit_currency'    => $creditData['currency'] ?? null,
+                'credit_score_value'       => $report['credit']['creditScore']['value'] ?? null,
+                'credit_score_description' => $report['credit']['creditScore']['description'] ?? null,
+                'payload'                  => $payload,
             ]);
             $this->creditReportRepository->save($reportModel);
 
-            return $result->setData([
+            $response = [
                 'success' => true,
                 'credit_limit' => $limit,
                 'message' => __('Credit report saved'),
                 'report'  => $report,
-            ]);
+            ];
+
+            return $result->setJsonData($this->jsonSerializer->serialize($response));
         } catch (\Exception $e) {
-            return $result->setData(['success' => false, 'message' => $e->getMessage()]);
+            return $result->setJsonData($this->jsonSerializer->serialize([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]));
         }
     }
 }
