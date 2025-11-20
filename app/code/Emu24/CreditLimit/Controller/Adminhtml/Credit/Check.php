@@ -38,6 +38,11 @@ class Check extends Action implements HttpPostActionInterface
 
     public function execute()
     {
+        // Ensure no previous output corrupts the JSON payload
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
+
         $result = $this->jsonFactory->create();
         $customerId = (int)$this->getRequest()->getParam('id');
         if (!$customerId) {
