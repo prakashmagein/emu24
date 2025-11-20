@@ -18,12 +18,12 @@
         "ext-mcrypt": "*",
         "ext-simplexml": "*",
         "lib-libxml": "*",
-        "composer/composer": "1.0.0-alpha9",
+        "composer/composer": "2.2.24",
         "magento/magento-composer-installer": "*",
         "magento/zendframework1": "*",
-        "monolog/monolog": "1.11.0",
+        "monolog/monolog": "1.12.0",
         "oyejorge/less.php": "1.7.0.3",
-        "phpseclib/phpseclib": "~0.3",
+        "phpseclib/phpseclib": "~2.0",
         "symfony/console": "~2.3",
         "tubalmartin/cssmin": "2.4.8-p6",
         "laminas/laminas-code": "2.4.0",
@@ -55,7 +55,7 @@
         "phpmd/phpmd": "@stable",
         "phpunit/phpunit": "4.1.0",
         "sjparkinson/static-review": "~4.1",
-        "squizlabs/php_codesniffer": "1.5.3"
+        "squizlabs/php_codesniffer": "2.8.1"
     },
     "replace": {
         "magento/module-admin-notification": "*",
