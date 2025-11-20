@@ -128,6 +128,11 @@ class LimitCheck extends Template implements TabInterface
         return $creditReport ? $creditReport->getData('created_at') : null;
     }
 
+    public function getCheckUrl(): string
+    {
+        return $this->getUrl('creditlimit/credit/check');
+    }
+
     private function getLatestReport(): ?array
     {
         $creditReport = $this->getLatestReportModel();
