@@ -22,6 +22,13 @@ class CreditReportRepository
 
     public function save(CreditReport $report): void
     {
+        if (!$report->getId() && $report->getCustomerId()) {
+            $existingReport = $this->getLatestByCustomerId((int)$report->getCustomerId());
+            if ($existingReport && $existingReport->getId()) {
+                $report->setId((int)$existingReport->getId());
+            }
+        }
+
         $this->resource->save($report);
     }
 

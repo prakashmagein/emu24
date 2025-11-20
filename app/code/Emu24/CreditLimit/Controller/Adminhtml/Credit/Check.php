@@ -10,6 +10,7 @@ use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Emu24\CreditLimit\Model\CreditSafe;
 use Emu24\CreditLimit\Model\CreditReportFactory;
 use Emu24\CreditLimit\Model\CreditReportRepository;
+use Magento\Framework\Stdlib\DateTime\DateTime;
 
 class Check extends Action implements HttpPostActionInterface
 {
@@ -21,6 +22,7 @@ class Check extends Action implements HttpPostActionInterface
     private $creditReportFactory;
     private $creditReportRepository;
     private $jsonSerializer;
+    private $dateTime;
 
     public function __construct(
         Context $context,
@@ -29,7 +31,8 @@ class Check extends Action implements HttpPostActionInterface
         CreditSafe $creditSafe,
         CreditReportFactory $creditReportFactory,
         CreditReportRepository $creditReportRepository,
-        JsonSerializer $jsonSerializer
+        JsonSerializer $jsonSerializer,
+        DateTime $dateTime
     ) {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
@@ -38,6 +41,7 @@ class Check extends Action implements HttpPostActionInterface
         $this->creditReportFactory = $creditReportFactory;
         $this->creditReportRepository = $creditReportRepository;
         $this->jsonSerializer = $jsonSerializer;
+        $this->dateTime = $dateTime;
     }
 
     public function execute()
@@ -84,7 +88,8 @@ class Check extends Action implements HttpPostActionInterface
 
             $payload = $this->jsonSerializer->serialize($report);
 
-            $reportModel = $this->creditReportFactory->create();
+            $reportModel = $this->creditReportRepository->getLatestByCustomerId((int)$customer->getId())
+                ?: $this->creditReportFactory->create();
             $reportModel->setData([
                 'customer_id'              => $customer->getId(),
                 'regno'                    => $regNo,
@@ -95,6 +100,7 @@ class Check extends Action implements HttpPostActionInterface
                 'credit_score_value'       => $report['credit']['creditScore']['value'] ?? null,
                 'credit_score_description' => $report['credit']['creditScore']['description'] ?? null,
                 'payload'                  => $payload,
+                'created_at'               => $this->dateTime->gmtDate(),
             ]);
             $this->creditReportRepository->save($reportModel);
 
