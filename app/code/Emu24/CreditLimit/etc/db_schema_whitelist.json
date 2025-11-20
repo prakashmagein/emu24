@@ -1,0 +1,24 @@
+{
+    "emu24_creditlimit_report": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "regno": true,
+            "company_id": true,
+            "company_name": true,
+            "credit_limit_amount": true,
+            "credit_limit_currency": true,
+            "credit_score_value": true,
+            "credit_score_description": true,
+            "payload": true,
+            "created_at": true
+        },
+        "index": {
+            "EMU24_CREDITLIMIT_REPORT_CUSTOMER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "EMU24_CREDITLIMIT_REPORT_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    }
+}
