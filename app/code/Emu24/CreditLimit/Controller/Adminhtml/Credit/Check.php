@@ -41,6 +41,9 @@ class Check extends Action implements HttpPostActionInterface
         $result = $this->jsonFactory->create();
         $customerId = (int)$this->getRequest()->getParam('id');
         if (!$customerId) {
+            $customerId = (int)$this->getRequest()->getParam('customer_id');
+        }
+        if (!$customerId) {
             return $result->setData(['success' => false, 'message' => __('Customer ID missing')]);
         }
         try {
