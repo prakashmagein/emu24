@@ -46,21 +46,16 @@ class Check extends Action implements HttpPostActionInterface
 
     public function execute()
     {
-        // Ensure no previous output corrupts the JSON payload
-        while (ob_get_level()) {
-            ob_end_clean();
-        }
-
         $result = $this->jsonFactory->create();
         $customerId = (int)$this->getRequest()->getParam('id');
         if (!$customerId) {
             $customerId = (int)$this->getRequest()->getParam('customer_id');
         }
         if (!$customerId) {
-            return $result->setJsonData($this->jsonSerializer->serialize([
+            return $result->setData([
                 'success' => false,
                 'message' => __('Customer ID missing'),
-            ]));
+            ]);
         }
         try {
             $customer = $this->customerRepository->getById($customerId);
@@ -86,8 +81,6 @@ class Check extends Action implements HttpPostActionInterface
             $customer->setCustomAttribute('credit_limit', $limit);
             $this->customerRepository->save($customer);
 
-            $payload = $this->jsonSerializer->serialize($report);
-
             $reportModel = $this->creditReportRepository->getLatestByCustomerId((int)$customer->getId())
                 ?: $this->creditReportFactory->create();
             $reportModel->setData([
@@ -99,7 +92,7 @@ class Check extends Action implements HttpPostActionInterface
                 'credit_limit_currency'    => $creditData['currency'] ?? null,
                 'credit_score_value'       => $report['credit']['creditScore']['value'] ?? null,
                 'credit_score_description' => $report['credit']['creditScore']['description'] ?? null,
-                'payload'                  => $payload,
+                'payload'                  => $this->jsonSerializer->serialize($report),
                 'created_at'               => $this->dateTime->gmtDate(),
             ]);
             $this->creditReportRepository->save($reportModel);
@@ -111,12 +104,12 @@ class Check extends Action implements HttpPostActionInterface
                 'report'  => $report,
             ];
 
-            return $result->setJsonData($this->jsonSerializer->serialize($response));
+            return $result->setData($response);
         } catch (\Exception $e) {
-            return $result->setJsonData($this->jsonSerializer->serialize([
+            return $result->setData([
                 'success' => false,
                 'message' => $e->getMessage(),
-            ]));
+            ]);
         }
     }
 }
