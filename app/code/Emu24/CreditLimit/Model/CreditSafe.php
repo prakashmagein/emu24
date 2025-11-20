@@ -63,7 +63,7 @@ class CreditSafe
 
     private function authenticate(string $baseUrl, string $username, string $password): string
     {
-        $this->curl->reset();
+        $this->curl->setHeaders([]);
         $payload = json_encode(['username' => $username, 'password' => $password]);
         $this->curl->addHeader('Content-Type', 'application/json');
         $this->curl->addHeader('Accept', 'application/json');
@@ -87,7 +87,7 @@ class CreditSafe
             'regNo'     => $regNo,
         ]);
 
-        $this->curl->reset();
+        $this->curl->setHeaders([]);
         $this->curl->addHeader('Authorization', 'Bearer ' . $token);
         $this->curl->addHeader('Accept', 'application/json');
         $this->curl->get($baseUrl . '/companies?' . $query);
@@ -103,7 +103,7 @@ class CreditSafe
 
     private function fetchCompanyReport(string $baseUrl, string $token, string $companyId): array
     {
-        $this->curl->reset();
+        $this->curl->setHeaders([]);
         $this->curl->addHeader('Authorization', 'Bearer ' . $token);
         $this->curl->addHeader('Accept', 'application/json');
         $this->curl->get($baseUrl . '/companies/' . urlencode($companyId));
