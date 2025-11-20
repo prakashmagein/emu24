@@ -40,8 +40,8 @@
     .limit-empty { color: #6f6f6f; }
 </style>
 <script>
-require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBuilder, alert) {
-    urlBuilder.setBaseUrl(BASE_URL);
+require(['jquery', 'Magento_Ui/js/modal/alert'], function ($, alert) {
+    var checkUrl = '<?= $block->escapeUrl($block->getCheckUrl()); ?>';
     var existingReport = <?= $block->getReportJson(); ?>;
     var detailsContainer = $('#limit-check-details');
     var messagesContainer = $('#limit-check-messages');
@@ -206,7 +206,7 @@ require(['jquery', 'mage/url', 'Magento_Ui/js/modal/alert'], function ($, urlBui
         var customerId = $('input[name="entity_id"]').val();
         clearMessages();
         $.ajax({
-            url: urlBuilder.build('creditlimit/credit/check'),
+            url: checkUrl,
             type: 'POST',
             dataType: 'json',
             data: {
