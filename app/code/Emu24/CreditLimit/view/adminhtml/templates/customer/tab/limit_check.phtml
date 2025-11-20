@@ -42,6 +42,7 @@
 <script>
 require(['jquery', 'Magento_Ui/js/modal/alert'], function ($, alert) {
     var checkUrl = '<?= $block->escapeUrl($block->getCheckUrl()); ?>';
+    var customerId = <?= /* Customer is already loaded for the edit form */ (int)$block->getCustomerId(); ?>;
     var existingReport = <?= $block->getReportJson(); ?>;
     var detailsContainer = $('#limit-check-details');
     var messagesContainer = $('#limit-check-messages');
@@ -203,7 +204,6 @@ require(['jquery', 'Magento_Ui/js/modal/alert'], function ($, alert) {
     renderReport(existingReport);
 
     $('#check-credit-limit').on('click', function () {
-        var customerId = $('input[name="entity_id"]').val();
         clearMessages();
         $.ajax({
             url: checkUrl,

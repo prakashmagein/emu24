@@ -97,6 +97,13 @@ class LimitCheck extends Template implements TabInterface
         return $this->registry->registry('current_customer');
     }
 
+    public function getCustomerId(): int
+    {
+        $customer = $this->getCustomer();
+
+        return $customer && $customer->getId() ? (int)$customer->getId() : 0;
+    }
+
     public function getRegNo(): string
     {
         $customer = $this->getCustomer();
